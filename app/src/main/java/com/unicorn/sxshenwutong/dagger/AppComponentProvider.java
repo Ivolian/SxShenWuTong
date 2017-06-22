@@ -2,9 +2,8 @@ package com.unicorn.sxshenwutong.dagger;
 
 import android.app.Application;
 
-import com.unicorn.aems.airport.entity.DaoSession;
-
 import dagger.internal.Preconditions;
+
 
 public class AppComponentProvider {
 
@@ -13,9 +12,9 @@ public class AppComponentProvider {
 
     private static AppComponent appComponent;
 
-    public static void init(Application application, DaoSession daoSession) {
+    public static void init(Application application) {
         appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(application, daoSession))
+                .appModule(new AppModule(application))
                 .build();
     }
 

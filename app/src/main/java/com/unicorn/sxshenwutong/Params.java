@@ -1,5 +1,7 @@
 package com.unicorn.sxshenwutong;
 
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,12 +21,12 @@ public class Params {
     private String randCode;
     // 时间
     private String time;
- private String seqM;
+    private String seqM;
     // md5加密后的字符串
     private String secM;
     // md5密钥
     public static String md5key = "b6474df096ac3750";
-    private Map<String,Object> parameters =new HashMap<String, Object>();
+    private Map<String, Object> parameters = new HashMap<String, Object>();
     //
 
     public String getUuid() {
@@ -122,4 +124,13 @@ public class Params {
     public void setParameters(Map<String, Object> parameters) {
         this.parameters = parameters;
     }
+
+    //
+
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
+
 }

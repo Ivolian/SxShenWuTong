@@ -1,14 +1,11 @@
 package com.unicorn.sxshenwutong;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-import com.blankj.utilcode.util.Utils;
 import com.google.gson.Gson;
-import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-
-import net.danlew.android.joda.JodaTimeAndroid;
+import com.unicorn.sxshenwutong.base.BaseAct;
 
 import org.joda.time.DateTime;
 
@@ -22,16 +19,17 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginAct extends BaseAct {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Utils.init(this);
-        Logger.addLogAdapter(new AndroidLogAdapter());
-        JodaTimeAndroid.init(this);
-        s();
+    protected int layoutResId() {
+        return R.layout.act_login;
+    }
+
+    @Override
+    protected void init(Bundle savedInstanceState) {
+//        s();
+        startActivity(new Intent(this,CourtAct.class));
     }
 
     Params params = new Params();
