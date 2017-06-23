@@ -23,6 +23,7 @@ import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,7 +87,10 @@ public class LoginAct extends BaseAct {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-ss2(ivCourt);
+        etLoginName.setText("审判管理员");
+        etPwd.setText("67673305");
+
+        ss2(ivCourt);
         ss2(ivLoginName);
         ss2(ivPwd);
 
@@ -111,6 +115,7 @@ ss2(ivCourt);
         Glide.with(this).load(R.drawable.login_top).into(ivTop);
 
     }
+
     @BindView(R.id.llCourt)
     LinearLayout llCourt;
 
@@ -146,7 +151,7 @@ ss2(ivCourt);
 
     private void ss2(View textView) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadii(new float[]{20,20,0,0,0,0,20,20});
+        gradientDrawable.setCornerRadii(new float[]{20, 20, 0, 0, 0, 0, 20, 20});
         gradientDrawable.setColor(login);
         textView.setBackground(gradientDrawable);
     }
@@ -205,11 +210,10 @@ ss2(ivCourt);
                 boolean success = jsonObject.getBoolean("success");
                 if (success) {
                     String ticket = jsonObject.getString("ticket");
-                   paramsHelper.setTicket(ticket);
+                    paramsHelper.setTicket(ticket);
                     JSONObject userJ = jsonObject.getJSONObject("user");
-                    User user = new Gson().fromJson(userJ.toString(),User.class);
-
-                    ToastUtils.showShort("登录chenggong");
+                    User user = new Gson().fromJson(userJ.toString(), User.class);
+                    s(user);
 
                 } else {
                     ToastUtils.showShort("登录失败");
@@ -225,6 +229,15 @@ ss2(ivCourt);
                 e.printStackTrace();
             }
 
+        }
+    }
+
+    private void s(User user) {
+        String userType = user.getUsertype();
+        if (userType == null || userType.equals("")) {
+            startActivity(new Intent(this, UserTypeAct.class));
+        } else {
+            ToastUtils.showShort("用户名或密码错误");
         }
     }
 
