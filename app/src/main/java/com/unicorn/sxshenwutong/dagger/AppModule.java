@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.unicorn.sxshenwutong.RetrofitProvider;
+import com.unicorn.sxshenwutong.code.CodeService;
 import com.unicorn.sxshenwutong.court.data.CourtService;
 
 import dagger.Module;
@@ -36,6 +37,12 @@ public class AppModule {
     @Provides
     CourtService provideCourtService(Retrofit retrofit) {
         return retrofit.create(CourtService.class);
+    }
+
+    @App
+    @Provides
+    CodeService provideCodeService(Retrofit retrofit) {
+        return retrofit.create(CodeService.class);
     }
 
 }

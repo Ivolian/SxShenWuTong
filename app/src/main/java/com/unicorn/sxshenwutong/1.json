@@ -1,6 +1,19 @@
 {
-  "appId": "04e8310b-86f0-478c-b102-76f3c0710c00",
-  "busiCode": "getFyList",
-  "loginName": "",
-  "md5key": "b6474df096ac3750",
+  "ticket": "0ba925ee-6988-4718-a75c-fffa4d98b269",
+  "success": true,
+  "user": {
+    "departid": "009",
+    "departname": "办公室",
+    "fydm": "M00",
+    "fymc": "重庆市高级人民法院",
+    "lastDate": null,
+    "loginBusiType": "",
+    "loginName": "审判管理员",
+    "mobile_phone": "",
+    "password": "",
+    "telephone": "",
+    "userId": "11061",
+    "username": "审判管理员",
+    "usertype": ""
+  }
 }

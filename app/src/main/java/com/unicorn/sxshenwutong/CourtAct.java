@@ -14,6 +14,7 @@ import com.google.gson.reflect.TypeToken;
 import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.base.BaseAct;
+import com.unicorn.sxshenwutong.code.CodeHelper;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.court.data.CourtAdapter2;
@@ -63,6 +64,9 @@ public class CourtAct extends BaseAct {
     @Inject
     CourtAdapter2 courtAdapter;
 
+    @Inject
+    CodeHelper codeHelper;
+
     private void initRv() {
 
         indexableLayout.setLayoutManager(new LinearLayoutManager(this));
@@ -72,7 +76,7 @@ public class CourtAct extends BaseAct {
         addItemDecoration();
         setOnItemContentClickListener();
 
-
+codeHelper.s();
         // 获取法院
         getCourt();
     }
@@ -165,13 +169,9 @@ public class CourtAct extends BaseAct {
                         }.getType());
 
                 for (Court court : courts) {
-//                    String dmms = court.getDmms();
-//                    dmms.replace("重庆市", "");
-//                    dmms.replace("重庆", "");
                     court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
                 }
                 courtAdapter.setDatas(courts);
-//                courtAdapter.notifyDataSetChanged();
             } catch (JSONException e) {
                 e.printStackTrace();
             }

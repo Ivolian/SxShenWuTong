@@ -18,6 +18,14 @@ public class ParamsHelper {
 
     private String ticket;
 
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
+
     public void initParams(Params params, String busiCode, Map<String, Object> parameters) {
         params.setBusiCode(busiCode);
         params.setThirdFlow(UUID.randomUUID().toString());

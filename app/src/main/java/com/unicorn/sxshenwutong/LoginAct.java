@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -203,7 +204,13 @@ ss2(ivCourt);
                 JSONObject jsonObject = new JSONObject(ydbaKey);
                 boolean success = jsonObject.getBoolean("success");
                 if (success) {
-                    ToastUtils.showShort("登录成功");
+                    String ticket = jsonObject.getString("ticket");
+                   paramsHelper.setTicket(ticket);
+                    JSONObject userJ = jsonObject.getJSONObject("user");
+                    User user = new Gson().fromJson(userJ.toString(),User.class);
+
+                    ToastUtils.showShort("登录chenggong");
+
                 } else {
                     ToastUtils.showShort("登录失败");
 
