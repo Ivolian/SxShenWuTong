@@ -4,9 +4,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
-public interface BaseService {
+public interface LoginService {
 
     @GET("request.shtml")
-    Observable<Object> test(@Query("params") String params);
+    Observable<Response> test(@Query("params") String params);
 
 }

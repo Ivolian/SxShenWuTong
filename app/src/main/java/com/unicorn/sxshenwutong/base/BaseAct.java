@@ -3,6 +3,8 @@ package com.unicorn.sxshenwutong.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.hwangjr.rxbus.RxBus;
+
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
 
@@ -26,17 +28,17 @@ public abstract class BaseAct extends SupportActivity {
         }
         ButterKnife.bind(this);
         inject();
-//        if (useRxBus()) {
-//            RxBus.get().register(this);
-//        }
+        if (useRxBus()) {
+            RxBus.get().register(this);
+        }
         init(savedInstanceState);
     }
 
     @Override
     protected void onDestroy() {
-//        if (useRxBus()) {
-//            RxBus.get().unregister(this);
-//        }
+        if (useRxBus()) {
+            RxBus.get().unregister(this);
+        }
         super.onDestroy();
     }
 

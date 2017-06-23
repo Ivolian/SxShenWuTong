@@ -3,12 +3,16 @@ package com.unicorn.sxshenwutong;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.base.BaseAct;
+import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.court.CourtAdapter;
 import com.unicorn.sxshenwutong.court.data.CourtService;
@@ -59,6 +63,7 @@ public class CourtAct extends BaseAct {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(courtAdapter);
         addItemDecoration();
+        setOnItemContentClickListener();
 
         getCourt();
     }
@@ -70,6 +75,15 @@ public class CourtAct extends BaseAct {
         recyclerView.addItemDecoration(itemDecoration);
     }
 
+    private void setOnItemContentClickListener() {
+      courtAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+          @Override
+          public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+              RxBus.get().post(RxBusTag.SELECT_COURT, courtAdapter.getItem(position));
+              finish();
+          }
+      });
+    }
 
     // ===================== getCourt =====================
 
