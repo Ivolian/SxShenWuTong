@@ -5,6 +5,8 @@ import android.os.Environment;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.Utils;
+import com.github.promeg.pinyinhelper.Pinyin;
+import com.github.promeg.tinypinyin.lexicons.android.cncity.CnCityDict;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
@@ -24,6 +26,7 @@ public class App extends Application {
         Logger.addLogAdapter(new AndroidLogAdapter());
         JodaTimeAndroid.init(this);
         AppComponentProvider.init(this);
+        Pinyin.init(Pinyin.newConfig().with(CnCityDict.getInstance(this)));
 //        initFragmentation();
     }
 
