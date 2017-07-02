@@ -11,7 +11,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.LoginService;
-import com.unicorn.sxshenwutong.MainAct;
+import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.Params;
 import com.unicorn.sxshenwutong.ParamsHelper;
 import com.unicorn.sxshenwutong.R;

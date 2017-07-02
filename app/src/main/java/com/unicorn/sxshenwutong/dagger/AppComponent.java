@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.unicorn.sxshenwutong.CourtAct;
 import com.unicorn.sxshenwutong.LoginAct;
-import com.unicorn.sxshenwutong.MainAct;
+import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
 import dagger.Component;

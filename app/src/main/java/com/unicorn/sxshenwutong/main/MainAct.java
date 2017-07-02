@@ -1,9 +1,11 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.main;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
+import android.support.v4.view.ViewPager;
 
+import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 
@@ -33,20 +35,22 @@ public class MainAct extends BaseAct {
 
     // ===================== initRv =====================
 
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
+
     @BindView(R.id.mainTab)
     PageBottomTabLayout mainTab;
 
     private void initMainTab() {
+        viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager()));
         NavigationController navigationController = mainTab.custom()
                 .addItem(newItem(R.drawable.sy_2, R.drawable.sy_1, "首页"))
                 .addItem(newItem(R.drawable.xw_2, R.drawable.xw_1, "新闻"))
                 .addItem(newItem(R.drawable.gj_2, R.drawable.gj_1, "工具"))
                 .addItem(newItem(R.drawable.wd_2, R.drawable.wd_1, "我的"))
                 .build();
-//        navigationController.setupWithViewPager(viewPager);
+        navigationController.setupWithViewPager(viewPager);
     }
-
-
 
     private BaseTabItem newItem(@DrawableRes int drawableRes, @DrawableRes int checkedDrawableRes, String title) {
         NormalItemView normalItemView = new NormalItemView(this);
