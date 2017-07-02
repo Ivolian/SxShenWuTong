@@ -3,6 +3,7 @@ package com.unicorn.sxshenwutong.userType;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -16,18 +17,33 @@ public class UserTypeAdapter extends BaseQuickAdapter<UserType, BaseViewHolder> 
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, UserType userType) {
-        LinearLayout linearLayout = viewHolder.getView(R.id.ll);
-        linearLayout.setBackground(s(userType));
+    protected void convert(BaseViewHolder viewHolder, final UserType userType) {
+        LinearLayout item = viewHolder.getView(R.id.item);
+        item.setBackground(bg(userType));
+
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userType.setChecked(!userType.isChecked());
+                if (userType.isChecked()) {
+                    for (UserType o : getData()) {
+                        o.setChecked(o == userType);
+                    }
+                }
+                notifyDataSetChanged();
+            }
+        });
+
+        viewHolder.setText(R.id.tvUserTypeName,userType.getDmms());
     }
 
-    private Drawable s(UserType userType){
-        int color = ContextCompat.getColor(mContext,userType.isChecked()?
-                R.color.login:R.color.md_grey_400);
+    private Drawable bg(UserType userType) {
+        int color = ContextCompat.getColor(mContext, userType.isChecked() ?
+                R.color.login : R.color.md_grey_400);
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(100f);
-        gradientDrawable.setStroke(5,color,20,4);
-      return  gradientDrawable;
+        gradientDrawable.setCornerRadius(50f);
+        gradientDrawable.setStroke(5, color, 12, 4);
+        return gradientDrawable;
     }
 
 }

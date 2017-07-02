@@ -20,6 +20,7 @@ import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.base.BaseAct;
+import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
@@ -233,6 +234,7 @@ public class LoginAct extends BaseAct {
     }
 
     private void s(User user) {
+        Global.user = user;
         String userType = user.getUsertype();
         if (userType == null || userType.equals("")) {
             startActivity(new Intent(this, UserTypeAct.class));
