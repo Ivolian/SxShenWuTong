@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".CourtAct"/>
         <activity android:name=".userType.UserTypeAct"/>
+        <activity android:name=".MainAct"/>
     </application>
 
 </manifest>

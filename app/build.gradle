@@ -52,4 +52,5 @@ dependencies {
     compile(name: 'indexablerecyclerview', ext: 'aar')
     compile 'com.github.promeg:tinypinyin:2.0.3'
     compile 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
+    compile 'me.majiajie:pager-bottom-tab-strip:2.1.0'
 }

@@ -1,5 +1,6 @@
 package com.unicorn.sxshenwutong.userType;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.LoginService;
+import com.unicorn.sxshenwutong.MainAct;
 import com.unicorn.sxshenwutong.Params;
 import com.unicorn.sxshenwutong.ParamsHelper;
 import com.unicorn.sxshenwutong.R;
@@ -127,6 +129,7 @@ s(userType);
                 JSONObject jsonObject = new JSONObject(ydbaKey);
                 boolean success = jsonObject.getBoolean("success");
                 if (success) {
+                    startActivity(new Intent(this,MainAct.class));
                 } else {
                     ToastUtils.showShort("的额");
 
