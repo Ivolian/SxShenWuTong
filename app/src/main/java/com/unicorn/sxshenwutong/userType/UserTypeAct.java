@@ -11,7 +11,6 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.LoginService;
-import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.Params;
 import com.unicorn.sxshenwutong.ParamsHelper;
 import com.unicorn.sxshenwutong.R;
@@ -21,6 +20,7 @@ import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.code.Code;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.main.MainAct;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,11 +34,15 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import pocketknife.BindExtra;
+import pocketknife.NotRequired;
 import retrofit2.Retrofit;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
+
+import static com.unicorn.sxshenwutong.base.Global.user;
 
 public class UserTypeAct extends BaseAct {
     @Override
@@ -53,6 +57,7 @@ public class UserTypeAct extends BaseAct {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+//        toMain = getIntent().getBooleanExtra("toMain",false);
         s();
     }
 
@@ -75,16 +80,25 @@ public class UserTypeAct extends BaseAct {
     }
 
 
+    @NotRequired
+    @BindExtra("toMain")
+    boolean toMain;
+    UserType userType;
 
-
-    private void setUserType(){
-        UserType userType = null;
-        for (UserType o:userTypeAdapter.getData()){
-            if (o.isChecked()){
+    private void setUserType() {
+        userType = null;
+        for (UserType o : userTypeAdapter.getData()) {
+            if (o.isChecked()) {
                 userType = o;
             }
         }
-s(userType);
+
+        if (userType == null) {
+            ToastUtils.showShort("请选择身份");
+            return;
+        }
+
+        s(userType);
     }
 
     @Inject
@@ -129,7 +143,11 @@ s(userType);
                 JSONObject jsonObject = new JSONObject(ydbaKey);
                 boolean success = jsonObject.getBoolean("success");
                 if (success) {
-                    startActivity(new Intent(this,MainAct.class));
+                    Global.user.setUsertype(userType.getDm());
+                    if (toMain) {
+                        startActivity(new Intent(this, MainAct.class));
+                    }
+                    finish();
                 } else {
                     ToastUtils.showShort("的额");
 
@@ -156,7 +174,7 @@ s(userType);
             UserType userType = new UserType();
             userType.setDm(code.getDm());
             userType.setDmms(code.getDmms());
-            userType.setChecked(false);
+            userType.setChecked(code.getDm().equals(user.getUsertype()));
             userTypes.add(userType);
         }
         return userTypes;

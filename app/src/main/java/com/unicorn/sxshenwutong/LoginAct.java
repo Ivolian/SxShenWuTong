@@ -215,7 +215,6 @@ public class LoginAct extends BaseAct {
                     JSONObject userJ = jsonObject.getJSONObject("user");
                     User user = new Gson().fromJson(userJ.toString(), User.class);
                     s(user);
-startActivity(new Intent(this,UserTypeAct.class));
                 } else {
                     ToastUtils.showShort("登录失败");
 
@@ -236,11 +235,16 @@ startActivity(new Intent(this,UserTypeAct.class));
     private void s(User user) {
         Global.user = user;
         String userType = user.getUsertype();
-        if (userType == null || userType.equals("")) {
-            startActivity(new Intent(this, UserTypeAct.class));
-        } else {
-            ToastUtils.showShort("用户名或密码错误");
-        }
+//        if (userType == null || userType.equals("")) {
+            Intent intent = new Intent(this, UserTypeAct.class);
+            intent.putExtra("toMain", true);
+            startActivity(intent);
+//        } else {
+//            startActivity(new Intent(this, MainAct.class));
+//            ToastUtils.showShort("用户名或密码错误");
+//        }
+
+        finish();
     }
 
 
