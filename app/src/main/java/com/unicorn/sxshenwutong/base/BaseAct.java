@@ -7,6 +7,7 @@ import com.hwangjr.rxbus.RxBus;
 
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
+import pocketknife.PocketKnife;
 
 public abstract class BaseAct extends SupportActivity {
 
@@ -27,6 +28,7 @@ public abstract class BaseAct extends SupportActivity {
             setContentView(layoutResId());
         }
         ButterKnife.bind(this);
+        PocketKnife.bindExtras(this);
         inject();
         if (useRxBus()) {
             RxBus.get().register(this);

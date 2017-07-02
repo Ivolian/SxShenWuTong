@@ -13,5 +13,99 @@
         android:text="我的"
         android:textColor="@color/md_white" />
 
+    <View android:layout_height="1px"
+        android:layout_width="match_parent"
+        android:background="@color/md_white"/>
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="48dp"
+            android:background="@color/md_grey_200" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="马一二"
+                android:textColor="@color/md_white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="陕西省高级人民法院"
+                android:textColor="@color/md_white"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvLoginName"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="陕西省高级人民法院"
+        android:textColor="@color/md_black"
+        android:textSize="18dp" />
+
+
+    <TextView
+        android:id="@+id/tvCourtName"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="陕西省高级人民法院"
+        android:textColor="@color/md_black"
+        android:textSize="18dp" />
+
+
+    <TextView
+        android:id="@+id/tvDepartmentName"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="陕西省高级人民法院"
+        android:textColor="@color/md_black"
+        android:textSize="18dp" />
+
+
+
+    <TextView
+        android:id="@+id/tvMobile"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="陕西省高级人民法院"
+        android:textColor="@color/md_black"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tvTelephone"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="陕西省高级人民法院"
+        android:textColor="@color/md_black"
+        android:textSize="18dp" />
 
 </LinearLayout>
