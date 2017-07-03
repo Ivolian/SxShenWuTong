@@ -4,7 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.unicorn.sxshenwutong.ProfileFragment;
+import com.unicorn.sxshenwutong.ProfileFra;
+import com.unicorn.sxshenwutong.home.HomeFra;
 
 public class MainPagerAdapter extends FragmentPagerAdapter {
 
@@ -15,9 +16,11 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-
+            case 0:
+                return new HomeFra();
+            default:
+                return new ProfileFra();
         }
-        return new ProfileFragment();
     }
 
     @Override
