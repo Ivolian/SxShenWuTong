@@ -29,7 +29,8 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="48dp"
-                android:background="@color/md_grey_200" />
+                android:src="@drawable/sfsz_tx"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"

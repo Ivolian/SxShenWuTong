@@ -4,8 +4,10 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
@@ -34,7 +36,12 @@ public class UserTypeAdapter extends BaseQuickAdapter<UserType, BaseViewHolder> 
             }
         });
 
-        viewHolder.setText(R.id.tvUserTypeName,userType.getDmms());
+        viewHolder.setText(R.id.tvUserTypeName, userType.getDmms());
+
+        ImageView ivCheck = viewHolder.getView(R.id.ivCheck);
+        Glide.with(mContext).load(userType.isChecked() ? R.drawable.sfsz_form2 : R.drawable.sfsz_form1)
+                .into(ivCheck);
+
     }
 
     private Drawable bg(UserType userType) {
