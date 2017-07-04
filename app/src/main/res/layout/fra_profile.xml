@@ -1,52 +1,87 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:textSize="22dp"
         android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:text="我的"
-        android:textColor="@color/md_white" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <View android:layout_height="1px"
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="我的"
+            android:textColor="@color/md_white"
+            android:textSize="22dp" />
+
+        <FrameLayout
+            android:id="@+id/setting"
+            android:layout_width="64dp"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:src="@drawable/sz" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View
         android:layout_width="match_parent"
-        android:background="@color/md_white"/>
+        android:layout_height="1px"
+        android:background="@color/md_white" />
 
     <LinearLayout
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="220dp"
+        android:background="@drawable/wd_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginLeft="48dp"
-            android:background="@color/md_grey_200" />
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginLeft="32dp"
+            android:src="@drawable/wd_tx" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="12dp"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvLoginNameT"
+                android:layout_marginLeft="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="马一二"
                 android:textColor="@color/md_white"
-                android:textSize="20dp" />
+                android:textSize="21dp" />
 
             <TextView
+                android:id="@+id/tvCourtNameT"
+                android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="陕西省高级人民法院"
+                android:background="@drawable/wd_fxmc_bg"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
                 android:textColor="@color/md_white"
                 android:textSize="16dp" />
 
@@ -55,57 +90,50 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvLoginName"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:id="@+id/tvLoginName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="陕西省高级人民法院"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
         android:textColor="@color/md_black"
-        android:textSize="18dp" />
-
+        android:textSize="21dp" />
 
     <TextView
         android:id="@+id/tvCourtName"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="陕西省高级人民法院"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
         android:textColor="@color/md_black"
-        android:textSize="18dp" />
+        android:textSize="21dp" />
 
 
     <TextView
         android:id="@+id/tvDepartmentName"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="陕西省高级人民法院"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
         android:textColor="@color/md_black"
-        android:textSize="18dp" />
-
-
+        android:textSize="21dp" />
 
     <TextView
         android:id="@+id/tvMobile"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="陕西省高级人民法院"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
         android:textColor="@color/md_black"
-        android:textSize="18dp" />
+        android:textSize="21dp" />
 
     <TextView
         android:id="@+id/tvTelephone"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="陕西省高级人民法院"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
         android:textColor="@color/md_black"
-        android:textSize="18dp" />
+        android:textSize="21dp" />
 
 </LinearLayout>

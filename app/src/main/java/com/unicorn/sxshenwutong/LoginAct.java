@@ -24,6 +24,7 @@ import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
 import org.json.JSONException;
@@ -235,14 +236,14 @@ public class LoginAct extends BaseAct {
     private void s(User user) {
         Global.user = user;
         String userType = user.getUsertype();
-//        if (userType == null || userType.equals("")) {
+        if (userType == null || userType.equals("")) {
             Intent intent = new Intent(this, UserTypeAct.class);
             intent.putExtra("toMain", true);
             startActivity(intent);
-//        } else {
-//            startActivity(new Intent(this, MainAct.class));
-//            ToastUtils.showShort("用户名或密码错误");
-//        }
+        } else {
+            startActivity(new Intent(this, MainAct.class));
+            ToastUtils.showShort("用户名或密码错误");
+        }
 
         finish();
     }
