@@ -18,6 +18,7 @@
         <activity android:name=".CourtAct"/>
         <activity android:name=".userType.UserTypeAct"/>
         <activity android:name=".main.MainAct"/>
+        <activity android:name=".ListAct"/>
     </application>
 
 </manifest>

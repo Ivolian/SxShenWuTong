@@ -5,14 +5,33 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.google.gson.internal.LinkedTreeMap;
+import com.orhanobut.logger.Logger;
+import com.unicorn.sxshenwutong.LoginService;
+import com.unicorn.sxshenwutong.Params;
+import com.unicorn.sxshenwutong.ParamsHelper;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.Response;
+import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.base.BaseFra;
+import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
 
 import butterknife.BindColor;
 import butterknife.BindView;
+import retrofit2.Retrofit;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class HomeFra extends BaseFra {
 
@@ -26,7 +45,10 @@ public class HomeFra extends BaseFra {
 
     @Override
     protected void init(View rootView) {
-       s();
+
+        AppComponentProvider.provide().inject(this);
+        s();
+        s2();
     }
 
     HomeAdapter homeAdapter = new HomeAdapter();
@@ -64,4 +86,55 @@ public class HomeFra extends BaseFra {
         );
     }
 
+    @Inject
+    ParamsHelper paramsHelper;
+
+    private void s2() {
+        Params params = new Params();
+        Map<String, Object> parameters = new HashMap<>();
+        paramsHelper.initParams(params, "getMaindata", parameters);
+
+        Retrofit retrofit = new RetrofitProvider().provide();
+        LoginService loginService = retrofit.create(LoginService.class);
+        loginService
+                .test(params.toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<Response>() {
+                    @Override
+                    public void onCompleted() {
+                        Logger.d("");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Logger.d("");
+                    }
+
+                    @Override
+                    public void onNext(Response o) {
+                        copeResponse(o);
+                    }
+                });
+    }
+
+    private void copeResponse(Response response) {
+        if (response.getCode().equals("000000")) {
+            LinkedTreeMap<String, String> parameters = (LinkedTreeMap<String, String>) response.getParameters();
+            String ydbaKey = parameters.get("ydbaKey");
+            try {
+                JSONObject jsonObject = new JSONObject(ydbaKey);
+
+
+//                String str = jsonObject.getJSONArray("fylist").toString();
+//                List<Court> courts =     new Gson().fromJson(str,
+//                        new TypeToken<List<Court>>() {
+//                        }.getType());
+//                courtAdapter.setNewData(courts);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 }
