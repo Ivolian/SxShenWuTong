@@ -5,14 +5,12 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.base.RefreshAct;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.general.Params;
 import com.unicorn.sxshenwutong.general.ParamsHelper;
 import com.unicorn.sxshenwutong.general.Response;
 import com.unicorn.sxshenwutong.list.Model;
-import com.unicorn.sxshenwutong.login.LoginService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,11 +22,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import retrofit2.Retrofit;
 import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class ListAct extends RefreshAct<Model> {
 
@@ -64,28 +58,28 @@ public class ListAct extends RefreshAct<Model> {
         parameters.put("lbtype", "zxdblist");
         paramsHelper.initParams(params, "getLbList", parameters);
 
-        Retrofit retrofit = new RetrofitProvider().provide();
-        LoginService loginService = retrofit.create(LoginService.class);
-        loginService
-                .test(params.toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response>() {
-                    @Override
-                    public void onCompleted() {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onNext(Response o) {
-                        copeResponse(o);
-                    }
-                });
+//        Retrofit retrofit = new RetrofitProvider().provide();
+//        LoginService loginService = retrofit.create(LoginService.class);
+//        loginService
+//                .login(params.toString())
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Subscriber<Response>() {
+//                    @Override
+//                    public void onCompleted() {
+//                        Logger.d("");
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Logger.d("");
+//                    }
+//
+//                    @Override
+//                    public void onNext(Response o) {
+//                        copeResponse(o);
+//                    }
+//                });
     }
 
     private void copeResponse(Response response) {

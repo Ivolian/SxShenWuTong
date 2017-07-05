@@ -1,115 +1,19 @@
 {
-  "total": 23,
-  "rows": [
-    {
-      "nodename": "办理",
-      "laaymc": "信用卡纠纷",
-      "ahqc": "(2017)渝民初156号",
-      "sycxmc": "普通程序",
-      "dybg": "刘钧",
-      "larq": "2017-04-21",
-      "ajbs": "1b7d32a6-9d5a-4c13-9540-f09e72dce919",
-      "cbrmc": "审判管理员",
-      "dyyg": "中国农业银行股份有限公司重庆江北支行"
-    },
-    {
-      "nodename": "办理",
-      "laaymc": "不当得利纠纷",
-      "ahqc": "(2017)渝民终25号",
-      "sycxmc": "普通程序",
-      "dybg": "",
-      "larq": "2017-03-28",
-      "ajbs": "M00241d3048-daf9-4486-8baf-7ea834a436be",
-      "cbrmc": "审判管理员",
-      "dyyg": ""
-    },
-    {
-      "nodename": "办理",
-      "laaymc": "二审无罪赔偿",
-      "ahqc": "(2017)渝委赔监7号",
-      "sycxmc": "",
-      "dybg": "",
-      "larq": "2017-06-08",
-      "ajbs": "M003b58bfa7-ac5a-4470-9c34-3752549a087f",
-      "cbrmc": "审判管理员",
-      "dyyg": ""
-    },
-    {
-      "nodename": "办理",
-      "laaymc": "申请确认人民调解协议效力",
-      "ahqc": "(2017)渝民抗1号",
-      "sycxmc": "",
-      "dybg": "",
-      "larq": "2017-02-24",
-      "ajbs": "M004413ae03-a1c2-4e92-b00a-dc9133ab2590",
-      "cbrmc": "审判管理员",
-      "dyyg": "54"
-    },
-    {
-      "nodename": "内勤签收",
-      "laaymc": "信用卡纠纷",
-      "ahqc": "(2017)渝民初168号",
-      "sycxmc": "普通程序",
-      "dybg": "",
-      "larq": "2017-07-04",
-      "ajbs": "M004e4ec98f-a239-4f77-bd53-cf849087192d",
-      "cbrmc": "审判管理员",
-      "dyyg": "阿什顿发"
-    },
-    {
-      "nodename": "办理",
-      "laaymc": "信用卡纠纷",
-      "ahqc": "(2017)渝民初168号",
-      "sycxmc": "普通程序",
-      "dybg": "",
-      "larq": "2017-07-04",
-      "ajbs": "M004e4ec98f-a239-4f77-bd53-cf849087192d",
-      "cbrmc": "审判管理员",
-      "dyyg": "阿什顿发"
-    },
-    {
-      "nodename": "庭长分案",
-      "laaymc": "信用卡纠纷",
-      "ahqc": "(2017)渝民初168号",
-      "sycxmc": "普通程序",
-      "dybg": "",
-      "larq": "2017-07-04",
-      "ajbs": "M004e4ec98f-a239-4f77-bd53-cf849087192d",
-      "cbrmc": "审判管理员",
-      "dyyg": "阿什顿发"
-    },
-    {
-      "nodename": "办理",
-      "laaymc": "测试合同纠纷",
-      "ahqc": "(2017)渝民初136号",
-      "sycxmc": "普通程序",
-      "dybg": "被告",
-      "larq": "2017-06-08",
-      "ajbs": "M007aa93362-2d8a-47c9-8fed-77bc7bfc7ab3",
-      "cbrmc": "审判管理员",
-      "dyyg": "原告"
-    },
-    {
-      "nodename": "办理",
-      "laaymc": "抢劫罪",
-      "ahqc": "(2017)渝刑医解2号",
-      "sycxmc": "",
-      "dybg": "yy",
-      "larq": "2017-02-24",
-      "ajbs": "M007ad307c4-c87c-4d3b-bf62-bc73bd200e0f",
-      "cbrmc": "审判管理员",
-      "dyyg": ""
-    },
-    {
-      "nodename": "办理",
-      "laaymc": "申请诉前财产保全",
-      "ahqc": "(2017)渝财保1号",
-      "sycxmc": "",
-      "dybg": "",
-      "larq": "2017-01-05",
-      "ajbs": "M0087edc791-2474-4ac1-9a48-fca695dd02a9",
-      "cbrmc": "审判管理员",
-      "dyyg": ""
-    }
-  ]
-}
+  "ticket": "5c5e1f82-ad77-4d69-aa4a-4794770f3281",
+  "success": true,
+  "user": {
+    "departid": "009",
+    "departname": "办公室",
+    "fydm": "M00",
+    "fymc": "重庆市高级人民法院",
+    "lastDate": null,
+    "loginBusiType": "",
+    "loginName": "审判管理员",
+    "mobile_phone": "",
+    "password": "",
+    "telephone": "",
+    "userId": "11061",
+    "username": "审判管理员",
+    "usertype": "9000010002"
+  }
+}"

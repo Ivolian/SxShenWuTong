@@ -1,6 +1,6 @@
 package com.unicorn.sxshenwutong.general;
 
-public class Response {
+public class Response<T> {
 
     /**
      * code : 000000
@@ -25,7 +25,7 @@ public class Response {
     private String seqD;
     private String seqR;
     private String thirdFlow;
-    private Object parameters;
+    private T parameters;
 
     public String getCode() {
         return code;
@@ -107,11 +107,12 @@ public class Response {
         this.thirdFlow = thirdFlow;
     }
 
-    public Object getParameters() {
+    public T getParameters() {
         return parameters;
     }
 
-    public void setParameters(Object parameters) {
+    public void setParameters(T parameters) {
         this.parameters = parameters;
     }
+
 }

@@ -10,16 +10,15 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.google.gson.internal.LinkedTreeMap;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
-import com.unicorn.sxshenwutong.login.LoginService;
-import com.unicorn.sxshenwutong.general.Params;
-import com.unicorn.sxshenwutong.general.ParamsHelper;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.general.Response;
 import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.code.Code;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.general.Params;
+import com.unicorn.sxshenwutong.general.ParamsHelper;
+import com.unicorn.sxshenwutong.general.Response;
 import com.unicorn.sxshenwutong.main.MainAct;
 
 import org.json.JSONException;
@@ -37,10 +36,7 @@ import butterknife.BindView;
 import pocketknife.BindExtra;
 import pocketknife.NotRequired;
 import retrofit2.Retrofit;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 import static com.unicorn.sxshenwutong.base.Global.user;
 
@@ -111,27 +107,27 @@ public class UserTypeAct extends BaseAct {
         paramsHelper.initParams(params, "setUserType", parameters);
 
         Retrofit retrofit = new RetrofitProvider().provide();
-        LoginService loginService = retrofit.create(LoginService.class);
-        loginService
-                .test(params.toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response>() {
-                    @Override
-                    public void onCompleted() {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onNext(Response o) {
-                        copeResponse(o);
-                    }
-                });
+//        LoginService loginService = retrofit.create(LoginService.class);
+//        loginService
+//                .login(params.toString())
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Subscriber<Response>() {
+//                    @Override
+//                    public void onCompleted() {
+//                        Logger.d("");
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Logger.d("");
+//                    }
+//
+//                    @Override
+//                    public void onNext(Response o) {
+//                        copeResponse(o);
+//                    }
+//                });
     }
 
 

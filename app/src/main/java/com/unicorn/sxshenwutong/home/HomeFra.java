@@ -6,15 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.orhanobut.logger.Logger;
-import com.unicorn.sxshenwutong.login.LoginService;
-import com.unicorn.sxshenwutong.general.Params;
-import com.unicorn.sxshenwutong.general.ParamsHelper;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.general.Response;
-import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.base.BaseFra;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.general.Params;
+import com.unicorn.sxshenwutong.general.ParamsHelper;
+import com.unicorn.sxshenwutong.general.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,10 +25,6 @@ import javax.inject.Inject;
 
 import butterknife.BindColor;
 import butterknife.BindView;
-import retrofit2.Retrofit;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class HomeFra extends BaseFra {
 
@@ -94,28 +87,28 @@ public class HomeFra extends BaseFra {
         Map<String, Object> parameters = new HashMap<>();
         paramsHelper.initParams(params, "getMaindata", parameters);
 
-        Retrofit retrofit = new RetrofitProvider().provide();
-        LoginService loginService = retrofit.create(LoginService.class);
-        loginService
-                .test(params.toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response>() {
-                    @Override
-                    public void onCompleted() {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onNext(Response o) {
-                        copeResponse(o);
-                    }
-                });
+//        Retrofit retrofit = new RetrofitProvider().provide();
+//        LoginService loginService = retrofit.create(LoginService.class);
+//        loginService
+//                .login(params.toString())
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Subscriber<Response>() {
+//                    @Override
+//                    public void onCompleted() {
+//                        Logger.d("");
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Logger.d("");
+//                    }
+//
+//                    @Override
+//                    public void onNext(Response o) {
+//                        copeResponse(o);
+//                    }
+//                });
     }
 
     private void copeResponse(Response response) {

@@ -20,10 +20,7 @@ import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.CourtAct;
-import com.unicorn.sxshenwutong.general.Params;
-import com.unicorn.sxshenwutong.general.ParamsHelper;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.general.Response;
 import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.User;
 import com.unicorn.sxshenwutong.base.BaseAct;
@@ -31,11 +28,12 @@ import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.general.Params;
+import com.unicorn.sxshenwutong.general.ParamsHelper;
+import com.unicorn.sxshenwutong.general.Response;
+import com.unicorn.sxshenwutong.login.data.K;
 import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -178,10 +176,10 @@ public class LoginAct extends BaseAct {
         Retrofit retrofit = new RetrofitProvider().provide();
         LoginService loginService = retrofit.create(LoginService.class);
         loginService
-                .test(params.toString())
+                .login(params.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response>() {
+                .subscribe(new Subscriber<Response<LinkedTreeMap<String, String>>>() {
                     @Override
                     public void onCompleted() {
                         Logger.d("");
@@ -193,38 +191,41 @@ public class LoginAct extends BaseAct {
                     }
 
                     @Override
-                    public void onNext(Response o) {
+                    public void onNext(Response<LinkedTreeMap<String, String>> o) {
                         copeResponse(o);
                     }
                 });
     }
 
-    private void copeResponse(Response response) {
-        if (response.getCode().equals("000000")) {
-            LinkedTreeMap<String, String> parameters = (LinkedTreeMap<String, String>) response.getParameters();
-            String ydbaKey = parameters.get("ydbaKey");
-            try {
-                JSONObject jsonObject = new JSONObject(ydbaKey);
-                boolean success = jsonObject.getBoolean("success");
-                if (success) {
-                    String ticket = jsonObject.getString("ticket");
-                    paramsHelper.setTicket(ticket);
-                    JSONObject userJ = jsonObject.getJSONObject("user");
-                    User user = new Gson().fromJson(userJ.toString(), User.class);
-                    s(user);
-                } else {
-                    ToastUtils.showShort("登录失败");
-
-                }
-                Logger.d("");
-//                String str = jsonObject.getJSONArray("fylist").toString();
-//                List<Court> courts =     new Gson().fromJson(str,
-//                        new TypeToken<List<Court>>() {
-//                        }.getType());
-//                courtAdapter.setNewData(courts);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    private void copeResponse(Response<LinkedTreeMap<String, String>> response) {
+        if (!response.equals("000000")) {
+            K k = new Gson().fromJson(response.getParameters().get("ydbaKey"),K.class);
+//            Map<String, K> citys = new Gson().fromJson(response.toString(), new TypeToken<Map<String, K>>() {}.getType());
+    Logger.d("");
+//            LinkedTreeMap<String, K> parameters = (LinkedTreeMap<String, K>) response.getParameters();
+//            String ydbaKey = parameters.get("ydbaKey");
+//            try {
+//                JSONObject jsonObject = new JSONObject(ydbaKey);
+//                boolean success = jsonObject.getBoolean("success");
+//                if (success) {
+//                    String ticket = jsonObject.getString("ticket");
+//                    paramsHelper.setTicket(ticket);
+//                    JSONObject userJ = jsonObject.getJSONObject("user");
+//                    User user = new Gson().fromJson(userJ.toString(), User.class);
+//                    s(user);
+//                } else {
+//                    ToastUtils.showShort("登录失败");
+//
+//                }
+//                Logger.d("");
+////                String str = jsonObject.getJSONArray("fylist").toString();
+////                List<Court> courts =     new Gson().fromJson(str,
+////                        new TypeToken<List<Court>>() {
+////                        }.getType());
+////                courtAdapter.setNewData(courts);
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
 
         }
     }
