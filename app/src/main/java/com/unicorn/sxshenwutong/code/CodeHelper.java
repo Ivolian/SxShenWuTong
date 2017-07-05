@@ -4,9 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.orhanobut.logger.Logger;
-import com.unicorn.sxshenwutong.Params;
-import com.unicorn.sxshenwutong.ParamsHelper;
-import com.unicorn.sxshenwutong.Response;
+import com.unicorn.sxshenwutong.general.Params;
+import com.unicorn.sxshenwutong.general.ParamsHelper;
+import com.unicorn.sxshenwutong.general.Response;
 import com.unicorn.sxshenwutong.base.Global;
 
 import org.json.JSONException;

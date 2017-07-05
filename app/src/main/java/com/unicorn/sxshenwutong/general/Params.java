@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.general;
 
 import com.google.gson.Gson;
 

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.login;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,6 +19,13 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
+import com.unicorn.sxshenwutong.CourtAct;
+import com.unicorn.sxshenwutong.general.Params;
+import com.unicorn.sxshenwutong.general.ParamsHelper;
+import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.general.Response;
+import com.unicorn.sxshenwutong.RetrofitProvider;
+import com.unicorn.sxshenwutong.User;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
@@ -40,7 +47,6 @@ import butterknife.BindView;
 import retrofit2.Retrofit;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class LoginAct extends BaseAct {
@@ -99,19 +105,9 @@ public class LoginAct extends BaseAct {
         ss(llLoginName);
         ss(llCourt);
         ss(llPwd);
-        RxView.clicks(tvCourt).subscribe(new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                startActivity(new Intent(LoginAct.this, CourtAct.class));
-            }
-        });
+        RxView.clicks(tvCourt).subscribe(aVoid -> startActivity(new Intent(LoginAct.this, CourtAct.class)));
 
-        RxView.clicks(findViewById(R.id.btnLogin)).subscribe(new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                login();
-            }
-        });
+        RxView.clicks(findViewById(R.id.btnLogin)).subscribe(aVoid -> login());
 
         Glide.with(this).load(R.drawable.login_bg).into(root);
         Glide.with(this).load(R.drawable.login_top).into(ivTop);

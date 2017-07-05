@@ -7,11 +7,11 @@ import android.view.View;
 
 import com.google.gson.internal.LinkedTreeMap;
 import com.orhanobut.logger.Logger;
-import com.unicorn.sxshenwutong.LoginService;
-import com.unicorn.sxshenwutong.Params;
-import com.unicorn.sxshenwutong.ParamsHelper;
+import com.unicorn.sxshenwutong.login.LoginService;
+import com.unicorn.sxshenwutong.general.Params;
+import com.unicorn.sxshenwutong.general.ParamsHelper;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.Response;
+import com.unicorn.sxshenwutong.general.Response;
 import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.base.BaseFra;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;

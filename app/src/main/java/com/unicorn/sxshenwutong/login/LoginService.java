@@ -1,4 +1,6 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.login;
+
+import com.unicorn.sxshenwutong.general.Response;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

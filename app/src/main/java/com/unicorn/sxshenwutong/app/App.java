@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.app;
 
 import android.app.Application;
 import android.os.Environment;
@@ -25,9 +25,8 @@ public class App extends Application {
         Utils.init(this);
         Logger.addLogAdapter(new AndroidLogAdapter());
         JodaTimeAndroid.init(this);
-        AppComponentProvider.init(this);
         Pinyin.init(Pinyin.newConfig().with(CnCityDict.getInstance(this)));
-//        initFragmentation();
+        AppComponentProvider.init(this);
     }
 
     //
@@ -39,12 +38,10 @@ public class App extends Application {
 //    }
 //
 
-
     public static String baseDir() {
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + "/SXSHENWUTONG";
         FileUtils.createOrExistsDir(path);
         return path;
     }
-
 
 }
