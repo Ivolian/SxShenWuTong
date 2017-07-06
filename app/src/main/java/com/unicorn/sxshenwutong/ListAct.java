@@ -77,7 +77,7 @@ public class ListAct extends RefreshAct<Model> {
 //
 //                    @Override
 //                    public void onNext(Response o) {
-//                        copeResponse(o);
+//                        onSuccess(o);
 //                    }
 //                });
     }

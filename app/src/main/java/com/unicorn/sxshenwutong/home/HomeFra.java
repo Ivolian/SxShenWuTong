@@ -106,7 +106,7 @@ public class HomeFra extends BaseFra {
 //
 //                    @Override
 //                    public void onNext(Response o) {
-//                        copeResponse(o);
+//                        onSuccess(o);
 //                    }
 //                });
     }

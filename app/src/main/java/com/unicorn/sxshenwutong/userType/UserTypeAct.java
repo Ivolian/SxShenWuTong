@@ -38,8 +38,6 @@ import pocketknife.NotRequired;
 import retrofit2.Retrofit;
 import rx.functions.Action1;
 
-import static com.unicorn.sxshenwutong.base.Global.user;
-
 public class UserTypeAct extends BaseAct {
     @Override
     protected void inject() {
@@ -125,7 +123,7 @@ public class UserTypeAct extends BaseAct {
 //
 //                    @Override
 //                    public void onNext(Response o) {
-//                        copeResponse(o);
+//                        onSuccess(o);
 //                    }
 //                });
     }
@@ -139,7 +137,7 @@ public class UserTypeAct extends BaseAct {
                 JSONObject jsonObject = new JSONObject(ydbaKey);
                 boolean success = jsonObject.getBoolean("success");
                 if (success) {
-                    Global.user.setUsertype(userType.getDm());
+                    Global.getUser().setUsertype(userType.getDm());
                     if (toMain) {
                         startActivity(new Intent(this, MainAct.class));
                     }
@@ -166,11 +164,11 @@ public class UserTypeAct extends BaseAct {
 
     private List<UserType> tt() {
         List<UserType> userTypes = new ArrayList<>();
-        for (Code code : Global.codes) {
+        for (Code code : Global.getCodes()) {
             UserType userType = new UserType();
             userType.setDm(code.getDm());
             userType.setDmms(code.getDmms());
-            userType.setChecked(code.getDm().equals(user.getUsertype()));
+            userType.setChecked(code.getDm().equals(Global.getUser().getUsertype()));
             userTypes.add(userType);
         }
         return userTypes;

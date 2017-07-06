@@ -75,7 +75,7 @@ public class CodeHelper {
                 List<Code> codes = new Gson().fromJson(str,
                         new TypeToken<List<Code>>() {
                         }.getType());
-                Global.codes = codes;
+                Global.setCodes(codes);
                 Logger.d("");
 //                for (Court court : courts) {
 //                    court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));

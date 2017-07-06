@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,38 +13,25 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
-import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.CourtAct;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.User;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.general.Params;
-import com.unicorn.sxshenwutong.general.ParamsHelper;
-import com.unicorn.sxshenwutong.general.Response;
-import com.unicorn.sxshenwutong.login.data.K;
+import com.unicorn.sxshenwutong.login.data.LoginResponse;
 import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.inject.Inject;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindColor;
 import butterknife.BindView;
-import retrofit2.Retrofit;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class LoginAct extends BaseAct {
 
@@ -64,56 +50,81 @@ public class LoginAct extends BaseAct {
         return R.layout.act_login;
     }
 
-    @BindView(R.id.tvCourt)
-    TextView tvCourt;
-
-    @BindView(R.id.etLoginName)
-    EditText etLoginName;
-
-    @BindView(R.id.etPwd)
-    EditText etPwd;
-
-    @BindView(R.id.ivBg)
-    ImageView root;
-    @BindView(R.id.ivTop)
-    ImageView ivTop;
-
-    @BindView(R.id.llLoginName)
-    LinearLayout llLoginName;
-
-    @BindView(R.id.ivLoginName)
-    ImageView ivLoginName;
-
-    @BindView(R.id.llPwd)
-    LinearLayout llPwd;
-
-    @BindView(R.id.ivPwd)
-    ImageView ivPwd;
-
-
     @Override
     protected void init(Bundle savedInstanceState) {
+        loadImg();
+        setBg();
+        clickCourt();
+        clickLogin();
+
         etLoginName.setText("审判管理员");
         etPwd.setText("67673305");
-
-        ss2(ivCourt);
-        ss2(ivLoginName);
-        ss2(ivPwd);
-
-        ss(llLoginName);
-        ss(llCourt);
-        ss(llPwd);
-        RxView.clicks(tvCourt).subscribe(aVoid -> startActivity(new Intent(LoginAct.this, CourtAct.class)));
-
-        RxView.clicks(findViewById(R.id.btnLogin)).subscribe(aVoid -> login());
-
-        Glide.with(this).load(R.drawable.login_bg).into(root);
-        Glide.with(this).load(R.drawable.login_top).into(ivTop);
-
     }
 
-    @BindView(R.id.llCourt)
-    LinearLayout llCourt;
+
+    // ===================== loadImg =====================
+
+    private void loadImg() {
+        Glide.with(this).load(R.drawable.login_bg).into(ivBg);
+        Glide.with(this).load(R.drawable.login_top).into(ivTop);
+    }
+
+
+    // ===================== setBg =====================
+
+    private void setBg() {
+        setIvBg(ivCourt);
+        setIvBg(ivLoginName);
+        setIvBg(ivPwd);
+        setLlBg(llCourt);
+        setLlBg(llLoginName);
+        setLlBg(llPwd);
+    }
+
+    @BindColor(R.color.login)
+    int login;
+
+    private void setIvBg(ImageView imageView) {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        int radii = 20;
+        gradientDrawable.setCornerRadii(new float[]{radii, radii, 0, 0, 0, 0, radii, radii});
+        gradientDrawable.setColor(login);
+        imageView.setBackground(gradientDrawable);
+    }
+
+    private void setLlBg(LinearLayout linearLayout) {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setCornerRadius(20);
+        gradientDrawable.setColor(Color.WHITE);
+        linearLayout.setBackground(gradientDrawable);
+    }
+
+
+    // ===================== clickCourt =====================
+
+    private void clickCourt() {
+        RxView.clicks(llCourt)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> startActivity(new Intent(this, CourtAct.class)));
+    }
+
+    Court court;
+
+    @Subscribe(tags = {@Tag(RxBusTag.SELECT_COURT)})
+    public void onCourtSelect(Court court) {
+        this.court = court;
+        tvCourt.setText(court.getDmms());
+    }
+
+
+    // ===================== clickLogin =====================
+
+    private void clickLogin() {
+        RxView.clicks(findViewById(R.id.btnLogin))
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> login());
+    }
+
 
     private void login() {
         if (court == null) {
@@ -128,122 +139,58 @@ public class LoginAct extends BaseAct {
             ToastUtils.showShort("请填写密码");
             return;
         }
-        s();
+        new LoginHelper(
+                court.getDm(),
+                etLoginName.getText().toString().trim(),
+                etPwd.getText().toString().trim(),
+                response -> {
+                    if (response.getCode().equals("000000")) {
+                        LoginResponse loginResponse = new Gson().fromJson(response.getParameters().get("ydbaKey"), LoginResponse.class);
+                        if (loginResponse.isSuccess()) {
+                            Global.setTicket(loginResponse.getTicket());
+                            User user = loginResponse.getUser();
+                            Global.setUser(user);
+                            String userType = user.getUsertype();
+                            if (userType == null || userType.equals("")) {
+                                Intent intent = new Intent(this, UserTypeAct.class);
+                                intent.putExtra("toMain", true);
+                                startActivity(intent);
+                            } else {
+                                startActivity(new Intent(this, MainAct.class));
+                            }
+                            finish();
+                        } else {
+                            ToastUtils.showShort("用户名或密码错误");
+                        }
+                    }
+                }
+        ).login();
     }
 
 
-    private void ss(View textView) {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(20);
-        gradientDrawable.setColor(Color.WHITE);
-        textView.setBackground(gradientDrawable);
-    }
+    // ===================== some view =====================
 
+    @BindView(R.id.ivBg)
+    ImageView ivBg;
+    @BindView(R.id.ivTop)
+    ImageView ivTop;
+    @BindView(R.id.llCourt)
+    LinearLayout llCourt;
+    @BindView(R.id.tvCourt)
+    TextView tvCourt;
+    @BindView(R.id.etLoginName)
+    EditText etLoginName;
+    @BindView(R.id.etPwd)
+    EditText etPwd;
+    @BindView(R.id.llLoginName)
+    LinearLayout llLoginName;
+    @BindView(R.id.llPwd)
+    LinearLayout llPwd;
     @BindView(R.id.ivCourt)
     ImageView ivCourt;
-
-    @BindColor(R.color.login)
-    int login;
-
-    private void ss2(View textView) {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadii(new float[]{20, 20, 0, 0, 0, 0, 20, 20});
-        gradientDrawable.setColor(login);
-        textView.setBackground(gradientDrawable);
-    }
-
-
-    Court court;
-
-    @Subscribe(tags = {@Tag(RxBusTag.SELECT_COURT)})
-    public void onCourtSelect(Court court) {
-        this.court = court;
-        tvCourt.setText(court.getDmms());
-    }
-
-
-    @Inject
-    ParamsHelper paramsHelper;
-
-    private void s() {
-        Params params = new Params();
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("fydm", court.getDm());
-        parameters.put("loginname", etLoginName.getText().toString().trim());
-        parameters.put("password", etPwd.getText().toString().trim());
-        paramsHelper.initParams(params, "login", parameters);
-
-        Retrofit retrofit = new RetrofitProvider().provide();
-        LoginService loginService = retrofit.create(LoginService.class);
-        loginService
-                .login(params.toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response<LinkedTreeMap<String, String>>>() {
-                    @Override
-                    public void onCompleted() {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onNext(Response<LinkedTreeMap<String, String>> o) {
-                        copeResponse(o);
-                    }
-                });
-    }
-
-    private void copeResponse(Response<LinkedTreeMap<String, String>> response) {
-        if (!response.equals("000000")) {
-            K k = new Gson().fromJson(response.getParameters().get("ydbaKey"),K.class);
-//            Map<String, K> citys = new Gson().fromJson(response.toString(), new TypeToken<Map<String, K>>() {}.getType());
-    Logger.d("");
-//            LinkedTreeMap<String, K> parameters = (LinkedTreeMap<String, K>) response.getParameters();
-//            String ydbaKey = parameters.get("ydbaKey");
-//            try {
-//                JSONObject jsonObject = new JSONObject(ydbaKey);
-//                boolean success = jsonObject.getBoolean("success");
-//                if (success) {
-//                    String ticket = jsonObject.getString("ticket");
-//                    paramsHelper.setTicket(ticket);
-//                    JSONObject userJ = jsonObject.getJSONObject("user");
-//                    User user = new Gson().fromJson(userJ.toString(), User.class);
-//                    s(user);
-//                } else {
-//                    ToastUtils.showShort("登录失败");
-//
-//                }
-//                Logger.d("");
-////                String str = jsonObject.getJSONArray("fylist").toString();
-////                List<Court> courts =     new Gson().fromJson(str,
-////                        new TypeToken<List<Court>>() {
-////                        }.getType());
-////                courtAdapter.setNewData(courts);
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-
-        }
-    }
-
-    private void s(User user) {
-        Global.user = user;
-        String userType = user.getUsertype();
-        if (userType == null || userType.equals("")) {
-            Intent intent = new Intent(this, UserTypeAct.class);
-            intent.putExtra("toMain", true);
-            startActivity(intent);
-        } else {
-            startActivity(new Intent(this, MainAct.class));
-            ToastUtils.showShort("用户名或密码错误");
-        }
-
-        finish();
-    }
-
+    @BindView(R.id.ivLoginName)
+    ImageView ivLoginName;
+    @BindView(R.id.ivPwd)
+    ImageView ivPwd;
 
 }

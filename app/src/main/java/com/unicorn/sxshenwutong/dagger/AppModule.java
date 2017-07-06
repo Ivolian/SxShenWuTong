@@ -6,6 +6,7 @@ import android.content.Context;
 import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.code.CodeService;
 import com.unicorn.sxshenwutong.court.data.CourtService;
+import com.unicorn.sxshenwutong.login.LoginService;
 
 import dagger.Module;
 import dagger.Provides;
@@ -32,6 +33,13 @@ public class AppModule {
     Retrofit provideRetrofit(RetrofitProvider retrofitProvider) {
         return retrofitProvider.provide();
     }
+
+    @App
+    @Provides
+    LoginService provideLoginService(Retrofit retrofit) {
+        return retrofit.create(LoginService.class);
+    }
+
 
     @App
     @Provides

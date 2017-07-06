@@ -29,7 +29,7 @@ public class ProfileFra extends BaseFra {
     @Override
     protected void init(View rootView) {
         clickSetting();
-        renderUser(Global.user);
+        renderUser(Global.getUser());
     }
 
 
@@ -52,9 +52,9 @@ public class ProfileFra extends BaseFra {
 
     // ===================== renderUser =====================
 
-    private void renderUser(@NonNull User user){
-        tvLoginNameT.setText( user.getLoginName());
-        tvCourtNameT.setText( user.getFymc());
+    private void renderUser(@NonNull User user) {
+        tvLoginNameT.setText(user.getLoginName());
+        tvCourtNameT.setText(user.getFymc());
         tvLoginName.setText("姓名 : " + user.getLoginName());
         tvCourtName.setText("法院 : " + user.getFymc());
         tvDepartmentName.setText("部门 : " + user.getDepartname());
