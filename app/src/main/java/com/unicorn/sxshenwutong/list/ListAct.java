@@ -3,26 +3,26 @@ package com.unicorn.sxshenwutong.list;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.a.app.GeneralService;
 import com.unicorn.sxshenwutong.a.app.ParamsInitializer;
 import com.unicorn.sxshenwutong.a.app.entity.Params;
-import com.unicorn.sxshenwutong.a.app.entity.Response;
 import com.unicorn.sxshenwutong.a.base.RefreshAct;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
+import static com.unicorn.sxshenwutong.a.constant.Key.SUCCESS_CODE;
+import static com.unicorn.sxshenwutong.a.constant.Key.YDBAKEY;
+
 
 public class ListAct extends RefreshAct<Model> {
 
@@ -42,15 +42,7 @@ public class ListAct extends RefreshAct<Model> {
     }
 
     @Override
-    protected Observable<Object> load() {
-        s();
-        return Observable.just(new Object());
-    }
-
-    @Inject
-    ParamsInitializer paramsInitializer;
-
-    private void s() {
+    protected Observable<ListResponse<Model>> load() {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
@@ -58,49 +50,30 @@ public class ListAct extends RefreshAct<Model> {
         parameters.put("lbtype", "zxdblist");
         paramsInitializer.initParams(params, "getLbList", parameters);
 
-//        Retrofit retrofit = new RetrofitProvider().provide();
-//        LoginService loginService = retrofit.create(LoginService.class);
-//        loginService
-//                .get(params.toString())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Subscriber<Response>() {
-//                    @Override
-//                    public void onCompleted() {
-//                        Logger.d("");
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Logger.d("");
-//                    }
-//
-//                    @Override
-//                    public void onNext(Response o) {
-//                        onSuccess(o);
-//                    }
-//                });
+
+        return generalService.get(params.toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .filter(response -> response.getCode().equals(SUCCESS_CODE))
+                .map(response -> response.getParameters().get(YDBAKEY))
+                .map(ydbaKey -> {
+
+
+                        ListResponse<Model> listResponse = new Gson().fromJson(ydbaKey,
+                                new TypeToken<ListResponse<Model>>() {
+                                }.getType());
+
+
+                    return listResponse;
+                });
     }
 
-    private void copeResponse(Response response) {
-        if (response.getCode().equals("000000")) {
-            LinkedTreeMap<String, String> parameters = (LinkedTreeMap<String, String>) response.getParameters();
-            String ydbaKey = parameters.get("ydbaKey");
-            try {
-                JSONObject jsonObject = new JSONObject(ydbaKey);
-                Integer total = jsonObject.getInt("total");
-                JSONArray rows = jsonObject.getJSONArray("rows");
-                List<Model> models = new Gson().fromJson(rows.toString(),
-                        new TypeToken<List<Model>>() {
-                        }.getType());
-        adapter.setNewData(models);
+    @Inject
+    ParamsInitializer paramsInitializer;
 
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    @Inject
+    GeneralService generalService;
 
-        }
-    }
 
 
 }

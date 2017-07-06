@@ -7,12 +7,12 @@ import com.unicorn.sxshenwutong.R;
 public class ModelAdapter extends BaseQuickAdapter<Model, BaseViewHolder> {
 
     public ModelAdapter() {
-        super(R.layout.item_home);
+        super(R.layout.item_list);
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, final Model homeItem) {
-
+    protected void convert(BaseViewHolder viewHolder, final Model model) {
+        viewHolder.setText(R.id.tvText,model.getAhqc());
     }
 
 }

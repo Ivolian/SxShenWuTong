@@ -2,16 +2,17 @@ package com.unicorn.sxshenwutong.list;
 
 public class Model {
 
+
     /**
      * nodename : 办理
-     * laaymc : 信用卡纠纷
-     * ahqc : (2017)渝民初156号
-     * sycxmc : 普通程序
-     * dybg : 刘钧
-     * larq : 2017-04-21
-     * ajbs : 1b7d32a6-9d5a-4c13-9540-f09e72dce919
+     * laaymc : 行政
+     * ahqc : (2017)渝执120号
+     * sycxmc :
+     * dybg : 测试1,重庆汇总财富有限责任公司
+     * larq : 2017-06-26
+     * ajbs : M00db26e7f0-7067-4e39-80f3-f1dbb95365c5
      * cbrmc : 审判管理员
-     * dyyg : 中国农业银行股份有限公司重庆江北支行
+     * dyyg : 测试
      */
 
     private String nodename;
@@ -95,5 +96,4 @@ public class Model {
     public void setDyyg(String dyyg) {
         this.dyyg = dyyg;
     }
-
 }

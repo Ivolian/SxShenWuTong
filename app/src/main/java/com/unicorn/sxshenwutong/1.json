@@ -1,11 +1,104 @@
 {
-  "office_phone": "",
-  "phone": "",
-  "fymc": "重庆市高级人民法院",
-  "usertype": "9000010003",
-  "dept_name": "办公室",
-  "id": "11061",
-  "fullname": "审判管理员",
-  "fydm": "M00",
-  "org_code": "009"
+  "total": 9,
+  "rows": [
+    {
+      "nodename": "办理",
+      "laaymc": "申请诉前财产保全",
+      "ahqc": "(2017)渝执保8号",
+      "sycxmc": "",
+      "dybg": "梵蒂冈",
+      "larq": "2017-05-03",
+      "ajbs": "M000ce3c6d7-ccfd-46d2-98e3-5cf45806d660",
+      "cbrmc": "审判管理员",
+      "dyyg": "过渡"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "行政非诉执行",
+      "ahqc": "(2017)渝执9999号",
+      "sycxmc": "",
+      "dybg": "李贤伟",
+      "larq": "2017-05-09",
+      "ajbs": "M006bcfa77e-07a8-4cd7-8eca-cc7adea3d5d7",
+      "cbrmc": "审判管理员",
+      "dyyg": "测试执行"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执恢19号",
+      "sycxmc": "",
+      "dybg": "不完美的梦",
+      "larq": "2017-06-27",
+      "ajbs": "M006d7e36d0-acfd-4d0d-add8-e7dab8cbac91",
+      "cbrmc": "审判管理员",
+      "dyyg": "完美的小孩"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执123号",
+      "sycxmc": "",
+      "dybg": "测试1,重庆汇总财富有限责任公司",
+      "larq": "2017-06-26",
+      "ajbs": "M00840d9a03-10cc-46a1-8646-483772a323a3",
+      "cbrmc": "审判管理员",
+      "dyyg": "测试"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "人格权",
+      "ahqc": "(2017)渝执91号",
+      "sycxmc": "",
+      "dybg": "杨毅",
+      "larq": "2017-06-08",
+      "ajbs": "M009902b9bb-36ee-4ce3-979e-900764b860ba",
+      "cbrmc": "审判管理员",
+      "dyyg": "李飞飞"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执122号",
+      "sycxmc": "",
+      "dybg": "测试1,重庆汇总财富有限责任公司",
+      "larq": "2017-06-26",
+      "ajbs": "M00af566cd2-578d-48dc-b59d-851f34426e89",
+      "cbrmc": "审判管理员",
+      "dyyg": "测试"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执121号",
+      "sycxmc": "",
+      "dybg": "测试1,重庆汇总财富有限责任公司",
+      "larq": "2017-06-26",
+      "ajbs": "M00b3d2b6b2-660e-4528-8f5a-11c473afcb88",
+      "cbrmc": "审判管理员",
+      "dyyg": "测试"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执96号",
+      "sycxmc": "",
+      "dybg": "李四",
+      "larq": "2017-06-20",
+      "ajbs": "M00bbc9584d-ef36-47f8-a33a-64d7db974c3f",
+      "cbrmc": "审判管理员",
+      "dyyg": "张三"
+    },
+    {
+      "nodename": "办理",
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执120号",
+      "sycxmc": "",
+      "dybg": "测试1,重庆汇总财富有限责任公司",
+      "larq": "2017-06-26",
+      "ajbs": "M00db26e7f0-7067-4e39-80f3-f1dbb95365c5",
+      "cbrmc": "审判管理员",
+      "dyyg": "测试"
+    }
+  ]
 }

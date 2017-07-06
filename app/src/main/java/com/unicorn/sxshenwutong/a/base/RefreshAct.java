@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.list.ListResponse;
 
 import butterknife.BindColor;
 import butterknife.BindView;
@@ -32,7 +33,7 @@ public abstract class RefreshAct<T> extends BaseAct {
 
     protected abstract BaseQuickAdapter<T, BaseViewHolder> getAdapter();
 
-    protected abstract Observable<Object> load();
+    protected abstract Observable<ListResponse<T>> load();
 
     @Override
     protected void init(Bundle savedInstanceState) {
@@ -41,8 +42,6 @@ public abstract class RefreshAct<T> extends BaseAct {
         swipeRefreshLayout.setRefreshing(true);
         loadFirst();
     }
-
-
 
     private void initSwipeRefreshLayout() {
         swipeRefreshLayout.setColorSchemeColors(colorPrimary);
@@ -58,7 +57,7 @@ public abstract class RefreshAct<T> extends BaseAct {
 
     protected void loadFirst() {
         pageNo = 1;
-        load().subscribe(new Subscriber<Object>() {
+        load().subscribe(new Subscriber<ListResponse<T>>() {
             @Override
             public void onCompleted() {
 
@@ -70,16 +69,16 @@ public abstract class RefreshAct<T> extends BaseAct {
             }
 
             @Override
-            public void onNext(Object response) {
+            public void onNext(ListResponse<T> response) {
                 swipeRefreshLayout.setRefreshing(false);
-//                adapter.setNewData(response.getDataList());
+                adapter.setNewData(response.getModels());
                 pageNo++;
             }
         });
     }
 
     private void loadNext() {
-        load().subscribe(new Subscriber<Object>() {
+        load().subscribe(new Subscriber<ListResponse<T>>() {
             @Override
             public void onCompleted() {
 
@@ -90,15 +89,15 @@ public abstract class RefreshAct<T> extends BaseAct {
             }
 
             @Override
-            public void onNext(Object response) {
-//                adapter.addData(response.getDataList());
-//                adapter.loadMoreComplete();
+            public void onNext(ListResponse<T> response) {
+                adapter.addData(response.getModels());
+                adapter.loadMoreComplete();
                 pageNo++;
 
                 // 确认是否加载所有数据
-//                if (adapter.getData().size() >= response.getTotal()) {
-//                    adapter.loadMoreEnd();
-//                }
+                if (adapter.getData().size() >= response.getTotal()) {
+                    adapter.loadMoreEnd();
+                }
             }
         });
     }
