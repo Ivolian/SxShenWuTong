@@ -19,7 +19,7 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.base.BaseAct;
-import com.unicorn.sxshenwutong.code.CodeHelper;
+import com.unicorn.sxshenwutong.code.CodeFetcher;
 import com.unicorn.sxshenwutong.constant.Key;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.code.CodeResponse;
@@ -138,7 +138,7 @@ public class LoginAct extends BaseAct {
             ToastUtils.showShort("请填写密码");
             return;
         }
-        new LoginHelper(
+        new LoginFetcher(
                 court.getDm(),
                 etLoginName.getText().toString().trim(),
                 etPwd.getText().toString().trim(),
@@ -153,14 +153,14 @@ public class LoginAct extends BaseAct {
                         }
                     }
                 }
-        ).login();
+        ).start();
     }
 
 
     // ===================== getUserTypeCodes =====================
 
     private void getUserTypeCodes() {
-        new CodeHelper(USER_TYPE_CODE, response -> {
+        new CodeFetcher(USER_TYPE_CODE, response -> {
             if (response.getCode().equals(SUCCESS_CODE)) {
                 CodeResponse codeResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), CodeResponse.class);
                 Global.setUserTypeCodes(codeResponse.getBmlist());
@@ -174,7 +174,7 @@ public class LoginAct extends BaseAct {
                 }
                 finish();
             }
-        }).getCode();
+        }).start();
     }
 
 
