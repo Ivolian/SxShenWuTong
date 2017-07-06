@@ -1,6 +1,5 @@
 package com.unicorn.sxshenwutong.c.home;
 
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,11 +10,10 @@ import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
 import com.youth.banner.Banner;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import butterknife.BindColor;
 import butterknife.BindView;
 
 public class HomeFra extends BaseFra {
@@ -25,12 +23,9 @@ public class HomeFra extends BaseFra {
         return R.layout.fra_home;
     }
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
-
     @Override
     protected void init(View rootView) {
-        s();
+        initRv();
         new HomeFetcher(ydbaKey -> {
             HomeResponse homeResponse = new Gson().fromJson(ydbaKey, HomeResponse.class);
             initBanner(homeResponse);
@@ -38,25 +33,38 @@ public class HomeFra extends BaseFra {
         }).start();
     }
 
+
+    // ===================== initRv =====================
+
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+
     HomeAdapter homeAdapter = new HomeAdapter();
 
-    private void s() {
+    private void initRv() {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3));
         recyclerView.setAdapter(homeAdapter);
-
-        addItemDecoration();
-    }
-    // ======================= addItemDecoration =======================
-
-    @BindColor(R.color.md_grey_300)
-    int grey300;
-
-    private void addItemDecoration() {
-        recyclerView.addItemDecoration(new GridItemDecoration.Builder().spanCount(3).spaceSize(1)
-                .includeLREdge(false).includeTBEdge(false).drawLREdge(false).drawTBEdge(false)
-                .mDivider(new ColorDrawable(grey300)).build());
+        recyclerView.addItemDecoration(new DividerGridItemDecoration(getContext()));
     }
 
+
+    // ===================== banner =====================
+
+    @BindView(R.id.banner)
+    Banner banner;
+
+    private void initBanner(HomeResponse homeResponse) {
+        List<String> images = new ArrayList<>();
+        for (HomeResponse.MainpicBean mainpicBean : homeResponse.getMainpic()) {
+            images.add(App.baseUrl() + mainpicBean.getFilepath());
+        }
+        banner.setImageLoader(new GlideImageLoader());
+        banner.setImages(images);
+        banner.start();
+    }
+
+
+    // ===================== homeItems =====================
 
     private List<HomeItem> homeItems(HomeResponse homeResponse) {
         HomeResponse.MaindataBean mainData = homeResponse.getMaindata();
@@ -71,22 +79,6 @@ public class HomeFra extends BaseFra {
                 new HomeItem("即将超审限", R.drawable.jjcsx, mainData.getJjcsx()),
                 new HomeItem("更多", R.drawable.more, -1)
         );
-    }
-
-
-    private void s2() {
-
-
-    }
-
-    @BindView(R.id.banner)
-    Banner banner;
-
-    private void initBanner(HomeResponse homeResponse) {
-        List<String> images = homeResponse.getMainpic().stream().map(maindataBean -> App.baseUrl() + maindataBean.getFilepath()).collect(Collectors.toList());
-        banner.setImageLoader(new GlideImageLoader());
-        banner.setImages(images);
-        banner.start();
     }
 
 

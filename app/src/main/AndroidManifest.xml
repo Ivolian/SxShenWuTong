@@ -18,7 +18,7 @@
         <activity android:name=".b.court.CourtAct"/>
         <activity android:name=".b.userType.UserTypeAct"/>
         <activity android:name=".c.main.MainAct"/>
-        <activity android:name=".ListAct"/>
+        <activity android:name=".list.ListAct"/>
     </application>
 
 </manifest>

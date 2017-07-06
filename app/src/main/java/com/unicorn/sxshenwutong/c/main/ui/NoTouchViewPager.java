@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.c.main.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;

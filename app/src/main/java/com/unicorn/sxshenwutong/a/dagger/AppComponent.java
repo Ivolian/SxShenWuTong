@@ -2,7 +2,7 @@ package com.unicorn.sxshenwutong.a.dagger;
 
 import android.content.Context;
 
-import com.unicorn.sxshenwutong.ListAct;
+import com.unicorn.sxshenwutong.list.ListAct;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.CourtFetcher;

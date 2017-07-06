@@ -1,16 +1,16 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.list;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.ParamsInitializer;
-import com.unicorn.sxshenwutong.a.base.RefreshAct;
-import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.app.entity.Params;
 import com.unicorn.sxshenwutong.a.app.entity.Response;
-import com.unicorn.sxshenwutong.list.Model;
+import com.unicorn.sxshenwutong.a.base.RefreshAct;
+import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import org.json.JSONArray;
 import org.json.JSONException;

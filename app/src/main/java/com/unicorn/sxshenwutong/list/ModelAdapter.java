@@ -1,8 +1,8 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.list;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.unicorn.sxshenwutong.list.Model;
+import com.unicorn.sxshenwutong.R;
 
 public class ModelAdapter extends BaseQuickAdapter<Model, BaseViewHolder> {
 
