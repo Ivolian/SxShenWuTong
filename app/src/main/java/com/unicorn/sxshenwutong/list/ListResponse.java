@@ -5,7 +5,7 @@ import java.util.List;
 public class ListResponse<T> {
 
     private Integer total;
-    private List<T> models;
+    private List<T> rows;
 
     //
 
@@ -17,12 +17,12 @@ public class ListResponse<T> {
         this.total = total;
     }
 
-    public List<T> getModels() {
-        return models;
+    public List<T> getRows() {
+        return rows;
     }
 
-    public void setModels(List<T> models) {
-        this.models = models;
+    public void setRows(List<T> rows) {
+        this.rows = rows;
     }
 
 }

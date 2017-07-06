@@ -71,7 +71,7 @@ public abstract class RefreshAct<T> extends BaseAct {
             @Override
             public void onNext(ListResponse<T> response) {
                 swipeRefreshLayout.setRefreshing(false);
-                adapter.setNewData(response.getModels());
+                adapter.setNewData(response.getRows());
                 pageNo++;
             }
         });
@@ -90,7 +90,7 @@ public abstract class RefreshAct<T> extends BaseAct {
 
             @Override
             public void onNext(ListResponse<T> response) {
-                adapter.addData(response.getModels());
+                adapter.addData(response.getRows());
                 adapter.loadMoreComplete();
                 pageNo++;
 

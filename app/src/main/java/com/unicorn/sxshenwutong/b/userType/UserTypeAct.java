@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.google.gson.Gson;
 import com.jakewharton.rxbinding.view.RxView;
+import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
@@ -16,7 +17,6 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.b.login.entity.User;
 import com.unicorn.sxshenwutong.b.userType.entity.UserType;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeResponse;
-import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class UserTypeAct extends BaseAct {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-    renderUser();
+        renderUser();
         initRv();
         clickBack();
         clickConfirm();
@@ -52,7 +52,7 @@ public class UserTypeAct extends BaseAct {
     @BindView(R.id.tvCourtName)
     TextView tvCourtName;
 
-    private void renderUser(){
+    private void renderUser() {
         User user = Global.getLoginResponse().getUser();
         tvLoginName.setText(user.getFullname());
         tvCourtName.setText(user.getFymc());
@@ -88,7 +88,7 @@ public class UserTypeAct extends BaseAct {
 
     // ===================== clickConfirm =====================
 
-    private void clickConfirm(){
+    private void clickConfirm() {
         RxView.clicks(findViewById(R.id.btnConfirm))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> setUserType());
