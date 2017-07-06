@@ -3,11 +3,11 @@ package com.unicorn.sxshenwutong.dagger;
 import android.content.Context;
 
 import com.unicorn.sxshenwutong.ListAct;
-import com.unicorn.sxshenwutong.code.CodeFetcher;
-import com.unicorn.sxshenwutong.court.CourtAct;
-import com.unicorn.sxshenwutong.court.CourtFetcher;
+import com.unicorn.sxshenwutong.A.code.CodeFetcher;
+import com.unicorn.sxshenwutong.B.court.CourtAct;
+import com.unicorn.sxshenwutong.B.court.CourtFetcher;
 import com.unicorn.sxshenwutong.home.HomeFra;
-import com.unicorn.sxshenwutong.login.LoginFetcher;
+import com.unicorn.sxshenwutong.B.login.LoginFetcher;
 import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 

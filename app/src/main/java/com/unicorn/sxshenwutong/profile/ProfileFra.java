@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.login.entity.User;
-import com.unicorn.sxshenwutong.base.BaseFra;
-import com.unicorn.sxshenwutong.app.Global;
+import com.unicorn.sxshenwutong.B.login.entity.User;
+import com.unicorn.sxshenwutong.A.base.BaseFra;
+import com.unicorn.sxshenwutong.A.app.Global;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
 import java.util.concurrent.TimeUnit;

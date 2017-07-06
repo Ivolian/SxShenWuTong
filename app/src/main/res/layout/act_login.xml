@@ -115,7 +115,7 @@
 
         </LinearLayout>
 
-        <com.unicorn.sxshenwutong.login.ui.LoginButton
+        <com.unicorn.sxshenwutong.B.login.ui.LoginButton
             android:id="@+id/btnLogin"
             android:layout_width="360dp"
             android:layout_height="56dp"

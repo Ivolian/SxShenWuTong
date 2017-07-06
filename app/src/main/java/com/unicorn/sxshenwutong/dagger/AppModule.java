@@ -3,8 +3,8 @@ package com.unicorn.sxshenwutong.dagger;
 import android.app.Application;
 import android.content.Context;
 
-import com.unicorn.sxshenwutong.app.GeneralService;
-import com.unicorn.sxshenwutong.app.RetrofitProvider;
+import com.unicorn.sxshenwutong.A.app.GeneralService;
+import com.unicorn.sxshenwutong.A.app.RetrofitProvider;
 
 import dagger.Module;
 import dagger.Provides;

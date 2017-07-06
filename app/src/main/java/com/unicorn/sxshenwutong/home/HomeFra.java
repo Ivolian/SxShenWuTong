@@ -7,11 +7,11 @@ import android.view.View;
 
 import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.base.BaseFra;
+import com.unicorn.sxshenwutong.A.base.BaseFra;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.app.Params;
-import com.unicorn.sxshenwutong.app.ParamsInitializer;
-import com.unicorn.sxshenwutong.app.Response;
+import com.unicorn.sxshenwutong.A.app.entity.Params;
+import com.unicorn.sxshenwutong.A.app.ParamsInitializer;
+import com.unicorn.sxshenwutong.A.app.entity.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;

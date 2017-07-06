@@ -1,6 +1,6 @@
 package com.unicorn.sxshenwutong.userType;
 
-import com.unicorn.sxshenwutong.code.Code;
+import com.unicorn.sxshenwutong.A.code.entity.Code;
 
 public class UserType {
 
