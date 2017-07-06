@@ -5,11 +5,11 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-import com.unicorn.sxshenwutong.A.app.ParamsInitializer;
-import com.unicorn.sxshenwutong.A.base.RefreshAct;
-import com.unicorn.sxshenwutong.A.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.A.app.entity.Params;
-import com.unicorn.sxshenwutong.A.app.entity.Response;
+import com.unicorn.sxshenwutong.a.app.ParamsInitializer;
+import com.unicorn.sxshenwutong.a.base.RefreshAct;
+import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.a.app.entity.Params;
+import com.unicorn.sxshenwutong.a.app.entity.Response;
 import com.unicorn.sxshenwutong.list.Model;
 
 import org.json.JSONArray;

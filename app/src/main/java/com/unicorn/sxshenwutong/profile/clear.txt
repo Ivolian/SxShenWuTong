@@ -1,4 +1,0 @@
-1. layout
-titlebar height 64dp
-icon size 28dp
-

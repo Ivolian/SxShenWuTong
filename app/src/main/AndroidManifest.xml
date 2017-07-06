@@ -3,21 +3,21 @@
     package="com.unicorn.sxshenwutong">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:name=".A.app.App"
+        android:name=".a.app.App"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".B.login.LoginAct">
+        <activity android:name=".b.login.LoginAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".B.court.CourtAct"/>
-        <activity android:name=".B.userType.UserTypeAct"/>
-        <activity android:name=".main.MainAct"/>
+        <activity android:name=".b.court.CourtAct"/>
+        <activity android:name=".b.userType.UserTypeAct"/>
+        <activity android:name=".c.main.MainAct"/>
         <activity android:name=".ListAct"/>
     </application>
 
