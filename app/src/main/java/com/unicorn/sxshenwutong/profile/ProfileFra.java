@@ -1,22 +1,20 @@
 package com.unicorn.sxshenwutong.profile;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
-import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.B.login.entity.User;
-import com.unicorn.sxshenwutong.A.base.BaseFra;
 import com.unicorn.sxshenwutong.A.app.Global;
+import com.unicorn.sxshenwutong.A.base.BaseFra;
+import com.unicorn.sxshenwutong.B.login.entity.User;
 import com.unicorn.sxshenwutong.B.userType.UserTypeAct;
+import com.unicorn.sxshenwutong.R;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
-import rx.functions.Action1;
 
 public class ProfileFra extends BaseFra {
 
@@ -29,7 +27,7 @@ public class ProfileFra extends BaseFra {
     @Override
     protected void init(View rootView) {
         clickSetting();
-        renderUser(Global.getLoginResponse().getUser());
+        renderUser();
     }
 
 
@@ -41,25 +39,21 @@ public class ProfileFra extends BaseFra {
     private void clickSetting() {
         RxView.clicks(setting)
                 .throttleFirst(1, TimeUnit.MILLISECONDS)
-                .subscribe(new Action1<Void>() {
-                    @Override
-                    public void call(Void aVoid) {
-                        startActivity(new Intent(getActivity(), UserTypeAct.class));
-                    }
-                });
+                .subscribe(aVoid -> startActivity(new Intent(getActivity(), UserTypeAct.class)));
     }
 
 
     // ===================== renderUser =====================
 
-    private void renderUser(@NonNull User user) {
-        tvLoginNameT.setText(user.getLoginName());
+    private void renderUser() {
+        User user = Global.getLoginResponse().getUser();
+        tvLoginNameT.setText(user.getFullname());
         tvCourtNameT.setText(user.getFymc());
-        tvLoginName.setText("姓名 : " + user.getLoginName());
+        tvLoginName.setText("姓名 : " + user.getFullname());
         tvCourtName.setText("法院 : " + user.getFymc());
-        tvDepartmentName.setText("部门 : " + user.getDepartname());
-        tvMobile.setText("办公电话 : " + user.getMobile_phone());
-        tvTelephone.setText("联系手机 : " + user.getTelephone());
+        tvDepartmentName.setText("部门 : " + user.getDept_name());
+        tvMobile.setText("办公电话 : " + user.getOffice_phone());
+        tvTelephone.setText("联系手机 : " + user.getPhone());
     }
 
 

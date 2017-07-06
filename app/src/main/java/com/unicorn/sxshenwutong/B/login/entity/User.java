@@ -3,57 +3,41 @@ package com.unicorn.sxshenwutong.B.login.entity;
 public class User {
 
     /**
-     * departid : 009
-     * departname : 办公室
-     * fydm : M00
+     * office_phone :
+     * phone :
      * fymc : 重庆市高级人民法院
-     * lastDate :
-     * loginBusiType :
-     * loginName : 审判管理员
-     * mobile_phone :
-     * password :
-     * telephone :
-     * userId : 11061
-     * username : 审判管理员
-     * usertype :
+     * usertype : 9000010003
+     * dept_name : 办公室
+     * id : 11061
+     * fullname : 审判管理员
+     * fydm : M00
+     * org_code : 009
      */
 
-    private String departid;
-    private String departname;
-    private String fydm;
+    private String office_phone;
+    private String phone;
     private String fymc;
-    private String lastDate;
-    private String loginBusiType;
-    private String loginName;
-    private String mobile_phone;
-    private String password;
-    private String telephone;
-    private String userId;
-    private String username;
     private String usertype;
+    private String dept_name;
+    private String id;
+    private String fullname;
+    private String fydm;
+    private String org_code;
 
-    public String getDepartid() {
-        return departid;
+    public String getOffice_phone() {
+        return office_phone;
     }
 
-    public void setDepartid(String departid) {
-        this.departid = departid;
+    public void setOffice_phone(String office_phone) {
+        this.office_phone = office_phone;
     }
 
-    public String getDepartname() {
-        return departname;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDepartname(String departname) {
-        this.departname = departname;
-    }
-
-    public String getFydm() {
-        return fydm;
-    }
-
-    public void setFydm(String fydm) {
-        this.fydm = fydm;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getFymc() {
@@ -64,70 +48,6 @@ public class User {
         this.fymc = fymc;
     }
 
-    public String getLastDate() {
-        return lastDate;
-    }
-
-    public void setLastDate(String lastDate) {
-        this.lastDate = lastDate;
-    }
-
-    public String getLoginBusiType() {
-        return loginBusiType;
-    }
-
-    public void setLoginBusiType(String loginBusiType) {
-        this.loginBusiType = loginBusiType;
-    }
-
-    public String getLoginName() {
-        return loginName;
-    }
-
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
-
-    public String getMobile_phone() {
-        return mobile_phone;
-    }
-
-    public void setMobile_phone(String mobile_phone) {
-        this.mobile_phone = mobile_phone;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getUsertype() {
         return usertype;
     }
@@ -135,4 +55,45 @@ public class User {
     public void setUsertype(String usertype) {
         this.usertype = usertype;
     }
+
+    public String getDept_name() {
+        return dept_name;
+    }
+
+    public void setDept_name(String dept_name) {
+        this.dept_name = dept_name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getFydm() {
+        return fydm;
+    }
+
+    public void setFydm(String fydm) {
+        this.fydm = fydm;
+    }
+
+    public String getOrg_code() {
+        return org_code;
+    }
+
+    public void setOrg_code(String org_code) {
+        this.org_code = org_code;
+    }
+
 }

@@ -1,19 +1,11 @@
 {
-  "ticket": "5c5e1f82-ad77-4d69-aa4a-4794770f3281",
-  "success": true,
-  "user": {
-    "departid": "009",
-    "departname": "办公室",
-    "fydm": "M00",
-    "fymc": "重庆市高级人民法院",
-    "lastDate": null,
-    "loginBusiType": "",
-    "loginName": "审判管理员",
-    "mobile_phone": "",
-    "password": "",
-    "telephone": "",
-    "userId": "11061",
-    "username": "审判管理员",
-    "usertype": "9000010002"
-  }
-}"
+  "office_phone": "",
+  "phone": "",
+  "fymc": "重庆市高级人民法院",
+  "usertype": "9000010003",
+  "dept_name": "办公室",
+  "id": "11061",
+  "fullname": "审判管理员",
+  "fydm": "M00",
+  "org_code": "009"
+}

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.google.gson.Gson;
@@ -11,6 +12,7 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.A.app.Global;
 import com.unicorn.sxshenwutong.A.base.BaseAct;
 import com.unicorn.sxshenwutong.A.code.entity.Code;
+import com.unicorn.sxshenwutong.B.login.entity.User;
 import com.unicorn.sxshenwutong.B.userType.entity.UserType;
 import com.unicorn.sxshenwutong.B.userType.entity.UserTypeResponse;
 import com.unicorn.sxshenwutong.R;
@@ -34,9 +36,25 @@ public class UserTypeAct extends BaseAct {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+    renderUser();
         initRv();
         clickBack();
         clickConfirm();
+    }
+
+
+    // ===================== initRv =====================
+
+    @BindView(R.id.tvLoginName)
+    TextView tvLoginName;
+
+    @BindView(R.id.tvCourtName)
+    TextView tvCourtName;
+
+    private void renderUser(){
+        User user = Global.getLoginResponse().getUser();
+        tvLoginName.setText(user.getFullname());
+        tvCourtName.setText(user.getFymc());
     }
 
 
