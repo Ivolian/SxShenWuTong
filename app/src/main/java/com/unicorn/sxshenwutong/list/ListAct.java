@@ -76,7 +76,9 @@ public class ListAct extends RefreshAct<Model> {
         return generalService.get(params.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .filter(response -> response.getCode().equals(SUCCESS_CODE))
+                .filter(response -> {
+                    return response.getCode().equals(SUCCESS_CODE);
+                })
                 .map(response -> response.getParameters().get(YDBAKEY))
                 .map(ydbaKey -> {
 

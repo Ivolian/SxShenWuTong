@@ -9,7 +9,7 @@
         android:layout_height="64dp"
         android:background="@color/colorPrimary"
         android:gravity="center"
-        android:title="陕西移动办案"
+        android:text="陕西移动办案"
         android:textColor="@color/md_white"
         android:textSize="22dp" />
 
@@ -38,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:title="受案未立(10)"
+            android:text="受案未立(10)"
             android:textColor="@color/md_black"
             android:textSize="16dp" />
 
@@ -46,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:title="受案未立(10)"
+            android:text="受案未立(10)"
             android:textColor="@color/md_black"
             android:textSize="16dp" />
 
@@ -54,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:title="受案未立(10)"
+            android:text="受案未立(10)"
             android:textColor="@color/md_black"
             android:textSize="16dp" />
 
@@ -62,7 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:title="受案未立(10)"
+            android:text="受案未立(10)"
             android:textColor="@color/md_black"
             android:textSize="16dp" />
 
