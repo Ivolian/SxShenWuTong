@@ -60,13 +60,16 @@ public class ListAct extends RefreshAct<Model> {
     @BindExtra(Key.TITLE)
     String title;
 
+    @BindExtra(Key.LBTYPE)
+    String lbtype;
+
     @Override
     protected Observable<ListResponse<Model>> load() {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
         parameters.put("pageSize", PAGE_SIZE);
-        parameters.put("lbtype", "zxdblist");
+        parameters.put(Key.LBTYPE, lbtype);
         paramsInitializer.initParams(params, "getLbList", parameters);
 
 

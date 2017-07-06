@@ -127,7 +127,7 @@
 
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="陕西法院移动办案"
+            android:title="陕西法院移动办案"
             android:textColor="@color/md_white"
             android:layout_marginBottom="50dp"
             android:textSize="22dp"/>

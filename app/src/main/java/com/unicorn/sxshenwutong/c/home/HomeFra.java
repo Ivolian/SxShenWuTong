@@ -69,17 +69,16 @@ public class HomeFra extends BaseFra {
     private List<HomeItem> homeItems(HomeResponse homeResponse) {
         HomeResponse.MaindataBean mainData = homeResponse.getMaindata();
         return Arrays.asList(
-                new HomeItem("审判待办", R.drawable.spdb, mainData.getSpdbajs()),
-                new HomeItem("审判待审批", R.drawable.spdsp, mainData.getSpdsp()),
-                new HomeItem("审判结案审查", R.drawable.spjasc, mainData.getSpjasc()),
-                new HomeItem("执行待办", R.drawable.zxdb, mainData.getZxdbajs()),
-                new HomeItem("执行待审批", R.drawable.zxdsp, mainData.getZxdsp()),
-                new HomeItem("执行结案审查", R.drawable.zxjasc, mainData.getZxjasc()),
-                new HomeItem("已超审限", R.drawable.ycsx, mainData.getCsxwj()),
-                new HomeItem("即将超审限", R.drawable.jjcsx, mainData.getJjcsx()),
-                new HomeItem("更多", R.drawable.more, -1)
+                new HomeItem("审判待办", R.drawable.spdb, mainData.getSpdbajs(),"spdblist"),
+                new HomeItem("审判待审批", R.drawable.spdsp, mainData.getSpdsp(),"spdsplist"),
+                new HomeItem("审判结案审查", R.drawable.spjasc, mainData.getSpjasc(),"spjasclist"),
+                new HomeItem("执行待办", R.drawable.zxdb, mainData.getZxdbajs(),"zxdblist"),
+                new HomeItem("执行待审批", R.drawable.zxdsp, mainData.getZxdsp(),"zxdsplist"),
+                new HomeItem("执行结案审查", R.drawable.zxjasc, mainData.getZxjasc(),"zxjasclist"),
+                new HomeItem("已超审限", R.drawable.ycsx, mainData.getCsxwj(),"ycsxlist"),
+                new HomeItem("即将超审限", R.drawable.jjcsx, mainData.getJjcsx(),"jjcsxlist"),
+                new HomeItem("更多", R.drawable.more, -1,"")
         );
     }
-
 
 }

@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="center"
-        android:text="sdf"
+        android:title="sdf"
         android:textColor="@color/md_black"
         android:textSize="14dp" />
 

@@ -12,10 +12,15 @@
       <w>mainpic</w>
       <w>sfsz</w>
       <w>spdblist</w>
+      <w>spdsplist</w>
+      <w>spjasclist</w>
       <w>sxshenwutong</w>
+      <w>ycsxlist</w>
       <w>ydba</w>
       <w>ydbakey</w>
       <w>zxdblist</w>
+      <w>zxdsplist</w>
+      <w>zxjasclist</w>
     </words>
   </dictionary>
 </component>

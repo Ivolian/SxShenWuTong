@@ -7,5 +7,6 @@ public class Key {
     public static final String TO_MAIN ="toMain";
     public static final String YDBAKEY ="ydbaKey";
     public static final String TITLE ="title";
+    public static final String LBTYPE ="lbtype";
 
 }

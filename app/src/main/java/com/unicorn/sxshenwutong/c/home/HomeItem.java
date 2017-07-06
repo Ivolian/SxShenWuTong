@@ -2,24 +2,28 @@ package com.unicorn.sxshenwutong.c.home;
 
 import android.support.annotation.DrawableRes;
 
-public class HomeItem {
+import java.io.Serializable;
 
-    private String text;
+public class HomeItem implements Serializable{
+
+    private String title;
     private @DrawableRes int drawableRes;
     private int count;
+    private String lbtype;
 
-    public HomeItem(String text, int drawableRes, int count) {
-        this.text = text;
+    public HomeItem(String title, int drawableRes, int count, String lbtype) {
+        this.title = title;
         this.drawableRes = drawableRes;
         this.count = count;
+        this.lbtype = lbtype;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getDrawableRes() {
@@ -38,4 +42,11 @@ public class HomeItem {
         this.count = count;
     }
 
+    public String getLbtype() {
+        return lbtype;
+    }
+
+    public void setLbtype(String lbtype) {
+        this.lbtype = lbtype;
+    }
 }
