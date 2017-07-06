@@ -5,10 +5,10 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import com.unicorn.sxshenwutong.app.ParamsInitializer;
 import com.unicorn.sxshenwutong.base.RefreshAct;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.app.Params;
-import com.unicorn.sxshenwutong.app.ParamsHelper;
 import com.unicorn.sxshenwutong.app.Response;
 import com.unicorn.sxshenwutong.list.Model;
 
@@ -48,7 +48,7 @@ public class ListAct extends RefreshAct<Model> {
     }
 
     @Inject
-    ParamsHelper paramsHelper;
+    ParamsInitializer paramsInitializer;
 
     private void s() {
         Params params = new Params();
@@ -56,7 +56,7 @@ public class ListAct extends RefreshAct<Model> {
         parameters.put("page", pageNo);
         parameters.put("pageSize", PAGE_SIZE);
         parameters.put("lbtype", "zxdblist");
-        paramsHelper.initParams(params, "getLbList", parameters);
+        paramsInitializer.initParams(params, "getLbList", parameters);
 
 //        Retrofit retrofit = new RetrofitProvider().provide();
 //        LoginService loginService = retrofit.create(LoginService.class);

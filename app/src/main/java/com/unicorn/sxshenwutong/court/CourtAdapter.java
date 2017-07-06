@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.court.data;
+package com.unicorn.sxshenwutong.court;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.court.Court;
+import com.unicorn.sxshenwutong.court.entity.Court;
 import com.unicorn.sxshenwutong.dagger.App;
 
 import javax.inject.Inject;

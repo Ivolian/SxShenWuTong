@@ -8,35 +8,23 @@ import android.util.TypedValue;
 
 import com.github.promeg.pinyinhelper.Pinyin;
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.hwangjr.rxbus.RxBus;
-import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
-import com.unicorn.sxshenwutong.court.data.CourtAdapter;
-import com.unicorn.sxshenwutong.court.data.CourtService;
+import com.unicorn.sxshenwutong.court.entity.Court;
+import com.unicorn.sxshenwutong.court.entity.CourtResponse;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.app.Params;
-import com.unicorn.sxshenwutong.app.ParamsHelper;
-import com.unicorn.sxshenwutong.app.Response;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindColor;
 import butterknife.BindView;
 import me.yokeyword.indexablerv.IndexableLayout;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+
+import static com.unicorn.sxshenwutong.constant.Key.SUCCESS_CODE;
+import static com.unicorn.sxshenwutong.constant.Key.YDBAKEY;
 
 public class CourtAct extends BaseAct {
 
@@ -64,21 +52,14 @@ public class CourtAct extends BaseAct {
     @Inject
     CourtAdapter courtAdapter;
 
-//    @Inject
-//    CodeHelper codeHelper;
-
     private void initRv() {
-
         indexableLayout.setLayoutManager(new LinearLayoutManager(this));
         indexableLayout.setCompareMode(IndexableLayout.MODE_ALL_LETTERS);
         setCenterOverlay();
         indexableLayout.setAdapter(courtAdapter);
         addItemDecoration();
         setOnItemContentClickListener();
-
-//codeHelper.getCode();
-        // 获取法院
-        getCourt();
+        getCourts();
     }
 
     /**
@@ -121,60 +102,18 @@ public class CourtAct extends BaseAct {
     }
 
 
-    // ===================== getCourt =====================
+    // ===================== getCourts =====================
 
-    @Inject
-    ParamsHelper paramsHelper;
-
-    @Inject
-    CourtService courtService;
-
-    private void getCourt() {
-        Params params = new Params();
-        paramsHelper.initParams(params, "getFyList", new HashMap<String, Object>());
-        courtService.getCourt(params.toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response>() {
-                    @Override
-                    public void onCompleted() {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onNext(Response o) {
-                        CourtAct.this.copeResponse(o);
-                    }
-                });
-    }
-
-
-    private void copeResponse(Response response) {
-        if (response.getCode().equals("000000")) {
-            LinkedTreeMap<String, String> parameters = (LinkedTreeMap<String, String>) response.getParameters();
-            String ydbaKey = parameters.get("ydbaKey");
-            try {
-                JSONObject jsonObject = new JSONObject(ydbaKey);
-                String str = jsonObject.getJSONArray("fylist").toString();
-                List<Court> courts = new Gson().fromJson(str,
-                        new TypeToken<List<Court>>() {
-                        }.getType());
-
-                for (Court court : courts) {
+    private void getCourts() {
+        new CourtFetcher(response -> {
+            if (response.getCode().equals(SUCCESS_CODE)) {
+                CourtResponse courtResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), CourtResponse.class);
+                for (Court court : courtResponse.getFylist()) {
                     court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
                 }
-                courtAdapter.setDatas(courts);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                courtAdapter.setDatas(courtResponse.getFylist());
             }
-
-        }
+        }).start();
     }
-
 
 }

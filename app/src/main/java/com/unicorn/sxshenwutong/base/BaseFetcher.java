@@ -1,10 +1,9 @@
-package com.unicorn.sxshenwutong.login;
+package com.unicorn.sxshenwutong.base;
 
 import com.unicorn.sxshenwutong.app.Callback;
 import com.unicorn.sxshenwutong.app.GeneralService;
-import com.unicorn.sxshenwutong.app.ParamsInitializer;
-import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.app.Params;
+import com.unicorn.sxshenwutong.app.ParamsInitializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,38 +13,37 @@ import javax.inject.Inject;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class LoginHelper {
+public abstract class BaseFetcher {
 
-    private String fydm;
-    private String loginName;
-    private String pwd;
+    abstract public void inject();
+
     private Callback callback;
 
-    public LoginHelper(String fydm, String loginName, String pwd, Callback callback) {
-        this.fydm = fydm;
-        this.loginName = loginName;
-        this.pwd = pwd;
+    public BaseFetcher(Callback callback) {
+        inject();
         this.callback = callback;
-        AppComponentProvider.provide().inject(this);
     }
 
     @Inject
     ParamsInitializer paramsInitializer;
 
+    protected abstract String busiCode();
+
+    protected Map<String,Object> parameters(){
+        Map<String, Object> parameters = new HashMap<>();
+    return  parameters;
+    }
+
     private Params createParams() {
         Params params = new Params();
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("fydm", fydm);
-        parameters.put("loginname", loginName);
-        parameters.put("password", pwd);
-        paramsInitializer.initParams(params, "start", parameters);
+        paramsInitializer.initParams(params, busiCode(), parameters());
         return params;
     }
 
     @Inject
     GeneralService generalService;
 
-    public void login() {
+    public void start() {
         Params params = createParams();
         generalService.get(params.toString())
                 .subscribeOn(Schedulers.io())

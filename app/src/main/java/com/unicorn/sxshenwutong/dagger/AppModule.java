@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.unicorn.sxshenwutong.app.GeneralService;
 import com.unicorn.sxshenwutong.app.RetrofitProvider;
-import com.unicorn.sxshenwutong.court.data.CourtService;
 
 import dagger.Module;
 import dagger.Provides;
@@ -37,12 +36,6 @@ public class AppModule {
     @Provides
     GeneralService provideGeneralService(Retrofit retrofit) {
         return retrofit.create(GeneralService.class);
-    }
-
-    @App
-    @Provides
-    CourtService provideCourtService(Retrofit retrofit) {
-        return retrofit.create(CourtService.class);
     }
 
 }

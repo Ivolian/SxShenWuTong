@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.court;
+package com.unicorn.sxshenwutong.court.entity;
 
 import me.yokeyword.indexablerv.IndexableEntity;
 

@@ -10,10 +10,10 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.app.ParamsInitializer;
 import com.unicorn.sxshenwutong.app.RetrofitProvider;
 import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.app.Params;
-import com.unicorn.sxshenwutong.app.ParamsHelper;
 import com.unicorn.sxshenwutong.app.Response;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.code.Code;
@@ -98,13 +98,13 @@ public class UserTypeAct extends BaseAct {
     }
 
     @Inject
-    ParamsHelper paramsHelper;
+    ParamsInitializer paramsInitializer;
 
     private void s(UserType userType) {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("usertype", userType.getCode().getDm());
-        paramsHelper.initParams(params, "setUserType", parameters);
+        paramsInitializer.initParams(params, "setUserType", parameters);
 
         Retrofit retrofit = new RetrofitProvider().provide();
 //        LoginService loginService = retrofit.create(LoginService.class);

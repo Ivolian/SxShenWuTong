@@ -4,7 +4,7 @@ import com.unicorn.sxshenwutong.app.Callback;
 import com.unicorn.sxshenwutong.app.GeneralService;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.app.Params;
-import com.unicorn.sxshenwutong.app.ParamsHelper;
+import com.unicorn.sxshenwutong.app.ParamsInitializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,13 +27,13 @@ public class CodeHelper {
     }
 
     @Inject
-    ParamsHelper paramsHelper;
+    ParamsInitializer paramsInitializer;
 
     private Params createParams() {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("bxh", bxh);
-        paramsHelper.initParams(params, "getBm", parameters);
+        paramsInitializer.initParams(params, "getBm", parameters);
         return params;
     }
 

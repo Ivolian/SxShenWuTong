@@ -10,10 +10,10 @@ import javax.inject.Inject;
 import cn.net.withub.common.util.sec.Md5Main;
 
 @com.unicorn.sxshenwutong.dagger.App
-public class ParamsHelper {
+public class ParamsInitializer {
 
     @Inject
-    public ParamsHelper() {
+    public ParamsInitializer() {
     }
 
     public void initParams(Params params, String busiCode, Map<String, Object> parameters) {

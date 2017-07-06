@@ -1,6 +1,4 @@
-package com.unicorn.sxshenwutong.court;
-
-import com.unicorn.sxshenwutong.code.Code;
+package com.unicorn.sxshenwutong.code;
 
 import java.util.List;
 

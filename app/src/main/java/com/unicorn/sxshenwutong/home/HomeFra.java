@@ -10,7 +10,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.base.BaseFra;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.app.Params;
-import com.unicorn.sxshenwutong.app.ParamsHelper;
+import com.unicorn.sxshenwutong.app.ParamsInitializer;
 import com.unicorn.sxshenwutong.app.Response;
 
 import org.json.JSONException;
@@ -80,12 +80,12 @@ public class HomeFra extends BaseFra {
     }
 
     @Inject
-    ParamsHelper paramsHelper;
+    ParamsInitializer paramsInitializer;
 
     private void s2() {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
-        paramsHelper.initParams(params, "getMaindata", parameters);
+        paramsInitializer.initParams(params, "getMaindata", parameters);
 
 //        Retrofit retrofit = new RetrofitProvider().provide();
 //        LoginService loginService = retrofit.create(LoginService.class);
