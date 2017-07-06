@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.login;
+package com.unicorn.sxshenwutong.login.ui;
 
 import android.content.Context;
 import android.graphics.Color;

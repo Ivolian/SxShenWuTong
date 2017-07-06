@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CourtAct"/>
+        <activity android:name=".court.CourtAct"/>
         <activity android:name=".userType.UserTypeAct"/>
         <activity android:name=".main.MainAct"/>
         <activity android:name=".ListAct"/>

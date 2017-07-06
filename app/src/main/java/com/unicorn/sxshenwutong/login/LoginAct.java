@@ -16,14 +16,13 @@ import com.google.gson.Gson;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
-import com.unicorn.sxshenwutong.CourtAct;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.User;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.Court;
-import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.court.CourtAct;
 import com.unicorn.sxshenwutong.login.data.LoginResponse;
 import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
@@ -38,11 +37,6 @@ public class LoginAct extends BaseAct {
     @Override
     protected boolean useRxBus() {
         return true;
-    }
-
-    @Override
-    protected void inject() {
-        AppComponentProvider.provide().inject(this);
     }
 
     @Override
@@ -151,6 +145,7 @@ public class LoginAct extends BaseAct {
                             User user = loginResponse.getUser();
                             Global.setUser(user);
                             String userType = user.getUsertype();
+                            // 若未设置身份，则设置身份
                             if (userType == null || userType.equals("")) {
                                 Intent intent = new Intent(this, UserTypeAct.class);
                                 intent.putExtra("toMain", true);

@@ -18,24 +18,24 @@ import butterknife.ButterKnife;
 import me.yokeyword.indexablerv.IndexableAdapter;
 
 @App
-public class CourtAdapter2 extends IndexableAdapter<Court> {
+public class CourtAdapter extends IndexableAdapter<Court> {
 
     private final LayoutInflater layoutInflater;
 
     @Inject
-    public CourtAdapter2(Context context) {
+    public CourtAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateTitleViewHolder(ViewGroup parent) {
-        View view = layoutInflater.inflate(R.layout.index_airport, parent, false);
+        View view = layoutInflater.inflate(R.layout.index_court, parent, false);
         return new IndexViewHolder(view);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateContentViewHolder(ViewGroup parent) {
-        View view = layoutInflater.inflate(R.layout.item_airport, parent, false);
+        View view = layoutInflater.inflate(R.layout.item_court, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -48,7 +48,7 @@ public class CourtAdapter2 extends IndexableAdapter<Court> {
     @Override
     public void onBindContentViewHolder(RecyclerView.ViewHolder holder, Court court) {
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-        itemViewHolder.tvAirportName.setText(court.getDmms());
+        itemViewHolder.tvCourtName.setText(court.getDmms());
     }
 
     public class IndexViewHolder extends RecyclerView.ViewHolder {
@@ -65,8 +65,8 @@ public class CourtAdapter2 extends IndexableAdapter<Court> {
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.tvAirport)
-        TextView tvAirportName;
+        @BindView(R.id.tvCourtName)
+        TextView tvCourtName;
 
         public ItemViewHolder(View itemView) {
             super(itemView);

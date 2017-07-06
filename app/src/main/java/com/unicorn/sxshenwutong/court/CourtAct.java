@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.court;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -13,11 +13,11 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.Logger;
+import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.code.CodeHelper;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
-import com.unicorn.sxshenwutong.court.Court;
-import com.unicorn.sxshenwutong.court.data.CourtAdapter2;
+import com.unicorn.sxshenwutong.court.data.CourtAdapter;
 import com.unicorn.sxshenwutong.court.data.CourtService;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.general.Params;
@@ -65,7 +65,7 @@ public class CourtAct extends BaseAct {
     IndexableLayout indexableLayout;
 
     @Inject
-    CourtAdapter2 courtAdapter;
+    CourtAdapter courtAdapter;
 
     @Inject
     CodeHelper codeHelper;
