@@ -14,7 +14,6 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.base.Global;
-import com.unicorn.sxshenwutong.code.Code;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.general.Params;
 import com.unicorn.sxshenwutong.general.ParamsHelper;
@@ -24,9 +23,7 @@ import com.unicorn.sxshenwutong.main.MainAct;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -63,7 +60,7 @@ public class UserTypeAct extends BaseAct {
     private void s() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(userTypeAdapter);
-        userTypeAdapter.setNewData(tt());
+        userTypeAdapter.setNewData(Global.getUserTypes());
         RxView.clicks(btnConfirm).throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(new Action1<Void>() {
                     @Override
@@ -161,18 +158,6 @@ public class UserTypeAct extends BaseAct {
 
     @BindView(R.id.btnConfirm)
     Button btnConfirm;
-
-    private List<UserType> tt() {
-        List<UserType> userTypes = new ArrayList<>();
-        for (Code code : Global.getCodes()) {
-            UserType userType = new UserType();
-            userType.setDm(code.getDm());
-            userType.setDmms(code.getDmms());
-            userType.setChecked(code.getDm().equals(Global.getUser().getUsertype()));
-            userTypes.add(userType);
-        }
-        return userTypes;
-    }
 
 
 }

@@ -1,10 +1,9 @@
 package com.unicorn.sxshenwutong.login;
 
-import com.google.gson.internal.LinkedTreeMap;
+import com.unicorn.sxshenwutong.Callback;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.general.Params;
 import com.unicorn.sxshenwutong.general.ParamsHelper;
-import com.unicorn.sxshenwutong.general.Response;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,9 +18,9 @@ public class LoginHelper {
     private String fydm;
     private String loginName;
     private String pwd;
-    private LoginCallback callback;
+    private Callback callback;
 
-    public LoginHelper(String fydm, String loginName, String pwd,LoginCallback callback) {
+    public LoginHelper(String fydm, String loginName, String pwd, Callback callback) {
         this.fydm = fydm;
         this.loginName = loginName;
         this.pwd = pwd;
@@ -32,7 +31,7 @@ public class LoginHelper {
     @Inject
     ParamsHelper paramsHelper;
 
-    private Params createLoginParams() {
+    private Params createParams() {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("fydm", fydm);
@@ -46,15 +45,11 @@ public class LoginHelper {
     LoginService loginService;
 
     public void login() {
-        Params loginParams = createLoginParams();
+        Params loginParams = createParams();
         loginService.login(loginParams.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> callback.onSuccess(response));
-    }
-
-    public interface LoginCallback {
-        void onSuccess(Response<LinkedTreeMap<String, String>> response);
     }
 
 }

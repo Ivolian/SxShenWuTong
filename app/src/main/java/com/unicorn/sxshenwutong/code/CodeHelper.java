@@ -1,90 +1,51 @@
 package com.unicorn.sxshenwutong.code;
 
-import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
-import com.orhanobut.logger.Logger;
+import com.unicorn.sxshenwutong.Callback;
+import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.general.Params;
 import com.unicorn.sxshenwutong.general.ParamsHelper;
-import com.unicorn.sxshenwutong.general.Response;
-import com.unicorn.sxshenwutong.base.Global;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.unicorn.sxshenwutong.login.LoginService;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 
-@com.unicorn.sxshenwutong.dagger.App
 public class CodeHelper {
 
-    private ParamsHelper paramsHelper;
-    private CodeService codeService;
+    private String bxh;
+    private Callback callback;
+
+    public CodeHelper(String bxh, Callback callback) {
+        this.bxh = bxh;
+        this.callback = callback;
+        AppComponentProvider.provide().inject(this);
+    }
 
     @Inject
-    public CodeHelper(ParamsHelper paramsHelper, CodeService codeService) {
-        this.paramsHelper = paramsHelper;
-        this.codeService = codeService;
-    }
+    ParamsHelper paramsHelper;
 
-    public void s() {
+    private Params createParams() {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("bxh", "900001");
+        parameters.put("bxh", bxh);
         paramsHelper.initParams(params, "getBm", parameters);
-        codeService
-                .getCode(params.toString())
+        return params;
+    }
+
+    @Inject
+    LoginService loginService;
+
+    public void getCode() {
+        Params params = createParams();
+        loginService.login(params.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response>() {
-                    @Override
-                    public void onCompleted() {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.d("");
-                    }
-
-                    @Override
-                    public void onNext(Response o) {
-                     copeResponse(o);
-                    }
-                });
+                .subscribe(response -> callback.onSuccess(response));
     }
 
-
-
-
-    private void copeResponse(Response response) {
-        if (response.getCode().equals("000000")) {
-            LinkedTreeMap<String, String> parameters = (LinkedTreeMap<String, String>) response.getParameters();
-            String ydbaKey = parameters.get("ydbaKey");
-            try {
-                JSONObject jsonObject = new JSONObject(ydbaKey);
-                String str = jsonObject.getJSONArray("bmlist").toString();
-                List<Code> codes = new Gson().fromJson(str,
-                        new TypeToken<List<Code>>() {
-                        }.getType());
-                Global.setCodes(codes);
-                Logger.d("");
-//                for (Court court : courts) {
-//                    court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
-//                }
-//                courtAdapter.setDatas(courts);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
 }

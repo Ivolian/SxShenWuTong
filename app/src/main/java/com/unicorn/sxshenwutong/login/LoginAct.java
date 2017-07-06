@@ -17,16 +17,21 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.User;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.base.Global;
+import com.unicorn.sxshenwutong.code.Code;
+import com.unicorn.sxshenwutong.code.CodeHelper;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
+import com.unicorn.sxshenwutong.court.CodeResponse;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.court.CourtAct;
 import com.unicorn.sxshenwutong.login.data.LoginResponse;
 import com.unicorn.sxshenwutong.main.MainAct;
+import com.unicorn.sxshenwutong.userType.UserType;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindColor;
@@ -115,7 +120,7 @@ public class LoginAct extends BaseAct {
 
     private void clickLogin() {
         RxView.clicks(findViewById(R.id.btnLogin))
-                .throttleFirst(1, TimeUnit.SECONDS)
+                .throttleFirst(2, TimeUnit.SECONDS)
                 .subscribe(aVoid -> login());
     }
 
@@ -142,24 +147,51 @@ public class LoginAct extends BaseAct {
                         LoginResponse loginResponse = new Gson().fromJson(response.getParameters().get("ydbaKey"), LoginResponse.class);
                         if (loginResponse.isSuccess()) {
                             Global.setTicket(loginResponse.getTicket());
-                            User user = loginResponse.getUser();
-                            Global.setUser(user);
-                            String userType = user.getUsertype();
-                            // 若未设置身份，则设置身份
-                            if (userType == null || userType.equals("")) {
-                                Intent intent = new Intent(this, UserTypeAct.class);
-                                intent.putExtra("toMain", true);
-                                startActivity(intent);
-                            } else {
-                                startActivity(new Intent(this, MainAct.class));
-                            }
-                            finish();
+                            Global.setUser(loginResponse.getUser());
+                            getUserTypes();
                         } else {
                             ToastUtils.showShort("用户名或密码错误");
                         }
                     }
                 }
         ).login();
+    }
+
+
+    // ===================== getUserTypes =====================
+
+    private void getUserTypes() {
+        new CodeHelper("900001", response -> {
+            if (response.getCode().equals("000000")) {
+                CodeResponse codeResponse = new Gson().fromJson(response.getParameters().get("ydbaKey"), CodeResponse.class);
+                saveUserTypes(codeResponse);
+                String userType = Global.getUser().getUsertype();
+                if (userType == null || userType.equals("")) {
+                    Intent intent = new Intent(this, UserTypeAct.class);
+                    intent.putExtra("toMain", true);
+                    startActivity(intent);
+                } else {
+                    startActivity(new Intent(this, MainAct.class));
+                }
+                finish();
+            }
+        }).getCode();
+    }
+
+    private void saveUserTypes(CodeResponse codeResponse) {
+        String userTypeDm = Global.getUser().getUsertype();
+        if (userTypeDm != null) {
+            List<UserType> userTypes = new ArrayList<>();
+            for (Code code : codeResponse.getBmlist()) {
+                UserType userType = new UserType();
+                userType.setDm(code.getDm());
+                userType.setDmms(code.getDmms());
+                userType.setChecked(userTypeDm.equals(code.getDm()));
+                userTypes.add(userType);
+            }
+            Global.setUserTypes(userTypes);
+        }
+
     }
 
 

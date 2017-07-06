@@ -5,7 +5,6 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.TypedValue;
-import android.view.View;
 
 import com.github.promeg.pinyinhelper.Pinyin;
 import com.google.gson.Gson;
@@ -15,7 +14,6 @@ import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.base.BaseAct;
-import com.unicorn.sxshenwutong.code.CodeHelper;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.data.CourtAdapter;
 import com.unicorn.sxshenwutong.court.data.CourtService;
@@ -35,7 +33,6 @@ import javax.inject.Inject;
 
 import butterknife.BindColor;
 import butterknife.BindView;
-import me.yokeyword.indexablerv.IndexableAdapter;
 import me.yokeyword.indexablerv.IndexableLayout;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -67,8 +64,8 @@ public class CourtAct extends BaseAct {
     @Inject
     CourtAdapter courtAdapter;
 
-    @Inject
-    CodeHelper codeHelper;
+//    @Inject
+//    CodeHelper codeHelper;
 
     private void initRv() {
 
@@ -79,7 +76,7 @@ public class CourtAct extends BaseAct {
         addItemDecoration();
         setOnItemContentClickListener();
 
-codeHelper.s();
+//codeHelper.getCode();
         // 获取法院
         getCourt();
     }
@@ -115,13 +112,10 @@ codeHelper.s();
      * setOnItemContentClickListener.
      */
     private void setOnItemContentClickListener() {
-        courtAdapter.setOnItemContentClickListener(new IndexableAdapter.OnItemContentClickListener<Court>() {
-            @Override
-            public void onItemClick(View view, int originalPosition, int i1, Court court) {
-                if (originalPosition >= 0) {
-                    RxBus.get().post(RxBusTag.SELECT_COURT, court);
-                    finish();
-                }
+        courtAdapter.setOnItemContentClickListener((view, originalPosition, i1, court) -> {
+            if (originalPosition >= 0) {
+                RxBus.get().post(RxBusTag.SELECT_COURT, court);
+                finish();
             }
         });
     }
