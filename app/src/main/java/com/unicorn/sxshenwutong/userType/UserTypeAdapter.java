@@ -36,7 +36,7 @@ public class UserTypeAdapter extends BaseQuickAdapter<UserType, BaseViewHolder> 
             }
         });
 
-        viewHolder.setText(R.id.tvUserTypeName, userType.getDmms());
+        viewHolder.setText(R.id.tvUserTypeName, userType.getCode().getDmms());
 
         ImageView ivCheck = viewHolder.getView(R.id.ivCheck);
         Glide.with(mContext).load(userType.isChecked() ? R.drawable.sfsz_form2 : R.drawable.sfsz_form1)

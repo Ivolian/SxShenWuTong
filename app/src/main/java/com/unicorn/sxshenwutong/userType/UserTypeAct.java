@@ -12,16 +12,19 @@ import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.RetrofitProvider;
 import com.unicorn.sxshenwutong.app.Global;
-import com.unicorn.sxshenwutong.base.BaseAct;
-import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.app.Params;
 import com.unicorn.sxshenwutong.app.ParamsHelper;
 import com.unicorn.sxshenwutong.app.Response;
+import com.unicorn.sxshenwutong.base.BaseAct;
+import com.unicorn.sxshenwutong.code.Code;
+import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -31,7 +34,6 @@ import butterknife.BindView;
 import pocketknife.BindExtra;
 import pocketknife.NotRequired;
 import retrofit2.Retrofit;
-import rx.functions.Action1;
 
 public class UserTypeAct extends BaseAct {
     @Override
@@ -58,14 +60,21 @@ public class UserTypeAct extends BaseAct {
     private void s() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(userTypeAdapter);
-        userTypeAdapter.setNewData(Global.getUserTypes());
+        userTypeAdapter.setNewData(tt());
         RxView.clicks(btnConfirm).throttleFirst(1, TimeUnit.SECONDS)
-                .subscribe(new Action1<Void>() {
-                    @Override
-                    public void call(Void aVoid) {
-                        setUserType();
-                    }
-                });
+                .subscribe(aVoid -> setUserType());
+    }
+
+    private List<UserType> tt(){
+        String dmUserType = Global.getLoginResponse().getUser().getUsertype();
+            List<UserType> userTypes = new ArrayList<>();
+            for (Code code : Global.getUserTypeCodes()) {
+                UserType userType = new UserType();
+                userType.setCode(code);
+                userType.setChecked(code.getDm().equals(dmUserType));
+                userTypes.add(userType);
+            }
+            return userTypes;
     }
 
 
@@ -76,11 +85,9 @@ public class UserTypeAct extends BaseAct {
 
     private void setUserType() {
         userType = null;
-        for (UserType o : userTypeAdapter.getData()) {
-            if (o.isChecked()) {
-                userType = o;
-            }
-        }
+        userTypeAdapter.getData().stream().filter(UserType::isChecked).forEach(o -> {
+            userType = o;
+        });
 
         if (userType == null) {
             ToastUtils.showShort("请选择身份");
@@ -96,7 +103,7 @@ public class UserTypeAct extends BaseAct {
     private void s(UserType userType) {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("usertype", userType.getDm());
+        parameters.put("usertype", userType.getCode().getDm());
         paramsHelper.initParams(params, "setUserType", parameters);
 
         Retrofit retrofit = new RetrofitProvider().provide();

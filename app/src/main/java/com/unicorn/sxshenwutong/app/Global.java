@@ -1,14 +1,14 @@
 package com.unicorn.sxshenwutong.app;
 
+import com.unicorn.sxshenwutong.code.Code;
 import com.unicorn.sxshenwutong.login.data.LoginResponse;
-import com.unicorn.sxshenwutong.userType.UserType;
 
 import java.util.List;
 
 public class Global {
 
     private static LoginResponse loginResponse;
-    private static List<UserType> userTypes;
+    private static List<Code> userTypeCodes;
 
     //
 
@@ -20,13 +20,12 @@ public class Global {
         Global.loginResponse = loginResponse;
     }
 
-    public static List<UserType> getUserTypes() {
-        return userTypes;
+    public static List<Code> getUserTypeCodes() {
+        return userTypeCodes;
     }
 
-    public static void setUserTypes(List<UserType> userTypes) {
-        Global.userTypes = userTypes;
+    public static void setUserTypeCodes(List<Code> userTypeCodes) {
+        Global.userTypeCodes = userTypeCodes;
     }
-
 
 }

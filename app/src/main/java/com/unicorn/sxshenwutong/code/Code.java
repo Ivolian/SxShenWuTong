@@ -21,8 +21,4 @@ public class Code {
         this.dmms = dmms;
     }
 
-    public boolean equals(Code code) {
-        return this.dm.equals(code.dm);
-    }
-
 }
