@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.general;
+package com.unicorn.sxshenwutong.app;
 
 public class Response<T> {
 

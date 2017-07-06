@@ -1,7 +1,7 @@
 package com.unicorn.sxshenwutong;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.general.Response;
+import com.unicorn.sxshenwutong.app.Response;
 
 public interface Callback {
 

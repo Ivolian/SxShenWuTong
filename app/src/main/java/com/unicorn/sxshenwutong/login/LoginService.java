@@ -1,7 +1,7 @@
 package com.unicorn.sxshenwutong.login;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.general.Response;
+import com.unicorn.sxshenwutong.app.Response;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

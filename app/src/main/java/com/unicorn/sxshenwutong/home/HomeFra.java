@@ -9,9 +9,9 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.base.BaseFra;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.general.Params;
-import com.unicorn.sxshenwutong.general.ParamsHelper;
-import com.unicorn.sxshenwutong.general.Response;
+import com.unicorn.sxshenwutong.app.Params;
+import com.unicorn.sxshenwutong.app.ParamsHelper;
+import com.unicorn.sxshenwutong.app.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;

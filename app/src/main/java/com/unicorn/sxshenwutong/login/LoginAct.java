@@ -18,7 +18,7 @@ import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.base.BaseAct;
-import com.unicorn.sxshenwutong.base.Global;
+import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.code.Code;
 import com.unicorn.sxshenwutong.code.CodeHelper;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
@@ -124,7 +124,6 @@ public class LoginAct extends BaseAct {
                 .subscribe(aVoid -> login());
     }
 
-
     private void login() {
         if (court == null) {
             ToastUtils.showShort("请选择法院");
@@ -146,8 +145,7 @@ public class LoginAct extends BaseAct {
                     if (response.getCode().equals("000000")) {
                         LoginResponse loginResponse = new Gson().fromJson(response.getParameters().get("ydbaKey"), LoginResponse.class);
                         if (loginResponse.isSuccess()) {
-                            Global.setTicket(loginResponse.getTicket());
-                            Global.setUser(loginResponse.getUser());
+                            Global.setLoginResponse(loginResponse);
                             getUserTypes();
                         } else {
                             ToastUtils.showShort("用户名或密码错误");
@@ -165,7 +163,7 @@ public class LoginAct extends BaseAct {
             if (response.getCode().equals("000000")) {
                 CodeResponse codeResponse = new Gson().fromJson(response.getParameters().get("ydbaKey"), CodeResponse.class);
                 saveUserTypes(codeResponse);
-                String userType = Global.getUser().getUsertype();
+                String userType = Global.getLoginResponse().getUser().getUsertype();
                 if (userType == null || userType.equals("")) {
                     Intent intent = new Intent(this, UserTypeAct.class);
                     intent.putExtra("toMain", true);
@@ -179,14 +177,15 @@ public class LoginAct extends BaseAct {
     }
 
     private void saveUserTypes(CodeResponse codeResponse) {
-        String userTypeDm = Global.getUser().getUsertype();
-        if (userTypeDm != null) {
+        String dmUserType = Global.getLoginResponse().getUser().getUsertype();
+        if (dmUserType != null) {
             List<UserType> userTypes = new ArrayList<>();
             for (Code code : codeResponse.getBmlist()) {
                 UserType userType = new UserType();
-                userType.setDm(code.getDm());
+                String dm = code.getDm();
+                userType.setDm(dm);
                 userType.setDmms(code.getDmms());
-                userType.setChecked(userTypeDm.equals(code.getDm()));
+                userType.setChecked(dm.equals(dmUserType));
                 userTypes.add(userType);
             }
             Global.setUserTypes(userTypes);

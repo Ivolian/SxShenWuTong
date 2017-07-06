@@ -2,8 +2,8 @@ package com.unicorn.sxshenwutong.code;
 
 import com.unicorn.sxshenwutong.Callback;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.general.Params;
-import com.unicorn.sxshenwutong.general.ParamsHelper;
+import com.unicorn.sxshenwutong.app.Params;
+import com.unicorn.sxshenwutong.app.ParamsHelper;
 import com.unicorn.sxshenwutong.login.LoginService;
 
 import java.util.HashMap;

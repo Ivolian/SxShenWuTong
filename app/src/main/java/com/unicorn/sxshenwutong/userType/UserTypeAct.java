@@ -1,6 +1,5 @@
 package com.unicorn.sxshenwutong.userType;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,13 +11,12 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.RetrofitProvider;
+import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.base.BaseAct;
-import com.unicorn.sxshenwutong.base.Global;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.general.Params;
-import com.unicorn.sxshenwutong.general.ParamsHelper;
-import com.unicorn.sxshenwutong.general.Response;
-import com.unicorn.sxshenwutong.main.MainAct;
+import com.unicorn.sxshenwutong.app.Params;
+import com.unicorn.sxshenwutong.app.ParamsHelper;
+import com.unicorn.sxshenwutong.app.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -134,11 +132,11 @@ public class UserTypeAct extends BaseAct {
                 JSONObject jsonObject = new JSONObject(ydbaKey);
                 boolean success = jsonObject.getBoolean("success");
                 if (success) {
-                    Global.getUser().setUsertype(userType.getDm());
-                    if (toMain) {
-                        startActivity(new Intent(this, MainAct.class));
-                    }
-                    finish();
+//                    Global.getUser().setUsertype(userType.getDm());
+//                    if (toMain) {
+//                        startActivity(new Intent(this, MainAct.class));
+//                    }
+//                    finish();
                 } else {
                     ToastUtils.showShort("的额");
 

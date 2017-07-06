@@ -29,15 +29,6 @@ public class App extends Application {
         AppComponentProvider.init(this);
     }
 
-    //
-//    private void initFragmentation() {
-//        Fragmentation.builder()
-//                .stackViewMode(Fragmentation.BUBBLE)
-//                .debug(BuildConfig.DEBUG)
-//                .install();
-//    }
-//
-
     public static String baseDir() {
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + "/SXSHENWUTONG";
         FileUtils.createOrExistsDir(path);

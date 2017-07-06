@@ -10,7 +10,7 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.User;
 import com.unicorn.sxshenwutong.base.BaseFra;
-import com.unicorn.sxshenwutong.base.Global;
+import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
 import java.util.concurrent.TimeUnit;
@@ -29,7 +29,7 @@ public class ProfileFra extends BaseFra {
     @Override
     protected void init(View rootView) {
         clickSetting();
-        renderUser(Global.getUser());
+        renderUser(Global.getLoginResponse().getUser());
     }
 
 

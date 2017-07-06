@@ -1,6 +1,4 @@
-package com.unicorn.sxshenwutong.general;
-
-import com.unicorn.sxshenwutong.base.Global;
+package com.unicorn.sxshenwutong.app;
 
 import org.joda.time.DateTime;
 
@@ -21,8 +19,8 @@ public class ParamsHelper {
     public void initParams(Params params, String busiCode, Map<String, Object> parameters) {
         params.setBusiCode(busiCode);
         params.setThirdFlow(UUID.randomUUID().toString());
-        if (Global.getTicket() != null) {
-            params.setTicket(Global.getTicket());
+        if (Global.getLoginResponse().getTicket() != null) {
+            params.setTicket(Global.getLoginResponse().getTicket());
         }
         params.setLoginName("");
         params.setRandCode(Md5Main.getRandom());
