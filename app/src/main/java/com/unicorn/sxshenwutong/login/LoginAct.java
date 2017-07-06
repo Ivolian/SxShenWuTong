@@ -34,6 +34,10 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindColor;
 import butterknife.BindView;
 
+import static com.unicorn.sxshenwutong.constant.Key.SUCCESS_CODE;
+import static com.unicorn.sxshenwutong.constant.Key.USER_TYPE_CODE;
+import static com.unicorn.sxshenwutong.constant.Key.YDBAKEY;
+
 public class LoginAct extends BaseAct {
 
     @Override
@@ -139,8 +143,8 @@ public class LoginAct extends BaseAct {
                 etLoginName.getText().toString().trim(),
                 etPwd.getText().toString().trim(),
                 response -> {
-                    if (response.getCode().equals("000000")) {
-                        LoginResponse loginResponse = new Gson().fromJson(response.getParameters().get("ydbaKey"), LoginResponse.class);
+                    if (response.getCode().equals(SUCCESS_CODE)) {
+                        LoginResponse loginResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), LoginResponse.class);
                         if (loginResponse.isSuccess()) {
                             Global.setLoginResponse(loginResponse);
                             getUserTypes();
@@ -156,9 +160,9 @@ public class LoginAct extends BaseAct {
     // ===================== getUserTypeCodes =====================
 
     private void getUserTypes() {
-        new CodeHelper("900001", response -> {
-            if (response.getCode().equals(Key.SUCCESS_CODE)) {
-                CodeResponse codeResponse = new Gson().fromJson(response.getParameters().get("ydbaKey"), CodeResponse.class);
+        new CodeHelper(USER_TYPE_CODE, response -> {
+            if (response.getCode().equals(SUCCESS_CODE)) {
+                CodeResponse codeResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), CodeResponse.class);
                 Global.setUserTypeCodes(codeResponse.getBmlist());
                 String userType = Global.getLoginResponse().getUser().getUsertype();
                 if (userType == null || userType.equals("")) {

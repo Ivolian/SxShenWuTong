@@ -3,10 +3,9 @@ package com.unicorn.sxshenwutong.dagger;
 import android.app.Application;
 import android.content.Context;
 
+import com.unicorn.sxshenwutong.app.GeneralService;
 import com.unicorn.sxshenwutong.app.RetrofitProvider;
-import com.unicorn.sxshenwutong.code.CodeService;
 import com.unicorn.sxshenwutong.court.data.CourtService;
-import com.unicorn.sxshenwutong.login.LoginService;
 
 import dagger.Module;
 import dagger.Provides;
@@ -36,21 +35,14 @@ public class AppModule {
 
     @App
     @Provides
-    LoginService provideLoginService(Retrofit retrofit) {
-        return retrofit.create(LoginService.class);
+    GeneralService provideGeneralService(Retrofit retrofit) {
+        return retrofit.create(GeneralService.class);
     }
-
 
     @App
     @Provides
     CourtService provideCourtService(Retrofit retrofit) {
         return retrofit.create(CourtService.class);
-    }
-
-    @App
-    @Provides
-    CodeService provideCodeService(Retrofit retrofit) {
-        return retrofit.create(CodeService.class);
     }
 
 }

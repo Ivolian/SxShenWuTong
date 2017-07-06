@@ -109,7 +109,7 @@ public class UserTypeAct extends BaseAct {
         Retrofit retrofit = new RetrofitProvider().provide();
 //        LoginService loginService = retrofit.create(LoginService.class);
 //        loginService
-//                .login(params.toString())
+//                .get(params.toString())
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(new Subscriber<Response>() {

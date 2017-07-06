@@ -1,6 +1,7 @@
 package com.unicorn.sxshenwutong.login;
 
 import com.unicorn.sxshenwutong.app.Callback;
+import com.unicorn.sxshenwutong.app.GeneralService;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.app.Params;
 import com.unicorn.sxshenwutong.app.ParamsHelper;
@@ -42,11 +43,11 @@ public class LoginHelper {
     }
 
     @Inject
-    LoginService loginService;
+    GeneralService generalService;
 
     public void login() {
-        Params loginParams = createParams();
-        loginService.login(loginParams.toString())
+        Params params = createParams();
+        generalService.get(params.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> callback.onSuccess(response));

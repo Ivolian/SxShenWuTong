@@ -1,10 +1,10 @@
 package com.unicorn.sxshenwutong.code;
 
 import com.unicorn.sxshenwutong.app.Callback;
+import com.unicorn.sxshenwutong.app.GeneralService;
 import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.app.Params;
 import com.unicorn.sxshenwutong.app.ParamsHelper;
-import com.unicorn.sxshenwutong.login.LoginService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,11 +38,11 @@ public class CodeHelper {
     }
 
     @Inject
-    LoginService loginService;
+    GeneralService generalService;
 
     public void getCode() {
         Params params = createParams();
-        loginService.login(params.toString())
+        generalService.get(params.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> callback.onSuccess(response));
