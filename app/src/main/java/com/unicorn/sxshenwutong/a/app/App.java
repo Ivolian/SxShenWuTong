@@ -35,4 +35,8 @@ public class App extends Application {
         return path;
     }
 
+    public static String baseUrl(){
+        return "http://1.85.16.50:8081/ydba/";
+    }
+
 }

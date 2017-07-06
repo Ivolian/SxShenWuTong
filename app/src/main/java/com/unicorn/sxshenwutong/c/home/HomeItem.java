@@ -6,10 +6,12 @@ public class HomeItem {
 
     private String text;
     private @DrawableRes int drawableRes;
+    private int count;
 
-    public HomeItem(String text, int drawableRes) {
+    public HomeItem(String text, int drawableRes, int count) {
         this.text = text;
         this.drawableRes = drawableRes;
+        this.count = count;
     }
 
     public String getText() {
@@ -27,4 +29,13 @@ public class HomeItem {
     public void setDrawableRes(int drawableRes) {
         this.drawableRes = drawableRes;
     }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
 }

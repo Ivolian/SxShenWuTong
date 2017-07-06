@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
-import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import butterknife.BindView;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
@@ -16,11 +15,6 @@ import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView;
 
 public class MainAct extends BaseAct {
-
-    @Override
-    protected void inject() {
-        AppComponentProvider.provide().inject(this);
-    }
 
     @Override
     protected int layoutResId() {

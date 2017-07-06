@@ -95,4 +95,5 @@ public class Model {
     public void setDyyg(String dyyg) {
         this.dyyg = dyyg;
     }
+
 }

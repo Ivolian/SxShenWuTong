@@ -15,7 +15,9 @@ public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder viewHolder, final HomeItem homeItem) {
-        viewHolder.setText(R.id.tvText, homeItem.getText());
+        String text = homeItem.getText() +
+                (homeItem.getCount() == -1 ? "" : "(" + homeItem.getCount() + ")");
+        viewHolder.setText(R.id.tvText, text);
         viewHolder.setImageResource(R.id.ivImage, homeItem.getDrawableRes());
 
         viewHolder.getView(R.id.ivImage).setOnClickListener(v -> {

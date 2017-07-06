@@ -14,13 +14,11 @@ public class RetrofitProvider {
     public RetrofitProvider() {
     }
 
-    private String baseUrl = "http://1.85.16.50:8081/ydba/";
-
     public Retrofit provide() {
         OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
         return new Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl(baseUrl)
+                .baseUrl(App.baseUrl())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
