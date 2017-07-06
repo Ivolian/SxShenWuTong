@@ -23,9 +23,6 @@ import butterknife.BindColor;
 import butterknife.BindView;
 import me.yokeyword.indexablerv.IndexableLayout;
 
-import static com.unicorn.sxshenwutong.constant.Key.SUCCESS_CODE;
-import static com.unicorn.sxshenwutong.constant.Key.YDBAKEY;
-
 public class CourtAct extends BaseAct {
 
     @Override
@@ -105,14 +102,13 @@ public class CourtAct extends BaseAct {
     // ===================== getCourts =====================
 
     private void getCourts() {
-        new CourtFetcher(response -> {
-            if (response.getCode().equals(SUCCESS_CODE)) {
-                CourtResponse courtResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), CourtResponse.class);
-                for (Court court : courtResponse.getFylist()) {
-                    court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
-                }
-                courtAdapter.setDatas(courtResponse.getFylist());
+        new CourtFetcher(ydbaKey -> {
+            CourtResponse courtResponse = new Gson().fromJson(ydbaKey, CourtResponse.class);
+            for (Court court : courtResponse.getFylist()) {
+                court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
             }
+            courtAdapter.setDatas(courtResponse.getFylist());
+
         }).start();
     }
 

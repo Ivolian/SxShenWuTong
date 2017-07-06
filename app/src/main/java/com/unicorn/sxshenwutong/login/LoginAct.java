@@ -20,11 +20,11 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.base.BaseAct;
 import com.unicorn.sxshenwutong.code.CodeFetcher;
+import com.unicorn.sxshenwutong.code.CodeResponse;
 import com.unicorn.sxshenwutong.constant.Key;
 import com.unicorn.sxshenwutong.constant.RxBusTag;
-import com.unicorn.sxshenwutong.code.CodeResponse;
-import com.unicorn.sxshenwutong.court.entity.Court;
 import com.unicorn.sxshenwutong.court.CourtAct;
+import com.unicorn.sxshenwutong.court.entity.Court;
 import com.unicorn.sxshenwutong.login.entity.LoginResponse;
 import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
@@ -34,9 +34,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindColor;
 import butterknife.BindView;
 
-import static com.unicorn.sxshenwutong.constant.Key.SUCCESS_CODE;
 import static com.unicorn.sxshenwutong.constant.Key.USER_TYPE_CODE;
-import static com.unicorn.sxshenwutong.constant.Key.YDBAKEY;
 
 public class LoginAct extends BaseAct {
 
@@ -143,15 +141,14 @@ public class LoginAct extends BaseAct {
                 etLoginName.getText().toString().trim(),
                 etPwd.getText().toString().trim(),
                 response -> {
-                    if (response.getCode().equals(SUCCESS_CODE)) {
-                        LoginResponse loginResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), LoginResponse.class);
-                        if (loginResponse.isSuccess()) {
-                            Global.setLoginResponse(loginResponse);
-                            getUserTypeCodes();
-                        } else {
-                            ToastUtils.showShort("用户名或密码错误");
-                        }
+                    LoginResponse loginResponse = new Gson().fromJson(response, LoginResponse.class);
+                    if (loginResponse.isSuccess()) {
+                        Global.setLoginResponse(loginResponse);
+                        getUserTypeCodes();
+                    } else {
+                        ToastUtils.showShort("用户名或密码错误");
                     }
+
                 }
         ).start();
     }
@@ -161,19 +158,18 @@ public class LoginAct extends BaseAct {
 
     private void getUserTypeCodes() {
         new CodeFetcher(USER_TYPE_CODE, response -> {
-            if (response.getCode().equals(SUCCESS_CODE)) {
-                CodeResponse codeResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), CodeResponse.class);
-                Global.setUserTypeCodes(codeResponse.getBmlist());
-                String userType = Global.getLoginResponse().getUser().getUsertype();
-                if (userType == null || userType.equals("")) {
-                    Intent intent = new Intent(this, UserTypeAct.class);
-                    intent.putExtra(Key.TO_MAIN, true);
-                    startActivity(intent);
-                } else {
-                    startActivity(new Intent(this, MainAct.class));
-                }
-                finish();
+            CodeResponse codeResponse = new Gson().fromJson(response, CodeResponse.class);
+            Global.setUserTypeCodes(codeResponse.getBmlist());
+            String userType = Global.getLoginResponse().getUser().getUsertype();
+            if (userType == null || userType.equals("")) {
+                Intent intent = new Intent(this, UserTypeAct.class);
+                intent.putExtra(Key.TO_MAIN, true);
+                startActivity(intent);
+            } else {
+                startActivity(new Intent(this, MainAct.class));
             }
+            finish();
+
         }).start();
     }
 

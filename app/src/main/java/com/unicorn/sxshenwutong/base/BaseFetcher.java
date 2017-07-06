@@ -13,7 +13,10 @@ import javax.inject.Inject;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public abstract class BaseFetcher {
+import static com.unicorn.sxshenwutong.constant.Key.SUCCESS_CODE;
+import static com.unicorn.sxshenwutong.constant.Key.YDBAKEY;
+
+public abstract class BaseFetcher<T> {
 
     abstract public void inject();
 
@@ -29,9 +32,9 @@ public abstract class BaseFetcher {
 
     protected abstract String busiCode();
 
-    protected Map<String,Object> parameters(){
+    protected Map<String, Object> parameters() {
         Map<String, Object> parameters = new HashMap<>();
-    return  parameters;
+        return parameters;
     }
 
     private Params createParams() {
@@ -48,7 +51,9 @@ public abstract class BaseFetcher {
         generalService.get(params.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> callback.onSuccess(response));
+                .filter(response -> response.getCode().equals(SUCCESS_CODE))
+                .map(response -> response.getParameters().get(YDBAKEY))
+                .subscribe(ydbaKey -> callback.onSuccess(ydbaKey));
     }
 
 }
