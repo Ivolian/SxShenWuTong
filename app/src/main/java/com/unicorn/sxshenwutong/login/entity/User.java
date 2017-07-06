@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.login.data;
+package com.unicorn.sxshenwutong.login.entity;
 
 public class User {
 

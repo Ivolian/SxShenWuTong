@@ -1,7 +1,7 @@
 package com.unicorn.sxshenwutong.app;
 
 import com.unicorn.sxshenwutong.code.Code;
-import com.unicorn.sxshenwutong.login.data.LoginResponse;
+import com.unicorn.sxshenwutong.login.entity.LoginResponse;
 
 import java.util.List;
 

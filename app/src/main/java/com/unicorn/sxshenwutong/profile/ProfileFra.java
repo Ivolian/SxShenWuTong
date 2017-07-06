@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.login.data.User;
+import com.unicorn.sxshenwutong.login.entity.User;
 import com.unicorn.sxshenwutong.base.BaseFra;
 import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;

@@ -25,7 +25,7 @@ import com.unicorn.sxshenwutong.constant.RxBusTag;
 import com.unicorn.sxshenwutong.court.CodeResponse;
 import com.unicorn.sxshenwutong.court.Court;
 import com.unicorn.sxshenwutong.court.CourtAct;
-import com.unicorn.sxshenwutong.login.data.LoginResponse;
+import com.unicorn.sxshenwutong.login.entity.LoginResponse;
 import com.unicorn.sxshenwutong.main.MainAct;
 import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
@@ -147,7 +147,7 @@ public class LoginAct extends BaseAct {
                         LoginResponse loginResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), LoginResponse.class);
                         if (loginResponse.isSuccess()) {
                             Global.setLoginResponse(loginResponse);
-                            getUserTypes();
+                            getUserTypeCodes();
                         } else {
                             ToastUtils.showShort("用户名或密码错误");
                         }
@@ -159,7 +159,7 @@ public class LoginAct extends BaseAct {
 
     // ===================== getUserTypeCodes =====================
 
-    private void getUserTypes() {
+    private void getUserTypeCodes() {
         new CodeHelper(USER_TYPE_CODE, response -> {
             if (response.getCode().equals(SUCCESS_CODE)) {
                 CodeResponse codeResponse = new Gson().fromJson(response.getParameters().get(YDBAKEY), CodeResponse.class);
