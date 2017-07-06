@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.A.code;
+package com.unicorn.sxshenwutong.B.userType;
 
 import com.unicorn.sxshenwutong.A.app.Callback;
 import com.unicorn.sxshenwutong.A.base.BaseFetcher;
@@ -7,14 +7,13 @@ import com.unicorn.sxshenwutong.A.dagger.AppComponentProvider;
 import java.util.HashMap;
 import java.util.Map;
 
+public class UserTypeFetcher extends BaseFetcher {
 
-public class CodeFetcher extends BaseFetcher {
+    private String userTypeDm;
 
-    private String bxh;
-
-    public CodeFetcher( String bxh,Callback callback) {
+    public UserTypeFetcher(String userTypeDm, Callback callback) {
         super(callback);
-        this.bxh = bxh;
+        this.userTypeDm = userTypeDm;
     }
 
     @Override
@@ -24,13 +23,13 @@ public class CodeFetcher extends BaseFetcher {
 
     @Override
     protected String busiCode() {
-        return "getBm";
+        return "setUserType";
     }
 
     @Override
     protected Map<String, Object> parameters() {
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("bxh", bxh);
+        parameters.put("usertype", userTypeDm);
         return parameters;
     }
 

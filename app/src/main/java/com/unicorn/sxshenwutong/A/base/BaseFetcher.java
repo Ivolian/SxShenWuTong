@@ -16,7 +16,7 @@ import rx.schedulers.Schedulers;
 import static com.unicorn.sxshenwutong.A.constant.Key.SUCCESS_CODE;
 import static com.unicorn.sxshenwutong.A.constant.Key.YDBAKEY;
 
-public abstract class BaseFetcher<T> {
+public abstract class BaseFetcher {
 
     abstract public void inject();
 

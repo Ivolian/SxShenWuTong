@@ -1,15 +1,15 @@
-package com.unicorn.sxshenwutong.dagger;
+package com.unicorn.sxshenwutong.A.dagger;
 
 import android.content.Context;
 
-import com.unicorn.sxshenwutong.ListAct;
 import com.unicorn.sxshenwutong.A.code.CodeFetcher;
 import com.unicorn.sxshenwutong.B.court.CourtAct;
 import com.unicorn.sxshenwutong.B.court.CourtFetcher;
-import com.unicorn.sxshenwutong.home.HomeFra;
 import com.unicorn.sxshenwutong.B.login.LoginFetcher;
+import com.unicorn.sxshenwutong.B.userType.UserTypeFetcher;
+import com.unicorn.sxshenwutong.ListAct;
+import com.unicorn.sxshenwutong.home.HomeFra;
 import com.unicorn.sxshenwutong.main.MainAct;
-import com.unicorn.sxshenwutong.userType.UserTypeAct;
 
 import dagger.Component;
 
@@ -23,8 +23,8 @@ public interface AppComponent {
     void inject(CodeFetcher o);
     void inject(CourtFetcher o);
     void inject(CourtAct o);
+    void inject(UserTypeFetcher o);
 
-    void inject(UserTypeAct o);
     void inject(MainAct o);
     void inject(HomeFra o);
     void inject(ListAct o);

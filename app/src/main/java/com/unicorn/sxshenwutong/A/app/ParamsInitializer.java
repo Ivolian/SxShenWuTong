@@ -11,7 +11,7 @@ import javax.inject.Inject;
 
 import cn.net.withub.common.util.sec.Md5Main;
 
-@com.unicorn.sxshenwutong.dagger.App
+@com.unicorn.sxshenwutong.A.dagger.App
 public class ParamsInitializer {
 
     @Inject

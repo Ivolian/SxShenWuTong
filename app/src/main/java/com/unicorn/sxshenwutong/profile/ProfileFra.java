@@ -11,7 +11,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.B.login.entity.User;
 import com.unicorn.sxshenwutong.A.base.BaseFra;
 import com.unicorn.sxshenwutong.A.app.Global;
-import com.unicorn.sxshenwutong.userType.UserTypeAct;
+import com.unicorn.sxshenwutong.B.userType.UserTypeAct;
 
 import java.util.concurrent.TimeUnit;
 

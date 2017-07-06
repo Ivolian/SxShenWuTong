@@ -14,7 +14,7 @@ import com.unicorn.sxshenwutong.A.base.BaseAct;
 import com.unicorn.sxshenwutong.A.constant.RxBusTag;
 import com.unicorn.sxshenwutong.B.court.entity.Court;
 import com.unicorn.sxshenwutong.B.court.entity.CourtResponse;
-import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.A.dagger.AppComponentProvider;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import javax.inject.Inject;

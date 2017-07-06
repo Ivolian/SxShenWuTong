@@ -2,7 +2,7 @@ package com.unicorn.sxshenwutong.B.login;
 
 import com.unicorn.sxshenwutong.A.app.Callback;
 import com.unicorn.sxshenwutong.A.base.BaseFetcher;
-import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.A.dagger.AppComponentProvider;
 
 import java.util.HashMap;
 import java.util.Map;

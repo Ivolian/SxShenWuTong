@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".B.court.CourtAct"/>
-        <activity android:name=".userType.UserTypeAct"/>
+        <activity android:name=".B.userType.UserTypeAct"/>
         <activity android:name=".main.MainAct"/>
         <activity android:name=".ListAct"/>
     </application>

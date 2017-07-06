@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.A.base.BaseAct;
-import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.A.dagger.AppComponentProvider;
 
 import butterknife.BindView;
 import me.majiajie.pagerbottomtabstrip.NavigationController;

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.B.court.entity.Court;
-import com.unicorn.sxshenwutong.dagger.App;
+import com.unicorn.sxshenwutong.A.dagger.App;
 
 import javax.inject.Inject;
 

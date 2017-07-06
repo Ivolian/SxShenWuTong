@@ -9,7 +9,7 @@ import com.github.promeg.pinyinhelper.Pinyin;
 import com.github.promeg.tinypinyin.lexicons.android.cncity.CnCityDict;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-import com.unicorn.sxshenwutong.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.A.dagger.AppComponentProvider;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 

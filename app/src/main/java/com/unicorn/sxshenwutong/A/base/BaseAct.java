@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.hwangjr.rxbus.RxBus;
+import com.jakewharton.rxbinding.view.RxView;
+import com.unicorn.sxshenwutong.R;
+
+import java.util.concurrent.TimeUnit;
 
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
@@ -52,10 +56,10 @@ public abstract class BaseAct extends SupportActivity {
         // 初始化工作
     }
 
-    protected void clicksBack() {
-//        RxView.clicks(findViewById(R.id.back))
-//                .throttleFirst(1, TimeUnit.SECONDS)
-//                .subscribe(aVoid -> finish());
+    protected void clickBack() {
+        RxView.clicks(findViewById(R.id.back))
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> finish());
     }
 
 }

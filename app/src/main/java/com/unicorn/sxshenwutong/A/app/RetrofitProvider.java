@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-@com.unicorn.sxshenwutong.dagger.App
+@com.unicorn.sxshenwutong.A.dagger.App
 public class RetrofitProvider {
 
     @Inject

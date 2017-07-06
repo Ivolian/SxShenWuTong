@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.userType;
+package com.unicorn.sxshenwutong.B.userType.entity;
 
 import com.unicorn.sxshenwutong.A.code.entity.Code;
 

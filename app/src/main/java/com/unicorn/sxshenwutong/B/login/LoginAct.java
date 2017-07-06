@@ -16,7 +16,6 @@ import com.google.gson.Gson;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
-import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.A.app.Global;
 import com.unicorn.sxshenwutong.A.base.BaseAct;
 import com.unicorn.sxshenwutong.A.code.CodeFetcher;
@@ -26,8 +25,8 @@ import com.unicorn.sxshenwutong.A.constant.RxBusTag;
 import com.unicorn.sxshenwutong.B.court.CourtAct;
 import com.unicorn.sxshenwutong.B.court.entity.Court;
 import com.unicorn.sxshenwutong.B.login.entity.LoginResponse;
-import com.unicorn.sxshenwutong.main.MainAct;
-import com.unicorn.sxshenwutong.userType.UserTypeAct;
+import com.unicorn.sxshenwutong.B.userType.UserTypeAct;
+import com.unicorn.sxshenwutong.R;
 
 import java.util.concurrent.TimeUnit;
 
@@ -144,7 +143,7 @@ public class LoginAct extends BaseAct {
                     LoginResponse loginResponse = new Gson().fromJson(response, LoginResponse.class);
                     if (loginResponse.isSuccess()) {
                         Global.setLoginResponse(loginResponse);
-                        getUserTypeCodes();
+                        getUserType();
                     } else {
                         ToastUtils.showShort("用户名或密码错误");
                     }
@@ -154,20 +153,20 @@ public class LoginAct extends BaseAct {
     }
 
 
-    // ===================== getUserTypeCodes =====================
+    // ===================== getUserType =====================
 
-    private void getUserTypeCodes() {
+    private void getUserType() {
         new CodeFetcher(USER_TYPE_CODE, response -> {
             CodeResponse codeResponse = new Gson().fromJson(response, CodeResponse.class);
             Global.setUserTypeCodes(codeResponse.getBmlist());
             String userType = Global.getLoginResponse().getUser().getUsertype();
-            if (userType == null || userType.equals("")) {
+//            if (userType == null || userType.equals("")) {
                 Intent intent = new Intent(this, UserTypeAct.class);
                 intent.putExtra(Key.TO_MAIN, true);
                 startActivity(intent);
-            } else {
-                startActivity(new Intent(this, MainAct.class));
-            }
+//            } else {
+//                startActivity(new Intent(this, MainAct.class));
+//            }
             finish();
 
         }).start();
