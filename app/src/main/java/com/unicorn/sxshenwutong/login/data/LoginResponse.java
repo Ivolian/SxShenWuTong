@@ -1,7 +1,5 @@
 package com.unicorn.sxshenwutong.login.data;
 
-import com.unicorn.sxshenwutong.User;
-
 public class LoginResponse {
 
     private String ticket;

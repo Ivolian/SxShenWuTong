@@ -3,7 +3,7 @@ package com.unicorn.sxshenwutong.dagger;
 import android.app.Application;
 import android.content.Context;
 
-import com.unicorn.sxshenwutong.RetrofitProvider;
+import com.unicorn.sxshenwutong.app.RetrofitProvider;
 import com.unicorn.sxshenwutong.code.CodeService;
 import com.unicorn.sxshenwutong.court.data.CourtService;
 import com.unicorn.sxshenwutong.login.LoginService;

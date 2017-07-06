@@ -10,7 +10,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.RetrofitProvider;
+import com.unicorn.sxshenwutong.app.RetrofitProvider;
 import com.unicorn.sxshenwutong.app.Global;
 import com.unicorn.sxshenwutong.app.Params;
 import com.unicorn.sxshenwutong.app.ParamsHelper;
