@@ -3,17 +3,12 @@ package com.unicorn.sxshenwutong.list;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.GeneralService;
 import com.unicorn.sxshenwutong.a.app.ParamsInitializer;
 import com.unicorn.sxshenwutong.a.app.entity.Params;
 import com.unicorn.sxshenwutong.a.base.RefreshAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,22 +25,18 @@ import static com.unicorn.sxshenwutong.a.constant.Key.SUCCESS_CODE;
 import static com.unicorn.sxshenwutong.a.constant.Key.YDBAKEY;
 
 
-public class ListAct extends RefreshAct<Model> {
+abstract public class ListAct<T> extends RefreshAct<T> {
 
     @Override
     protected int layoutResId() {
         return R.layout.act_list;
     }
 
-    @Override
-    protected void inject() {
-        AppComponentProvider.provide().inject(this);
-    }
 
-    @Override
-    protected BaseQuickAdapter<Model, BaseViewHolder> getAdapter() {
-        return new ListAdapter();
-    }
+//    @Override
+//    protected BaseQuickAdapter<T, BaseViewHolder> getAdapter() {
+//        return new ListAdapter();
+//    }
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
@@ -64,7 +55,7 @@ public class ListAct extends RefreshAct<Model> {
     String lbtype;
 
     @Override
-    protected Observable<ListResponse<Model>> load() {
+    protected Observable<ListResponse<T>> load() {
         Params params = new Params();
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
@@ -76,20 +67,9 @@ public class ListAct extends RefreshAct<Model> {
         return generalService.get(params.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .filter(response -> {
-                    return response.getCode().equals(SUCCESS_CODE);
-                })
+                .filter(response -> response.getCode().equals(SUCCESS_CODE))
                 .map(response -> response.getParameters().get(YDBAKEY))
-                .map(ydbaKey -> {
-
-
-                        ListResponse<Model> listResponse = new Gson().fromJson(ydbaKey,
-                                new TypeToken<ListResponse<Model>>() {
-                                }.getType());
-
-
-                    return listResponse;
-                });
+                .map(this::gson);
     }
 
     @Inject
@@ -98,6 +78,6 @@ public class ListAct extends RefreshAct<Model> {
     @Inject
     GeneralService generalService;
 
-
+    abstract protected ListResponse<T> gson(String ydbaKey);
 
 }

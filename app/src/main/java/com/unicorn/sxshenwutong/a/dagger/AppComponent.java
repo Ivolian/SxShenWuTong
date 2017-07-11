@@ -8,7 +8,7 @@ import com.unicorn.sxshenwutong.b.court.CourtFetcher;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
 import com.unicorn.sxshenwutong.b.userType.UserTypeFetcher;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
-import com.unicorn.sxshenwutong.list.ListAct;
+import com.unicorn.sxshenwutong.list.ListAct2;
 
 import dagger.Component;
 
@@ -25,6 +25,7 @@ public interface AppComponent {
     void inject(UserTypeFetcher o);
 
     void inject(HomeFetcher o);
-    void inject(ListAct o);
+
+    void inject(ListAct2 o);
 
 }

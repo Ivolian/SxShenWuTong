@@ -15,8 +15,6 @@ import butterknife.BindView;
 import rx.Observable;
 import rx.Subscriber;
 
-import static com.blankj.utilcode.util.Utils.getContext;
-
 
 public abstract class RefreshAct<T> extends BaseAct {
 
@@ -25,7 +23,7 @@ public abstract class RefreshAct<T> extends BaseAct {
     @BindView(R.id.swipeRefreshLayout)
     protected SwipeRefreshLayout swipeRefreshLayout;
     @BindColor(R.color.colorPrimary)
-   protected int colorPrimary;
+    protected int colorPrimary;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
@@ -49,28 +47,25 @@ public abstract class RefreshAct<T> extends BaseAct {
     }
 
     private void initRecycleView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        recyclerView.addItemDecoration(ItemDecorationUtils.getDefaultItemDecoration(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         adapter.setOnLoadMoreListener(this::loadNext, recyclerView);
     }
 
     protected void loadFirst() {
-        pageNo = 2;
+        pageNo = 1;
         load().subscribe(new Subscriber<ListResponse<T>>() {
             @Override
             public void onCompleted() {
-
+                swipeRefreshLayout.setRefreshing(false);
             }
 
             @Override
             public void onError(Throwable e) {
-                swipeRefreshLayout.setRefreshing(false);
             }
 
             @Override
             public void onNext(ListResponse<T> response) {
-                swipeRefreshLayout.setRefreshing(false);
                 adapter.setNewData(response.getRows());
                 pageNo++;
             }
@@ -81,7 +76,6 @@ public abstract class RefreshAct<T> extends BaseAct {
         load().subscribe(new Subscriber<ListResponse<T>>() {
             @Override
             public void onCompleted() {
-
             }
 
             @Override

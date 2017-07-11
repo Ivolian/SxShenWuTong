@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.list.ListAct;
+import com.unicorn.sxshenwutong.list.ListAct2;
 
 public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
 
@@ -23,7 +23,7 @@ public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
             if (homeItem.getCount() == -1) {
                 return;
             }
-            Intent intent = new Intent(mContext, ListAct.class);
+            Intent intent = new Intent(mContext, ListAct2.class);
             intent.putExtra(Key.TITLE, homeItem.getTitle());
             intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
             mContext.startActivity(intent);
