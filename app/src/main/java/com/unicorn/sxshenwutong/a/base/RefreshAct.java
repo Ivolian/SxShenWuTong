@@ -56,7 +56,7 @@ public abstract class RefreshAct<T> extends BaseAct {
     }
 
     protected void loadFirst() {
-        pageNo = 1;
+        pageNo = 2;
         load().subscribe(new Subscriber<ListResponse<T>>() {
             @Override
             public void onCompleted() {

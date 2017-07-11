@@ -26,7 +26,7 @@ public class Params {
     private String secM;
     // md5密钥
     public static String md5key = "b6474df096ac3750";
-    private Map<String, Object> parameters = new HashMap<String, Object>();
+    private Map<String, Object> parameters = new HashMap<>();
     //
 
     public String getUuid() {

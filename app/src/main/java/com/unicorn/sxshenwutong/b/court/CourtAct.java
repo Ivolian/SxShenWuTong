@@ -101,14 +101,16 @@ public class CourtAct extends BaseAct {
 
     // ===================== getCourts =====================
 
+    @Inject
+    Gson gson;
+
     private void getCourts() {
         new CourtFetcher(ydbaKey -> {
-            CourtResponse courtResponse = new Gson().fromJson(ydbaKey, CourtResponse.class);
+            CourtResponse courtResponse = gson.fromJson(ydbaKey, CourtResponse.class);
             for (Court court : courtResponse.getFylist()) {
                 court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
             }
             courtAdapter.setDatas(courtResponse.getFylist());
-
         }).start();
     }
 
