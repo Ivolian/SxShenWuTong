@@ -2,10 +2,11 @@ package com.unicorn.sxshenwutong.a.app.entity;
 
 import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Params {
+public class Params implements Serializable {
 
     private String uuid = "58e01a1c-56e6-42f2-8725-563dca4b3898";
     private String version = "1.0";

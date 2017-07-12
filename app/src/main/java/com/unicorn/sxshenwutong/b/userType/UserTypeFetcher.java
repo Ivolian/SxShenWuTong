@@ -10,7 +10,6 @@ import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeResponse;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -34,8 +33,8 @@ public class UserTypeFetcher extends BaseFetcher<UserTypeResponse> {
     }
 
     @Override
-    protected Map<String, Object> parameters() {
-        Map<String, Object> parameters = new HashMap<>();
+    protected HashMap<String, Object> parameters() {
+        HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("usertype", userTypeDm);
         return parameters;
     }

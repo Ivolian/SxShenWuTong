@@ -10,7 +10,6 @@ import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -39,8 +38,8 @@ public class LoginFetcher extends BaseFetcher<LoginResponse> {
     }
 
     @Override
-    protected Map<String, Object> parameters() {
-        Map<String, Object> parameters = new HashMap<>();
+    protected HashMap<String, Object> parameters() {
+        HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("fydm", fydm);
         parameters.put("loginname", loginName);
         parameters.put("password", pwd);

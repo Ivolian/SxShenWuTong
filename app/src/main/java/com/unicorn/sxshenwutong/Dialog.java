@@ -12,8 +12,8 @@ import com.unicorn.sxshenwutong.userList.UserListFetcher;
 import com.unicorn.sxshenwutong.userList.UserListResponse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -30,7 +30,7 @@ public class Dialog {
 
         List<UserListResponse.UserlistBean> users;
     List<NextNodeResponse.NextncodesBean> nodes;
-    public void show(Activity activity, Map<String,Object> map) {
+    public void show(Activity activity, HashMap<String,Object> map) {
         MaterialDialog dialog = new MaterialDialog.Builder(activity)
                 .customView(R.layout.custom_view, false)
                 .show();
@@ -61,8 +61,8 @@ public class Dialog {
                         map.put("sprid",user.getUserid());
                         map.put("sprmc",user.getUsername());
                         NextNodeResponse.NextncodesBean node = nodes.get( msNodename.getSelectedIndex());
-// // TODO: 2017/7/13
-//                        map.put("spjdid",node.getNodeid());
+
+                        map.put("spjdid",node.getNodeid());
                         map.put("sprmc",node.getNodename());
 
                         new CxbgFetcher(map, new Callback<Object>() {

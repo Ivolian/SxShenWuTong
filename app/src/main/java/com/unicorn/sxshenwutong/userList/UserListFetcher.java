@@ -10,7 +10,6 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -30,8 +29,8 @@ public class UserListFetcher extends BaseFetcher<UserListResponse> {
     }
 
     @Override
-    protected Map<String, Object> parameters() {
-        Map<String, Object> map = new HashMap<>();
+    protected HashMap<String, Object> parameters() {
+        HashMap<String, Object> map = new HashMap<>();
         map.put("fydm", Global.getLoginResponse().getUser().getFydm());
         map.put("departid", Global.getLoginResponse().getUser().getDepart_id());
         return map;

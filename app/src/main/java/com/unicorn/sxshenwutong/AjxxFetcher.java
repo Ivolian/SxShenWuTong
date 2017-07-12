@@ -10,7 +10,6 @@ import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.list.Ajxx;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -34,8 +33,8 @@ public class AjxxFetcher extends BaseFetcher<Ajxx> {
     }
 
     @Override
-    protected Map<String, Object> parameters() {
-        Map<String, Object> map = new HashMap<>();
+    protected HashMap<String, Object> parameters() {
+        HashMap<String, Object> map = new HashMap<>();
         map.put(Key.AJBS, ajbs);
         return map;
     }

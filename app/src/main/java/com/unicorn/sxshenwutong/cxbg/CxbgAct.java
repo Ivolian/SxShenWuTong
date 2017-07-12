@@ -24,7 +24,6 @@ import org.joda.time.DateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -101,7 +100,7 @@ public class CxbgAct extends BaseAct {
     }
 
     private void showDialog() {
-        Map<String, Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
         Code cxbglx = codes.get(msCxbglx.getSelectedIndex());
@@ -111,8 +110,8 @@ public class CxbgAct extends BaseAct {
         Code sycxbgyy = codes2.get(msSycxbgyy.getSelectedIndex());
         map.put("sycxbgyy", sycxbgyy.getDm());
         map.put("sycxbgyymc", sycxbgyy.getDmms());
-        map.put("bt", tvTitle.getText());
-        map.put("ngryj", etNgryj.getText());
+        map.put("bt", tvTitle.getText().toString());
+        map.put("ngryj", etNgryj.getText().toString().trim());
         new Dialog().show(this, map);
     }
 

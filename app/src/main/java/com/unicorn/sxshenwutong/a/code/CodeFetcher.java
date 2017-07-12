@@ -10,7 +10,6 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -35,8 +34,8 @@ public class CodeFetcher extends BaseFetcher<CodeResponse> {
     }
 
     @Override
-    protected Map<String, Object> parameters() {
-        Map<String, Object> parameters = new HashMap<>();
+    protected HashMap<String, Object> parameters() {
+        HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("bxh", bxh);
         return parameters;
     }

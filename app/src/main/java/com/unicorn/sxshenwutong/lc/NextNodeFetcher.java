@@ -9,7 +9,6 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -30,8 +29,8 @@ public class NextNodeFetcher extends BaseFetcher<NextNodeResponse> {
     }
 
     @Override
-    protected Map<String, Object> parameters() {
-        Map<String, Object> map = new HashMap<>();
+    protected HashMap<String, Object> parameters() {
+        HashMap<String, Object> map = new HashMap<>();
         map.put("lcid", "CQ_DSP_SPGL_SP_AJJZPSP");
         return map;
     }

@@ -6,15 +6,15 @@ import com.unicorn.sxshenwutong.a.app.entity.Response;
 import com.unicorn.sxshenwutong.a.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
-import java.util.Map;
+import java.util.HashMap;
 
 import javax.inject.Inject;
 
 public class CxbgFetcher extends BaseFetcher<Object> {
 
-    private Map<String, Object> map;
+    private HashMap<String, Object> map;
 
-    public CxbgFetcher(Map<String, Object> map, Callback<Object> callback) {
+    public CxbgFetcher(HashMap<String, Object> map, Callback<Object> callback) {
         super(callback);
         this.map = map;
     }
@@ -30,7 +30,7 @@ public class CxbgFetcher extends BaseFetcher<Object> {
     }
 
     @Override
-    protected Map<String, Object> parameters() {
+    protected HashMap<String, Object> parameters() {
         return map;
     }
 
