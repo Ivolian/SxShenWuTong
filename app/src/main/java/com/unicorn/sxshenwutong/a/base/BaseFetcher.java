@@ -37,7 +37,7 @@ public abstract class BaseFetcher<T> {
         return new HashMap<>();
     }
 
-    protected String params() {
+    private String params() {
         Params params = new Params();
         paramsInitializer.initParams(params, busiCode(), parameters());
         return params.toString();

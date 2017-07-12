@@ -3,7 +3,7 @@ package com.unicorn.sxshenwutong.a.dagger;
 import android.content.Context;
 
 import com.unicorn.sxshenwutong.AjxxFetcher;
-import com.unicorn.sxshenwutong.CxbgFetcher;
+import com.unicorn.sxshenwutong.CxbgSubmitter;
 import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
 import com.unicorn.sxshenwutong.userList.UserListFetcher;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
@@ -34,6 +34,6 @@ public interface AppComponent {
     void inject(AjxxFetcher o);
     void inject(NextNodeFetcher o);
     void inject(UserListFetcher o);
-    void inject(CxbgFetcher o);
+    void inject(CxbgSubmitter o);
 
 }

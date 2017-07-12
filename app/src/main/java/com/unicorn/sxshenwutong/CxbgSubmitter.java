@@ -1,20 +1,22 @@
 package com.unicorn.sxshenwutong;
 
+import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.app.Callback;
-import com.unicorn.sxshenwutong.a.app.GeneralService2;
 import com.unicorn.sxshenwutong.a.app.entity.Response;
-import com.unicorn.sxshenwutong.a.base.BaseFetcher;
+import com.unicorn.sxshenwutong.a.base.BaseSubmitter;
+import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import java.util.HashMap;
 
 import javax.inject.Inject;
 
-public class CxbgFetcher extends BaseFetcher<Object> {
+public class CxbgSubmitter extends BaseSubmitter<CxbgResponse> {
 
     private HashMap<String, Object> map;
 
-    public CxbgFetcher(HashMap<String, Object> map, Callback<Object> callback) {
+    public CxbgSubmitter(HashMap<String, Object> map, Callback<CxbgResponse> callback) {
         super(callback);
         this.map = map;
     }
@@ -35,12 +37,12 @@ public class CxbgFetcher extends BaseFetcher<Object> {
     }
 
     @Override
-    protected Object map(Response response) {
-        return map;
+    protected CxbgResponse map(Response<LinkedTreeMap<String, String>> response) {
+        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
+        return gson.fromJson(ydbaKey, CxbgResponse.class);
     }
 
     @Inject
-    GeneralService2 generalService2;
-
+    Gson gson;
 
 }

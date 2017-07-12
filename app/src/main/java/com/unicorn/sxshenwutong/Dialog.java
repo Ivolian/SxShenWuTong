@@ -3,6 +3,7 @@ package com.unicorn.sxshenwutong;
 import android.app.Activity;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.blankj.utilcode.util.ToastUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.a.app.Callback;
@@ -65,10 +66,12 @@ public class Dialog {
                         map.put("spjdid",node.getNodeid());
                         map.put("sprmc",node.getNodename());
 
-                        new CxbgFetcher(map, new Callback<Object>() {
+                        new CxbgSubmitter(map, new Callback<CxbgResponse>() {
                             @Override
-                            public void onSuccess(Object o) {
-
+                            public void onSuccess(CxbgResponse cxbgResponse) {
+                                if (cxbgResponse.isSuccess()){
+                                    ToastUtils.showShort("ok");
+                                }
                             }
                         }).start();
                     }
