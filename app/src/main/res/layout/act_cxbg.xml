@@ -286,7 +286,7 @@
                         android:textColor="@color/md_black" />
 
                     <com.jaredrummler.materialspinner.MaterialSpinner
-                        android:id="@+id/nsCxbglx"
+                        android:id="@+id/msCxbglx"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -296,6 +296,35 @@
                         android:textColor="@color/md_black" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:minHeight="48dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="1px"
+                        android:background="@color/md_grey_100"
+                        android:gravity="center"
+                        android:text="适用程序变更原因"
+                        android:textColor="@color/md_black" />
+
+                    <com.jaredrummler.materialspinner.MaterialSpinner
+                        android:id="@+id/msSycxlx"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/md_white"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/md_black" />
+
+                </LinearLayout>
+
 
 
 

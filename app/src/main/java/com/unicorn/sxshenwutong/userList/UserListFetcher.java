@@ -1,11 +1,11 @@
-package com.unicorn.sxshenwutong.a.code;
+package com.unicorn.sxshenwutong.userList;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.app.Callback;
+import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.app.entity.Response;
 import com.unicorn.sxshenwutong.a.base.BaseFetcher;
-import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
@@ -14,14 +14,9 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-
-public class CodeFetcher extends BaseFetcher<CodeResponse> {
-
-    private String bxh;
-
-    public CodeFetcher(String bxh, Callback<CodeResponse> callback) {
+public class UserListFetcher extends BaseFetcher<UserListResponse> {
+    public UserListFetcher(Callback<UserListResponse> callback) {
         super(callback);
-        this.bxh = bxh;
     }
 
     @Override
@@ -31,24 +26,22 @@ public class CodeFetcher extends BaseFetcher<CodeResponse> {
 
     @Override
     protected String busiCode() {
-        return "getBm";
+        return "GetUserList";
     }
 
     @Override
     protected Map<String, Object> parameters() {
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("bxh", bxh);
-        return parameters;
+        Map<String, Object> map = new HashMap<>();
+        map.put("fydm", Global.getLoginResponse().getUser().getFydm());
+        return map;
     }
 
     @Inject
     Gson gson;
 
     @Override
-    protected CodeResponse map(Response<LinkedTreeMap<String, String>> response) {
-        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
-        return gson.fromJson(ydbaKey, CodeResponse.class);
+    protected UserListResponse map(Response<LinkedTreeMap<String, String>> response) {
+        return gson.fromJson(response.getParameters().get(Key.YDBAKEY), UserListResponse.class);
     }
-
 
 }

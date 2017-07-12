@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.procedureChange.CxbgAct;
+import com.unicorn.sxshenwutong.cxbg.CxbgAct;
 
 public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 

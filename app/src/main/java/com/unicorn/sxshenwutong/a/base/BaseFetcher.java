@@ -48,7 +48,8 @@ public abstract class BaseFetcher<T> {
     GeneralService generalService;
 
     public void start() {
-        generalService.get(params())
+        String params = params();
+        generalService.get(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .filter(new Func1<Response<LinkedTreeMap<String, String>>, Boolean>() {

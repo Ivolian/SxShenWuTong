@@ -1,20 +1,76 @@
 {
-  "ajlymc": "当事人起诉",
-  "jaaymc": "",
-  "sycxmc": "普通程序",
-  "saahqc": "(2017)渝民初收156号",
-  "larq": "2017-04-21",
-  "jarq": "",
-  "bzzh": "002004",
-  "dyyg": "中国农业银行股份有限公司重庆江北支行",
-  "jafsmc": "",
-  "ajlb": "2",
-  "laaymc": "信用卡纠纷",
-  "ahqc": "(2017)渝民初156号",
-  "dybg": "刘钧",
-  "ajbs": "1b7d32a6-9d5a-4c13-9540-f09e72dce919",
-  "spcxmc": "一审",
-   "nodename" : "办理",
-   "cbrmc" : "审判管理员"
-
+  "userlist": [
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "42619",
+      "username": "杨临萍"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "5460",
+      "username": "黄明耀"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "6115",
+      "username": "吴继生"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "5831",
+      "username": "陈彬"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "10934",
+      "username": "王中伟"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "8511",
+      "username": "阳东辰"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "4780",
+      "username": "张晓川"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "42060",
+      "username": "邓承玉"
+    },
+    {
+      "departname": "院领导",
+      "fymc": "重庆市高级人民法院",
+      "departid": "000",
+      "fydm": "M00",
+      "userid": "5717",
+      "username": "余捷"
+    }
+  ]
 }
