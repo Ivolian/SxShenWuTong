@@ -2,6 +2,7 @@ package com.unicorn.sxshenwutong.a.dagger;
 
 import android.content.Context;
 
+import com.unicorn.sxshenwutong.AjxxFetcher;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.CourtFetcher;
@@ -27,5 +28,6 @@ public interface AppComponent {
     void inject(HomeFetcher o);
 
     void inject(ListAct2 o);
+    void inject(AjxxFetcher o);
 
 }
