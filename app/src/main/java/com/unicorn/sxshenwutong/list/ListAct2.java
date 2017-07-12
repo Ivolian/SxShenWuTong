@@ -10,7 +10,7 @@ import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import javax.inject.Inject;
 
-public class ListAct2 extends ListAct<Model> {
+public class ListAct2 extends ListAct<Ajxx> {
 
     @Override
     protected void inject() {
@@ -18,7 +18,7 @@ public class ListAct2 extends ListAct<Model> {
     }
 
     @Override
-    protected BaseQuickAdapter<Model, BaseViewHolder> getAdapter() {
+    protected BaseQuickAdapter<Ajxx, BaseViewHolder> getAdapter() {
         return new ListAdapter();
     }
 
@@ -26,9 +26,9 @@ public class ListAct2 extends ListAct<Model> {
     Gson gson;
 
     @Override
-    protected ListResponse<Model> gson(String ydbaKey) {
+    protected ListResponse<Ajxx> gson(String ydbaKey) {
         Logger.d("result",ydbaKey);
-        return gson.fromJson(ydbaKey, new TypeToken<ListResponse<Model>>() {
+        return gson.fromJson(ydbaKey, new TypeToken<ListResponse<Ajxx>>() {
         }.getType());
     }
 
