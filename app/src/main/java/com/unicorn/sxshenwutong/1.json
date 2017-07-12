@@ -1,76 +1,15 @@
 {
-  "userlist": [
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "42619",
-      "username": "杨临萍"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "5460",
-      "username": "黄明耀"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "6115",
-      "username": "吴继生"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "5831",
-      "username": "陈彬"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "10934",
-      "username": "王中伟"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "8511",
-      "username": "阳东辰"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "4780",
-      "username": "张晓川"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "42060",
-      "username": "邓承玉"
-    },
-    {
-      "departname": "院领导",
-      "fymc": "重庆市高级人民法院",
-      "departid": "000",
-      "fydm": "M00",
-      "userid": "5717",
-      "username": "余捷"
-    }
-  ]
+  "ticket": "4db44a3d-2c7f-4ecb-8615-5252f20e1faa",
+  "success": "true",
+  "user": {
+    "office_phone": "",
+    "phone": "",
+    "depart_id": "009",
+    "fymc": "重庆市高级人民法院",
+    "usertype": "9000010002",
+    "dept_name": "办公室",
+    "id": "11061",
+    "fullname": "审判管理员",
+    "fydm": "M00"
+  }
 }

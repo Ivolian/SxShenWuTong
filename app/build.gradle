@@ -61,5 +61,5 @@ dependencies {
     compile files('libs/javax.annotation-api-1.2.jar')
     compile 'com.youth.banner:banner:1.4.9'
     compile 'com.jaredrummler:material-spinner:1.1.0'
-    compile 'com.github.arcadefire:nice-spinner:1.2'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
 }

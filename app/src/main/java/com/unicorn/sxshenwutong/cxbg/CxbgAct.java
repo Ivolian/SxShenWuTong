@@ -3,20 +3,22 @@ package com.unicorn.sxshenwutong.cxbg;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.AjxxFetcher;
 import com.unicorn.sxshenwutong.CxbglxCodeFetcher;
-import com.unicorn.sxshenwutong.NextNodeFetcher;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.SycxlxCodeFetcher;
-import com.unicorn.sxshenwutong.userList.UserListFetcher;
 import com.unicorn.sxshenwutong.a.app.Callback;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
+import com.unicorn.sxshenwutong.lc.NextNodeResponse;
 import com.unicorn.sxshenwutong.list.Ajxx;
+import com.unicorn.sxshenwutong.userList.UserListFetcher;
 import com.unicorn.sxshenwutong.userList.UserListResponse;
 
 import java.util.ArrayList;
@@ -51,7 +53,7 @@ public class CxbgAct extends BaseAct {
     List<Code> codes2;
 
     private void renderAjxx(Ajxx ajxx) {
-        tvTitle.setText(ajxx.getAhqc() + "适用程序变更审批");
+        tvTitle.setText(ajxx.getAhqc() + "程序变更审批");
         tvAhqc.setText(ajxx.getAhqc());
         tvLarq.setText(ajxx.getLarq());
         tvJarq.setText(ajxx.getJarq());
@@ -89,9 +91,9 @@ public class CxbgAct extends BaseAct {
             }
         }).start();
 
-        new NextNodeFetcher(new Callback<Object>() {
+        new NextNodeFetcher(new Callback<NextNodeResponse>() {
             @Override
-            public void onSuccess(Object o) {
+            public void onSuccess(NextNodeResponse o) {
 
             }
         }).start();
@@ -102,7 +104,17 @@ public class CxbgAct extends BaseAct {
                 Logger.d(o);
             }
         }).start();
+
+        showDialog();
     }
+
+    private void showDialog(){
+        boolean wrapInScrollView = true;
+        new MaterialDialog.Builder(this)
+                .customView(R.layout.custom_view, wrapInScrollView)
+                .show();
+    }
+
 
 
     @BindView(R.id.tvTitle)

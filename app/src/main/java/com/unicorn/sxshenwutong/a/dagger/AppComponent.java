@@ -3,7 +3,7 @@ package com.unicorn.sxshenwutong.a.dagger;
 import android.content.Context;
 
 import com.unicorn.sxshenwutong.AjxxFetcher;
-import com.unicorn.sxshenwutong.NextNodeFetcher;
+import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
 import com.unicorn.sxshenwutong.userList.UserListFetcher;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;

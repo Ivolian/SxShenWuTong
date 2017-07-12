@@ -33,6 +33,7 @@ public class UserListFetcher extends BaseFetcher<UserListResponse> {
     protected Map<String, Object> parameters() {
         Map<String, Object> map = new HashMap<>();
         map.put("fydm", Global.getLoginResponse().getUser().getFydm());
+        map.put("departid", Global.getLoginResponse().getUser().getDepart_id());
         return map;
     }
 
