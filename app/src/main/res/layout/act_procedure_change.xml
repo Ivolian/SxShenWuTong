@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/back"
+            android:layout_width="64dp"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:src="@drawable/left" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="程序变更申请"
+            android:textColor="@color/md_white"
+            android:textSize="22dp" />
+
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@color/md_grey_300"
+            android:orientation="vertical"
+            android:padding="1px">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1px"
+                    android:background="@color/md_grey_100"
+                    android:gravity="center"
+                    android:text="标题"
+                    android:textColor="@color/md_black" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/md_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/md_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="1px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1px"
+                    android:background="@color/md_grey_100"
+                    android:gravity="center"
+                    android:text="案号"
+                    android:textColor="@color/md_black" />
+
+                <TextView
+                    android:id="@+id/tvAhqc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/md_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/md_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="1px"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1px"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="1px"
+                        android:background="@color/md_grey_100"
+                        android:gravity="center"
+                        android:text="立案日期"
+                        android:textColor="@color/md_black" />
+
+                    <TextView
+                        android:id="@+id/tvLarq"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/md_white"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/md_black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="1px"
+                        android:background="@color/md_grey_100"
+                        android:gravity="center"
+                        android:text="结案日期"
+                        android:textColor="@color/md_black" />
+
+                    <TextView
+                        android:id="@+id/tvJarq"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/md_white"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/md_black" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="1px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1px"
+                    android:background="@color/md_grey_100"
+                    android:gravity="center"
+                    android:text="立案案由"
+                    android:textColor="@color/md_black" />
+
+                <TextView
+                    android:id="@+id/tvLaay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/md_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/md_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="1px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1px"
+                    android:background="@color/md_grey_100"
+                    android:gravity="center"
+                    android:text="原告"
+                    android:textColor="@color/md_black" />
+
+                <TextView
+                    android:id="@+id/tvDyyg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/md_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/md_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="1px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1px"
+                    android:background="@color/md_grey_100"
+                    android:gravity="center"
+                    android:text="被告"
+                    android:textColor="@color/md_black" />
+
+                <TextView
+                    android:id="@+id/tvDybg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/md_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/md_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="1px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1px"
+                    android:background="@color/md_grey_100"
+                    android:gravity="center"
+                    android:text="当前程序类型"
+                    android:textColor="@color/md_black" />
+
+                <TextView
+                    android:id="@+id/tvSycxmc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/md_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/md_black" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
