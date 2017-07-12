@@ -1,18 +1,99 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
+    android:layout_height="wrap_content"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
     android:layout_marginTop="12dp"
-    android:padding="10dp"
     android:orientation="vertical">
 
-    <TextView
-        android:textSize="16dp"
-        android:textColor="@color/md_black"
-        android:id="@+id/tvText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvAhqc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvDyyg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvDybg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvLaaymc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvLarq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/md_grey_300" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:height="36dp"
+            android:background="@color/login"
+            android:gravity="center"
+            android:text="程序变更"
+            android:textColor="@color/md_white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:height="36dp"
+            android:background="@color/login"
+            android:gravity="center"
+            android:text="审限变更"
+            android:textColor="@color/md_white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:height="36dp"
+            android:background="@color/login"
+            android:gravity="center"
+            android:text="录音录像"
+            android:textColor="@color/md_white" />
+
+    </LinearLayout>
 
 </LinearLayout>

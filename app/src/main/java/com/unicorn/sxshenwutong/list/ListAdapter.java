@@ -19,7 +19,12 @@ public class ListAdapter extends BaseQuickAdapter<Model, BaseViewHolder> {
     protected void convert(BaseViewHolder viewHolder, final Model model) {
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(bg());
-        viewHolder.setText(R.id.tvText,model.getAhqc());
+
+        viewHolder.setText(R.id.tvAhqc,"案号: " + model.getAhqc());
+        viewHolder.setText(R.id.tvDyyg,"原告: " + model.getDyyg());
+        viewHolder.setText(R.id.tvDybg,"被告: " + model.getDybg());
+        viewHolder.setText(R.id.tvLaaymc,"案由: " + model.getLaaymc());
+        viewHolder.setText(R.id.tvLarq,"立案日期 :" + model.getLarq());
     }
 
     private Drawable bg(){
