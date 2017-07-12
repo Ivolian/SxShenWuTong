@@ -1,28 +1,29 @@
 package com.unicorn.sxshenwutong.cxbg;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.AjxxFetcher;
-import com.unicorn.sxshenwutong.CxbglxCodeFetcher;
+import com.unicorn.sxshenwutong.CxbglxFetcher;
 import com.unicorn.sxshenwutong.Dialog;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.SycxlxCodeFetcher;
+import com.unicorn.sxshenwutong.SycxbgyyFetcher;
 import com.unicorn.sxshenwutong.a.app.Callback;
+import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
-import com.unicorn.sxshenwutong.lc.NextNodeResponse;
 import com.unicorn.sxshenwutong.list.Ajxx;
-import com.unicorn.sxshenwutong.userList.UserListFetcher;
-import com.unicorn.sxshenwutong.userList.UserListResponse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import pocketknife.BindExtra;
@@ -47,8 +48,8 @@ public class CxbgAct extends BaseAct {
 
     @BindView(R.id.msCxbglx)
     MaterialSpinner msCxbglx;
-    @BindView(R.id.msSycxlx)
-    MaterialSpinner msSycxlx;
+    @BindView(R.id.msSycxbgyy)
+    MaterialSpinner msSycxbgyy;
     List<Code> codes;
     List<Code> codes2;
 
@@ -62,7 +63,7 @@ public class CxbgAct extends BaseAct {
         tvDybg.setText(ajxx.getDybg());
         tvSycxmc.setText(ajxx.getSycxmc());
 
-        new CxbglxCodeFetcher(ajxx.getBzzh(), new Callback<CodeResponse>() {
+        new CxbglxFetcher(ajxx.getBzzh(), new Callback<CodeResponse>() {
             @Override
             public void onSuccess(CodeResponse codeResponse) {
                 codes = codeResponse.getBmlist();
@@ -75,7 +76,7 @@ public class CxbgAct extends BaseAct {
                     @Override
                     public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
                         Code code = codes.get(position);
-                        new SycxlxCodeFetcher(ajxx, code, new Callback<CodeResponse>() {
+                        new SycxbgyyFetcher(ajxx, code, new Callback<CodeResponse>() {
                             @Override
                             public void onSuccess(CodeResponse codeResponse) {
                                 codes2 = codeResponse.getBmlist();
@@ -83,7 +84,7 @@ public class CxbgAct extends BaseAct {
                                 for (Code code : codes2) {
                                     list.add(code.getDmms());
                                 }
-                                msSycxlx.setItems(list);
+                                msSycxbgyy.setItems(list);
                             }
                         }).start();
                     }
@@ -91,27 +92,28 @@ public class CxbgAct extends BaseAct {
             }
         }).start();
 
-        new NextNodeFetcher(new Callback<NextNodeResponse>() {
-            @Override
-            public void onSuccess(NextNodeResponse o) {
 
-            }
-        }).start();
-
-        new UserListFetcher(new Callback<UserListResponse>() {
-            @Override
-            public void onSuccess(UserListResponse o) {
-                Logger.d(o);
-            }
-        }).start();
-
-        showDialog();
+        RxView.clicks(findViewById(R.id.tvSave))
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> showDialog());
     }
 
-    private void showDialog(){
-    new Dialog().show(this);
+    private void showDialog() {
+        Map<String, Object> map = new HashMap<>();
+        map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
+        map.put(Key.AJBS, ajbs);
+        Code cxbglx = codes.get(msCxbglx.getSelectedIndex());
+        map.put("cxbglx", cxbglx.getDm());
+        map.put("cxbglxmc", cxbglx.getDmms());
+        // todo
+        map.put("jyzptrq", "");
+        Code sycxbgyy = codes2.get(msSycxbgyy.getSelectedIndex());
+        map.put("sycxbgyy", sycxbgyy.getDm());
+        map.put("sycxbgyymc", sycxbgyy.getDmms());
+        map.put("bt", tvTitle.getText());
+        map.put("ngryj", etNgryj.getText());
+        new Dialog().show(this, map);
     }
-
 
 
     @BindView(R.id.tvTitle)
@@ -130,5 +132,6 @@ public class CxbgAct extends BaseAct {
     TextView tvDybg;
     @BindView(R.id.tvSycxmc)
     TextView tvSycxmc;
-
+    @BindView(R.id.etNgryj)
+    EditText etNgryj;
 }

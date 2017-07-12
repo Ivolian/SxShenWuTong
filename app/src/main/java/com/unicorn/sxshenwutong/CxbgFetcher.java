@@ -7,10 +7,13 @@ import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import java.util.Map;
 
-public class CxbgFetcher extends BaseFetcher {
+public class CxbgFetcher extends BaseFetcher<Object> {
 
-    public CxbgFetcher(Callback callback) {
+    private Map<String, Object> map;
+
+    public CxbgFetcher(Map<String, Object> map, Callback<Object> callback) {
         super(callback);
+        this.map = map;
     }
 
     @Override
@@ -20,17 +23,16 @@ public class CxbgFetcher extends BaseFetcher {
 
     @Override
     protected String busiCode() {
-        return "";
+        return "saveJzpsq";
     }
 
     @Override
     protected Map<String, Object> parameters() {
-
-        return super.parameters();
+        return map;
     }
 
     @Override
     protected Object map(Response response) {
-        return null;
+        return new Object();
     }
 }

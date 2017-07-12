@@ -7,11 +7,11 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 
 import java.util.Map;
 
-public class CxbglxCodeFetcher extends CodeFetcher {
+public class CxbglxFetcher extends CodeFetcher {
 
     private String bzzh;
 
-    public CxbglxCodeFetcher(String bzzh, Callback<CodeResponse> callback) {
+    public CxbglxFetcher(String bzzh, Callback<CodeResponse> callback) {
         super(Key.CXBG_CODE, callback);
         this.bzzh = bzzh;
     }

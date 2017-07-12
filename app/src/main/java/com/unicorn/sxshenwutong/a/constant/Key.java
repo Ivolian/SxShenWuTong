@@ -11,6 +11,6 @@ public class Key {
     public static final String LBTYPE ="lbtype";
     public static final String AJBS ="ajbs";
     public static final String AJXX ="ajxx";
-    public static final String FYBM ="fybm";
+    public static final String FYDM ="fydm";
 
 }
