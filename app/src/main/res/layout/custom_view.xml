@@ -1,7 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/md_grey_200"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/md_grey_400"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/md_grey_100" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_white"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="64dp"
+        android:paddingBottom="64dp"
+        android:paddingRight="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="选择下一步节点" />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/msNodename"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:textColor="@color/md_black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="选择承办人" />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/msUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:textColor="@color/md_black" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@color/login"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/md_white"
+            android:textSize="16dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

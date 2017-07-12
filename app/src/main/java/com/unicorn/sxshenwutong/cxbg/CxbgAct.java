@@ -3,11 +3,11 @@ package com.unicorn.sxshenwutong.cxbg;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.AjxxFetcher;
 import com.unicorn.sxshenwutong.CxbglxCodeFetcher;
+import com.unicorn.sxshenwutong.Dialog;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.SycxlxCodeFetcher;
 import com.unicorn.sxshenwutong.a.app.Callback;
@@ -109,10 +109,7 @@ public class CxbgAct extends BaseAct {
     }
 
     private void showDialog(){
-        boolean wrapInScrollView = true;
-        new MaterialDialog.Builder(this)
-                .customView(R.layout.custom_view, wrapInScrollView)
-                .show();
+    new Dialog().show(this);
     }
 
 
