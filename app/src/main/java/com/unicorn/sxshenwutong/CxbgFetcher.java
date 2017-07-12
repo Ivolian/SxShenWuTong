@@ -1,11 +1,14 @@
 package com.unicorn.sxshenwutong;
 
 import com.unicorn.sxshenwutong.a.app.Callback;
+import com.unicorn.sxshenwutong.a.app.GeneralService2;
 import com.unicorn.sxshenwutong.a.app.entity.Response;
 import com.unicorn.sxshenwutong.a.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
 import java.util.Map;
+
+import javax.inject.Inject;
 
 public class CxbgFetcher extends BaseFetcher<Object> {
 
@@ -33,6 +36,11 @@ public class CxbgFetcher extends BaseFetcher<Object> {
 
     @Override
     protected Object map(Response response) {
-        return new Object();
+        return map;
     }
+
+    @Inject
+    GeneralService2 generalService2;
+
+
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.app.GeneralService;
+import com.unicorn.sxshenwutong.a.app.GeneralService2;
 import com.unicorn.sxshenwutong.a.app.RetrofitProvider;
 
 import dagger.Module;
@@ -37,6 +38,12 @@ public class AppModule {
     @Provides
     GeneralService provideGeneralService(Retrofit retrofit) {
         return retrofit.create(GeneralService.class);
+    }
+
+    @App
+    @Provides
+    GeneralService2 provideGeneralService2(Retrofit retrofit) {
+        return retrofit.create(GeneralService2.class);
     }
 
     @App

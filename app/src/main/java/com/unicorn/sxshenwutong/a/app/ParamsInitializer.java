@@ -4,7 +4,7 @@ import com.unicorn.sxshenwutong.a.app.entity.Params;
 
 import org.joda.time.DateTime;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -18,7 +18,7 @@ public class ParamsInitializer {
     public ParamsInitializer() {
     }
 
-    public void initParams(Params params, String busiCode, Map<String, Object> parameters) {
+    public void initParams(Params params, String busiCode, HashMap<String, Object> parameters) {
         params.setBusiCode(busiCode);
         params.setThirdFlow(UUID.randomUUID().toString());
         if (Global.getLoginResponse() != null) {

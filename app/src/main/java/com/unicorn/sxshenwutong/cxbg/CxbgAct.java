@@ -19,6 +19,8 @@ import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.list.Ajxx;
 
+import org.joda.time.DateTime;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -105,8 +107,7 @@ public class CxbgAct extends BaseAct {
         Code cxbglx = codes.get(msCxbglx.getSelectedIndex());
         map.put("cxbglx", cxbglx.getDm());
         map.put("cxbglxmc", cxbglx.getDmms());
-        // todo
-        map.put("jyzptrq", "");
+        map.put("jyzptrq", new DateTime().toString("yyyyMMddHHmmss"));
         Code sycxbgyy = codes2.get(msSycxbgyy.getSelectedIndex());
         map.put("sycxbgyy", sycxbgyy.getDm());
         map.put("sycxbgyymc", sycxbgyy.getDmms());

@@ -61,7 +61,8 @@ public class Dialog {
                         map.put("sprid",user.getUserid());
                         map.put("sprmc",user.getUsername());
                         NextNodeResponse.NextncodesBean node = nodes.get( msNodename.getSelectedIndex());
-                        map.put("spjdid",node.getNodeid());
+// // TODO: 2017/7/13
+//                        map.put("spjdid",node.getNodeid());
                         map.put("sprmc",node.getNodename());
 
                         new CxbgFetcher(map, new Callback<Object>() {

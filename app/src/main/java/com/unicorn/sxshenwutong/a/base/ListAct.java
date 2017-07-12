@@ -13,7 +13,6 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.list.ListResponse;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -66,7 +65,7 @@ abstract public class ListAct<T> extends RefreshAct<T> {
 
     private String params() {
         Params params = new Params();
-        Map<String, Object> parameters = new HashMap<>();
+        HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
         parameters.put("pageSize", PAGE_SIZE);
         parameters.put(Key.LBTYPE, lbtype);
