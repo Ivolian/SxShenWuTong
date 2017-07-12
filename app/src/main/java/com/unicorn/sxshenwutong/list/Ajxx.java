@@ -175,4 +175,6 @@ public class Ajxx {
     public void setCbrmc(String cbrmc) {
         this.cbrmc = cbrmc;
     }
+
+
 }

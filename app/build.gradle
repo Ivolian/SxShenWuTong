@@ -60,4 +60,6 @@ dependencies {
     compile 'me.majiajie:pager-bottom-tab-strip:2.1.0'
     compile files('libs/javax.annotation-api-1.2.jar')
     compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.jaredrummler:material-spinner:1.1.0'
+    compile 'com.github.arcadefire:nice-spinner:1.2'
 }

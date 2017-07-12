@@ -19,7 +19,7 @@
         <activity android:name=".b.userType.UserTypeAct"/>
         <activity android:name=".c.main.MainAct"/>
         <activity android:name=".list.ListAct2"/>
-        <activity android:name=".procedureChange.ProcedureChangeAct"/>
+        <activity android:name=".procedureChange.CxbgAct"/>
 
     </application>
 

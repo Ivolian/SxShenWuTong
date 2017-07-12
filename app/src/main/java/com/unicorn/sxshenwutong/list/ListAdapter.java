@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.procedureChange.ProcedureChangeAct;
+import com.unicorn.sxshenwutong.procedureChange.CxbgAct;
 
 public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
@@ -30,7 +30,7 @@ public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
 
         viewHolder.getView(R.id.tvProcedureChange).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, ProcedureChangeAct.class);
+            Intent intent = new Intent(mContext, CxbgAct.class);
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });
