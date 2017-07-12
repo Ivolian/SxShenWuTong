@@ -1,6 +1,7 @@
 package com.unicorn.sxshenwutong;
 
 import com.unicorn.sxshenwutong.a.app.Callback;
+import com.unicorn.sxshenwutong.a.app.entity.Response;
 import com.unicorn.sxshenwutong.a.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
@@ -34,4 +35,8 @@ public class AjxxFetcher extends BaseFetcher {
         return map;
     }
 
+    @Override
+    protected Object map(Response response) {
+        return null;
+    }
 }

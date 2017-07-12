@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
@@ -20,12 +19,10 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
-import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
-import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
 import com.unicorn.sxshenwutong.c.main.MainAct;
 
@@ -140,8 +137,7 @@ public class LoginAct extends BaseAct {
                 court.getDm(),
                 etLoginName.getText().toString().trim(),
                 etPwd.getText().toString().trim(),
-                response -> {
-                    LoginResponse loginResponse = new Gson().fromJson(response, LoginResponse.class);
+                loginResponse -> {
                     if (loginResponse.isSuccess()) {
                         Global.setLoginResponse(loginResponse);
                         getUserType();
@@ -157,8 +153,7 @@ public class LoginAct extends BaseAct {
     // ===================== getUserType =====================
 
     private void getUserType() {
-        new CodeFetcher(USER_TYPE_CODE, response -> {
-            CodeResponse codeResponse = new Gson().fromJson(response, CodeResponse.class);
+        new CodeFetcher(USER_TYPE_CODE, codeResponse -> {
             Global.setUserTypeCodes(codeResponse.getBmlist());
             String userType = Global.getLoginResponse().getUser().getUsertype();
             if (userType == null || userType.equals("")) {

@@ -1,12 +1,18 @@
 package com.unicorn.sxshenwutong.c.home;
 
+import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.app.Callback;
+import com.unicorn.sxshenwutong.a.app.entity.Response;
 import com.unicorn.sxshenwutong.a.base.BaseFetcher;
+import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
-public class HomeFetcher extends BaseFetcher {
+import javax.inject.Inject;
 
-    public HomeFetcher(Callback callback) {
+public class HomeFetcher extends BaseFetcher<HomeResponse> {
+
+    public HomeFetcher(Callback<HomeResponse> callback) {
         super(callback);
     }
 
@@ -18,6 +24,15 @@ public class HomeFetcher extends BaseFetcher {
     @Override
     protected String busiCode() {
         return "getMaindata";
+    }
+
+    @Inject
+    Gson gson;
+
+    @Override
+    protected HomeResponse map(Response<LinkedTreeMap<String, String>> response) {
+        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
+        return gson.fromJson(ydbaKey, HomeResponse.class);
     }
 
 }

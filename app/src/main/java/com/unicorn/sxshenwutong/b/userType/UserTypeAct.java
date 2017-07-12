@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.google.gson.Gson;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
@@ -16,7 +15,6 @@ import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.b.login.entity.User;
 import com.unicorn.sxshenwutong.b.userType.entity.UserType;
-import com.unicorn.sxshenwutong.b.userType.entity.UserTypeResponse;
 import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.ArrayList;
@@ -106,8 +104,7 @@ public class UserTypeAct extends BaseAct {
             ToastUtils.showShort("请选择身份");
             return;
         }
-        new UserTypeFetcher(userTypeDm, ydbaKey -> {
-            UserTypeResponse userTypeResponse = new Gson().fromJson(ydbaKey, UserTypeResponse.class);
+        new UserTypeFetcher(userTypeDm, userTypeResponse -> {
             if (userTypeResponse.isSuccess()) {
                 Global.getLoginResponse().getUser().setUsertype(userTypeDm);
                 if (toMain) {

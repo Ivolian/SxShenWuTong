@@ -1,7 +1,7 @@
 package com.unicorn.sxshenwutong.a.app;
 
-public interface Callback {
+public interface Callback<T> {
 
-    void onSuccess(String ydbaKey);
+    void onSuccess(T t);
 
 }

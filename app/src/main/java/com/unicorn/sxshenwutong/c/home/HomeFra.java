@@ -4,7 +4,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
@@ -26,8 +25,7 @@ public class HomeFra extends BaseFra {
     @Override
     protected void init(View rootView) {
         initRv();
-        new HomeFetcher(ydbaKey -> {
-            HomeResponse homeResponse = new Gson().fromJson(ydbaKey, HomeResponse.class);
+        new HomeFetcher(homeResponse -> {
             initBanner(homeResponse);
             homeAdapter.setNewData(homeItems(homeResponse));
         }).start();
@@ -42,7 +40,7 @@ public class HomeFra extends BaseFra {
     HomeAdapter homeAdapter = new HomeAdapter();
 
     private void initRv() {
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         recyclerView.setAdapter(homeAdapter);
         recyclerView.addItemDecoration(new DividerGridItemDecoration(getContext()));
     }
@@ -69,15 +67,15 @@ public class HomeFra extends BaseFra {
     private List<HomeItem> homeItems(HomeResponse homeResponse) {
         HomeResponse.MaindataBean mainData = homeResponse.getMaindata();
         return Arrays.asList(
-                new HomeItem("审判待办", R.drawable.spdb, mainData.getSpdbajs(),"spdblist"),
-                new HomeItem("审判待审批", R.drawable.spdsp, mainData.getSpdsp(),"spdsplist"),
-                new HomeItem("审判结案审查", R.drawable.spjasc, mainData.getSpjasc(),"spjasclist"),
-                new HomeItem("执行待办", R.drawable.zxdb, mainData.getZxdbajs(),"zxdblist"),
-                new HomeItem("执行待审批", R.drawable.zxdsp, mainData.getZxdsp(),"zxdsplist"),
-                new HomeItem("执行结案审查", R.drawable.zxjasc, mainData.getZxjasc(),"zxjasclist"),
-                new HomeItem("已超审限", R.drawable.ycsx, mainData.getCsxwj(),"ycsxlist"),
-                new HomeItem("即将超审限", R.drawable.jjcsx, mainData.getJjcsx(),"jjcsxlist"),
-                new HomeItem("更多", R.drawable.more, -1,"")
+                new HomeItem("审判待办", R.drawable.spdb, mainData.getSpdbajs(), "spdblist"),
+                new HomeItem("审判待审批", R.drawable.spdsp, mainData.getSpdsp(), "spdsplist"),
+                new HomeItem("审判结案审查", R.drawable.spjasc, mainData.getSpjasc(), "spjasclist"),
+                new HomeItem("执行待办", R.drawable.zxdb, mainData.getZxdbajs(), "zxdblist"),
+                new HomeItem("执行待审批", R.drawable.zxdsp, mainData.getZxdsp(), "zxdsplist"),
+                new HomeItem("执行结案审查", R.drawable.zxjasc, mainData.getZxjasc(), "zxjasclist"),
+                new HomeItem("已超审限", R.drawable.ycsx, mainData.getCsxwj(), "ycsxlist"),
+                new HomeItem("即将超审限", R.drawable.jjcsx, mainData.getJjcsx(), "jjcsxlist"),
+                new HomeItem("更多", R.drawable.more, -1, "")
         );
     }
 

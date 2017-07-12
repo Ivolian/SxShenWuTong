@@ -12,9 +12,8 @@ import com.hwangjr.rxbus.RxBus;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.b.court.entity.Court;
-import com.unicorn.sxshenwutong.b.court.entity.CourtResponse;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.b.court.entity.Court;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import javax.inject.Inject;
@@ -105,8 +104,7 @@ public class CourtAct extends BaseAct {
     Gson gson;
 
     private void getCourts() {
-        new CourtFetcher(ydbaKey -> {
-            CourtResponse courtResponse = gson.fromJson(ydbaKey, CourtResponse.class);
+        new CourtFetcher(courtResponse -> {
             for (Court court : courtResponse.getFylist()) {
                 court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
             }
