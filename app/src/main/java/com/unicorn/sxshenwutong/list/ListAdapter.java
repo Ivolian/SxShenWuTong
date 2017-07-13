@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.cxbg.CxbgAct;
+import com.unicorn.sxshenwutong.sxbg.SxbgAct;
 
 public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
@@ -29,8 +30,13 @@ public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         viewHolder.setText(R.id.tvLaaymc, "案由: " + ajxx.getLaaymc());
         viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
 
-        viewHolder.getView(R.id.tvProcedureChange).setOnClickListener(v -> {
+        viewHolder.getView(R.id.tvCxbg).setOnClickListener(v -> {
             Intent intent = new Intent(mContext, CxbgAct.class);
+            intent.putExtra(Key.AJBS, ajxx.getAjbs());
+            mContext.startActivity(intent);
+        });
+        viewHolder.getView(R.id.tvSxbg).setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, SxbgAct.class);
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });

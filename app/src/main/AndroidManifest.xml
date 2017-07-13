@@ -20,6 +20,7 @@
         <activity android:name=".c.main.MainAct"/>
         <activity android:name=".list.ListAct2"/>
         <activity android:name=".cxbg.CxbgAct"/>
+        <activity android:name=".sxbg.SxbgAct"/>
 
     </application>
 
