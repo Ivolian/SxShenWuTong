@@ -62,4 +62,5 @@ dependencies {
     compile 'com.youth.banner:banner:1.4.9'
     compile 'com.jaredrummler:material-spinner:1.1.0'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
+    compile 'com.appeaser.sublimepickerlibrary:sublimepickerlibrary:2.1.1'
 }

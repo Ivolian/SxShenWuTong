@@ -31,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import pocketknife.BindExtra;
 
-import static com.unicorn.sxshenwutong.R.id.tvTitle;
 
 public class SxbgAct extends BaseAct {
 
@@ -66,11 +65,16 @@ public class SxbgAct extends BaseAct {
             this.ajxx = ajxx;
             renderAjxx();
             fetchFdsy();
+
+
         }).start();
     }
 
+
+
+
     private void renderAjxx() {
-        setText(tvTitle, ajxx.getAhqc() + "程序变更审批");
+        setText(R.id.tvTitle, ajxx.getAhqc() + "程序变更审批");
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvLarq, ajxx.getLarq());
         setText(R.id.tvJarq, ajxx.getJarq());
