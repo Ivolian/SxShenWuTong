@@ -12,6 +12,7 @@
       <w>departid</w>
       <w>dybg</w>
       <w>dyyg</w>
+      <w>fdsy</w>
       <w>fullname</w>
       <w>fxmc</w>
       <w>fyjc</w>
@@ -32,6 +33,8 @@
       <w>nextncodes</w>
       <w>ngryj</w>
       <w>nodename</w>
+      <w>parentid</w>
+      <w>qtsm</w>
       <w>sfsz</w>
       <w>spdblist</w>
       <w>spdsplist</w>
@@ -47,6 +50,7 @@
       <w>sycxlx</w>
       <w>sycxmc</w>
       <w>userlist</w>
+      <w>yckcyy</w>
       <w>ycsxlist</w>
       <w>ydba</w>
       <w>ydbakey</w>

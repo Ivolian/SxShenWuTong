@@ -1,17 +1,18 @@
 package com.unicorn.sxshenwutong.sxbg;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.AjxxFetcher;
-import com.unicorn.sxshenwutong.CxbglxFetcher;
 import com.unicorn.sxshenwutong.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.SycxbgyyFetcher;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
@@ -22,6 +23,7 @@ import com.unicorn.sxshenwutong.list.Ajxx;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -63,7 +65,7 @@ public class SxbgAct extends BaseAct {
         new AjxxFetcher(ajbs, ajxx -> {
             this.ajxx = ajxx;
             renderAjxx();
-            fetchCxbglx();
+            fetchFdsy();
         }).start();
     }
 
@@ -79,29 +81,37 @@ public class SxbgAct extends BaseAct {
     }
 
 
-    // ===================== fetchCxbglx =====================
+    // ===================== fetchFdsy =====================
 
-    List<Code> cxbglxList;
+    List<Code> fdsyList;
 
-    private void fetchCxbglx() {
-        new CxbglxFetcher(ajxx.getBzzh(), codeResponse -> {
-            cxbglxList = codeResponse.getBmlist();
-            msCxbglx.setItems(items(cxbglxList));
-            fetchSycxbgyy(cxbglxList.get(0));
-            msCxbglx.setOnItemSelectedListener((view, position, id, item) -> fetchSycxbgyy(cxbglxList.get(position)));
+    private void fetchFdsy() {
+        new FdsyFetcher(codeResponse -> {
+            fdsyList = codeResponse.getBmlist();
+            msFdsy.setItems(items(fdsyList));
+            fetchYckcyy(fdsyList.get(0));
+            msFdsy.setOnItemSelectedListener((view, position, id, item) -> fetchYckcyy(fdsyList.get(position)));
         }).start();
     }
 
 
-    // ===================== fetchSycxbgyy =====================
+    // ===================== fetchYckcyy =====================
 
-    List<Code> sycxbgyyList;
+    List<Code> yckcyyList;
 
-    private void fetchSycxbgyy(Code cxbglx) {
-        new SycxbgyyFetcher(ajxx, cxbglx, codeResponse -> {
-            sycxbgyyList = codeResponse.getBmlist();
-            msSycxbgyy.setItems(items(sycxbgyyList));
-        }).start();
+    private void fetchYckcyy(Code fdsy) {
+        String fdsyMc = fdsy.getDmms();
+        if (Arrays.asList("延长", "扣除", "中止").contains(fdsyMc)) {
+            new YckcyyFetcher(fdsy, codeResponse -> {
+                yckcyyList = codeResponse.getBmlist();
+                msYckcyy.setItems(items(yckcyyList));
+
+                tvYckcyy.setText(fdsyMc);
+                llYckcyy.setVisibility(View.VISIBLE);
+            }).start();
+        } else {
+            llYckcyy.setVisibility(View.GONE);
+        }
     }
 
     private List<String> items(List<Code> codeList) {
@@ -119,11 +129,11 @@ public class SxbgAct extends BaseAct {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
-        Code cxbglx = cxbglxList.get(msCxbglx.getSelectedIndex());
+        Code cxbglx = fdsyList.get(msFdsy.getSelectedIndex());
         map.put("cxbglx", cxbglx.getDm());
         map.put("cxbglxmc", cxbglx.getDmms());
         map.put("jyzptrq", new DateTime().toString("yyyyMMddHHmmss"));
-        Code sycxbgyy = sycxbgyyList.get(msSycxbgyy.getSelectedIndex());
+        Code sycxbgyy = yckcyyList.get(msYckcyy.getSelectedIndex());
         map.put("sycxbgyy", sycxbgyy.getDm());
         map.put("sycxbgyymc", sycxbgyy.getDmms());
         map.put("bt", ajxx.getAhqc() + "程序变更审批");
@@ -147,10 +157,16 @@ public class SxbgAct extends BaseAct {
 
     // ===================== views =====================
 
-    @BindView(R.id.msCxbglx)
-    MaterialSpinner msCxbglx;
-    @BindView(R.id.msSycxbgyy)
-    MaterialSpinner msSycxbgyy;
+    @BindView(R.id.msFdsy)
+    MaterialSpinner msFdsy;
+    @BindView(R.id.llYckcyy)
+    LinearLayout llYckcyy;
+    @BindView(R.id.tvYckcyy)
+    TextView tvYckcyy;
+    @BindView(R.id.msYckcyy)
+    MaterialSpinner msYckcyy;
+    @BindView(R.id.etQtsm)
+    EditText etQtsm;
     @BindView(R.id.etNgryj)
     EditText etNgryj;
 
