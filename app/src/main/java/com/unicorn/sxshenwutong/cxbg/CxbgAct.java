@@ -3,6 +3,8 @@ package com.unicorn.sxshenwutong.cxbg;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.AjxxFetcher;
@@ -14,6 +16,7 @@ import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.list.Ajxx;
 
 import org.joda.time.DateTime;
@@ -126,6 +129,19 @@ public class CxbgAct extends BaseAct {
         map.put("bt", ajxx.getAhqc() + "程序变更审批");
         map.put("ngryj", etNgryj.getText().toString().trim());
         new NextNodeDialog(this, map).show();
+    }
+
+
+    // ===================== onSubmitSuccess =====================
+
+    @Override
+    protected boolean useRxBus() {
+        return true;
+    }
+
+    @Subscribe(tags = {@Tag(RxBusTag.SUBMIT_SUCCESS)})
+    public void onSubmitSuccess(Object o) {
+        finish();
     }
 
 
