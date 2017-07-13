@@ -6,6 +6,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate;
+import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
@@ -18,6 +20,8 @@ import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.date.DateUtil;
+import com.unicorn.sxshenwutong.date.SublimePickerFragment;
 import com.unicorn.sxshenwutong.list.Ajxx;
 
 import org.joda.time.DateTime;
@@ -43,6 +47,7 @@ public class SxbgAct extends BaseAct {
     protected void init(Bundle savedInstanceState) {
         clickBack();
         clickSave();
+        clickDate();
         fetchAjxx();
     }
 
@@ -68,9 +73,53 @@ public class SxbgAct extends BaseAct {
 
 
         }).start();
+
+        // ===================== date =====================
+
+
     }
 
+    private void clickDate() {
+        onDateChange(tvStartDate, startDate);
+        onDateChange(tvEndDate, endDate);
+        RxView.clicks(tvStartDate)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> DateUtil.show(startDate, getSupportFragmentManager(), new SublimePickerFragment.Callback() {
+                    @Override
+                    public void onCancelled() {
 
+                    }
+
+                    @Override
+                    public void onDateTimeRecurrenceSet(SelectedDate selectedDate, int hourOfDay, int minute, SublimeRecurrencePicker.RecurrenceOption recurrenceOption, String recurrenceRule) {
+                        startDate = new DateTime(selectedDate.getFirstDate());
+                        onDateChange(tvStartDate, startDate);
+                    }
+                }));
+        RxView.clicks(tvEndDate)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> DateUtil.show(endDate, getSupportFragmentManager(), new SublimePickerFragment.Callback() {
+                    @Override
+                    public void onCancelled() {
+
+                    }
+
+                    @Override
+                    public void onDateTimeRecurrenceSet(SelectedDate selectedDate, int hourOfDay, int minute, SublimeRecurrencePicker.RecurrenceOption recurrenceOption, String recurrenceRule) {
+                        endDate = new DateTime(selectedDate.getFirstDate());
+                        onDateChange(tvEndDate, endDate);
+                    }
+                }));
+    }
+
+    private String dateFormat = "yyyy年MM月dd日";
+    private String dateValueFormat = "yyyy年MM月dd日";
+    private DateTime startDate = new DateTime();
+    private DateTime endDate = new DateTime();
+
+    private void onDateChange(TextView tvDate, DateTime date) {
+        tvDate.setText(date.toString(dateFormat));
+    }
 
 
     private void renderAjxx() {
@@ -169,6 +218,10 @@ public class SxbgAct extends BaseAct {
     TextView tvYckcyy;
     @BindView(R.id.msYckcyy)
     MaterialSpinner msYckcyy;
+    @BindView(R.id.tvStartDate)
+    TextView tvStartDate;
+    @BindView(R.id.tvEndDate)
+    TextView tvEndDate;
     @BindView(R.id.etQtsm)
     EditText etQtsm;
     @BindView(R.id.etNgryj)

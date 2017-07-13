@@ -333,7 +333,6 @@
 
                 </LinearLayout>
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -351,6 +350,33 @@
 
                     <TextView
                         android:id="@+id/tvStartDate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/md_white"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/md_black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="1px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="1px"
+                        android:background="@color/md_grey_100"
+                        android:gravity="center"
+                        android:text="结束日期"
+                        android:textColor="@color/md_black" />
+
+                    <TextView
+                        android:id="@+id/tvEndDate"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

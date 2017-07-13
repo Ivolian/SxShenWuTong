@@ -6,14 +6,18 @@ import android.util.Pair;
 
 import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
 
+import org.joda.time.DateTime;
+
+import java.util.Locale;
+
 public class DateUtil {
 
-    public void show(FragmentManager fragmentManager, SublimePickerFragment.Callback callback){
+    public static void show(DateTime dateTime,FragmentManager fragmentManager, SublimePickerFragment.Callback callback){
         SublimePickerFragment pickerFrag = new SublimePickerFragment();
         pickerFrag.setCallback(callback);
 
         // Options
-        Pair<Boolean, SublimeOptions> optionsPair = getOptions();
+        Pair<Boolean, SublimeOptions> optionsPair = getOptions(dateTime);
 
 //            if (!optionsPair.first) { // If options are not valid
 //                Toast.makeText(Sampler.this, "No pickers activated",
@@ -31,10 +35,10 @@ public class DateUtil {
 
     }
     // Validates & returns SublimePicker options
-    Pair<Boolean, SublimeOptions> getOptions() {
+   static Pair<Boolean, SublimeOptions> getOptions(DateTime dateTime) {
         SublimeOptions options = new SublimeOptions();
         int displayOptions = 0;
-
+        options.setDateParams(dateTime.toCalendar(Locale.getDefault()));
         displayOptions |= SublimeOptions.ACTIVATE_DATE_PICKER;
 
 //        if (cbTimePicker.isChecked()) {
