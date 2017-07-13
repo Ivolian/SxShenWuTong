@@ -25,6 +25,8 @@ import com.unicorn.sxshenwutong.date.SublimePickerFragment;
 import com.unicorn.sxshenwutong.list.Ajxx;
 
 import org.joda.time.DateTime;
+import org.joda.time.Period;
+import org.joda.time.PeriodType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -123,7 +125,7 @@ public class SxbgAct extends BaseAct {
 
 
     private void renderAjxx() {
-        setText(R.id.tvTitle, ajxx.getAhqc() + "程序变更审批");
+        setText(R.id.tvTitle, ajxx.getAhqc() + "审限变更审批");
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvLarq, ajxx.getLarq());
         setText(R.id.tvJarq, ajxx.getJarq());
@@ -178,20 +180,36 @@ public class SxbgAct extends BaseAct {
 
     // ===================== showNextNodeDialog =====================
 
+
+
+
+
+
+
+
     private void showNextNodeDialog() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
-        Code cxbglx = fdsyList.get(msFdsy.getSelectedIndex());
-        map.put("cxbglx", cxbglx.getDm());
-        map.put("cxbglxmc", cxbglx.getDmms());
-        map.put("jyzptrq", new DateTime().toString("yyyyMMddHHmmss"));
-        Code sycxbgyy = yckcyyList.get(msYckcyy.getSelectedIndex());
-        map.put("sycxbgyy", sycxbgyy.getDm());
-        map.put("sycxbgyymc", sycxbgyy.getDmms());
-        map.put("bt", ajxx.getAhqc() + "程序变更审批");
+        Code fdsy = fdsyList.get(msFdsy.getSelectedIndex());
+        map.put("fdsy", fdsy.getDm());
+        map.put("fdsymc", fdsy.getDmms());
+        String fdsyMc = fdsy.getDmms();
+        if (Arrays.asList("延长", "扣除", "中止").contains(fdsyMc)) {
+            Code yckcyy = yckcyyList.get(msYckcyy.getSelectedIndex());
+            map.put("yckcyy", yckcyy.getDm());
+            map.put("yckcyymc", yckcyy.getDmms());
+        }
+        map.put("bt", ajxx.getAhqc() + "审限变更审批");
         map.put("ngryj", etNgryj.getText().toString().trim());
-        new NextNodeDialog(this, map).show();
+        map.put("qsrq", startDate.toString("yyyyMMddHHmmss"));
+        map.put("jsrq", endDate.toString("yyyyMMddHHmmss"));
+        map.put("qtsm", etNgryj.getText().toString().trim());
+        Period p = new Period(startDate, endDate, PeriodType.days());
+        int days = p.getDays();
+        map.put("ts", days);
+
+        new NextNodeDialog(this, map,"CQ_DSP_SPGL_SP_FDSYSP").show();
     }
 
 

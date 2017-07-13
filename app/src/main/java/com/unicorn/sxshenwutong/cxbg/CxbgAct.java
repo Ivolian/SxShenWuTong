@@ -128,7 +128,7 @@ public class CxbgAct extends BaseAct {
         map.put("sycxbgyymc", sycxbgyy.getDmms());
         map.put("bt", ajxx.getAhqc() + "程序变更审批");
         map.put("ngryj", etNgryj.getText().toString().trim());
-        new NextNodeDialog(this, map).show();
+        new NextNodeDialog(this, map,"CQ_DSP_SPGL_SP_AJJZPSP").show();
     }
 
 

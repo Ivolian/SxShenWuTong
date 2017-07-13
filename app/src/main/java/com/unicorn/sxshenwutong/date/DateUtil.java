@@ -56,7 +56,6 @@ public class DateUtil {
 //        } else if (rbRecurrencePicker.getVisibility() == View.VISIBLE && rbRecurrencePicker.isChecked()) {
 //            options.setPickerToShow(SublimeOptions.Picker.REPEAT_OPTION_PICKER);
 //        }
-
         options.setDisplayOptions(displayOptions);
 
         // Enable/disable the date range selection feature

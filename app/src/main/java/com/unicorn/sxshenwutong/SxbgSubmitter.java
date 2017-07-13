@@ -1,10 +1,10 @@
-package com.unicorn.sxshenwutong.lc;
+package com.unicorn.sxshenwutong;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.app.Callback;
 import com.unicorn.sxshenwutong.a.app.entity.Response;
-import com.unicorn.sxshenwutong.a.base.BaseFetcher;
+import com.unicorn.sxshenwutong.a.base.BaseSubmitter;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 
@@ -12,13 +12,13 @@ import java.util.HashMap;
 
 import javax.inject.Inject;
 
-public class NextNodeFetcher extends BaseFetcher<NextNodeResponse> {
+public class SxbgSubmitter extends BaseSubmitter<CxbgResponse> {
 
-    private String lcid;
+    private HashMap<String, Object> map;
 
-    public NextNodeFetcher(String lcid,Callback<NextNodeResponse> callback) {
+    public SxbgSubmitter(HashMap<String, Object> map, Callback<CxbgResponse> callback) {
         super(callback);
-        this.lcid = lcid;
+        this.map = map;
     }
 
     @Override
@@ -28,22 +28,21 @@ public class NextNodeFetcher extends BaseFetcher<NextNodeResponse> {
 
     @Override
     protected String busiCode() {
-        return "getLcNextNodes";
+        return "saveSxbgsq";
     }
 
     @Override
     protected HashMap<String, Object> parameters() {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("lcid", lcid);
         return map;
+    }
+
+    @Override
+    protected CxbgResponse map(Response<LinkedTreeMap<String, String>> response) {
+        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
+        return gson.fromJson(ydbaKey, CxbgResponse.class);
     }
 
     @Inject
     Gson gson;
-
-    @Override
-    protected NextNodeResponse map(Response<LinkedTreeMap<String, String>> response) {
-        return gson.fromJson(response.getParameters().get(Key.YDBAKEY), NextNodeResponse.class);
-    }
 
 }

@@ -1,15 +1,30 @@
 {
-  "ticket": "4db44a3d-2c7f-4ecb-8615-5252f20e1faa",
-  "success": "true",
-  "user": {
-    "office_phone": "",
-    "phone": "",
-    "depart_id": "009",
-    "fymc": "重庆市高级人民法院",
-    "usertype": "9000010002",
-    "dept_name": "办公室",
-    "id": "11061",
-    "fullname": "审判管理员",
-    "fydm": "M00"
-  }
+  "appId": "04e8310b-86f0-478c-b102-76f3c0710c00",
+  "busiCode": "saveSxbgsq",
+  "loginName": "",
+  "parameters": {
+    "fdsymc": "延长",
+    "jsrq": "20170713161115",
+    "qtsm": "",
+    "ngryj": "",
+    "qsrq": "20170713161115",
+    "sprid": "7679",
+    "yckcyymc": "案情疑难、复杂",
+    "ajbs": "1b7d32a6-9d5a-4c13-9540-f09e72dce919",
+    "sprmc": "庭长审批",
+    "ts": 0,
+    "bt": "(2017)渝民初156号审限变更审批",
+    "fydm": "M00",
+    "fdsy": "1010490001",
+    "spjdid": "SPGL_FDSY_TZSP",
+    "yckcyy": "1010491001"
+  },
+  "randCode": "061273",
+  "secM": "a6c12001943c11ff63a4d6af7d31babe",
+  "seqM": "",
+  "thirdFlow": "c6f709e4-9d86-4cf7-9d29-c031d9d602b7",
+  "ticket": "e5eae115-e090-45b5-a000-32f45e8ac428",
+  "time": "20170713161239",
+  "uuid": "58e01a1c-56e6-42f2-8725-563dca4b3898",
+  "version": "1.0"
 }

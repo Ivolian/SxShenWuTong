@@ -81,7 +81,7 @@ public class SublimePickerFragment extends DialogFragment {
         }*/
 
         mSublimePicker = (SublimePicker) getActivity()
-                .getLayoutInflater().inflate(R.layout.sublime_picker, container);
+                .getLayoutInflater().inflate(R.layout.subline, container);
         // Retrieve SublimeOptions
         Bundle arguments = getArguments();
         SublimeOptions options = null;

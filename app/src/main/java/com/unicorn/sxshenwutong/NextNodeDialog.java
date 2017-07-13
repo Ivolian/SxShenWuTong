@@ -25,10 +25,13 @@ public class NextNodeDialog {
     private Activity activity;
     private HashMap<String, Object> map;
     private MaterialDialog dialog;
+    private String lcid;
 
-    public NextNodeDialog(Activity activity, HashMap<String, Object> map) {
+
+    public NextNodeDialog(Activity activity, HashMap<String, Object> map, String lcid) {
         this.activity = activity;
         this.map = map;
+        this.lcid = lcid;
     }
 
     public void show() {
@@ -37,12 +40,16 @@ public class NextNodeDialog {
                 .show();
         if (dialog.getCustomView() == null) return;
         ButterKnife.bind(this, dialog.getCustomView());
-        new NextNodeFetcher(nextNodeResponse -> msNodename.setItems(items(nextNodeResponse))).start();
+        new NextNodeFetcher(lcid,nextNodeResponse -> msNodename.setItems(items(nextNodeResponse))).start();
         new UserListFetcher(userListResponse -> msUsername.setItems(items(userListResponse))).start();
         RxView.clicks(dialog.getCustomView().findViewById(R.id.tvSubmit))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> submit());
     }
+
+
+
+
 
     private void submit() {
         UserListResponse.UserlistBean user = users.get(msUsername.getSelectedIndex());
@@ -51,12 +58,23 @@ public class NextNodeDialog {
         NextNodeResponse.NextncodesBean node = nodes.get(msNodename.getSelectedIndex());
         map.put("spjdid", node.getNodeid());
         map.put("sprmc", node.getNodename());
-        new CxbgSubmitter(map, cxbgResponse -> {
-            if (cxbgResponse.isSuccess()) {
-                dialog.dismiss();
-                showPrompt();
-            }
-        }).start();
+
+        if (lcid.equals("CQ_DSP_SPGL_SP_AJJZPSP")){
+            new CxbgSubmitter(map, cxbgResponse -> {
+                if (cxbgResponse.isSuccess()) {
+                    dialog.dismiss();
+                    showPrompt();
+                }
+            }).start();
+        }else {
+            new SxbgSubmitter(map, cxbgResponse -> {
+                if (cxbgResponse.isSuccess()) {
+                    dialog.dismiss();
+                    showPrompt();
+                }
+            }).start();
+        }
+
     }
 
     private void showPrompt() {
