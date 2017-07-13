@@ -2,6 +2,7 @@ package com.unicorn.sxshenwutong.a.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.TextView;
 
 import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
@@ -60,6 +61,11 @@ public abstract class BaseAct extends SupportActivity {
         RxView.clicks(findViewById(R.id.back))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> finish());
+    }
+
+    protected void setText(int textViewId, String text) {
+        TextView textView = (TextView) findViewById(textViewId);
+        textView.setText(text);
     }
 
 }

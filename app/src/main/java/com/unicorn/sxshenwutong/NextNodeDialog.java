@@ -21,17 +21,24 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.functions.Action1;
 
-public class Dialog {
+public class NextNodeDialog {
 
     @BindView(R.id.msNodename)
     MaterialSpinner msNodename;
     @BindView(R.id.msUsername)
     MaterialSpinner msUsername;
 
+    private Activity activity;
+    private HashMap<String,Object> map;
 
-        List<UserListResponse.UserlistBean> users;
+    public NextNodeDialog(Activity activity, HashMap<String, Object> map) {
+        this.activity = activity;
+        this.map = map;
+    }
+
+    List<UserListResponse.UserlistBean> users;
     List<NextNodeResponse.NextncodesBean> nodes;
-    public void show(Activity activity, HashMap<String,Object> map) {
+    public void show() {
         MaterialDialog dialog = new MaterialDialog.Builder(activity)
                 .customView(R.layout.custom_view, false)
                 .show();

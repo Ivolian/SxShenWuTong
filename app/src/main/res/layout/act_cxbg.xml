@@ -324,7 +324,6 @@
                         android:layout_weight="1"
                         android:background="@color/md_white"
                         android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
                         android:textColor="@color/md_black" />
 
                 </LinearLayout>
