@@ -11,12 +11,9 @@ import com.hwangjr.rxbus.RxBus;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
 import com.unicorn.sxshenwutong.b.court.entity.CourtResponse;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import javax.inject.Inject;
 
 import butterknife.BindColor;
 import butterknife.BindView;
@@ -24,11 +21,6 @@ import me.yokeyword.indexablerv.IndexableLayout;
 import rx.Subscriber;
 
 public class CourtAct extends BaseAct {
-
-    @Override
-    protected void inject() {
-        AppComponentProvider.provide().inject(this);
-    }
 
     @Override
     protected int layoutResId() {
@@ -46,17 +38,16 @@ public class CourtAct extends BaseAct {
     @BindView(R.id.indexableLayout)
     IndexableLayout indexableLayout;
 
-    @Inject
     CourtAdapter courtAdapter;
 
     private void initRv() {
         indexableLayout.setLayoutManager(new LinearLayoutManager(this));
         indexableLayout.setCompareMode(IndexableLayout.MODE_ALL_LETTERS);
+        indexableLayout.setAdapter(courtAdapter = new CourtAdapter(this));
         setCenterOverlay();
-        indexableLayout.setAdapter(courtAdapter);
         addItemDecoration();
         setOnItemContentClickListener();
-        getCourts();
+        fetchCourt();
     }
 
     /**
@@ -99,11 +90,9 @@ public class CourtAct extends BaseAct {
     }
 
 
-    // ===================== getCourts =====================
+    // ===================== fetchCourt =====================
 
-
-
-    private void getCourts() {
+    private void fetchCourt() {
         new CourtFetcher().start().subscribe(new Subscriber<CourtResponse>() {
             @Override
             public void onCompleted() {
@@ -118,9 +107,10 @@ public class CourtAct extends BaseAct {
             @Override
             public void onNext(CourtResponse courtResponse) {
                 for (Court court : courtResponse.getFylist()) {
-                court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
-            }
-            courtAdapter.setDatas(courtResponse.getFylist());
+                    // 设置拼音，为了索引
+                    court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
+                }
+                courtAdapter.setDatas(courtResponse.getFylist());
             }
         });
     }
