@@ -1,6 +1,7 @@
 package com.unicorn.sxshenwutong.a.network;
 
 import com.unicorn.sxshenwutong.a.app.Global;
+import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.network.entity.Params;
 
 import org.joda.time.DateTime;
@@ -27,7 +28,7 @@ public class ParamsInitializer {
         }
         params.setLoginName("");
         params.setRandCode(Md5Main.getRandom());
-        params.setTime(new DateTime().toString("yyyyMMddHHmmss"));
+        params.setTime(new DateTime().toString(Key.DATE_VALUE_FORMAT));
         params.setSeqM("");
         String str = params.getUuid() + params.getBusiCode() + params.getThirdFlow() + params.getAppId() + params.getRandCode() + Params.md5key;
         try {

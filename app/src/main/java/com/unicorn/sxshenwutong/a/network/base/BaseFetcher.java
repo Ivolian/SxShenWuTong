@@ -1,5 +1,7 @@
-package com.unicorn.sxshenwutong.a.network;
+package com.unicorn.sxshenwutong.a.network.base;
 
+import com.unicorn.sxshenwutong.a.network.GeneralService;
+import com.unicorn.sxshenwutong.a.network.ParamsInitializer;
 import com.unicorn.sxshenwutong.a.network.entity.Params;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 
@@ -23,7 +25,7 @@ public abstract class BaseFetcher<T> {
     GeneralService generalService;
 
     public Observable<T> start() {
-        String params = params();
+        String params = params().toString();
         return generalService.get(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -34,17 +36,18 @@ public abstract class BaseFetcher<T> {
     @Inject
     ParamsInitializer paramsInitializer;
 
+    // 默认空入参
     protected HashMap<String, Object> parameters() {
         return new HashMap<>();
     }
 
-    private String params() {
+    private Params params() {
         Params params = new Params();
         paramsInitializer.initParams(params, busiCode(), parameters());
-        return params.toString();
+        return params;
     }
 
-    abstract public void inject();
+    abstract protected void inject();
 
     protected abstract String busiCode();
 

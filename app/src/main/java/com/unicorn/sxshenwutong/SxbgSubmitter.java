@@ -3,7 +3,7 @@ package com.unicorn.sxshenwutong;
 import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.a.network.BaseSubmitter;
+import com.unicorn.sxshenwutong.a.network.base.BaseSubmitter;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
