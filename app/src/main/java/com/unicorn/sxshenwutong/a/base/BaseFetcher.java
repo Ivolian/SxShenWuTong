@@ -66,11 +66,10 @@ public abstract class BaseFetcher<T> {
                     })
                     .subscribe(t -> callback.onSuccess(t));
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             //
         }
-           }
+    }
 
     abstract protected T map(Response<LinkedTreeMap<String, String>> response);
 

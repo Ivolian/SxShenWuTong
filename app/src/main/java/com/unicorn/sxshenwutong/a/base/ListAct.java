@@ -84,17 +84,22 @@ abstract public class ListAct<T> extends RefreshAct<T> {
         return generalService.get(params())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .filter(response -> response.getCode().equals(SUCCESS_CODE))
+                .filter(new Func1<Response<LinkedTreeMap<String, String>>, Boolean>() {
+                    @Override
+                    public Boolean call(Response<LinkedTreeMap<String, String>> response) {
+                        return response.getCode().equals(SUCCESS_CODE);
+                    }
+                })
                 .map(new Func1<Response<LinkedTreeMap<String, String>>, String>() {
                     @Override
                     public String call(Response<LinkedTreeMap<String, String>> response) {
-                                            return response.getParameters().get(YDBAKEY);
+                        return response.getParameters().get(YDBAKEY);
                     }
                 })
                 .filter(new Func1<String, Boolean>() {
                     @Override
                     public Boolean call(String s) {
-                        return s!=null;
+                        return s != null;
                     }
                 })
                 .map(this::gson);
