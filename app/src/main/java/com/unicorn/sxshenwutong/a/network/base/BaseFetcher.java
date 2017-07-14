@@ -36,21 +36,24 @@ public abstract class BaseFetcher<T> {
     @Inject
     ParamsInitializer paramsInitializer;
 
-    // 默认空入参
-    protected HashMap<String, Object> parameters() {
-        return new HashMap<>();
-    }
-
     private Params params() {
         Params params = new Params();
         paramsInitializer.initParams(params, busiCode(), parameters());
         return params;
     }
 
+    // 默认空入参，添加入参需要重载此方法
+    protected HashMap<String, Object> parameters() {
+        return new HashMap<>();
+    }
+
+    // 因为泛型，无法依赖注入，由子类实现
     abstract protected void inject();
 
-    protected abstract String busiCode();
+    // 业务编码
+    abstract protected String busiCode();
 
+    // 因为泛型，无法解析返回值，由子类实现
     abstract protected T map(Response response);
 
 }
