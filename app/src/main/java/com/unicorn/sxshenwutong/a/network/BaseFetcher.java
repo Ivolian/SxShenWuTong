@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 import javax.inject.Inject;
 
+import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -20,11 +21,8 @@ public abstract class BaseFetcher<T> {
 
     protected abstract String busiCode();
 
-    private Callback<T> callback;
-
-    public BaseFetcher(Callback<T> callback) {
+    public BaseFetcher() {
         inject();
-        this.callback = callback;
     }
 
     @Inject
@@ -43,10 +41,9 @@ public abstract class BaseFetcher<T> {
     @Inject
     GeneralService generalService;
 
-    public void start() {
-        try {
-            String params = params();
-            generalService.get(params)
+    public Observable<T> start() {
+        String params = params();
+         return   generalService.get(params)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .filter(new Func1<Response<LinkedTreeMap<String, String>>, Boolean>() {
@@ -60,12 +57,9 @@ public abstract class BaseFetcher<T> {
                         public T call(Response<LinkedTreeMap<String, String>> response) {
                             return map(response);
                         }
-                    })
-                    .subscribe(t -> callback.onSuccess(t));
+                    });
 
-        } catch (Exception e) {
-            //
-        }
+
     }
 
     abstract protected T map(Response<LinkedTreeMap<String, String>> response);

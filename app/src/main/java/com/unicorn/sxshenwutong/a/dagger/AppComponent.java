@@ -5,15 +5,15 @@ import android.content.Context;
 import com.unicorn.sxshenwutong.AjxxFetcher;
 import com.unicorn.sxshenwutong.CxbgSubmitter;
 import com.unicorn.sxshenwutong.SxbgSubmitter;
-import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
-import com.unicorn.sxshenwutong.userList.UserListFetcher;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.CourtFetcher;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
 import com.unicorn.sxshenwutong.b.userType.UserTypeFetcher;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
+import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
 import com.unicorn.sxshenwutong.list.ListAct2;
+import com.unicorn.sxshenwutong.userList.UserListFetcher;
 
 import dagger.Component;
 

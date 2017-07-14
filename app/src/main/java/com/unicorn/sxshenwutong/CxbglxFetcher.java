@@ -1,8 +1,6 @@
 package com.unicorn.sxshenwutong;
 
-import com.unicorn.sxshenwutong.a.network.Callback;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
-import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 
 import java.util.HashMap;
@@ -11,8 +9,8 @@ public class CxbglxFetcher extends CodeFetcher {
 
     private String bzzh;
 
-    public CxbglxFetcher(String bzzh, Callback<CodeResponse> callback) {
-        super(Key.CXBG_CODE, callback);
+    public CxbglxFetcher(String bzzh) {
+        super(Key.CXBG_CODE);
         this.bzzh = bzzh;
     }
 

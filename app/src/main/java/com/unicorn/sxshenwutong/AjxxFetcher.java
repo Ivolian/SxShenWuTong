@@ -2,11 +2,10 @@ package com.unicorn.sxshenwutong;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.a.network.Callback;
-import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.a.network.BaseFetcher;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.a.network.BaseFetcher;
+import com.unicorn.sxshenwutong.a.network.entity.Response;
 import com.unicorn.sxshenwutong.list.Ajxx;
 
 import java.util.HashMap;
@@ -17,8 +16,7 @@ public class AjxxFetcher extends BaseFetcher<Ajxx> {
 
     private String ajbs;
 
-    public AjxxFetcher(String ajbs, Callback<Ajxx> callback) {
-        super(callback);
+    public AjxxFetcher(String ajbs) {
         this.ajbs = ajbs;
     }
 

@@ -25,10 +25,10 @@ public class HomeFra extends BaseFra {
     @Override
     protected void init(View rootView) {
         initRv();
-        new HomeFetcher(homeResponse -> {
-            initBanner(homeResponse);
-            homeAdapter.setNewData(homeItems(homeResponse));
-        }).start();
+//        new HomeFetcher(homeResponse -> {
+//            initBanner(homeResponse);
+//            homeAdapter.setNewData(homeItems(homeResponse));
+//        }).start();
     }
 
 

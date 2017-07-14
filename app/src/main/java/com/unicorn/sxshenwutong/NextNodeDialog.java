@@ -7,9 +7,7 @@ import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
 import com.unicorn.sxshenwutong.lc.NextNodeResponse;
-import com.unicorn.sxshenwutong.userList.UserListFetcher;
 import com.unicorn.sxshenwutong.userList.UserListResponse;
 
 import java.util.ArrayList;
@@ -40,8 +38,8 @@ public class NextNodeDialog {
                 .show();
         if (dialog.getCustomView() == null) return;
         ButterKnife.bind(this, dialog.getCustomView());
-        new NextNodeFetcher(lcid,nextNodeResponse -> msNodename.setItems(items(nextNodeResponse))).start();
-        new UserListFetcher(userListResponse -> msUsername.setItems(items(userListResponse))).start();
+//        new NextNodeFetcher(lcid,nextNodeResponse -> msNodename.setItems(items(nextNodeResponse))).start();
+//        new UserListFetcher(userListResponse -> msUsername.setItems(items(userListResponse))).start();
         RxView.clicks(dialog.getCustomView().findViewById(R.id.tvSubmit))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> submit());
@@ -59,21 +57,21 @@ public class NextNodeDialog {
         map.put("spjdid", node.getNodeid());
         map.put("sprmc", node.getNodename());
 
-        if (lcid.equals("CQ_DSP_SPGL_SP_AJJZPSP")){
-            new CxbgSubmitter(map, cxbgResponse -> {
-                if (cxbgResponse.isSuccess()) {
-                    dialog.dismiss();
-                    showPrompt();
-                }
-            }).start();
-        }else {
-            new SxbgSubmitter(map, cxbgResponse -> {
-                if (cxbgResponse.isSuccess()) {
-                    dialog.dismiss();
-                    showPrompt();
-                }
-            }).start();
-        }
+//        if (lcid.equals("CQ_DSP_SPGL_SP_AJJZPSP")){
+//            new CxbgSubmitter(map, cxbgResponse -> {
+//                if (cxbgResponse.isSuccess()) {
+//                    dialog.dismiss();
+//                    showPrompt();
+//                }
+//            }).start();
+//        }else {
+//            new SxbgSubmitter(map, cxbgResponse -> {
+//                if (cxbgResponse.isSuccess()) {
+//                    dialog.dismiss();
+//                    showPrompt();
+//                }
+//            }).start();
+//        }
 
     }
 

@@ -12,7 +12,6 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.unicorn.sxshenwutong.AjxxFetcher;
 import com.unicorn.sxshenwutong.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
@@ -68,15 +67,13 @@ public class SxbgAct extends BaseAct {
     Ajxx ajxx;
 
     private void fetchAjxx() {
-        new AjxxFetcher(ajbs, ajxx -> {
-            this.ajxx = ajxx;
-            renderAjxx();
-            fetchFdsy();
-
-
-        }).start();
-
-        // ===================== date =====================
+//        new AjxxFetcher(ajbs, ajxx -> {
+//            this.ajxx = ajxx;
+//            renderAjxx();
+//            fetchFdsy();
+//
+//
+//        }).start();
 
 
     }
@@ -141,12 +138,12 @@ public class SxbgAct extends BaseAct {
     List<Code> fdsyList;
 
     private void fetchFdsy() {
-        new FdsyFetcher(codeResponse -> {
-            fdsyList = codeResponse.getBmlist();
-            msFdsy.setItems(items(fdsyList));
-            fetchYckcyy(fdsyList.get(0));
-            msFdsy.setOnItemSelectedListener((view, position, id, item) -> fetchYckcyy(fdsyList.get(position)));
-        }).start();
+//        new FdsyFetcher(codeResponse -> {
+//            fdsyList = codeResponse.getBmlist();
+//            msFdsy.setItems(items(fdsyList));
+//            fetchYckcyy(fdsyList.get(0));
+//            msFdsy.setOnItemSelectedListener((view, position, id, item) -> fetchYckcyy(fdsyList.get(position)));
+//        }).start();
     }
 
 
@@ -157,13 +154,13 @@ public class SxbgAct extends BaseAct {
     private void fetchYckcyy(Code fdsy) {
         String fdsyMc = fdsy.getDmms();
         if (Arrays.asList("延长", "扣除", "中止").contains(fdsyMc)) {
-            new YckcyyFetcher(fdsy, codeResponse -> {
-                yckcyyList = codeResponse.getBmlist();
-                msYckcyy.setItems(items(yckcyyList));
-
-                tvYckcyy.setText(fdsyMc);
-                llYckcyy.setVisibility(View.VISIBLE);
-            }).start();
+//            new YckcyyFetcher(fdsy, codeResponse -> {
+//                yckcyyList = codeResponse.getBmlist();
+//                msYckcyy.setItems(items(yckcyyList));
+//
+//                tvYckcyy.setText(fdsyMc);
+//                llYckcyy.setVisibility(View.VISIBLE);
+//            }).start();
         } else {
             llYckcyy.setVisibility(View.GONE);
         }

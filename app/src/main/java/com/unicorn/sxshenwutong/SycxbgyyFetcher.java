@@ -1,17 +1,15 @@
 package com.unicorn.sxshenwutong;
 
-import com.unicorn.sxshenwutong.a.network.Callback;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
-import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.list.Ajxx;
 
 public class SycxbgyyFetcher extends CodeFetcher {
 
     private String bzzh;
 
-    public SycxbgyyFetcher(Ajxx ajxx, Code cxbglx, Callback<CodeResponse> callback) {
-        super(bxh(ajxx, cxbglx), callback);
+    public SycxbgyyFetcher(Ajxx ajxx, Code cxbglx) {
+        super(bxh(ajxx, cxbglx));
     }
 
     private static String bxh(Ajxx ajxx, Code cxbglx) {

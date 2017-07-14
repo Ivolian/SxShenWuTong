@@ -16,22 +16,15 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
-import com.unicorn.sxshenwutong.a.code.CodeFetcher;
-import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
-import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
-import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindColor;
 import butterknife.BindView;
-
-import static com.unicorn.sxshenwutong.a.constant.Key.USER_TYPE_CODE;
 
 public class LoginAct extends BaseAct {
 
@@ -136,8 +129,11 @@ public class LoginAct extends BaseAct {
         new LoginFetcher(
                 court.getDm(),
                 etLoginName.getText().toString().trim(),
-                etPwd.getText().toString().trim(),
-                loginResponse -> {
+                etPwd.getText().toString().trim()
+        ).start();
+
+        /*
+        loginResponse -> {
                     if (loginResponse.isSuccess()) {
                         Global.setLoginResponse(loginResponse);
                         getUserType();
@@ -146,27 +142,27 @@ public class LoginAct extends BaseAct {
                     }
 
                 }
-        ).start();
+         */
     }
 
 
     // ===================== getUserType =====================
 
-    private void getUserType() {
-        new CodeFetcher(USER_TYPE_CODE, codeResponse -> {
-            Global.setUserTypeCodes(codeResponse.getBmlist());
-            String userType = Global.getLoginResponse().getUser().getUsertype();
-            if (userType == null || userType.equals("")) {
-                Intent intent = new Intent(this, UserTypeAct.class);
-                intent.putExtra(Key.TO_MAIN, true);
-                startActivity(intent);
-            } else {
-                startActivity(new Intent(this, MainAct.class));
-            }
-            finish();
-
-        }).start();
-    }
+//    private void getUserType() {
+//        new CodeFetcher(USER_TYPE_CODE, codeResponse -> {
+//            Global.setUserTypeCodes(codeResponse.getBmlist());
+//            String userType = Global.getLoginResponse().getUser().getUsertype();
+//            if (userType == null || userType.equals("")) {
+//                Intent intent = new Intent(this, UserTypeAct.class);
+//                intent.putExtra(Key.TO_MAIN, true);
+//                startActivity(intent);
+//            } else {
+//                startActivity(new Intent(this, MainAct.class));
+//            }
+//            finish();
+//
+//        }).start();
+//    }
 
 
     // ===================== some view =====================

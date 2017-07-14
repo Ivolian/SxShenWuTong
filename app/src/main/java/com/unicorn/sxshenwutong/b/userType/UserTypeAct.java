@@ -1,6 +1,5 @@
 package com.unicorn.sxshenwutong.b.userType;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +14,6 @@ import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.b.login.entity.User;
 import com.unicorn.sxshenwutong.b.userType.entity.UserType;
-import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,15 +102,15 @@ public class UserTypeAct extends BaseAct {
             ToastUtils.showShort("请选择身份");
             return;
         }
-        new UserTypeFetcher(userTypeDm, userTypeResponse -> {
-            if (userTypeResponse.isSuccess()) {
-                Global.getLoginResponse().getUser().setUsertype(userTypeDm);
-                if (toMain) {
-                    startActivity(new Intent(this, MainAct.class));
-                }
-                finish();
-            }
-        }).start();
+//        new UserTypeFetcher(userTypeDm, userTypeResponse -> {
+//            if (userTypeResponse.isSuccess()) {
+//                Global.getLoginResponse().getUser().setUsertype(userTypeDm);
+//                if (toMain) {
+//                    startActivity(new Intent(this, MainAct.class));
+//                }
+//                finish();
+//            }
+//        }).start();
     }
 
 

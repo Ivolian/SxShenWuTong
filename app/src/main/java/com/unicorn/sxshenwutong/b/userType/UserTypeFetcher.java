@@ -2,11 +2,10 @@ package com.unicorn.sxshenwutong.b.userType;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.a.network.Callback;
-import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.a.network.BaseFetcher;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.a.network.BaseFetcher;
+import com.unicorn.sxshenwutong.a.network.entity.Response;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeResponse;
 
 import java.util.HashMap;
@@ -17,8 +16,7 @@ public class UserTypeFetcher extends BaseFetcher<UserTypeResponse> {
 
     private String userTypeDm;
 
-    public UserTypeFetcher(String userTypeDm, Callback<UserTypeResponse> callback) {
-        super(callback);
+    public UserTypeFetcher(String userTypeDm) {
         this.userTypeDm = userTypeDm;
     }
 

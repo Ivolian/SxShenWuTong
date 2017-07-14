@@ -2,11 +2,10 @@ package com.unicorn.sxshenwutong.b.login;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.a.network.Callback;
-import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.a.network.BaseFetcher;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.a.network.BaseFetcher;
+import com.unicorn.sxshenwutong.a.network.entity.Response;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 
 import java.util.HashMap;
@@ -19,9 +18,7 @@ public class LoginFetcher extends BaseFetcher<LoginResponse> {
     private String loginName;
     private String pwd;
 
-    public LoginFetcher(String fydm, String loginName, String pwd,
-                        Callback<LoginResponse> callback) {
-        super(callback);
+    public LoginFetcher(String fydm, String loginName, String pwd) {
         this.fydm = fydm;
         this.loginName = loginName;
         this.pwd = pwd;

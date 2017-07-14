@@ -7,13 +7,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.TypedValue;
 
 import com.github.promeg.pinyinhelper.Pinyin;
-import com.google.gson.Gson;
 import com.hwangjr.rxbus.RxBus;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
+import com.unicorn.sxshenwutong.b.court.entity.CourtResponse;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import javax.inject.Inject;
@@ -21,6 +21,7 @@ import javax.inject.Inject;
 import butterknife.BindColor;
 import butterknife.BindView;
 import me.yokeyword.indexablerv.IndexableLayout;
+import rx.Subscriber;
 
 public class CourtAct extends BaseAct {
 
@@ -100,16 +101,28 @@ public class CourtAct extends BaseAct {
 
     // ===================== getCourts =====================
 
-    @Inject
-    Gson gson;
+
 
     private void getCourts() {
-        new CourtFetcher(courtResponse -> {
-            for (Court court : courtResponse.getFylist()) {
+        new CourtFetcher().start().subscribe(new Subscriber<CourtResponse>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(CourtResponse courtResponse) {
+                for (Court court : courtResponse.getFylist()) {
                 court.setPinyin(Pinyin.toPinyin(court.getFyjc(), ""));
             }
             courtAdapter.setDatas(courtResponse.getFylist());
-        }).start();
+            }
+        });
     }
 
 }

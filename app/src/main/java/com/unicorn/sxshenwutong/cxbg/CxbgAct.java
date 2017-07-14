@@ -7,11 +7,8 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.unicorn.sxshenwutong.AjxxFetcher;
-import com.unicorn.sxshenwutong.CxbglxFetcher;
 import com.unicorn.sxshenwutong.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.SycxbgyyFetcher;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
@@ -60,11 +57,11 @@ public class CxbgAct extends BaseAct {
     Ajxx ajxx;
 
     private void fetchAjxx() {
-        new AjxxFetcher(ajbs, ajxx -> {
-            this.ajxx = ajxx;
-            renderAjxx();
-            fetchCxbglx();
-        }).start();
+//        new AjxxFetcher(ajbs, ajxx -> {
+//            this.ajxx = ajxx;
+//            renderAjxx();
+//            fetchCxbglx();
+//        }).start();
     }
 
     private void renderAjxx() {
@@ -84,12 +81,12 @@ public class CxbgAct extends BaseAct {
     List<Code> cxbglxList;
 
     private void fetchCxbglx() {
-        new CxbglxFetcher(ajxx.getBzzh(), codeResponse -> {
-            cxbglxList = codeResponse.getBmlist();
-            msCxbglx.setItems(items(cxbglxList));
-            fetchSycxbgyy(cxbglxList.get(0));
-            msCxbglx.setOnItemSelectedListener((view, position, id, item) -> fetchSycxbgyy(cxbglxList.get(position)));
-        }).start();
+//        new CxbglxFetcher(ajxx.getBzzh(), codeResponse -> {
+//            cxbglxList = codeResponse.getBmlist();
+//            msCxbglx.setItems(items(cxbglxList));
+//            fetchSycxbgyy(cxbglxList.get(0));
+//            msCxbglx.setOnItemSelectedListener((view, position, id, item) -> fetchSycxbgyy(cxbglxList.get(position)));
+//        }).start();
     }
 
 
@@ -98,10 +95,10 @@ public class CxbgAct extends BaseAct {
     List<Code> sycxbgyyList;
 
     private void fetchSycxbgyy(Code cxbglx) {
-        new SycxbgyyFetcher(ajxx, cxbglx, codeResponse -> {
-            sycxbgyyList = codeResponse.getBmlist();
-            msSycxbgyy.setItems(items(sycxbgyyList));
-        }).start();
+//        new SycxbgyyFetcher(ajxx, cxbglx, codeResponse -> {
+//            sycxbgyyList = codeResponse.getBmlist();
+//            msSycxbgyy.setItems(items(sycxbgyyList));
+//        }).start();
     }
 
     private List<String> items(List<Code> codeList) {

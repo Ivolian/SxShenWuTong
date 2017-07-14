@@ -2,19 +2,15 @@ package com.unicorn.sxshenwutong.c.home;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.a.network.Callback;
-import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.a.network.BaseFetcher;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.a.network.BaseFetcher;
+import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import javax.inject.Inject;
 
 public class HomeFetcher extends BaseFetcher<HomeResponse> {
 
-    public HomeFetcher(Callback<HomeResponse> callback) {
-        super(callback);
-    }
 
     @Override
     public void inject() {
