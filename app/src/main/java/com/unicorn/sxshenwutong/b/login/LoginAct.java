@@ -26,7 +26,6 @@ import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
-import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.concurrent.TimeUnit;
 
@@ -179,13 +178,13 @@ public class LoginAct extends BaseAct {
             public void onNext(CodeResponse codeResponse) {
                 Global.setUserTypeList(codeResponse.getBmlist());
                 String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
-                if (userTypeDm == null || userTypeDm.equals("")) {
+//                if (userTypeDm == null || userTypeDm.equals("")) {
                     Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
                     intent.putExtra(Key.TO_MAIN, true);
                     startActivity(intent);
-                } else {
-                    startActivity(new Intent(LoginAct.this, MainAct.class));
-                }
+//                } else {
+//                    startActivity(new Intent(LoginAct.this, MainAct.class));
+//                }
                 finish();
             }
         });
