@@ -16,15 +16,23 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
+import com.unicorn.sxshenwutong.a.code.CodeFetcher;
+import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
+import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
+import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
+import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
+import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindColor;
 import butterknife.BindView;
+import rx.Subscriber;
 
 public class LoginAct extends BaseAct {
 
@@ -129,39 +137,59 @@ public class LoginAct extends BaseAct {
                 court.getDm(),
                 etLoginName.getText().toString().trim(),
                 etPwd.getText().toString().trim()
-        ).start();
+        ).start().subscribe(new Subscriber<LoginResponse>() {
+            @Override
+            public void onCompleted() {
 
-        /*
-        loginResponse -> {
-                    if (loginResponse.isSuccess()) {
-                        Global.setLoginResponse(loginResponse);
-                        getUserType();
-                    } else {
-                        ToastUtils.showShort("用户名或密码错误");
-                    }
+            }
 
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(LoginResponse loginResponse) {
+                if (loginResponse.isSuccess()) {
+                    Global.setLoginResponse(loginResponse);
+                    getUserType();
+                } else {
+                    ToastUtils.showShort("用户名或密码错误");
                 }
-         */
+            }
+        });
     }
 
 
     // ===================== getUserType =====================
 
-//    private void getUserType() {
-//        new CodeFetcher(USER_TYPE_CODE, codeResponse -> {
-//            Global.setUserTypeCodes(codeResponse.getBmlist());
-//            String userType = Global.getLoginResponse().getUser().getUsertype();
-//            if (userType == null || userType.equals("")) {
-//                Intent intent = new Intent(this, UserTypeAct.class);
-//                intent.putExtra(Key.TO_MAIN, true);
-//                startActivity(intent);
-//            } else {
-//                startActivity(new Intent(this, MainAct.class));
-//            }
-//            finish();
-//
-//        }).start();
-//    }
+    private void getUserType() {
+        new CodeFetcher("900001").start().subscribe(new Subscriber<CodeResponse>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(CodeResponse codeResponse) {
+                Global.setUserTypeList(codeResponse.getBmlist());
+                String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
+                if (userTypeDm == null || userTypeDm.equals("")) {
+                    Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
+                    intent.putExtra(Key.TO_MAIN, true);
+                    startActivity(intent);
+                } else {
+                    startActivity(new Intent(LoginAct.this, MainAct.class));
+                }
+                finish();
+            }
+        });
+    }
 
 
     // ===================== some view =====================

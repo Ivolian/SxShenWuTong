@@ -2,7 +2,7 @@ package com.unicorn.sxshenwutong.b.userType.entity;
 
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 
-public class UserType {
+public class UserTypeWrapper {
 
     private Code code;
     private boolean checked;

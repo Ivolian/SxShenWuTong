@@ -8,7 +8,7 @@ import java.util.List;
 public class Global {
 
     private static LoginResponse loginResponse;
-    private static List<Code> userTypeCodes;
+    private static List<Code> userTypeList;
 
     //
 
@@ -20,12 +20,12 @@ public class Global {
         Global.loginResponse = loginResponse;
     }
 
-    public static List<Code> getUserTypeCodes() {
-        return userTypeCodes;
+    public static List<Code> getUserTypeList() {
+        return userTypeList;
     }
 
-    public static void setUserTypeCodes(List<Code> userTypeCodes) {
-        Global.userTypeCodes = userTypeCodes;
+    public static void setUserTypeList(List<Code> userTypeList) {
+        Global.userTypeList = userTypeList;
     }
 
 }

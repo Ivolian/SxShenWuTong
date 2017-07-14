@@ -1,6 +1,5 @@
 package com.unicorn.sxshenwutong.b.login;
 
-import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
@@ -8,8 +7,6 @@ import com.unicorn.sxshenwutong.a.network.entity.Response;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 
 import java.util.HashMap;
-
-import javax.inject.Inject;
 
 public class LoginFetcher extends BaseFetcher<LoginResponse> {
 
@@ -36,14 +33,11 @@ public class LoginFetcher extends BaseFetcher<LoginResponse> {
     @Override
     protected HashMap<String, Object> parameters() {
         HashMap<String, Object> parameters = new HashMap<>();
-        parameters.put("fydm", fydm);
+        parameters.put(Key.FYDM, fydm);
         parameters.put("loginname", loginName);
         parameters.put("password", pwd);
         return parameters;
     }
-
-    @Inject
-    Gson gson;
 
     @Override
     protected LoginResponse map(Response response) {

@@ -9,17 +9,17 @@ import android.widget.LinearLayout;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.unicorn.sxshenwutong.b.userType.entity.UserType;
+import com.unicorn.sxshenwutong.b.userType.entity.UserTypeWrapper;
 import com.unicorn.sxshenwutong.R;
 
-public class UserTypeAdapter extends BaseQuickAdapter<UserType, BaseViewHolder> {
+public class UserTypeAdapter extends BaseQuickAdapter<UserTypeWrapper, BaseViewHolder> {
 
     public UserTypeAdapter() {
         super(R.layout.item_user_type);
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, final UserType userType) {
+    protected void convert(BaseViewHolder viewHolder, final UserTypeWrapper userType) {
         boolean checked = userType.isChecked();
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(bg(checked));
@@ -27,7 +27,7 @@ public class UserTypeAdapter extends BaseQuickAdapter<UserType, BaseViewHolder> 
         item.setOnClickListener(v -> {
             userType.setChecked(!checked);
             if (!checked) {
-                for (UserType o : getData()) {
+                for (UserTypeWrapper o : getData()) {
                     o.setChecked(o == userType);
                 }
             }

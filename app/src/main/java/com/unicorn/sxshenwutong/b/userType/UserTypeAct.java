@@ -13,7 +13,7 @@ import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.b.login.entity.User;
-import com.unicorn.sxshenwutong.b.userType.entity.UserType;
+import com.unicorn.sxshenwutong.b.userType.entity.UserTypeWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,11 +69,11 @@ public class UserTypeAct extends BaseAct {
 
     }
 
-    private List<UserType> userTypes() {
+    private List<UserTypeWrapper> userTypes() {
         String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
-        List<UserType> userTypes = new ArrayList<>();
-        for (Code code : Global.getUserTypeCodes()) {
-            UserType userType = new UserType();
+        List<UserTypeWrapper> userTypes = new ArrayList<>();
+        for (Code code : Global.getUserTypeList()) {
+            UserTypeWrapper userType = new UserTypeWrapper();
             userType.setCode(code);
             userType.setChecked(code.getDm().equals(userTypeDm));
             userTypes.add(userType);
@@ -97,7 +97,7 @@ public class UserTypeAct extends BaseAct {
     String userTypeDm;
 
     private void setUserType() {
-        userTypeAdapter.getData().stream().filter(UserType::isChecked).forEach(userType -> userTypeDm = userType.getCode().getDm());
+        userTypeAdapter.getData().stream().filter(UserTypeWrapper::isChecked).forEach(userType -> userTypeDm = userType.getCode().getDm());
         if (userTypeDm == null) {
             ToastUtils.showShort("请选择身份");
             return;
