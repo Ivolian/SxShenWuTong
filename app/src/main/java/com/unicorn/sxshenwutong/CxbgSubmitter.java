@@ -1,7 +1,6 @@
 package com.unicorn.sxshenwutong;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.BaseSubmitter;
@@ -35,7 +34,7 @@ public class CxbgSubmitter extends BaseSubmitter<CxbgResponse> {
     }
 
     @Override
-    protected CxbgResponse map(Response<LinkedTreeMap<String, String>> response) {
+    protected CxbgResponse map(Response response) {
         String ydbaKey = response.getParameters().get(Key.YDBAKEY);
         return gson.fromJson(ydbaKey, CxbgResponse.class);
     }

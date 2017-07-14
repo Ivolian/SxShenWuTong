@@ -1,7 +1,6 @@
 package com.unicorn.sxshenwutong.c.home;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.BaseFetcher;
@@ -26,7 +25,7 @@ public class HomeFetcher extends BaseFetcher<HomeResponse> {
     Gson gson;
 
     @Override
-    protected HomeResponse map(Response<LinkedTreeMap<String, String>> response) {
+    protected HomeResponse map(Response response) {
         String ydbaKey = response.getParameters().get(Key.YDBAKEY);
         return gson.fromJson(ydbaKey, HomeResponse.class);
     }

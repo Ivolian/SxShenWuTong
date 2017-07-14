@@ -1,7 +1,6 @@
 package com.unicorn.sxshenwutong.a.code;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
@@ -42,7 +41,7 @@ public class CodeFetcher extends BaseFetcher<CodeResponse> {
     Gson gson;
 
     @Override
-    protected CodeResponse map(Response<LinkedTreeMap<String, String>> response) {
+    protected CodeResponse map(Response response) {
         String ydbaKey = response.getParameters().get(Key.YDBAKEY);
         return gson.fromJson(ydbaKey, CodeResponse.class);
     }

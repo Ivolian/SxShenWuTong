@@ -3,13 +3,12 @@ package com.unicorn.sxshenwutong.a.base;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.ParamsInitializer;
 import com.unicorn.sxshenwutong.a.network.entity.Params;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.list.ListResponse;
 
 import java.util.HashMap;
@@ -84,15 +83,15 @@ abstract public class ListAct<T> extends RefreshAct<T> {
         return generalService.get(params())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .filter(new Func1<Response<LinkedTreeMap<String, String>>, Boolean>() {
+                .filter(new Func1<Response, Boolean>() {
                     @Override
-                    public Boolean call(Response<LinkedTreeMap<String, String>> response) {
+                    public Boolean call(Response response) {
                         return response.getCode().equals(SUCCESS_CODE);
                     }
                 })
-                .map(new Func1<Response<LinkedTreeMap<String, String>>, String>() {
+                .map(new Func1<Response, String>() {
                     @Override
-                    public String call(Response<LinkedTreeMap<String, String>> response) {
+                    public String call(Response response) {
                         return response.getParameters().get(YDBAKEY);
                     }
                 })

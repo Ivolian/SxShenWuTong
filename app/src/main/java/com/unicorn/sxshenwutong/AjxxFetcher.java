@@ -1,7 +1,6 @@
 package com.unicorn.sxshenwutong;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.BaseFetcher;
@@ -41,7 +40,7 @@ public class AjxxFetcher extends BaseFetcher<Ajxx> {
     Gson gson;
 
     @Override
-    protected Ajxx map(Response<LinkedTreeMap<String, String>> response) {
+    protected Ajxx map(Response response) {
         String ajxx = response.getParameters().get(Key.AJXX);
         return gson.fromJson(ajxx, Ajxx.class);
     }

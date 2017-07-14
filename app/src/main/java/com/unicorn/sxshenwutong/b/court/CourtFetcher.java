@@ -1,7 +1,6 @@
 package com.unicorn.sxshenwutong.b.court;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.BaseFetcher;
@@ -27,7 +26,7 @@ public class CourtFetcher extends BaseFetcher<CourtResponse> {
     Gson gson;
 
     @Override
-    protected CourtResponse map(Response<LinkedTreeMap<String, String>> response) {
+    protected CourtResponse map(Response response) {
         String ydbaKey = response.getParameters().get(Key.YDBAKEY);
         return gson.fromJson(ydbaKey, CourtResponse.class);
     }

@@ -1,7 +1,6 @@
 package com.unicorn.sxshenwutong.b.userType;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.BaseFetcher;
@@ -41,7 +40,7 @@ public class UserTypeFetcher extends BaseFetcher<UserTypeResponse> {
     Gson gson;
 
     @Override
-    protected UserTypeResponse map(Response<LinkedTreeMap<String, String>> response) {
+    protected UserTypeResponse map(Response response) {
         String ydbaKey = response.getParameters().get(Key.YDBAKEY);
         return gson.fromJson(ydbaKey, UserTypeResponse.class);
     }

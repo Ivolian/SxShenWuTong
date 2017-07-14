@@ -1,6 +1,5 @@
 package com.unicorn.sxshenwutong.a.network;
 
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import retrofit2.http.GET;
@@ -10,6 +9,6 @@ import rx.Observable;
 public interface GeneralService {
 
     @GET("request.shtml")
-    Observable<Response<LinkedTreeMap<String, String>>> get(@Query("params") String params);
+    Observable<Response> get(@Query("params") String params);
 
 }

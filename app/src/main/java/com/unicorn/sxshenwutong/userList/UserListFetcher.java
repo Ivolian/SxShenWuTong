@@ -1,7 +1,6 @@
 package com.unicorn.sxshenwutong.userList;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
@@ -36,7 +35,7 @@ public class UserListFetcher extends BaseFetcher<UserListResponse> {
     Gson gson;
 
     @Override
-    protected UserListResponse map(Response<LinkedTreeMap<String, String>> response) {
+    protected UserListResponse map(Response response) {
         return gson.fromJson(response.getParameters().get(Key.YDBAKEY), UserListResponse.class);
     }
 

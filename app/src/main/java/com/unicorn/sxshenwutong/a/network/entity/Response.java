@@ -1,6 +1,8 @@
 package com.unicorn.sxshenwutong.a.network.entity;
 
-public class Response<T> {
+import com.google.gson.internal.LinkedTreeMap;
+
+public class Response {
 
     /**
      * code : 000000
@@ -25,7 +27,7 @@ public class Response<T> {
     private String seqD;
     private String seqR;
     private String thirdFlow;
-    private T parameters;
+    private LinkedTreeMap<String, String> parameters;
 
     public String getCode() {
         return code;
@@ -107,12 +109,13 @@ public class Response<T> {
         this.thirdFlow = thirdFlow;
     }
 
-    public T getParameters() {
+    public LinkedTreeMap<String, String> getParameters() {
         return parameters;
     }
 
-    public void setParameters(T parameters) {
+    public void setParameters(LinkedTreeMap<String, String> parameters) {
         this.parameters = parameters;
     }
 
 }
+
