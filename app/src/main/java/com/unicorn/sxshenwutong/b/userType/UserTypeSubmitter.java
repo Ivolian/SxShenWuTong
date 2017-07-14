@@ -1,21 +1,18 @@
 package com.unicorn.sxshenwutong.b.userType;
 
-import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
+import com.unicorn.sxshenwutong.a.network.base.BaseSubmitter;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.b.userType.entity.UserTypeResponse;
+import com.unicorn.sxshenwutong.SimpleResponse;
 
 import java.util.HashMap;
 
-import javax.inject.Inject;
-
-public class UserTypeFetcher extends BaseFetcher<UserTypeResponse> {
+public class UserTypeSubmitter extends BaseSubmitter<SimpleResponse> {
 
     private String userTypeDm;
 
-    public UserTypeFetcher(String userTypeDm) {
+    public UserTypeSubmitter(String userTypeDm) {
         this.userTypeDm = userTypeDm;
     }
 
@@ -36,13 +33,10 @@ public class UserTypeFetcher extends BaseFetcher<UserTypeResponse> {
         return parameters;
     }
 
-    @Inject
-    Gson gson;
-
     @Override
-    protected UserTypeResponse map(Response response) {
+    protected SimpleResponse map(Response response) {
         String ydbaKey = response.getParameters().get(Key.YDBAKEY);
-        return gson.fromJson(ydbaKey, UserTypeResponse.class);
+        return gson.fromJson(ydbaKey, SimpleResponse.class);
     }
 
 }

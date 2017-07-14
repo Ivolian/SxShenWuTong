@@ -1,6 +1,6 @@
-package com.unicorn.sxshenwutong.b.userType.entity;
+package com.unicorn.sxshenwutong;
 
-public class UserTypeResponse {
+public class SimpleResponse {
 
     private boolean success;
 

@@ -1,5 +1,6 @@
 package com.unicorn.sxshenwutong.b.userType;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,12 +9,14 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.SimpleResponse;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.b.login.entity.User;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeWrapper;
+import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import pocketknife.BindExtra;
 import pocketknife.NotRequired;
+import rx.Subscriber;
 
 public class UserTypeAct extends BaseAct {
 
@@ -82,7 +86,7 @@ public class UserTypeAct extends BaseAct {
     }
 
 
-    // ===================== clickConfirm =====================
+    // ===================== setUserType =====================
 
     private void clickConfirm() {
         RxView.clicks(findViewById(R.id.btnConfirm))
@@ -102,15 +106,28 @@ public class UserTypeAct extends BaseAct {
             ToastUtils.showShort("请选择身份");
             return;
         }
-//        new UserTypeFetcher(userTypeDm, userTypeResponse -> {
-//            if (userTypeResponse.isSuccess()) {
-//                Global.getLoginResponse().getUser().setUsertype(userTypeDm);
-//                if (toMain) {
-//                    startActivity(new Intent(this, MainAct.class));
-//                }
-//                finish();
-//            }
-//        }).start();
+        new UserTypeSubmitter(userTypeDm).start().subscribe(new Subscriber<SimpleResponse>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(SimpleResponse simpleResponse) {
+                if (simpleResponse.isSuccess()) {
+                    Global.getLoginResponse().getUser().setUsertype(userTypeDm);
+                    if (toMain) {
+                        startActivity(new Intent(UserTypeAct.this, MainAct.class));
+                    }
+                    finish();
+                }
+            }
+        });
     }
 
 
