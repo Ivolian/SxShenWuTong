@@ -53,7 +53,6 @@ public class LoginAct extends BaseAct {
     // ===================== loadImg =====================
 
     private void loadImg() {
-        Glide.with(this).load(R.drawable.login_bg).into(ivBg);
         Glide.with(this).load(R.drawable.login_top).into(ivTop);
     }
 
@@ -167,8 +166,6 @@ public class LoginAct extends BaseAct {
 
     // ===================== some view =====================
 
-    @BindView(R.id.ivBg)
-    ImageView ivBg;
     @BindView(R.id.ivTop)
     ImageView ivTop;
     @BindView(R.id.llCourt)

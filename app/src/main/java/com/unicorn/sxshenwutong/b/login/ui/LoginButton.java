@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.Gravity;
 
 import com.blankj.utilcode.util.ConvertUtils;
@@ -29,7 +28,7 @@ public class LoginButton extends AppCompatTextView {
         // cope text
         setText("登录");
         setGravity(Gravity.CENTER);
-        setTextSize(TypedValue.COMPLEX_UNIT_DIP, 24);
+//        setTextSize(TypedValue.COMPLEX_UNIT_DIP, 24);
         setTextColor(Color.WHITE);
 
         // cope bg

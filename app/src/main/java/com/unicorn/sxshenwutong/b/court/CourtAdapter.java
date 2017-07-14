@@ -9,20 +9,15 @@ import android.widget.TextView;
 
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
-import com.unicorn.sxshenwutong.a.dagger.App;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.yokeyword.indexablerv.IndexableAdapter;
 
-@App
 public class CourtAdapter extends IndexableAdapter<Court> {
 
     private final LayoutInflater layoutInflater;
 
-    @Inject
     public CourtAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);
     }
