@@ -1,5 +1,6 @@
 package com.unicorn.sxshenwutong.a.network.base;
 
+import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.ParamsInitializer;
 import com.unicorn.sxshenwutong.a.network.entity.Params;
@@ -52,6 +53,9 @@ public abstract class BaseFetcher<T> {
 
     // 业务编码
     abstract protected String busiCode();
+
+    @Inject
+    protected Gson gson;
 
     // 因为泛型，无法解析返回值，由子类实现
     abstract protected T map(Response response);
