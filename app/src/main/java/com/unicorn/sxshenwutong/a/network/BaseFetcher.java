@@ -1,11 +1,8 @@
-package com.unicorn.sxshenwutong.a.base;
+package com.unicorn.sxshenwutong.a.network;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.a.app.Callback;
-import com.unicorn.sxshenwutong.a.app.GeneralService;
-import com.unicorn.sxshenwutong.a.app.ParamsInitializer;
-import com.unicorn.sxshenwutong.a.app.entity.Params;
-import com.unicorn.sxshenwutong.a.app.entity.Response;
+import com.unicorn.sxshenwutong.a.network.entity.Params;
+import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
 

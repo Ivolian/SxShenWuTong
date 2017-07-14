@@ -2,9 +2,9 @@ package com.unicorn.sxshenwutong;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.unicorn.sxshenwutong.a.app.Callback;
-import com.unicorn.sxshenwutong.a.app.entity.Response;
-import com.unicorn.sxshenwutong.a.base.BaseFetcher;
+import com.unicorn.sxshenwutong.a.network.Callback;
+import com.unicorn.sxshenwutong.a.network.entity.Response;
+import com.unicorn.sxshenwutong.a.network.BaseFetcher;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.list.Ajxx;

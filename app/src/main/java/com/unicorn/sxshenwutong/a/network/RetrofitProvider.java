@@ -1,4 +1,6 @@
-package com.unicorn.sxshenwutong.a.app;
+package com.unicorn.sxshenwutong.a.network;
+
+import com.unicorn.sxshenwutong.a.app.App;
 
 import javax.inject.Inject;
 

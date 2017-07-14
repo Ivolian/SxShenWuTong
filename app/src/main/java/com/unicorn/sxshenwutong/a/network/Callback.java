@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.a.app;
+package com.unicorn.sxshenwutong.a.network;
 
 public interface Callback<T> {
 

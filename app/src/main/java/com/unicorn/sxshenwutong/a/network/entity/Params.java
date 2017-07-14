@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.a.app.entity;
+package com.unicorn.sxshenwutong.a.network.entity;
 
 import com.google.gson.Gson;
 

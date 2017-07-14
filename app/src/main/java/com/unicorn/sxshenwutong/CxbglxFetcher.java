@@ -1,6 +1,6 @@
 package com.unicorn.sxshenwutong;
 
-import com.unicorn.sxshenwutong.a.app.Callback;
+import com.unicorn.sxshenwutong.a.network.Callback;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;

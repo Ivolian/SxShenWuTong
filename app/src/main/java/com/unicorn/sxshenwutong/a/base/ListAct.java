@@ -5,10 +5,10 @@ import android.widget.TextView;
 
 import com.google.gson.internal.LinkedTreeMap;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.a.app.GeneralService;
-import com.unicorn.sxshenwutong.a.app.ParamsInitializer;
-import com.unicorn.sxshenwutong.a.app.entity.Params;
-import com.unicorn.sxshenwutong.a.app.entity.Response;
+import com.unicorn.sxshenwutong.a.network.GeneralService;
+import com.unicorn.sxshenwutong.a.network.ParamsInitializer;
+import com.unicorn.sxshenwutong.a.network.entity.Params;
+import com.unicorn.sxshenwutong.a.network.entity.Response;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.list.ListResponse;
 

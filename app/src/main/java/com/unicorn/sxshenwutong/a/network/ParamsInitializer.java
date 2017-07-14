@@ -1,6 +1,7 @@
-package com.unicorn.sxshenwutong.a.app;
+package com.unicorn.sxshenwutong.a.network;
 
-import com.unicorn.sxshenwutong.a.app.entity.Params;
+import com.unicorn.sxshenwutong.a.app.Global;
+import com.unicorn.sxshenwutong.a.network.entity.Params;
 
 import org.joda.time.DateTime;
 

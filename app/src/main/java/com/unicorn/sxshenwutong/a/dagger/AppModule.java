@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.unicorn.sxshenwutong.a.app.GeneralService;
-import com.unicorn.sxshenwutong.a.app.RetrofitProvider;
+import com.unicorn.sxshenwutong.a.network.GeneralService;
+import com.unicorn.sxshenwutong.a.network.RetrofitProvider;
 
 import dagger.Module;
 import dagger.Provides;
