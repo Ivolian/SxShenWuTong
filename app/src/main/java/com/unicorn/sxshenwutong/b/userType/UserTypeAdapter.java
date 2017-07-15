@@ -19,22 +19,22 @@ public class UserTypeAdapter extends BaseQuickAdapter<UserTypeWrapper, BaseViewH
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, final UserTypeWrapper userType) {
-        boolean checked = userType.isChecked();
+    protected void convert(BaseViewHolder viewHolder, final UserTypeWrapper userTypeWrapper) {
+        boolean checked = userTypeWrapper.isChecked();
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(bg(checked));
 
         item.setOnClickListener(v -> {
-            userType.setChecked(!checked);
+            userTypeWrapper.setChecked(!checked);
             if (!checked) {
                 for (UserTypeWrapper o : getData()) {
-                    o.setChecked(o == userType);
+                    o.setChecked(o == userTypeWrapper);
                 }
             }
             notifyDataSetChanged();
         });
 
-        viewHolder.setText(R.id.tvUserTypeName, userType.getCode().getDmms());
+        viewHolder.setText(R.id.tvUserTypeName, userTypeWrapper.getCode().getDmms());
         ImageView ivCheck = viewHolder.getView(R.id.ivCheck);
         Glide.with(mContext).load(checked ? R.drawable.sfsz_form2 : R.drawable.sfsz_form1).into(ivCheck);
     }
