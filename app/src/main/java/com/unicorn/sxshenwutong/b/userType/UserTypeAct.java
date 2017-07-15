@@ -2,29 +2,30 @@ package com.unicorn.sxshenwutong.b.userType;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.SimpleResponse;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.b.login.ui.LoginButton;
+import com.unicorn.sxshenwutong.SimpleButton;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeWrapper;
 import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import butterknife.BindColor;
 import butterknife.BindView;
 import pocketknife.BindExtra;
 import pocketknife.NotRequired;
@@ -41,7 +42,6 @@ public class UserTypeAct extends BaseAct {
     @Override
     protected void init(Bundle savedInstanceState) {
         clickBack();
-        clickConfirm();
         initRv();
     }
 
@@ -56,47 +56,55 @@ public class UserTypeAct extends BaseAct {
     private void initRv() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(userTypeAdapter);
+        userTypeAdapter.setNewData(wrappers());
         userTypeAdapter.addHeaderView(new HeaderView(this, null));
-        userTypeAdapter.setNewData(userTypes());
-        View view = new View(this, null);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-        layoutParams.setMargins(0,0,0, ConvertUtils.dp2px(20));
-        view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
-
-        view.setLayoutParams(layoutParams);
-        userTypeAdapter.addHeaderView(view);
-        LoginButton loginButton = new LoginButton(this, null);
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,  ConvertUtils.dp2px(50));
-        layoutParams2.setMargins( ConvertUtils.dp2px(20), ConvertUtils.dp2px(20), ConvertUtils.dp2px(20),0);
-        loginButton.setTextSize(20, TypedValue.COMPLEX_UNIT_DIP);
-        loginButton.setLayoutParams(layoutParams2);
-        loginButton.setClickable(true);
-        loginButton.setText("确认");
-
-        userTypeAdapter.addFooterView(loginButton);
-
+        addDivider();
+        addConfirmButton();
     }
 
-    private List<UserTypeWrapper> userTypes() {
+
+    // ===================== addDivider =====================
+
+    @BindColor(R.color.colorPrimary)
+    int colorPrimary;
+
+    private void addDivider() {
+        View view = new View(this, null);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+        layoutParams.setMargins(0, 0, 0, ConvertUtils.dp2px(20));
+        view.setBackgroundColor(colorPrimary);
+        view.setLayoutParams(layoutParams);
+        userTypeAdapter.addHeaderView(view);
+    }
+
+    private List<UserTypeWrapper> wrappers() {
         String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
-        List<UserTypeWrapper> userTypes = new ArrayList<>();
+        List<UserTypeWrapper> wrappers = new ArrayList<>();
         for (Code code : Global.getUserTypeList()) {
-            UserTypeWrapper userType = new UserTypeWrapper();
-            userType.setCode(code);
-            userType.setChecked(code.getDm().equals(userTypeDm));
-            userTypes.add(userType);
+            UserTypeWrapper wrapper = new UserTypeWrapper();
+            wrapper.setCode(code);
+            wrapper.setChecked(code.getDm().equals(userTypeDm));
+            wrappers.add(wrapper);
         }
-        return userTypes;
+        return wrappers;
+    }
+
+
+    private void addConfirmButton() {
+        SimpleButton confirmBtn = new SimpleButton(this, null);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ConvertUtils.dp2px(56));
+        layoutParams.setMargins(ConvertUtils.dp2px(20), ConvertUtils.dp2px(30), ConvertUtils.dp2px(20), 0);
+        confirmBtn.setLayoutParams(layoutParams);
+        confirmBtn.setText("确认");
+        confirmBtn.setTextSize(20);
+        RxView.clicks(confirmBtn)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> setUserType());
+        userTypeAdapter.addFooterView(confirmBtn);
     }
 
 
     // ===================== setUserType =====================
-
-    private void clickConfirm() {
-//        RxView.clicks(findViewById(R.id.btnConfirm))
-//                .throttleFirst(1, TimeUnit.SECONDS)
-//                .subscribe(aVoid -> setUserType());
-    }
 
     @NotRequired
     @BindExtra(Key.TO_MAIN)

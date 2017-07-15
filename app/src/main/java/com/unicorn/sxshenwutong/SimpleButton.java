@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.b.login.ui;
+package com.unicorn.sxshenwutong;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,14 +11,13 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 
 import com.blankj.utilcode.util.ConvertUtils;
-import com.unicorn.sxshenwutong.R;
 
 import butterknife.BindColor;
 import butterknife.ButterKnife;
 
-public class LoginButton extends AppCompatTextView {
+public class SimpleButton extends AppCompatTextView {
 
-    public LoginButton(Context context, @Nullable AttributeSet attrs) {
+    public SimpleButton(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
@@ -44,6 +43,8 @@ public class LoginButton extends AppCompatTextView {
         stateListDrawable.addState(new int[]{android.R.attr.state_pressed}, pressed);
         stateListDrawable.addState(new int[]{-android.R.attr.state_pressed}, unpressed);
         setBackground(stateListDrawable);
+
+        enable();
     }
 
     public void enable() {

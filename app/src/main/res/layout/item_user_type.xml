@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="56dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginTop="10dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/ivCheck"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginLeft="16dp"
         android:scaleType="fitXY"
-        android:src="@drawable/sfsz_form1" />
+        android:src="@drawable/sfsz_form1"
+        app:layout_heightPercent="3%sh"
+        app:layout_widthPercent="3%sh" />
 
     <TextView
         android:id="@+id/tvUserTypeName"
@@ -24,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:textColor="@color/md_black"
-        android:textSize="20dp" />
+        app:layout_textSizePercent="2.5%sh" />
 
-</LinearLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>
 

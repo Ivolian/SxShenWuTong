@@ -121,7 +121,7 @@
 
     </com.zhy.android.percent.support.PercentLinearLayout>
 
-    <com.unicorn.sxshenwutong.b.login.ui.LoginButton
+    <com.unicorn.sxshenwutong.SimpleButton
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
