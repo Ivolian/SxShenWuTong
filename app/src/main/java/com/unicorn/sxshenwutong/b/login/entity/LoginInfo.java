@@ -21,9 +21,9 @@ public class LoginInfo {
     private String pwd;
     
     @NotNull
-    private String courtId;
+    private String courtDm;
 
-    @ToOne(joinProperty = "courtId")
+    @ToOne(joinProperty = "courtDm")
     private Court court;
 
     /** Used to resolve relations */
@@ -34,12 +34,12 @@ public class LoginInfo {
     @Generated(hash = 1787517186)
     private transient LoginInfoDao myDao;
 
-    @Generated(hash = 1754268947)
+    @Generated(hash = 2147121495)
     public LoginInfo(String loginName, @NotNull String pwd,
-            @NotNull String courtId) {
+            @NotNull String courtDm) {
         this.loginName = loginName;
         this.pwd = pwd;
-        this.courtId = courtId;
+        this.courtDm = courtDm;
     }
 
     @Generated(hash = 1911824992)
@@ -62,21 +62,21 @@ public class LoginInfo {
         this.pwd = pwd;
     }
 
-    public String getCourtId() {
-        return this.courtId;
+    public String getCourtDm() {
+        return this.courtDm;
     }
 
-    public void setCourtId(String courtId) {
-        this.courtId = courtId;
+    public void setCourtDm(String courtDm) {
+        this.courtDm = courtDm;
     }
 
     @Generated(hash = 1727557673)
     private transient String court__resolvedKey;
 
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 624411430)
+    @Generated(hash = 2084222915)
     public Court getCourt() {
-        String __key = this.courtId;
+        String __key = this.courtDm;
         if (court__resolvedKey == null || court__resolvedKey != __key) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
@@ -93,16 +93,16 @@ public class LoginInfo {
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 982788207)
+    @Generated(hash = 1852680436)
     public void setCourt(@NotNull Court court) {
         if (court == null) {
             throw new DaoException(
-                    "To-one property 'courtId' has not-null constraint; cannot set to-one to null");
+                    "To-one property 'courtDm' has not-null constraint; cannot set to-one to null");
         }
         synchronized (this) {
             this.court = court;
-            courtId = court.getDm();
-            court__resolvedKey = courtId;
+            courtDm = court.getDm();
+            court__resolvedKey = courtDm;
         }
     }
 

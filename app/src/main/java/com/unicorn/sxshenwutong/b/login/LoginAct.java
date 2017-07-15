@@ -22,18 +22,29 @@ import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
+import com.unicorn.sxshenwutong.b.login.entity.LoginInfo;
+import com.unicorn.sxshenwutong.b.login.entity.LoginInfoDao;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+
 import butterknife.BindColor;
 import butterknife.BindView;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 
 public class LoginAct extends BaseAct {
+
+    @Override
+    protected void inject() {
+        AppComponentProvider.provide().inject(this);
+    }
 
     @Override
     protected boolean useRxBus() {
@@ -51,6 +62,7 @@ public class LoginAct extends BaseAct {
         setBg();
         clickCourt();
         clickLogin();
+        renderLoginInfo();
 
         etLoginName.setText("审判管理员");
         etPwd.setText("67673305");
@@ -176,18 +188,44 @@ public class LoginAct extends BaseAct {
 
             @Override
             public void onNext(CodeResponse codeResponse) {
+                saveLoginInfo();
                 Global.setUserTypeList(codeResponse.getBmlist());
                 String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
 //                if (userTypeDm == null || userTypeDm.equals("")) {
-                    Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
-                    intent.putExtra(Key.TO_MAIN, true);
-                    startActivity(intent);
+                Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
+                intent.putExtra(Key.TO_MAIN, true);
+                startActivity(intent);
 //                } else {
 //                    startActivity(new Intent(LoginAct.this, MainAct.class));
 //                }
                 finish();
             }
         });
+    }
+
+    @Inject
+    LoginInfoDao loginInfoDao;
+
+    private void saveLoginInfo() {
+        LoginInfo loginInfo = new LoginInfo();
+        loginInfo.setLoginName(etLoginName.getText().toString().trim());
+        loginInfo.setPwd(etPwd.getText().toString().trim());
+        loginInfo.setCourt(court);
+        loginInfoDao.rx().insertOrReplace(loginInfo).subscribe(loginInfo1 -> {
+        });
+    }
+
+    private void renderLoginInfo() {
+        loginInfoDao.queryBuilder().rx()
+                .unique()
+                .observeOn(AndroidSchedulers.mainThread())
+                .filter(loginInfo -> loginInfo != null)
+                .subscribe(loginInfo -> {
+                            this.court = loginInfo.getCourt();
+                            tvCourt.setText(court.getDmms());
+                            etLoginName.setText(loginInfo.getLoginName());
+                        }
+                );
     }
 
 

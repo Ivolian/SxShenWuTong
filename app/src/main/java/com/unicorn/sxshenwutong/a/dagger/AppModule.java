@@ -8,6 +8,7 @@ import com.unicorn.sxshenwutong.a.app.DaoSessionProvider;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.RetrofitProvider;
 import com.unicorn.sxshenwutong.b.court.entity.DaoSession;
+import com.unicorn.sxshenwutong.b.login.entity.LoginInfoDao;
 
 import dagger.Module;
 import dagger.Provides;
@@ -57,6 +58,12 @@ public class AppModule {
     @Provides
     DaoSession provideDaoSession(DaoSessionProvider daoSessionProvider) {
         return daoSessionProvider.provide();
+    }
+
+    @App
+    @Provides
+    LoginInfoDao provideLoginInfoDao(DaoSession daoSession) {
+        return daoSession.getLoginInfoDao();
     }
 
 }

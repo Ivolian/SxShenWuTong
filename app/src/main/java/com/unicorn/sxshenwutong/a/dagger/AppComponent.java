@@ -8,6 +8,7 @@ import com.unicorn.sxshenwutong.SxbgSubmitter;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.CourtFetcher;
+import com.unicorn.sxshenwutong.b.login.LoginAct;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
 import com.unicorn.sxshenwutong.b.userType.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
@@ -26,11 +27,12 @@ public interface AppComponent {
     void inject(LoginFetcher o);
     void inject(CodeFetcher o);
     void inject(CourtFetcher o);
-    void inject(CourtAct o);
     void inject(UserTypeSubmitter o);
 
-    void inject(HomeFetcher o);
+    void inject(LoginAct o);
+    void inject(CourtAct o);
 
+    void inject(HomeFetcher o);
     void inject(ListAct2 o);
     void inject(AjxxFetcher o);
     void inject(NextNodeFetcher o);
