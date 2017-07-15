@@ -12,12 +12,12 @@ import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.SimpleButton;
 import com.unicorn.sxshenwutong.SimpleResponse;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.SimpleButton;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeWrapper;
 import com.unicorn.sxshenwutong.c.main.MainAct;
 
@@ -92,7 +92,7 @@ public class UserTypeAct extends BaseAct {
 
     private void addConfirmButton() {
         SimpleButton confirmBtn = new SimpleButton(this, null);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ConvertUtils.dp2px(56));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ConvertUtils.dp2px(50));
         layoutParams.setMargins(ConvertUtils.dp2px(20), ConvertUtils.dp2px(30), ConvertUtils.dp2px(20), 0);
         confirmBtn.setLayoutParams(layoutParams);
         confirmBtn.setText("确认");
@@ -113,7 +113,11 @@ public class UserTypeAct extends BaseAct {
     String userTypeDm;
 
     private void setUserType() {
-        userTypeAdapter.getData().stream().filter(UserTypeWrapper::isChecked).forEach(userType -> userTypeDm = userType.getCode().getDm());
+        for (UserTypeWrapper wrapper : userTypeAdapter.getData()) {
+            if (wrapper.isChecked()) {
+                userTypeDm = wrapper.getCode().getDm();
+            }
+        }
         if (userTypeDm == null) {
             ToastUtils.showShort("请选择身份");
             return;
