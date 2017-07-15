@@ -19,6 +19,7 @@ import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeWrapper;
+import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.ArrayList;

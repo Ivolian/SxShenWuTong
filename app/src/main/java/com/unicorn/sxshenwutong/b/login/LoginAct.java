@@ -18,7 +18,6 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
-import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
@@ -29,6 +28,7 @@ import com.unicorn.sxshenwutong.b.login.entity.LoginInfo;
 import com.unicorn.sxshenwutong.b.login.entity.LoginInfoDao;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
+import com.unicorn.sxshenwutong.b.userType.network.UserTypeFetcher;
 
 import java.util.concurrent.TimeUnit;
 
@@ -175,7 +175,7 @@ public class LoginAct extends BaseAct {
     // ===================== getUserType =====================
 
     private void getUserType() {
-        new CodeFetcher("900001").start().subscribe(new Subscriber<CodeResponse>() {
+        new UserTypeFetcher().start().subscribe(new Subscriber<CodeResponse>() {
             @Override
             public void onCompleted() {
 

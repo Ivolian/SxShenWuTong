@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.b.userType;
+package com.unicorn.sxshenwutong.b.userType.network;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;

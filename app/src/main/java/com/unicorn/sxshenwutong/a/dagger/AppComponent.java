@@ -10,7 +10,7 @@ import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.CourtFetcher;
 import com.unicorn.sxshenwutong.b.login.LoginAct;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
-import com.unicorn.sxshenwutong.b.userType.UserTypeSubmitter;
+import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
 import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
 import com.unicorn.sxshenwutong.list.ListAct2;
