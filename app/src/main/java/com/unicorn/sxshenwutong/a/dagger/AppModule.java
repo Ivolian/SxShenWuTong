@@ -4,8 +4,10 @@ import android.app.Application;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.unicorn.sxshenwutong.a.app.DaoSessionProvider;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.RetrofitProvider;
+import com.unicorn.sxshenwutong.b.court.entity.DaoSession;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,16 +17,22 @@ import retrofit2.Retrofit;
 @Module
 public class AppModule {
 
-    private final Context context;
+    private final Application application;
 
     AppModule(Application application) {
-        this.context = application.getApplicationContext();
+        this.application = application;
     }
 
     @App
     @Provides
     Context provideContext() {
-        return context;
+        return application.getApplicationContext();
+    }
+
+    @App
+    @Provides
+    Application provideApplication() {
+        return application;
     }
 
     @App
@@ -43,6 +51,12 @@ public class AppModule {
     @Provides
     Gson provideGson() {
         return new Gson();
+    }
+
+    @App
+    @Provides
+    DaoSession provideDaoSession(DaoSessionProvider daoSessionProvider) {
+        return daoSessionProvider.provide();
     }
 
 }

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 25
@@ -65,4 +66,5 @@ dependencies {
     compile 'com.appeaser.sublimepickerlibrary:sublimepickerlibrary:2.1.1'
 //    compile 'cat.ereza:customactivityoncrash:2.1.0'
     compile 'com.zhy:percent-support-extends:1.1.1'
+    compile 'org.greenrobot:greendao:3.2.2'
 }

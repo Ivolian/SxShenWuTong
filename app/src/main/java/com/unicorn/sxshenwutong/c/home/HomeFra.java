@@ -7,6 +7,7 @@ import android.view.View;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
+import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;

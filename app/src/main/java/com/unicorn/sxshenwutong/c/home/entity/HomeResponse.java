@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.c.home;
+package com.unicorn.sxshenwutong.c.home.entity;
 
 import java.util.List;
 

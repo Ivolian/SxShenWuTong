@@ -1,13 +1,31 @@
 package com.unicorn.sxshenwutong.b.court.entity;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
+
 import me.yokeyword.indexablerv.IndexableEntity;
 
+@Entity
 public class Court implements IndexableEntity{
 
+    @Id
     private String dm;
     private String dmms;
     private String fyjc;
     private String pinyin;
+
+    @Generated(hash = 566614311)
+    public Court(String dm, String dmms, String fyjc, String pinyin) {
+        this.dm = dm;
+        this.dmms = dmms;
+        this.fyjc = fyjc;
+        this.pinyin = pinyin;
+    }
+
+    @Generated(hash = 382166988)
+    public Court() {
+    }
 
     //
 

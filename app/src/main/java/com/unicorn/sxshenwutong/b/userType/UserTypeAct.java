@@ -98,7 +98,7 @@ public class UserTypeAct extends BaseAct {
         confirmBtn.setText("确认");
         confirmBtn.setTextSize(20);
         RxView.clicks(confirmBtn)
-                .throttleFirst(1, TimeUnit.SECONDS)
+                .throttleFirst(2, TimeUnit.SECONDS)
                 .subscribe(aVoid -> setUserType());
         userTypeAdapter.addFooterView(confirmBtn);
     }
