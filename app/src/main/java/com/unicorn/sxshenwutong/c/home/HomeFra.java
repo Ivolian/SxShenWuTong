@@ -7,6 +7,7 @@ import android.view.View;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
+import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.youth.banner.Banner;
 
@@ -15,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import rx.Subscriber;
 
 public class HomeFra extends BaseFra {
 
@@ -26,6 +28,22 @@ public class HomeFra extends BaseFra {
     @Override
     protected void init(View rootView) {
         initRv();
+        new HomeFetcher().start().subscribe(new Subscriber<HomeResponse>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(HomeResponse homeResponse) {
+
+            }
+        });
 //        new HomeFetcher(homeResponse -> {
 //            initBanner(homeResponse);
 //            homeAdapter.setNewData(homeItems(homeResponse));

@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.app.DaoSessionProvider;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.RetrofitProvider;
+import com.unicorn.sxshenwutong.b.court.entity.CourtDao;
 import com.unicorn.sxshenwutong.b.court.entity.DaoSession;
 import com.unicorn.sxshenwutong.b.login.entity.LoginInfoDao;
 
@@ -64,6 +65,12 @@ public class AppModule {
     @Provides
     LoginInfoDao provideLoginInfoDao(DaoSession daoSession) {
         return daoSession.getLoginInfoDao();
+    }
+
+    @App
+    @Provides
+    CourtDao provideCourtDao(DaoSession daoSession) {
+        return daoSession.getCourtDao();
     }
 
 }

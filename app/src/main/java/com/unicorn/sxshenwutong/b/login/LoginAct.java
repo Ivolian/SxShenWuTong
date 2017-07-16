@@ -24,6 +24,7 @@ import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
+import com.unicorn.sxshenwutong.b.court.entity.CourtDao;
 import com.unicorn.sxshenwutong.b.login.entity.LoginInfo;
 import com.unicorn.sxshenwutong.b.login.entity.LoginInfoDao;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
@@ -193,9 +194,9 @@ public class LoginAct extends BaseAct {
                 Global.setUserTypeList(codeResponse.getBmlist());
                 String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
                 if (userTypeDm == null || userTypeDm.equals("")) {
-                Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
-                intent.putExtra(Key.TO_MAIN, true);
-                startActivity(intent);
+                    Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
+                    intent.putExtra(Key.TO_MAIN, true);
+                    startActivity(intent);
                 } else {
                     startActivity(new Intent(LoginAct.this, MainAct.class));
                 }
@@ -207,7 +208,12 @@ public class LoginAct extends BaseAct {
     @Inject
     LoginInfoDao loginInfoDao;
 
+    @Inject
+    CourtDao courtDao;
+
     private void saveLoginInfo() {
+        courtDao.rx().insertOrReplace(court).subscribe(court1 -> {
+        });
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setLoginName(etLoginName.getText().toString().trim());
         loginInfo.setPwd(etPwd.getText().toString().trim());
@@ -216,6 +222,7 @@ public class LoginAct extends BaseAct {
                 .flatMap(aVoid -> loginInfoDao.rx().insert(loginInfo))
                 .subscribe(o -> {
                 });
+
     }
 
     private void renderLoginInfo() {
