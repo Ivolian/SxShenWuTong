@@ -211,8 +211,10 @@ public class LoginAct extends BaseAct {
         loginInfo.setLoginName(etLoginName.getText().toString().trim());
         loginInfo.setPwd(etPwd.getText().toString().trim());
         loginInfo.setCourt(court);
-        loginInfoDao.rx().insertOrReplace(loginInfo).subscribe(loginInfo1 -> {
-        });
+        loginInfoDao.rx().deleteAll()
+                .flatMap(aVoid -> loginInfoDao.rx().insert(loginInfo))
+                .subscribe(o -> {
+                });
     }
 
     private void renderLoginInfo() {

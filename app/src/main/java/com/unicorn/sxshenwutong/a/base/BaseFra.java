@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hwangjr.rxbus.RxBus;
 
@@ -19,11 +20,12 @@ public abstract class BaseFra extends SupportFragment {
         return false;
     }
 
+    private View rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(layoutResId(), container, false);
+        rootView = inflater.inflate(layoutResId(), container, false);
         ButterKnife.bind(this, rootView);
         init(rootView);
         if (useRxBus()) {
@@ -42,6 +44,11 @@ public abstract class BaseFra extends SupportFragment {
 
     protected void init(View rootView) {
 
+    }
+
+    protected void setText(int textViewId, String text) {
+        TextView textView = (TextView) rootView.findViewById(textViewId);
+        textView.setText(text);
     }
 
 }

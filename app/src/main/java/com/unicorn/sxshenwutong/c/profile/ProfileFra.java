@@ -3,21 +3,19 @@ package com.unicorn.sxshenwutong.c.profile;
 import android.content.Intent;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
+import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
 import com.unicorn.sxshenwutong.b.login.entity.User;
 import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
-import com.unicorn.sxshenwutong.R;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 
 public class ProfileFra extends BaseFra {
-
 
     @Override
     protected int layoutResId() {
@@ -47,31 +45,14 @@ public class ProfileFra extends BaseFra {
 
     private void renderUser() {
         User user = Global.getLoginResponse().getUser();
-        tvLoginNameT.setText(user.getFullname());
-        tvCourtNameT.setText(user.getFymc());
-        tvLoginName.setText("姓名 : " + user.getFullname());
-        tvCourtName.setText("法院 : " + user.getFymc());
-        tvDepartmentName.setText("部门 : " + user.getDept_name());
-        tvMobile.setText("办公电话 : " + user.getOffice_phone());
-        tvTelephone.setText("联系手机 : " + user.getPhone());
+        setText(R.id.tvLoginNameT, user.getFullname());
+        setText(R.id.tvCourtNameT, user.getFymc());
+        setText(R.id.tvLoginName, "姓名 : " + user.getFullname());
+        setText(R.id.tvCourtName, "法院 : " + user.getFymc());
+        setText(R.id.tvDepartmentName, "部门 : " + user.getDept_name());
+        setText(R.id.tvMobile,"办公电话: " + user.getOffice_phone());
+        setText(R.id.tvTelephone,"联系手机 : " + user.getPhone());
     }
 
-
-    // ===================== some view =====================
-
-    @BindView(R.id.tvLoginNameT)
-    TextView tvLoginNameT;
-    @BindView(R.id.tvCourtNameT)
-    TextView tvCourtNameT;
-    @BindView(R.id.tvLoginName)
-    TextView tvLoginName;
-    @BindView(R.id.tvCourtName)
-    TextView tvCourtName;
-    @BindView(R.id.tvDepartmentName)
-    TextView tvDepartmentName;
-    @BindView(R.id.tvMobile)
-    TextView tvMobile;
-    @BindView(R.id.tvTelephone)
-    TextView tvTelephone;
 
 }

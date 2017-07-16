@@ -1,19 +1,23 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <com.zhy.android.percent.support.PercentLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="0dp"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_heightPercent="9%sh">
 
         <View
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:visibility="invisible" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_heightPercent="9%sh"
+            app:layout_widthPercent="9%sh" />
 
         <TextView
             android:layout_width="0dp"
@@ -22,118 +26,140 @@
             android:gravity="center"
             android:text="我的"
             android:textColor="@color/md_white"
-            android:textSize="22dp" />
+            app:layout_textSizePercent="3%sh" />
 
-        <FrameLayout
+        <com.zhy.android.percent.support.PercentFrameLayout
             android:id="@+id/setting"
-            android:layout_width="64dp"
-            android:layout_height="64dp">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="9%sh"
+            app:layout_widthPercent="9%sh">
 
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:src="@drawable/sz" />
+                android:src="@drawable/sz"
+                app:layout_heightPercent="4%sh"
+                app:layout_widthPercent="4%sh" />
 
-        </FrameLayout>
+        </com.zhy.android.percent.support.PercentFrameLayout>
 
-    </LinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/md_white" />
 
-    <LinearLayout
+    <ScrollView
+        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@drawable/wd_bg"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/md_white">
 
-        <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_marginLeft="32dp"
-            android:src="@drawable/wd_tx" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvLoginNameT"
-                android:layout_marginLeft="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/md_white"
-                android:textSize="21dp" />
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/wd_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_heightPercent="30%sh">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginLeft="32dp"
+                    android:src="@drawable/wd_tx"
+                    app:layout_heightPercent="15%sh"
+                    app:layout_widthPercent="15%sh" />
+
+                <com.zhy.android.percent.support.PercentLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvLoginNameT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:textColor="@color/md_white"
+                        app:layout_textSizePercent="2.8%sh" />
+
+                    <TextView
+                        android:id="@+id/tvCourtNameT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/wd_fxmc_bg"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/md_white"
+                        app:layout_textSizePercent="2%sh" />
+
+                </com.zhy.android.percent.support.PercentLinearLayout>
+
+            </com.zhy.android.percent.support.PercentLinearLayout>
 
             <TextView
-                android:id="@+id/tvCourtNameT"
-                android:layout_marginTop="6dp"
+                android:id="@+id/tvLoginName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/wd_fxmc_bg"
-                android:gravity="center"
-                android:paddingBottom="8dp"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="8dp"
-                android:textColor="@color/md_white"
-                android:textSize="16dp" />
+                android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
 
-        </LinearLayout>
+                android:gravity="center_vertical"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.8%sh" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvCourtName"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.8%sh" />
 
-    <TextView
-        android:layout_marginTop="16dp"
-        android:id="@+id/tvLoginName"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/md_black"
-        android:textSize="21dp" />
+            <TextView
+                android:id="@+id/tvDepartmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.8%sh" />
 
-    <TextView
-        android:id="@+id/tvCourtName"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/md_black"
-        android:textSize="21dp" />
+            <TextView
+                android:id="@+id/tvMobile"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.8%sh" />
 
+            <TextView
+                android:id="@+id/tvTelephone"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.8%sh" />
 
-    <TextView
-        android:id="@+id/tvDepartmentName"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/md_black"
-        android:textSize="21dp" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
 
-    <TextView
-        android:id="@+id/tvMobile"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/md_black"
-        android:textSize="21dp" />
+    </ScrollView>
 
-    <TextView
-        android:id="@+id/tvTelephone"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/md_black"
-        android:textSize="21dp" />
-
-</LinearLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>
