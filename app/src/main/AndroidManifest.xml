@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.unicorn.sxshenwutong">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".a.app.App"
@@ -15,12 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".b.court.CourtAct"/>
-        <activity android:name=".b.userType.UserTypeAct"/>
-        <activity android:name=".c.main.MainAct"/>
-        <activity android:name=".list.ListAct2"/>
-        <activity android:name=".cxbg.CxbgAct"/>
-        <activity android:name=".sxbg.SxbgAct"/>
+        <activity android:name=".b.court.CourtAct" />
+        <activity android:name=".b.userType.UserTypeAct" />
+        <activity android:name=".c.main.MainAct" />
+        <activity android:name=".list.ListAct2" />
+        <activity android:name=".cxbg.CxbgAct" />
+        <activity android:name=".sxbg.SxbgAct" />
+        <activity android:name=".c.spdsp.SpdspAct" />
+        <activity android:name=".c.spdsp.SycxbgSpAct" />
 
     </application>
 

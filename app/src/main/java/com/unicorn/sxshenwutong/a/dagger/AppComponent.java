@@ -12,6 +12,8 @@ import com.unicorn.sxshenwutong.b.login.LoginAct;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
 import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
+import com.unicorn.sxshenwutong.c.spdsp.SpFetcher;
+import com.unicorn.sxshenwutong.c.spdsp.SpdspAct;
 import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
 import com.unicorn.sxshenwutong.list.ListAct2;
 import com.unicorn.sxshenwutong.userList.UserListFetcher;
@@ -39,5 +41,7 @@ public interface AppComponent {
     void inject(UserListFetcher o);
     void inject(CxbgSubmitter o);
     void inject(SxbgSubmitter o);
+    void inject(SpdspAct o);
+    void inject(SpFetcher o);
 
 }

@@ -3,6 +3,7 @@ package com.unicorn.sxshenwutong.a.base;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
@@ -103,6 +104,10 @@ abstract public class ListAct<T> extends RefreshAct<T> {
                 })
                 .map(this::gson);
     }
+
+
+    @Inject
+    protected Gson gson;
 
     abstract protected ListResponse<T> gson(String ydbaKey);
 
