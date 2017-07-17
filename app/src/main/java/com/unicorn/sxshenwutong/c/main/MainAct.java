@@ -36,6 +36,7 @@ public class MainAct extends BaseAct {
     PageBottomTabLayout mainTab;
 
     private void initMainTab() {
+        viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager()));
         NavigationController navigationController = mainTab.custom()
                 .addItem(newItem(R.drawable.sy_2, R.drawable.sy_1, "首页"))

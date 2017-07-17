@@ -5,13 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
-import com.youth.banner.Banner;
+import com.unicorn.sxshenwutong.c.home.other.DividerGridItemDecoration;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,13 +39,10 @@ public class HomeFra extends BaseFra {
 
             @Override
             public void onNext(HomeResponse homeResponse) {
-
+                headerView.initBanner(homeResponse);
+                homeAdapter.setNewData(homeItems(homeResponse));
             }
         });
-//        new HomeFetcher(homeResponse -> {
-//            initBanner(homeResponse);
-//            homeAdapter.setNewData(homeItems(homeResponse));
-//        }).start();
     }
 
 
@@ -56,28 +51,15 @@ public class HomeFra extends BaseFra {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    HomeAdapter homeAdapter = new HomeAdapter();
+    HomeAdapter homeAdapter;
+
+    HeaderView headerView;
 
     private void initRv() {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        recyclerView.setAdapter(homeAdapter);
+        recyclerView.setAdapter(homeAdapter = new HomeAdapter());
         recyclerView.addItemDecoration(new DividerGridItemDecoration(getContext()));
-    }
-
-
-    // ===================== banner =====================
-
-    @BindView(R.id.banner)
-    Banner banner;
-
-    private void initBanner(HomeResponse homeResponse) {
-        List<String> images = new ArrayList<>();
-        for (HomeResponse.MainpicBean mainpicBean : homeResponse.getMainpic()) {
-            images.add(App.baseUrl() + mainpicBean.getFilepath());
-        }
-        banner.setImageLoader(new GlideImageLoader());
-        banner.setImages(images);
-        banner.start();
+        homeAdapter.addHeaderView(headerView = new HeaderView(getActivity(), null));
     }
 
 

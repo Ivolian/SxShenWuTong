@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.c.home;
+package com.unicorn.sxshenwutong.c.home.other;
 
 import android.content.Context;
 import android.widget.ImageView;

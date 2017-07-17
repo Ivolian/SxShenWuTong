@@ -4,6 +4,7 @@ import java.util.List;
 
 public class HomeResponse {
 
+
     /**
      * maindata : {"zxsawl":25,"zxdbajs":9,"zxlawys":23,"spdsp":0,"zxdsp":0,"jjcsx":0,"spjawgd":6,"csxwj":4,"splawys":72,"spdbajs":23,"ktajs":0,"spjasc":0,"spsawl":279,"zxjasc":3,"zxjawgd":2}
      * mainpic : [{"jlid":1,"filename":"index_news2.jpg","filepath":"/upload/index_news2.jpg"},{"jlid":2,"filename":"index_news3.jpg","filepath":"/upload/index_news3.jpg"}]
@@ -219,4 +220,5 @@ public class HomeResponse {
             this.filepath = filepath;
         }
     }
+
 }
