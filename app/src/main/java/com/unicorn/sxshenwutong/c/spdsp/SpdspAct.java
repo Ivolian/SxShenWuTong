@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.reflect.TypeToken;
 import com.unicorn.sxshenwutong.a.base.ListAct;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.list.ListResponse;
+import com.unicorn.sxshenwutong.a.base.ListResponse;
 
 public class SpdspAct extends ListAct<Spdsp> {
     @Override

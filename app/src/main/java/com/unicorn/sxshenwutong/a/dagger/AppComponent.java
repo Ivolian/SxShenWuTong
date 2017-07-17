@@ -2,8 +2,9 @@ package com.unicorn.sxshenwutong.a.dagger;
 
 import android.content.Context;
 
-import com.unicorn.sxshenwutong.AjxxFetcher;
-import com.unicorn.sxshenwutong.CxbgSubmitter;
+import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
+import com.unicorn.sxshenwutong.SycxbgSubmitter;
+import com.unicorn.sxshenwutong.SpSubmitter;
 import com.unicorn.sxshenwutong.SxbgSubmitter;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
@@ -14,9 +15,9 @@ import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
 import com.unicorn.sxshenwutong.c.spdsp.SpFetcher;
 import com.unicorn.sxshenwutong.c.spdsp.SpdspAct;
-import com.unicorn.sxshenwutong.lc.NextNodeFetcher;
-import com.unicorn.sxshenwutong.list.ListAct2;
-import com.unicorn.sxshenwutong.userList.UserListFetcher;
+import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
+import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
+import com.unicorn.sxshenwutong.d.nextNode.UserListFetcher;
 
 import dagger.Component;
 
@@ -35,13 +36,14 @@ public interface AppComponent {
     void inject(CourtAct o);
 
     void inject(HomeFetcher o);
-    void inject(ListAct2 o);
+    void inject(SpdbListAct o);
     void inject(AjxxFetcher o);
     void inject(NextNodeFetcher o);
     void inject(UserListFetcher o);
-    void inject(CxbgSubmitter o);
+    void inject(SycxbgSubmitter o);
     void inject(SxbgSubmitter o);
     void inject(SpdspAct o);
     void inject(SpFetcher o);
+    void inject(SpSubmitter o);
 
 }

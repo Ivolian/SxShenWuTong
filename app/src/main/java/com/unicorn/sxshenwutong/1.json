@@ -1,43 +1,4 @@
 {
-  "cxbgxx": {
-    "cxbglxmc": "简易程序（非小额诉讼）",
-    "jlid": "M000d113a08-3fd7-4955-a9f1-c1a4643af909",
-    "fydm": "M00",
-    "xh": "0",
-    "jyzptsprbs": "",
-    "sqsycxlxmc": "普通程序",
-    "jyzptyymc": "诉讼请求或当事人变化致使案件不再符合一审终审条件",
-    "jyzptrq": "",
-    "jyzptyy": "1320020001",
-    "ajbs": "M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d",
-    "jyzptspr": "",
-    "sys_time": "2017-07-14 09: 42: 11.0",
-    "shbz": "0",
-    "sqsycxlx": "20001",
-    "cxbglx": "10202"
-  },
-  "dblbxx": {
-    "lcid": "CQ_DSP_SPGL_SP_AJJZPSP",
-    "ywid": "M000d113a08-3fd7-4955-a9f1-c1a4643af909",
-    "processInstanceId": "bece357f-6835-11e7-ba7f-000c290c623b",
-    "sfcg": "",
-    "cqrq": "",
-    "cqzt": "1",
-    "fsnodename": "拟稿人发起申请",
-    "fsrmc": "张青",
-    "sort": "3",
-    "jlid": "M00261dc8b0-91ca-49f7-8c50-81b331c1f138",
-    "fydm": "M00",
-    "sfdj": "",
-    "url": "/cxbgAction/updateToPage.action?processInstancesId=bece357f-6835-11e7-ba7f-000c290c623b&taskId=c1f6779e-6835-11e7-ba7f-000c290c623b&id=M000d113a08-3fd7-4955-a9f1-c1a4643af909&lcid=CQ_DSP_SPGL_SP_AJJZPSP&nodeid=SPGL_AJJZP_TZSP&jsrid=9933&xsUrl=",
-    "fsnodeid": "SPGL_AJJZP_NGRFQSQ",
-    "jsrid": "9933",
-    "nodename": "庭长审批",
-    "bt": "(2017)渝民初203号适用程序变"
-  }
-}
-,
-{
   "yckcsxxx": {
     "ywid": "",
     "qtsm": "",
@@ -70,6 +31,14 @@
     "bglxmc": "请示待决",
     "bglx": "1010491002"
   },
+  "ajxx": {
+    "laaymc": "姓名权纠纷",
+    "ahqc": "(2017)渝民初203号",
+    "sycxmc": "普通程序",
+    "dybg": "测试1",
+    "larq": "2017-07-14",
+    "dyyg": "测试"
+  },
   "dblbxx": {
     "lcid": "CQ_DSP_SPGL_SP_FDSYSP",
     "ywid": "M006559b964-6a1b-4f3e-88a6-b2b791f43b7f",
@@ -83,6 +52,55 @@
     "jlid": "M004fb95b8a-64e7-45a1-b535-81ad168969f2",
     "fydm": "M00",
     "sfdj": "",
-    "url": "/fdayspAction/updateToPage.action?processInstancesId=aaf7c849-6835-11e7-ba7f-000c290c623b&taskId=af15b408-6835-11e7-ba7f-000c290c623b&id=M006559b964-6a1b-4f3e-88a6-b2b791f43b7f&lcid=CQ_DSP_SPGL_SP_FDSYSP&nodeid=SPGL_FDSY_"
-  }
+    "url": "/fdayspAction/updateToPage.action?processInstancesId=aaf7c849-6835-11e7-ba7f-000c290c623b&taskId=af15b408-6835-11e7-ba7f-000c290c623b&id=M006559b964-6a1b-4f3e-88a6-b2b791f43b7f&lcid=CQ_DSP_SPGL_SP_FDSYSP&nodeid=SPGL_FDSY_TZSP&jsrid=9933&xsUrl=",
+    "fsnodeid": "SPGL_FDSY_NGRFQSQ",
+    "jsrid": "9933",
+    "nodename": "庭长审批",
+    "bt": "(2017)渝民初203号法定事由审批",
+    "fsrid": "5277",
+    "jsrmc": "田晓梅",
+    "fssj": "2017-07-14 09:42:23.0",
+    "bmbm": "099",
+    "nodeid": "SPGL_FDSY_TZSP",
+    "taskid": "af15b408-6835-11e7-ba7f-000c290c623b",
+    "lcmc": "法定事由审批"
+  },
+  "spxx": {
+    "lcid": "CQ_DSP_SPGL_SP_FDSYSP",
+    "processInstanceId": "aaf7c849-6835-11e7-ba7f-000c290c623b",
+    "sprmc": "张青",
+    "sqrmc": "张青",
+    "sqrq": "2017-07-14",
+    "sprq": "2017-07-14",
+    "spjdid": "SPGL_FDSY_TZSP",
+    "fydm": "M00",
+    "bt": "(2017)渝民初203号法定事由审批",
+    "spjdmc": "庭长审批",
+    "fz": "1",
+    "spr": "5277",
+    "sqr": "5277",
+    "ajbs": "M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d",
+    "zt": "1",
+    "id": "M006559b964-6a1b-4f3e-88a6-b2b791f43b7f",
+    "TYPE": "",
+    "lcmc": "法定事由审批"
+  },
+  "spyjlist": [
+    {
+      "sprmc": "张青",
+      "ip": "149.0.40.15",
+      "sprq": "2017-07-14",
+      "sort": "1",
+      "jlid": "M008e1caade-7b3f-48b2-aed6-704207368b49",
+      "fydm": "M00",
+      "spid": "M006559b964-6a1b-4f3e-88a6-b2b791f43b7f",
+      "spl": "",
+      "nodename": "拟稿人",
+      "spr": "5277",
+      "sys_time": "2017-07-14 09:41:38.0",
+      "zt": "1",
+      "spyj": "<p><br/><\/p><p>张青 2017年7月14日<\/p>",
+      "nodeid": "SPGL_FDSY_NGRFQSQ"
+    }
+  ]
 }

@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.list.ListResponse;
 
 import butterknife.BindColor;
 import butterknife.BindView;

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.list;
+package com.unicorn.sxshenwutong.d.spdb;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -10,13 +10,13 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.cxbg.CxbgAct;
-import com.unicorn.sxshenwutong.sxbg.SxbgAct;
+import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSqAct;
+import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSqAct;
 
-public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
+public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
-    public ListAdapter() {
-        super(R.layout.item_list);
+    public SpdbAdapter() {
+        super(R.layout.item_spdb);
     }
 
     @Override
@@ -31,12 +31,12 @@ public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
 
         viewHolder.getView(R.id.tvCxbg).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, CxbgAct.class);
+            Intent intent = new Intent(mContext, SycxbgSqAct.class);
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });
         viewHolder.getView(R.id.tvSxbg).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, SxbgAct.class);
+            Intent intent = new Intent(mContext, SxbgSqAct.class);
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });
@@ -48,6 +48,5 @@ public class ListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         gradientDrawable.setStroke(1, ContextCompat.getColor(mContext, R.color.md_grey_300));
         return gradientDrawable;
     }
-
 
 }

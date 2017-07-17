@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.sxbg;
+package com.unicorn.sxshenwutong.d.spdb.sxbgSq;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,16 +12,20 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.unicorn.sxshenwutong.NextNodeDialog;
+import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
+import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
+import com.unicorn.sxshenwutong.d.spdb.sxbgSq.fetcher.FdsyFetcher;
+import com.unicorn.sxshenwutong.d.spdb.sxbgSq.fetcher.YckcyyFetcher;
 import com.unicorn.sxshenwutong.date.DateUtil;
 import com.unicorn.sxshenwutong.date.SublimePickerFragment;
-import com.unicorn.sxshenwutong.list.Ajxx;
+import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
@@ -35,13 +39,14 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import pocketknife.BindExtra;
+import rx.Subscriber;
 
 
-public class SxbgAct extends BaseAct {
+public class SxbgSqAct extends BaseAct {
 
     @Override
     protected int layoutResId() {
-        return R.layout.act_sxbg;
+        return R.layout.act_sxbg_sq;
     }
 
     @Override
@@ -67,15 +72,24 @@ public class SxbgAct extends BaseAct {
     Ajxx ajxx;
 
     private void fetchAjxx() {
-//        new AjxxFetcher(ajbs, ajxx -> {
-//            this.ajxx = ajxx;
-//            renderAjxx();
-//            fetchFdsy();
-//
-//
-//        }).start();
+        new AjxxFetcher(ajbs).start().subscribe(new Subscriber<Ajxx>() {
+            @Override
+            public void onCompleted() {
 
+            }
 
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(Ajxx ajxx) {
+                SxbgSqAct.this.ajxx = ajxx;
+                renderAjxx();
+                fetchFdsy();
+            }
+        });
     }
 
     private void clickDate() {
@@ -112,7 +126,6 @@ public class SxbgAct extends BaseAct {
     }
 
     private String dateFormat = "yyyy年MM月dd日";
-    private String dateValueFormat = "yyyy年MM月dd日";
     private DateTime startDate = new DateTime();
     private DateTime endDate = new DateTime();
 
@@ -122,7 +135,7 @@ public class SxbgAct extends BaseAct {
 
 
     private void renderAjxx() {
-        setText(R.id.tvTitle, ajxx.getAhqc() + "审限变更审批");
+        setText(R.id.tvTitle, bt(ajxx));
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvLarq, ajxx.getLarq());
         setText(R.id.tvJarq, ajxx.getJarq());
@@ -138,12 +151,25 @@ public class SxbgAct extends BaseAct {
     List<Code> fdsyList;
 
     private void fetchFdsy() {
-//        new FdsyFetcher(codeResponse -> {
-//            fdsyList = codeResponse.getBmlist();
-//            msFdsy.setItems(items(fdsyList));
-//            fetchYckcyy(fdsyList.get(0));
-//            msFdsy.setOnItemSelectedListener((view, position, id, item) -> fetchYckcyy(fdsyList.get(position)));
-//        }).start();
+        new FdsyFetcher().start().subscribe(new Subscriber<CodeResponse>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(CodeResponse codeResponse) {
+                fdsyList = codeResponse.getBmlist();
+                msFdsy.setItems(items(fdsyList));
+                fetchYckcyy(fdsyList.get(0));
+                msFdsy.setOnItemSelectedListener((view, position, id, item) -> fetchYckcyy(fdsyList.get(position)));
+            }
+        });
     }
 
 
@@ -154,13 +180,25 @@ public class SxbgAct extends BaseAct {
     private void fetchYckcyy(Code fdsy) {
         String fdsyMc = fdsy.getDmms();
         if (Arrays.asList("延长", "扣除", "中止").contains(fdsyMc)) {
-//            new YckcyyFetcher(fdsy, codeResponse -> {
-//                yckcyyList = codeResponse.getBmlist();
-//                msYckcyy.setItems(items(yckcyyList));
-//
-//                tvYckcyy.setText(fdsyMc);
-//                llYckcyy.setVisibility(View.VISIBLE);
-//            }).start();
+            new YckcyyFetcher(fdsy).start().subscribe(new Subscriber<CodeResponse>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(CodeResponse codeResponse) {
+                    yckcyyList = codeResponse.getBmlist();
+                    msYckcyy.setItems(items(yckcyyList));
+                    tvYckcyy.setText(fdsyMc);
+                    llYckcyy.setVisibility(View.VISIBLE);
+                }
+            });
         } else {
             llYckcyy.setVisibility(View.GONE);
         }
@@ -178,12 +216,6 @@ public class SxbgAct extends BaseAct {
     // ===================== showNextNodeDialog =====================
 
 
-
-
-
-
-
-
     private void showNextNodeDialog() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
@@ -197,16 +229,19 @@ public class SxbgAct extends BaseAct {
             map.put("yckcyy", yckcyy.getDm());
             map.put("yckcyymc", yckcyy.getDmms());
         }
-        map.put("bt", ajxx.getAhqc() + "审限变更审批");
+        map.put("bt", bt(ajxx));
         map.put("ngryj", etNgryj.getText().toString().trim());
         map.put("qsrq", startDate.toString("yyyyMMddHHmmss"));
         map.put("jsrq", endDate.toString("yyyyMMddHHmmss"));
-        map.put("qtsm", etNgryj.getText().toString().trim());
-        Period p = new Period(startDate, endDate, PeriodType.days());
-        int days = p.getDays();
+        map.put("qtsm", etQtsm.getText().toString().trim());
+        Period period = new Period(startDate, endDate, PeriodType.days());
+        int days = period.getDays();
         map.put("ts", days);
+        new NextNodeDialog(this, map, "CQ_DSP_SPGL_SP_FDSYSP").show();
+    }
 
-        new NextNodeDialog(this, map,"CQ_DSP_SPGL_SP_FDSYSP").show();
+    private String bt(Ajxx ajxx) {
+        return ajxx.getAhqc() + "审限变更申请";
     }
 
 

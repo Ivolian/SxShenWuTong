@@ -1,23 +1,17 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.d.nextNode;
 
 import com.google.gson.Gson;
+import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.list.Ajxx;
 
 import java.util.HashMap;
 
 import javax.inject.Inject;
 
-public class AjxxFetcher extends BaseFetcher<Ajxx> {
-
-    private String ajbs;
-
-    public AjxxFetcher(String ajbs) {
-        this.ajbs = ajbs;
-    }
+public class UserListFetcher extends BaseFetcher<UserListResponse> {
 
     @Override
     public void inject() {
@@ -26,13 +20,14 @@ public class AjxxFetcher extends BaseFetcher<Ajxx> {
 
     @Override
     protected String busiCode() {
-        return "getAjxx";
+        return "GetUserList";
     }
 
     @Override
     protected HashMap<String, Object> parameters() {
         HashMap<String, Object> map = new HashMap<>();
-        map.put(Key.AJBS, ajbs);
+        map.put("fydm", Global.getLoginResponse().getUser().getFydm());
+        map.put("departid", Global.getLoginResponse().getUser().getDepart_id());
         return map;
     }
 
@@ -40,9 +35,8 @@ public class AjxxFetcher extends BaseFetcher<Ajxx> {
     Gson gson;
 
     @Override
-    protected Ajxx map(Response response) {
-        String ajxx = response.getParameters().get(Key.AJXX);
-        return gson.fromJson(ajxx, Ajxx.class);
+    protected UserListResponse map(Response response) {
+        return gson.fromJson(response.getParameters().get(Key.YDBAKEY), UserListResponse.class);
     }
 
 }

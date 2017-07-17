@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.sxbg;
+package com.unicorn.sxshenwutong.d.spdb.sxbgSq.fetcher;
 
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.Code;

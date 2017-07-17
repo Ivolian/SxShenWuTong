@@ -1,12 +1,10 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.d.spdb.sycxbgSq.fetcher;
 
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
-import com.unicorn.sxshenwutong.list.Ajxx;
+import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
 public class SycxbgyyFetcher extends CodeFetcher {
-
-    private String bzzh;
 
     public SycxbgyyFetcher(Ajxx ajxx, Code cxbglx) {
         super(bxh(ajxx, cxbglx));
@@ -33,10 +31,5 @@ public class SycxbgyyFetcher extends CodeFetcher {
         }
     }
 
-//    @Override
-//    protected Map<String, Object> parameters() {
-//        Map<String, Object> map = super.parameters();
-//        map.put("bzzh", bzzh);
-//        return map;
-//    }
+
 }

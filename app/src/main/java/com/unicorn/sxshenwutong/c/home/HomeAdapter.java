@@ -8,7 +8,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.spdsp.SpdspAct;
-import com.unicorn.sxshenwutong.list.ListAct2;
+import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
 
 public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
 
@@ -39,7 +39,7 @@ public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
                 return;
             }
 
-            Intent intent = new Intent(mContext, ListAct2.class);
+            Intent intent = new Intent(mContext, SpdbListAct.class);
             intent.putExtra(Key.TITLE, homeItem.getTitle());
             intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
             mContext.startActivity(intent);

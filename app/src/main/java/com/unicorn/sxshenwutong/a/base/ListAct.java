@@ -10,7 +10,6 @@ import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.ParamsInitializer;
 import com.unicorn.sxshenwutong.a.network.entity.Params;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.list.ListResponse;
 
 import java.util.HashMap;
 

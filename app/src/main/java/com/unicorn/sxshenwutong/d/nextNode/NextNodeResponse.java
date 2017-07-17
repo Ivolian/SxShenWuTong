@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.lc;
+package com.unicorn.sxshenwutong.d.nextNode;
 
 import java.util.List;
 

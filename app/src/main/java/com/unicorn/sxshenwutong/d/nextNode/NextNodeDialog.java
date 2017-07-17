@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.d.nextNode;
 
 import android.app.Activity;
 
@@ -6,9 +6,11 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.orhanobut.logger.Logger;
+import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.SimpleResponse;
+import com.unicorn.sxshenwutong.SpSubmitter;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.lc.NextNodeResponse;
-import com.unicorn.sxshenwutong.userList.UserListResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.functions.Action1;
 
 public class NextNodeDialog {
 
@@ -38,15 +41,12 @@ public class NextNodeDialog {
                 .show();
         if (dialog.getCustomView() == null) return;
         ButterKnife.bind(this, dialog.getCustomView());
-//        new NextNodeFetcher(lcid,nextNodeResponse -> msNodename.setItems(items(nextNodeResponse))).start();
-//        new UserListFetcher(userListResponse -> msUsername.setItems(items(userListResponse))).start();
+        new NextNodeFetcher(lcid).start().subscribe(nextNodeResponse -> msNodename.setItems(items(nextNodeResponse)));
+        new UserListFetcher().start().subscribe(userListResponse -> msUsername.setItems(items(userListResponse)));
         RxView.clicks(dialog.getCustomView().findViewById(R.id.tvSubmit))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> submit());
     }
-
-
-
 
 
     private void submit() {
@@ -72,6 +72,13 @@ public class NextNodeDialog {
 //                }
 //            }).start();
 //        }
+
+        new SpSubmitter(map).start().subscribe(new Action1<SimpleResponse>() {
+            @Override
+            public void call(SimpleResponse simpleResponse) {
+                Logger.d("");
+            }
+        });
 
     }
 

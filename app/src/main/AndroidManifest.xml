@@ -19,9 +19,9 @@
         <activity android:name=".b.court.CourtAct" />
         <activity android:name=".b.userType.UserTypeAct" />
         <activity android:name=".c.main.MainAct" />
-        <activity android:name=".list.ListAct2" />
-        <activity android:name=".cxbg.CxbgAct" />
-        <activity android:name=".sxbg.SxbgAct" />
+        <activity android:name=".d.spdb.SpdbListAct" />
+        <activity android:name=".d.spdb.sycxbgSq.SycxbgSqAct" />
+        <activity android:name=".d.spdb.sxbgSq.SxbgSqAct" />
         <activity android:name=".c.spdsp.SpdspAct" />
         <activity android:name=".c.spdsp.SycxbgSpAct" />
 
