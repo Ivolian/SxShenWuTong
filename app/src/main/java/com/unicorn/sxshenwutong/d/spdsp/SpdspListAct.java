@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.c.spdsp;
+package com.unicorn.sxshenwutong.d.spdsp;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -7,7 +7,8 @@ import com.unicorn.sxshenwutong.a.base.ListAct;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.base.ListResponse;
 
-public class SpdspAct extends ListAct<Spdsp> {
+public class SpdspListAct extends ListAct<Spdsp> {
+
     @Override
     protected void inject() {
         AppComponentProvider.provide().inject(this);

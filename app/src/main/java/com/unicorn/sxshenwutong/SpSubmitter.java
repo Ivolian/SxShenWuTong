@@ -33,5 +33,4 @@ public class SpSubmitter extends BaseSubmitter<SimpleResponse> {
     protected SimpleResponse map(Response response) {
         return new SimpleResponse();
     }
-
 }

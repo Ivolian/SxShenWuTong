@@ -12,7 +12,6 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
@@ -20,12 +19,13 @@ import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
+import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.fetcher.FdsyFetcher;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.fetcher.YckcyyFetcher;
 import com.unicorn.sxshenwutong.date.DateUtil;
 import com.unicorn.sxshenwutong.date.SublimePickerFragment;
-import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
@@ -237,7 +237,7 @@ public class SxbgSqAct extends BaseAct {
         Period period = new Period(startDate, endDate, PeriodType.days());
         int days = period.getDays();
         map.put("ts", days);
-        new NextNodeDialog(this, map, "CQ_DSP_SPGL_SP_FDSYSP").show();
+        new NextNodeDialog(this, "CQ_DSP_SPGL_SP_FDSYSP", new SxbgSubmitter(map)).show();
     }
 
     private String bt(Ajxx ajxx) {

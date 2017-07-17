@@ -22,8 +22,8 @@
         <activity android:name=".d.spdb.SpdbListAct" />
         <activity android:name=".d.spdb.sycxbgSq.SycxbgSqAct" />
         <activity android:name=".d.spdb.sxbgSq.SxbgSqAct" />
-        <activity android:name=".c.spdsp.SpdspAct" />
-        <activity android:name=".c.spdsp.SycxbgSpAct" />
+        <activity android:name=".d.spdsp.SpdspListAct" />
+        <activity android:name=".d.spdsp.SycxbgSpAct" />
 
     </application>
 

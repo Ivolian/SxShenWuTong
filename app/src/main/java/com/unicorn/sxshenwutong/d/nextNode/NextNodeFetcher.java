@@ -1,14 +1,11 @@
 package com.unicorn.sxshenwutong.d.nextNode;
 
-import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
-
-import javax.inject.Inject;
 
 public class NextNodeFetcher extends BaseFetcher<NextNodeResponse> {
 
@@ -34,9 +31,6 @@ public class NextNodeFetcher extends BaseFetcher<NextNodeResponse> {
         map.put("lcid", lcid);
         return map;
     }
-
-    @Inject
-    Gson gson;
 
     @Override
     protected NextNodeResponse map(Response response) {

@@ -1,8 +1,7 @@
-package com.unicorn.sxshenwutong.c.spdsp;
+package com.unicorn.sxshenwutong.d.spdsp;
 
 import android.os.Bundle;
 
-import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
@@ -57,7 +56,7 @@ public class SycxbgSpAct extends BaseAct{
         map.put("spyj","通过");
         map.put("nextParamsVal","commitToContinue");
 
-        new NextNodeDialog(this, map,spdspFull.getDblbxx().getLcid()).show();
+//        new NextNodeDialog(this, map,spdspFull.getDblbxx().getLcid()).show();
     }
 
 }

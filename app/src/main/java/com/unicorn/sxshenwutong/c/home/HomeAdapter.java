@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
-import com.unicorn.sxshenwutong.c.spdsp.SpdspAct;
+import com.unicorn.sxshenwutong.d.spdsp.SpdspListAct;
 import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
 
 public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
@@ -32,7 +32,7 @@ public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
                 return;
             }
             if (homeItem.getTitle().equals("审判待审批")){
-                Intent intent = new Intent(mContext, SpdspAct.class);
+                Intent intent = new Intent(mContext, SpdspListAct.class);
                 intent.putExtra(Key.TITLE, homeItem.getTitle());
                 intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
                 mContext.startActivity(intent);

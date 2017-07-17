@@ -6,11 +6,9 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.SimpleResponse;
-import com.unicorn.sxshenwutong.SpSubmitter;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.d.SpdbSubmitter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.functions.Action1;
 
 public class NextNodeDialog {
 
@@ -27,12 +24,13 @@ public class NextNodeDialog {
     private HashMap<String, Object> map;
     private MaterialDialog dialog;
     private String lcid;
+    private SpdbSubmitter spdbSubmitter;
 
-
-    public NextNodeDialog(Activity activity, HashMap<String, Object> map, String lcid) {
+    public NextNodeDialog(Activity activity, String lcid, SpdbSubmitter spdbSubmitter) {
         this.activity = activity;
-        this.map = map;
+        this.map = spdbSubmitter.getMap();
         this.lcid = lcid;
+        this.spdbSubmitter = spdbSubmitter;
     }
 
     public void show() {
@@ -57,35 +55,18 @@ public class NextNodeDialog {
         map.put("spjdid", node.getNodeid());
         map.put("sprmc", node.getNodename());
 
-//        if (lcid.equals("CQ_DSP_SPGL_SP_AJJZPSP")){
-//            new CxbgSubmitter(map, cxbgResponse -> {
-//                if (cxbgResponse.isSuccess()) {
-//                    dialog.dismiss();
-//                    showPrompt();
-//                }
-//            }).start();
-//        }else {
-//            new SxbgSubmitter(map, cxbgResponse -> {
-//                if (cxbgResponse.isSuccess()) {
-//                    dialog.dismiss();
-//                    showPrompt();
-//                }
-//            }).start();
-//        }
-
-        new SpSubmitter(map).start().subscribe(new Action1<SimpleResponse>() {
-            @Override
-            public void call(SimpleResponse simpleResponse) {
-                Logger.d("");
-            }
+        spdbSubmitter.start().subscribe(simpleResponse -> {
+            if (simpleResponse.isSuccess()) {
+                dialog.dismiss();
+                showPrompt();
+                }
         });
-
     }
 
     private void showPrompt() {
         new MaterialDialog.Builder(activity)
                 .title("提示")
-                .content("程序变更申请已提交")
+                .content("提交成功")
                 .positiveText("确认")
                 .onPositive((dialog1, which) -> RxBus.get().post(RxBusTag.SUBMIT_SUCCESS, new Object()))
                 .show();

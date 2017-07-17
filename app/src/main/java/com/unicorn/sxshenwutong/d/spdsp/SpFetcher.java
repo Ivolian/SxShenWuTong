@@ -1,28 +1,28 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.d.spdsp;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.a.network.base.BaseSubmitter;
+import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
 
-public class SycxbgSubmitter extends BaseSubmitter<SimpleResponse> {
+public class SpFetcher extends BaseFetcher<SpdspFull> {
 
     private HashMap<String, Object> map;
 
-    public SycxbgSubmitter(HashMap<String, Object> map) {
+    public SpFetcher(HashMap<String, Object> map) {
         this.map = map;
     }
 
     @Override
-    public void inject() {
+    protected void inject() {
         AppComponentProvider.provide().inject(this);
     }
 
     @Override
     protected String busiCode() {
-        return "saveJzpsq";
+        return "getSpxx";
     }
 
     @Override
@@ -31,9 +31,8 @@ public class SycxbgSubmitter extends BaseSubmitter<SimpleResponse> {
     }
 
     @Override
-    protected SimpleResponse map(Response response) {
-        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
-        return gson.fromJson(ydbaKey, SimpleResponse.class);
+    protected SpdspFull map(Response response) {
+        String ajxx = response.getParameters().get(Key.YDBAKEY);
+        return gson.fromJson(ajxx, SpdspFull.class);
     }
-
 }

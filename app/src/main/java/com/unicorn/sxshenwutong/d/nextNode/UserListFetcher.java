@@ -1,6 +1,5 @@
 package com.unicorn.sxshenwutong.d.nextNode;
 
-import com.google.gson.Gson;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
@@ -8,8 +7,6 @@ import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
-
-import javax.inject.Inject;
 
 public class UserListFetcher extends BaseFetcher<UserListResponse> {
 
@@ -30,9 +27,6 @@ public class UserListFetcher extends BaseFetcher<UserListResponse> {
         map.put("departid", Global.getLoginResponse().getUser().getDepart_id());
         return map;
     }
-
-    @Inject
-    Gson gson;
 
     @Override
     protected UserListResponse map(Response response) {
