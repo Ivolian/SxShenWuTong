@@ -66,10 +66,7 @@ public class LoginAct extends BaseAct {
         clickLogin();
         renderLoginInfo();
 
-//        etLoginName.setText("审判管理员");
-//        etPwd.setText("67673305");
-        etLoginName.setText("田晓梅");
-        etPwd.setText("3103");
+
     }
 
 
@@ -236,6 +233,7 @@ public class LoginAct extends BaseAct {
                             this.court = loginInfo.getCourt();
                             tvCourt.setText(court.getDmms());
                             etLoginName.setText(loginInfo.getLoginName());
+                    etPwd.setText(loginInfo.getPwd());
                         }
                 );
     }

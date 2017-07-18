@@ -1,12 +1,15 @@
 package com.unicorn.sxshenwutong.d.nextNode;
 
 import android.app.Activity;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.d.SpdbSubmitter;
 
@@ -25,6 +28,7 @@ public class NextNodeDialog {
     private MaterialDialog dialog;
     private String lcid;
     private SpdbSubmitter spdbSubmitter;
+    private boolean showSp = false;
 
     public NextNodeDialog(Activity activity, String lcid, SpdbSubmitter spdbSubmitter) {
         this.activity = activity;
@@ -32,6 +36,16 @@ public class NextNodeDialog {
         this.lcid = lcid;
         this.spdbSubmitter = spdbSubmitter;
     }
+
+    public NextNodeDialog(Activity activity, String lcid, SpdbSubmitter spdbSubmitter, boolean showSp) {
+        this.activity = activity;
+        this.map = spdbSubmitter.getMap();
+        this.lcid = lcid;
+        this.spdbSubmitter = spdbSubmitter;
+        this.showSp = showSp;
+    }
+
+    List<Code> spList;
 
     public void show() {
         dialog = new MaterialDialog.Builder(activity)
@@ -41,6 +55,16 @@ public class NextNodeDialog {
         ButterKnife.bind(this, dialog.getCustomView());
         new NextNodeFetcher(lcid).start().subscribe(nextNodeResponse -> msNodename.setItems(items(nextNodeResponse)));
         new UserListFetcher().start().subscribe(userListResponse -> msUsername.setItems(items(userListResponse)));
+        if (showSp) {
+            llSp.setVisibility(View.VISIBLE);
+            spList = new ArrayList<>();
+            spList.add(new Code("commitToEnd", "同意并结束"));
+            spList.add(new Code("commitToContinue", "同意并继续"));
+            spList.add(new Code("backToUpdate", "退回并整理"));
+            spList.add(new Code("backToEnd", "退回并结束"));
+            msSp.setItems(items(spList));
+        }
+
         RxView.clicks(dialog.getCustomView().findViewById(R.id.tvSubmit))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> submit());
@@ -55,11 +79,15 @@ public class NextNodeDialog {
         map.put("spjdid", node.getNodeid());
         map.put("spjdmc", node.getNodename());
 
+        if (showSp) {
+            Code sp = spList.get(msSp.getSelectedIndex());
+            map.put("nextParamsVal", sp.getDm());
+        }
         spdbSubmitter.start().subscribe(simpleResponse -> {
             if (simpleResponse.isSuccess()) {
                 dialog.dismiss();
                 showPrompt();
-                }
+            }
         });
     }
 
@@ -72,6 +100,13 @@ public class NextNodeDialog {
                 .show();
     }
 
+    private List<String> items(List<Code> codeList) {
+        List<String> items = new ArrayList<>();
+        for (Code code : codeList) {
+            items.add(code.getDmms());
+        }
+        return items;
+    }
 
     private List<NextNodeResponse.NextncodesBean> nodes;
 
@@ -99,5 +134,9 @@ public class NextNodeDialog {
     MaterialSpinner msNodename;
     @BindView(R.id.msUsername)
     MaterialSpinner msUsername;
+    @BindView(R.id.msSp)
+    MaterialSpinner msSp;
+    @BindView(R.id.llSp)
+    LinearLayout llSp;
 
 }

@@ -9,9 +9,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.ConvertUtils;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 
 import java.util.HashMap;
 
@@ -107,6 +110,18 @@ abstract public class SpdspAct extends BaseAct {
     }
 
     abstract protected void afterFetchSpdsp();
+
+    // ===================== onSubmitSuccess =====================
+
+    @Override
+    protected boolean useRxBus() {
+        return true;
+    }
+
+    @Subscribe(tags = {@Tag(RxBusTag.SUBMIT_SUCCESS)})
+    public void onSubmitSuccess(Object o) {
+        finish();
+    }
 }
 
 

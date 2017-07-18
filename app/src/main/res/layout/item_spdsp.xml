@@ -38,13 +38,13 @@
         android:gravity="center"
         android:paddingTop="6dp"
         android:paddingBottom="6dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
         android:layout_width="wrap_content"
         app:layout_textSizePercent="2.2%sh"
         android:layout_height="wrap_content"
         android:background="@color/md_orange_300"
-        android:text="待审批"
+        android:text="审批"
         android:textColor="@color/md_white" />
 
 </com.zhy.android.percent.support.PercentLinearLayout>

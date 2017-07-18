@@ -13,20 +13,15 @@ import java.util.concurrent.TimeUnit;
 public class SycxbgAct extends SpdspAct {
 
     @Override
-    protected void afterFetchSpdsp() {
-        renderSpdsp();
-clickSave();
-    }
-
-
-    //
-
-
-    @Override
     protected int layoutResId() {
         return R.layout.act_spdsp_sycxbg;
     }
 
+    @Override
+    protected void afterFetchSpdsp() {
+        renderSpdsp();
+        clickSave();
+    }
 
     private void renderSpdsp() {
         Spdsp.AjxxBean ajxx = spdsp.getAjxx();
@@ -41,10 +36,7 @@ clickSave();
         setText(R.id.tvSqrq, spdsp.getSpxx().getSqrq());
         setText(R.id.tvCxbglx, spdsp.getCxbgxx().getCxbglxmc());
         setText(R.id.tvSycxbgyy, spdsp.getCxbgxx().getJyzptyymc());
-
-
     }
-
 
     private void clickSave() {
         RxView.clicks(findViewById(R.id.tvSave))
@@ -61,8 +53,7 @@ clickSave();
         map.put("currNodeid", spdsp.getDblbxx().getNodeid());
         map.put("currNodeName", spdsp.getDblbxx().getNodename());
         map.put("spyj", etSpyj.getText().toString().trim());
-        map.put("nextParamsVal", "commitToContinue");
-        new NextNodeDialog(this, spdsp.getDblbxx().getLcid(), new SpdspSubmitter(map)).show();
+        new NextNodeDialog(this, spdsp.getDblbxx().getLcid(), new SpdspSubmitter(map), true).show();
     }
 
 }
