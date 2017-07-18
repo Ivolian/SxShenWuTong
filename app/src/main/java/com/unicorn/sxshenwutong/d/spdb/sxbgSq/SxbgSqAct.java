@@ -231,8 +231,8 @@ public class SxbgSqAct extends BaseAct {
         }
         map.put("bt", bt(ajxx));
         map.put("ngryj", etNgryj.getText().toString().trim());
-        map.put("qsrq", startDate.toString("yyyyMMddHHmmss"));
-        map.put("jsrq", endDate.toString("yyyyMMddHHmmss"));
+        map.put("qsrq", startDate.toString(Key.DATE_VALUE_FORMAT2));
+        map.put("jsrq", endDate.toString(Key.DATE_VALUE_FORMAT2));
         map.put("qtsm", etQtsm.getText().toString().trim());
         Period period = new Period(startDate, endDate, PeriodType.days());
         int days = period.getDays();

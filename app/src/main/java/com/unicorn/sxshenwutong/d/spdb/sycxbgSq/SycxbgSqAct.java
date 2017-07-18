@@ -166,7 +166,7 @@ public class SycxbgSqAct extends BaseAct {
         Code sycxbgyy = sycxbgyyList.get(msSycxbgyy.getSelectedIndex());
         map.put("sycxbgyy", sycxbgyy.getDm());
         map.put("sycxbgyymc", sycxbgyy.getDmms());
-        map.put("jyzptrq", new DateTime().toString("yyyyMMddHHmmss"));
+        map.put("jyzptrq", new DateTime().toString(Key.DATE_VALUE_FORMAT2));
         map.put("bt", bt(ajxx));
         map.put("ngryj", etNgryj.getText().toString().trim());
         new NextNodeDialog(this, "CQ_DSP_SPGL_SP_AJJZPSP",new SycxbgSubmitter(map)).show();

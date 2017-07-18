@@ -7,11 +7,11 @@ import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
 
-public class SpFetcher extends BaseFetcher<SpdspFull> {
+public class SpdspFetcher extends BaseFetcher<Spdsp> {
 
     private HashMap<String, Object> map;
 
-    public SpFetcher(HashMap<String, Object> map) {
+    public SpdspFetcher(HashMap<String, Object> map) {
         this.map = map;
     }
 
@@ -31,8 +31,8 @@ public class SpFetcher extends BaseFetcher<SpdspFull> {
     }
 
     @Override
-    protected SpdspFull map(Response response) {
-        String ajxx = response.getParameters().get(Key.YDBAKEY);
-        return gson.fromJson(ajxx, SpdspFull.class);
+    protected Spdsp map(Response response) {
+        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
+        return gson.fromJson(ydbaKey, Spdsp.class);
     }
 }

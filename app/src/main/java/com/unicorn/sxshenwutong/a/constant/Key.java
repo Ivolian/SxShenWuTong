@@ -11,7 +11,9 @@ public class Key {
     public static final String AJBS ="ajbs";
     public static final String AJXX ="ajxx";
     public static final String FYDM ="fydm";
-    public static final String DATE_VALUE_FORMAT ="yyyyMMddHHmmss";
+    public static final String DATE_VALUE_FORMAT ="yyyy-MM-dd HH:mm:ss";
+    public static final String DATE_VALUE_FORMAT2 ="yyyy-MM-dd";
+
     public static final String SPID ="spid";
     public static final String LCID ="lcid";
 

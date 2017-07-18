@@ -1,22 +1,13 @@
 package com.unicorn.sxshenwutong;
 
-import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.a.network.base.BaseSubmitter;
-import com.unicorn.sxshenwutong.a.network.entity.Response;
+import com.unicorn.sxshenwutong.d.SpdbSubmitter;
 
 import java.util.HashMap;
 
-public class SpSubmitter extends BaseSubmitter<SimpleResponse> {
-
-    private HashMap<String,Object> map;
+public class SpSubmitter extends SpdbSubmitter {
 
     public SpSubmitter(HashMap<String, Object> map) {
-        this.map = map;
-    }
-
-    @Override
-    protected void inject() {
-        AppComponentProvider.provide().inject(this);
+        super(map);
     }
 
     @Override
@@ -24,13 +15,4 @@ public class SpSubmitter extends BaseSubmitter<SimpleResponse> {
         return "savesp";
     }
 
-    @Override
-    protected HashMap<String, Object> parameters() {
-        return map;
-    }
-
-    @Override
-    protected SimpleResponse map(Response response) {
-        return new SimpleResponse();
-    }
 }

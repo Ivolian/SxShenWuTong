@@ -7,7 +7,7 @@ import com.unicorn.sxshenwutong.a.base.ListAct;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.base.ListResponse;
 
-public class SpdspListAct extends ListAct<Spdsp> {
+public class SpdspListAct extends ListAct<SimpleSpdsp> {
 
     @Override
     protected void inject() {
@@ -15,13 +15,13 @@ public class SpdspListAct extends ListAct<Spdsp> {
     }
 
     @Override
-    protected BaseQuickAdapter<Spdsp, BaseViewHolder> getAdapter() {
+    protected BaseQuickAdapter<SimpleSpdsp, BaseViewHolder> getAdapter() {
         return new SpdspAdapter();
     }
 
     @Override
-    protected ListResponse<Spdsp> gson(String ydbaKey) {
-        return gson.fromJson(ydbaKey, new TypeToken<ListResponse<Spdsp>>() {
+    protected ListResponse<SimpleSpdsp> gson(String ydbaKey) {
+        return gson.fromJson(ydbaKey, new TypeToken<ListResponse<SimpleSpdsp>>() {
         }.getType());
     }
 }

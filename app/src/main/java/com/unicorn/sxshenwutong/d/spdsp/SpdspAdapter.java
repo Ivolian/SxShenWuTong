@@ -10,15 +10,16 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.d.spdsp.SycxbgSp.SycxbgSpAct;
 
-public class SpdspAdapter extends BaseQuickAdapter<Spdsp, BaseViewHolder> {
+public class SpdspAdapter extends BaseQuickAdapter<SimpleSpdsp, BaseViewHolder> {
 
     public SpdspAdapter() {
         super(R.layout.item_spdsp);
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, final Spdsp ajxx) {
+    protected void convert(BaseViewHolder viewHolder, final SimpleSpdsp ajxx) {
         viewHolder.setText(R.id.tvBt, "标题: " + ajxx.getBt());
 
         viewHolder.setText(R.id.tvSqrq, "申请日期: " + ajxx.getSqrq());
