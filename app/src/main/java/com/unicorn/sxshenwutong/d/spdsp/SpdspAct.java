@@ -11,12 +11,17 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
+import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.SpdspSubmitter;
+import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindColor;
 import butterknife.BindView;
@@ -39,6 +44,24 @@ abstract public class SpdspAct extends BaseAct {
         fetchSpdsp();
     }
 
+    private void clickSave() {
+        RxView.clicks(findViewById(R.id.tvSave))
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(aVoid -> showNextNodeDialog());
+    }
+
+
+    private void showNextNodeDialog() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
+        map.put(Key.AJBS, ajbs);
+        map.put(Key.SPID, spid);
+        map.put("currNodeid", spdsp.getDblbxx().getNodeid());
+        map.put("currNodeName", spdsp.getDblbxx().getNodename());
+        map.put("spyj", etSpyj.getText().toString().trim());
+        new NextNodeDialog(this, spdsp.getDblbxx().getLcid(), new SpdspSubmitter(map), true).show();
+    }
+
     private void fetchSpdsp() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.AJBS, ajbs);
@@ -49,6 +72,7 @@ abstract public class SpdspAct extends BaseAct {
             s();
             t();
             afterFetchSpdsp();
+            clickSave();
         });
     }
 
@@ -118,10 +142,7 @@ abstract public class SpdspAct extends BaseAct {
         return true;
     }
 
-    @Subscribe(tags = {@Tag(RxBusTag.SUBMIT_SUCCESS)})
-    public void onSubmitSuccess(Object o) {
-        finish();
-    }
+
 }
 
 

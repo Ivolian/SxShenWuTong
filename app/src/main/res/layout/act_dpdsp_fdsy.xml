@@ -75,7 +75,7 @@
                         android:textColor="@color/md_black" />
 
                     <TextView
-                        android:id="@+id/tvTitle"
+                        android:id="@+id/tvBt"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -467,31 +467,15 @@
                         android:textColor="@color/md_black" />
 
                 </LinearLayout>
-
                 <LinearLayout
+                    android:id="@+id/llSpyjContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="1px"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="1px"
-                        android:background="@color/md_grey_100"
-                        android:gravity="center"
-                        android:text="拟稿人意见"
-                        android:textColor="@color/md_black" />
 
-                    <TextView
-                        android:id="@+id/tvNgryj"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/md_white"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
-                        android:textColor="@color/md_black" />
+
+
 
                 </LinearLayout>
 
@@ -502,16 +486,16 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tvSpyjLabel"
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_marginRight="1px"
                         android:background="@color/md_grey_100"
                         android:gravity="center"
-                        android:text="庭长审批意见"
                         android:textColor="@color/md_black" />
 
                     <EditText
-                        android:id="@+id/etTzspyj"
+                        android:id="@+id/etSpyj"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -523,89 +507,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="144dp"
-                    android:layout_marginTop="1px"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="1px"
-                        android:background="@color/md_grey_100"
-                        android:gravity="center"
-                        android:text="分管院长审批意见"
-                        android:textColor="@color/md_black" />
-
-                    <EditText
-                        android:id="@+id/etFgyzspyj"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/md_white"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
-                        android:textColor="@color/md_black"
-                        android:textSize="16dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="144dp"
-                    android:layout_marginTop="1px"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="1px"
-                        android:background="@color/md_grey_100"
-                        android:gravity="center"
-                        android:text="院长审批意见"
-                        android:textColor="@color/md_black" />
-
-                    <EditText
-                        android:id="@+id/etYzspyj"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/md_white"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
-                        android:textColor="@color/md_black"
-                        android:textSize="16dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="144dp"
-                    android:layout_marginTop="1px"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="1px"
-                        android:background="@color/md_grey_100"
-                        android:gravity="center"
-                        android:text="审管办审批意见"
-                        android:textColor="@color/md_black" />
-
-                    <EditText
-                        android:id="@+id/etSgbspyj"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/md_white"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
-                        android:textColor="@color/md_black"
-                        android:textSize="16dp" />
-
-                </LinearLayout>
 
                 <FrameLayout
                     android:layout_width="match_parent"

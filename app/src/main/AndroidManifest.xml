@@ -24,7 +24,7 @@
         <activity android:name=".d.spdb.sxbgSq.SxbgSqAct" />
         <activity android:name=".d.spdsp.SpdspListAct" />
         <activity android:name=".d.spdsp.SycxbgAct" />
-        <activity android:name=".d.spdsp.SxbgSp.SxbgSpAct"/>
+        <activity android:name=".d.spdsp.FdsyAct"/>
 
     </application>
 
