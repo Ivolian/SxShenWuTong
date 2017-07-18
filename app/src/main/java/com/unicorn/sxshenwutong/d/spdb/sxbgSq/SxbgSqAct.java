@@ -221,13 +221,13 @@ public class SxbgSqAct extends BaseAct {
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
         Code fdsy = fdsyList.get(msFdsy.getSelectedIndex());
-        map.put("fdsy", fdsy.getDm());
-        map.put("fdsymc", fdsy.getDmms());
+        map.put("lx", fdsy.getDm());
+        map.put("lxmc", fdsy.getDmms());
         String fdsyMc = fdsy.getDmms();
         if (Arrays.asList("延长", "扣除", "中止").contains(fdsyMc)) {
             Code yckcyy = yckcyyList.get(msYckcyy.getSelectedIndex());
-            map.put("yckcyy", yckcyy.getDm());
-            map.put("yckcyymc", yckcyy.getDmms());
+            map.put("bglx", yckcyy.getDm());
+            map.put("bglxmc", yckcyy.getDmms());
         }
         map.put("bt", bt(ajxx));
         map.put("ngryj", etNgryj.getText().toString().trim());
