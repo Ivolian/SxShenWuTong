@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.d.spdsp.SxbgSp.SxbgSpAct;
 import com.unicorn.sxshenwutong.d.spdsp.SycxbgSp.SycxbgSpAct;
 
 public class SpdspAdapter extends BaseQuickAdapter<SimpleSpdsp, BaseViewHolder> {
@@ -19,10 +20,10 @@ public class SpdspAdapter extends BaseQuickAdapter<SimpleSpdsp, BaseViewHolder> 
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, final SimpleSpdsp ajxx) {
-        viewHolder.setText(R.id.tvBt, "标题: " + ajxx.getBt());
+    protected void convert(BaseViewHolder viewHolder, final SimpleSpdsp simpleSpdsp) {
+        viewHolder.setText(R.id.tvBt, "标题: " + simpleSpdsp.getBt());
 
-        viewHolder.setText(R.id.tvSqrq, "申请日期: " + ajxx.getSqrq());
+        viewHolder.setText(R.id.tvSqrq, "申请日期: " + simpleSpdsp.getSqrq());
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(bg());
 //
@@ -33,10 +34,10 @@ public class SpdspAdapter extends BaseQuickAdapter<SimpleSpdsp, BaseViewHolder> 
 //        viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
 //
         viewHolder.getView(R.id.tvDsp).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, SycxbgSpAct.class);
-            intent.putExtra(Key.AJBS, ajxx.getAjbs());
-            intent.putExtra(Key.LCID, ajxx.getLcid());
-            intent.putExtra(Key.SPID, ajxx.getSpid());
+            Intent intent = new Intent(mContext, simpleSpdsp.getLcmc().equals("法定事由审批") ? SxbgSpAct.class : SycxbgSpAct.class);
+            intent.putExtra(Key.AJBS, simpleSpdsp.getAjbs());
+            intent.putExtra(Key.LCID, simpleSpdsp.getLcid());
+            intent.putExtra(Key.SPID, simpleSpdsp.getSpid());
             mContext.startActivity(intent);
         });
 //        viewHolder.getView(R.id.tvSxbg).setOnClickListener(v -> {

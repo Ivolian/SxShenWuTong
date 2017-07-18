@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdsp.SycxbgSp;
+package com.unicorn.sxshenwutong.d.spdsp.SxbgSp;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 import pocketknife.BindExtra;
 
-public class SycxbgSpAct extends BaseAct {
+public class SxbgSpAct extends BaseAct {
 
     @BindExtra(Key.AJBS)
     String ajbs;
@@ -29,7 +29,7 @@ public class SycxbgSpAct extends BaseAct {
 
     @Override
     protected int layoutResId() {
-        return R.layout.act_sycxbg_sp;
+        return R.layout.act_sxbg_sp;
     }
 
     private Spdsp spdsp;

@@ -6,14 +6,15 @@ public class Spdsp {
 
 
     /**
-     * cxbgxx : {"cxbglxmc":"简易程序（非小额诉讼）","jlid":"M000d113a08-3fd7-4955-a9f1-c1a4643af909","fydm":"M00","xh":"0","jyzptsprbs":"","sqsycxlxmc":"普通程序","jyzptyymc":"诉讼请求或当事人变化致使案件不再符合一审终审条件","jyzptrq":"","jyzptyy":"1320020001","ajbs":"M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d","jyzptspr":"","sys_time":"2017-07-14 09:42:11.0","shbz":"0","sqsycxlx":"20001","cxbglx":"10202"}
+     * yckcsxxx : {"ywid":"","qtsm":"","bgyy":"","lx":"1010490001","fdsx":"","lxmc":"延长","dw":"","qsrq":"2017-07-14","ajbs":"M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d","pzrsf":"","sys_time":"2017-07-14 09:41:38.0","shbz":"0","pzjgmc":"","id":"M006559b964-6a1b-4f3e-88a6-b2b791f43b7f","kcts":"","kcsxws":"","sqrq":"","sprq":"2017-07-14","djrq":"","jssxbz":"","fydm":"M00","djr":"","xh":"2","ycts":"7","pzjg":"","spr":"","jsrq":"2017-07-21","pzrq":"","bglxmc":"请示待决","bglx":"1010491002"}
      * ajxx : {"laaymc":"姓名权纠纷","ahqc":"(2017)渝民初203号","sycxmc":"普通程序","dybg":"测试1","larq":"2017-07-14","dyyg":"测试"}
-     * dblbxx : {"lcid":"CQ_DSP_SPGL_SP_AJJZPSP","ywid":"M000d113a08-3fd7-4955-a9f1-c1a4643af909","processInstanceId":"bece357f-6835-11e7-ba7f-000c290c623b","sfcg":"","cqrq":"","cqzt":"1","fsnodename":"拟稿人发起申请","fsrmc":"张青","sort":"3","jlid":"M00261dc8b0-91ca-49f7-8c50-81b331c1f138","fydm":"M00","sfdj":"","url":"/cxbgAction/updateToPage.action?processInstancesId=bece357f-6835-11e7-ba7f-000c290c623b&taskId=c1f6779e-6835-11e7-ba7f-000c290c623b&id=M000d113a08-3fd7-4955-a9f1-c1a4643af909&lcid=CQ_DSP_SPGL_SP_AJJZPSP&nodeid=SPGL_AJJZP_TZSP&jsrid=9933&xsUrl=","fsnodeid":"SPGL_AJJZP_NGRFQSQ","jsrid":"9933","nodename":"庭长审批","bt":"(2017)渝民初203号适用程序变更审批","fsrid":"5277","jsrmc":"田晓梅","fssj":"2017-07-14 09:42:55.0","bmbm":"099","nodeid":"SPGL_AJJZP_TZSP","taskid":"c1f6779e-6835-11e7-ba7f-000c290c623b","lcmc":"案件简转普审批"}
-     * spxx : {"lcid":"CQ_DSP_SPGL_SP_AJJZPSP","processInstanceId":"bece357f-6835-11e7-ba7f-000c290c623b","sprmc":"张青","sqrmc":"张青","sqrq":"2017-07-14","sprq":"2017-07-14","spjdid":"SPGL_AJJZP_TZSP","fydm":"M00","bt":"(2017)渝民初203号适用程序变更审批","spjdmc":"庭长审批","fz":"1","spr":"5277","sqr":"5277","ajbs":"M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d","zt":"1","id":"M000d113a08-3fd7-4955-a9f1-c1a4643af909","TYPE":"","lcmc":"适用程序变更审批"}
-     * spyjlist : [{"sprmc":"张青","ip":"149.0.40.15","sprq":"2017-07-14","sort":"1","jlid":"M00aeaeb0e3-2eba-4663-9536-2737fc0bcc9e","fydm":"M00","spid":"M000d113a08-3fd7-4955-a9f1-c1a4643af909","spl":"","nodename":"拟稿人","spr":"5277","sys_time":"2017-07-14 09:42:11.0","zt":"1","spyj":"<p><br/><\/p><p>张青 2017年7月14日<\/p>","nodeid":"SPGL_AJJZP_NGRFQSQ"}]
+     * dblbxx : {"lcid":"CQ_DSP_SPGL_SP_FDSYSP","ywid":"M006559b964-6a1b-4f3e-88a6-b2b791f43b7f","processInstanceId":"aaf7c849-6835-11e7-ba7f-000c290c623b","sfcg":"","cqrq":"","cqzt":"1","fsnodename":"拟稿人发起申请","fsrmc":"张青","sort":"3","jlid":"M004fb95b8a-64e7-45a1-b535-81ad168969f2","fydm":"M00","sfdj":"","url":"/fdayspAction/updateToPage.action?processInstancesId=aaf7c849-6835-11e7-ba7f-000c290c623b&taskId=af15b408-6835-11e7-ba7f-000c290c623b&id=M006559b964-6a1b-4f3e-88a6-b2b791f43b7f&lcid=CQ_DSP_SPGL_SP_FDSYSP&nodeid=SPGL_FDSY_TZSP&jsrid=9933&xsUrl=","fsnodeid":"SPGL_FDSY_NGRFQSQ","jsrid":"9933","nodename":"庭长审批","bt":"(2017)渝民初203号法定事由审批","fsrid":"5277","jsrmc":"田晓梅","fssj":"2017-07-14 09:42:23.0","bmbm":"099","nodeid":"SPGL_FDSY_TZSP","taskid":"af15b408-6835-11e7-ba7f-000c290c623b","lcmc":"法定事由审批"}
+     * spxx : {"lcid":"CQ_DSP_SPGL_SP_FDSYSP","processInstanceId":"aaf7c849-6835-11e7-ba7f-000c290c623b","sprmc":"张青","sqrmc":"张青","sqrq":"2017-07-14","sprq":"2017-07-14","spjdid":"SPGL_FDSY_TZSP","fydm":"M00","bt":"(2017)渝民初203号法定事由审批","spjdmc":"庭长审批","fz":"1","spr":"5277","sqr":"5277","ajbs":"M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d","zt":"1","id":"M006559b964-6a1b-4f3e-88a6-b2b791f43b7f","TYPE":"","lcmc":"法定事由审批"}
+     * spyjlist : [{"sprmc":"张青","ip":"149.0.40.15","sprq":"2017-07-14","sort":"1","jlid":"M008e1caade-7b3f-48b2-aed6-704207368b49","fydm":"M00","spid":"M006559b964-6a1b-4f3e-88a6-b2b791f43b7f","spl":"","nodename":"拟稿人","spr":"5277","sys_time":"2017-07-14 09:41:38.0","zt":"1","spyj":"<p><br/><\/p><p>张青 2017年7月14日<\/p>","nodeid":"SPGL_FDSY_NGRFQSQ"}]
      */
 
     private CxbgxxBean cxbgxx;
+    private YckcsxxxBean yckcsxxx;
     private AjxxBean ajxx;
     private DblbxxBean dblbxx;
     private SpxxBean spxx;
@@ -25,6 +26,14 @@ public class Spdsp {
 
     public void setCxbgxx(CxbgxxBean cxbgxx) {
         this.cxbgxx = cxbgxx;
+    }
+
+    public YckcsxxxBean getYckcsxxx() {
+        return yckcsxxx;
+    }
+
+    public void setYckcsxxx(YckcsxxxBean yckcsxxx) {
+        this.yckcsxxx = yckcsxxx;
     }
 
     public AjxxBean getAjxx() {
@@ -215,6 +224,312 @@ public class Spdsp {
         }
     }
 
+    public static class YckcsxxxBean {
+        /**
+         * ywid :
+         * qtsm :
+         * bgyy :
+         * lx : 1010490001
+         * fdsx :
+         * lxmc : 延长
+         * dw :
+         * qsrq : 2017-07-14
+         * ajbs : M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d
+         * pzrsf :
+         * sys_time : 2017-07-14 09:41:38.0
+         * shbz : 0
+         * pzjgmc :
+         * id : M006559b964-6a1b-4f3e-88a6-b2b791f43b7f
+         * kcts :
+         * kcsxws :
+         * sqrq :
+         * sprq : 2017-07-14
+         * djrq :
+         * jssxbz :
+         * fydm : M00
+         * djr :
+         * xh : 2
+         * ycts : 7
+         * pzjg :
+         * spr :
+         * jsrq : 2017-07-21
+         * pzrq :
+         * bglxmc : 请示待决
+         * bglx : 1010491002
+         */
+
+        private String ywid;
+        private String qtsm;
+        private String bgyy;
+        private String lx;
+        private String fdsx;
+        private String lxmc;
+        private String dw;
+        private String qsrq;
+        private String ajbs;
+        private String pzrsf;
+        private String sys_time;
+        private String shbz;
+        private String pzjgmc;
+        private String id;
+        private String kcts;
+        private String kcsxws;
+        private String sqrq;
+        private String sprq;
+        private String djrq;
+        private String jssxbz;
+        private String fydm;
+        private String djr;
+        private String xh;
+        private String ycts;
+        private String pzjg;
+        private String spr;
+        private String jsrq;
+        private String pzrq;
+        private String bglxmc;
+        private String bglx;
+
+        public String getYwid() {
+            return ywid;
+        }
+
+        public void setYwid(String ywid) {
+            this.ywid = ywid;
+        }
+
+        public String getQtsm() {
+            return qtsm;
+        }
+
+        public void setQtsm(String qtsm) {
+            this.qtsm = qtsm;
+        }
+
+        public String getBgyy() {
+            return bgyy;
+        }
+
+        public void setBgyy(String bgyy) {
+            this.bgyy = bgyy;
+        }
+
+        public String getLx() {
+            return lx;
+        }
+
+        public void setLx(String lx) {
+            this.lx = lx;
+        }
+
+        public String getFdsx() {
+            return fdsx;
+        }
+
+        public void setFdsx(String fdsx) {
+            this.fdsx = fdsx;
+        }
+
+        public String getLxmc() {
+            return lxmc;
+        }
+
+        public void setLxmc(String lxmc) {
+            this.lxmc = lxmc;
+        }
+
+        public String getDw() {
+            return dw;
+        }
+
+        public void setDw(String dw) {
+            this.dw = dw;
+        }
+
+        public String getQsrq() {
+            return qsrq;
+        }
+
+        public void setQsrq(String qsrq) {
+            this.qsrq = qsrq;
+        }
+
+        public String getAjbs() {
+            return ajbs;
+        }
+
+        public void setAjbs(String ajbs) {
+            this.ajbs = ajbs;
+        }
+
+        public String getPzrsf() {
+            return pzrsf;
+        }
+
+        public void setPzrsf(String pzrsf) {
+            this.pzrsf = pzrsf;
+        }
+
+        public String getSys_time() {
+            return sys_time;
+        }
+
+        public void setSys_time(String sys_time) {
+            this.sys_time = sys_time;
+        }
+
+        public String getShbz() {
+            return shbz;
+        }
+
+        public void setShbz(String shbz) {
+            this.shbz = shbz;
+        }
+
+        public String getPzjgmc() {
+            return pzjgmc;
+        }
+
+        public void setPzjgmc(String pzjgmc) {
+            this.pzjgmc = pzjgmc;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getKcts() {
+            return kcts;
+        }
+
+        public void setKcts(String kcts) {
+            this.kcts = kcts;
+        }
+
+        public String getKcsxws() {
+            return kcsxws;
+        }
+
+        public void setKcsxws(String kcsxws) {
+            this.kcsxws = kcsxws;
+        }
+
+        public String getSqrq() {
+            return sqrq;
+        }
+
+        public void setSqrq(String sqrq) {
+            this.sqrq = sqrq;
+        }
+
+        public String getSprq() {
+            return sprq;
+        }
+
+        public void setSprq(String sprq) {
+            this.sprq = sprq;
+        }
+
+        public String getDjrq() {
+            return djrq;
+        }
+
+        public void setDjrq(String djrq) {
+            this.djrq = djrq;
+        }
+
+        public String getJssxbz() {
+            return jssxbz;
+        }
+
+        public void setJssxbz(String jssxbz) {
+            this.jssxbz = jssxbz;
+        }
+
+        public String getFydm() {
+            return fydm;
+        }
+
+        public void setFydm(String fydm) {
+            this.fydm = fydm;
+        }
+
+        public String getDjr() {
+            return djr;
+        }
+
+        public void setDjr(String djr) {
+            this.djr = djr;
+        }
+
+        public String getXh() {
+            return xh;
+        }
+
+        public void setXh(String xh) {
+            this.xh = xh;
+        }
+
+        public String getYcts() {
+            return ycts;
+        }
+
+        public void setYcts(String ycts) {
+            this.ycts = ycts;
+        }
+
+        public String getPzjg() {
+            return pzjg;
+        }
+
+        public void setPzjg(String pzjg) {
+            this.pzjg = pzjg;
+        }
+
+        public String getSpr() {
+            return spr;
+        }
+
+        public void setSpr(String spr) {
+            this.spr = spr;
+        }
+
+        public String getJsrq() {
+            return jsrq;
+        }
+
+        public void setJsrq(String jsrq) {
+            this.jsrq = jsrq;
+        }
+
+        public String getPzrq() {
+            return pzrq;
+        }
+
+        public void setPzrq(String pzrq) {
+            this.pzrq = pzrq;
+        }
+
+        public String getBglxmc() {
+            return bglxmc;
+        }
+
+        public void setBglxmc(String bglxmc) {
+            this.bglxmc = bglxmc;
+        }
+
+        public String getBglx() {
+            return bglx;
+        }
+
+        public void setBglx(String bglx) {
+            this.bglx = bglx;
+        }
+    }
+
     public static class AjxxBean {
         /**
          * laaymc : 姓名权纠纷
@@ -283,30 +598,30 @@ public class Spdsp {
 
     public static class DblbxxBean {
         /**
-         * lcid : CQ_DSP_SPGL_SP_AJJZPSP
-         * ywid : M000d113a08-3fd7-4955-a9f1-c1a4643af909
-         * processInstanceId : bece357f-6835-11e7-ba7f-000c290c623b
+         * lcid : CQ_DSP_SPGL_SP_FDSYSP
+         * ywid : M006559b964-6a1b-4f3e-88a6-b2b791f43b7f
+         * processInstanceId : aaf7c849-6835-11e7-ba7f-000c290c623b
          * sfcg :
          * cqrq :
          * cqzt : 1
          * fsnodename : 拟稿人发起申请
          * fsrmc : 张青
          * sort : 3
-         * jlid : M00261dc8b0-91ca-49f7-8c50-81b331c1f138
+         * jlid : M004fb95b8a-64e7-45a1-b535-81ad168969f2
          * fydm : M00
          * sfdj :
-         * url : /cxbgAction/updateToPage.action?processInstancesId=bece357f-6835-11e7-ba7f-000c290c623b&taskId=c1f6779e-6835-11e7-ba7f-000c290c623b&id=M000d113a08-3fd7-4955-a9f1-c1a4643af909&lcid=CQ_DSP_SPGL_SP_AJJZPSP&nodeid=SPGL_AJJZP_TZSP&jsrid=9933&xsUrl=
-         * fsnodeid : SPGL_AJJZP_NGRFQSQ
+         * url : /fdayspAction/updateToPage.action?processInstancesId=aaf7c849-6835-11e7-ba7f-000c290c623b&taskId=af15b408-6835-11e7-ba7f-000c290c623b&id=M006559b964-6a1b-4f3e-88a6-b2b791f43b7f&lcid=CQ_DSP_SPGL_SP_FDSYSP&nodeid=SPGL_FDSY_TZSP&jsrid=9933&xsUrl=
+         * fsnodeid : SPGL_FDSY_NGRFQSQ
          * jsrid : 9933
          * nodename : 庭长审批
-         * bt : (2017)渝民初203号适用程序变更审批
+         * bt : (2017)渝民初203号法定事由审批
          * fsrid : 5277
          * jsrmc : 田晓梅
-         * fssj : 2017-07-14 09:42:55.0
+         * fssj : 2017-07-14 09:42:23.0
          * bmbm : 099
-         * nodeid : SPGL_AJJZP_TZSP
-         * taskid : c1f6779e-6835-11e7-ba7f-000c290c623b
-         * lcmc : 案件简转普审批
+         * nodeid : SPGL_FDSY_TZSP
+         * taskid : af15b408-6835-11e7-ba7f-000c290c623b
+         * lcmc : 法定事由审批
          */
 
         private String lcid;
@@ -529,24 +844,24 @@ public class Spdsp {
 
     public static class SpxxBean {
         /**
-         * lcid : CQ_DSP_SPGL_SP_AJJZPSP
-         * processInstanceId : bece357f-6835-11e7-ba7f-000c290c623b
+         * lcid : CQ_DSP_SPGL_SP_FDSYSP
+         * processInstanceId : aaf7c849-6835-11e7-ba7f-000c290c623b
          * sprmc : 张青
          * sqrmc : 张青
          * sqrq : 2017-07-14
          * sprq : 2017-07-14
-         * spjdid : SPGL_AJJZP_TZSP
+         * spjdid : SPGL_FDSY_TZSP
          * fydm : M00
-         * bt : (2017)渝民初203号适用程序变更审批
+         * bt : (2017)渝民初203号法定事由审批
          * spjdmc : 庭长审批
          * fz : 1
          * spr : 5277
          * sqr : 5277
          * ajbs : M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d
          * zt : 1
-         * id : M000d113a08-3fd7-4955-a9f1-c1a4643af909
+         * id : M006559b964-6a1b-4f3e-88a6-b2b791f43b7f
          * TYPE :
-         * lcmc : 适用程序变更审批
+         * lcmc : 法定事由审批
          */
 
         private String lcid;
@@ -719,16 +1034,16 @@ public class Spdsp {
          * ip : 149.0.40.15
          * sprq : 2017-07-14
          * sort : 1
-         * jlid : M00aeaeb0e3-2eba-4663-9536-2737fc0bcc9e
+         * jlid : M008e1caade-7b3f-48b2-aed6-704207368b49
          * fydm : M00
-         * spid : M000d113a08-3fd7-4955-a9f1-c1a4643af909
+         * spid : M006559b964-6a1b-4f3e-88a6-b2b791f43b7f
          * spl :
          * nodename : 拟稿人
          * spr : 5277
-         * sys_time : 2017-07-14 09:42:11.0
+         * sys_time : 2017-07-14 09:41:38.0
          * zt : 1
          * spyj : <p><br/></p><p>张青 2017年7月14日</p>
-         * nodeid : SPGL_AJJZP_NGRFQSQ
+         * nodeid : SPGL_FDSY_NGRFQSQ
          */
 
         private String sprmc;

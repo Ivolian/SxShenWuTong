@@ -4,9 +4,9 @@ import com.unicorn.sxshenwutong.d.SpdbSubmitter;
 
 import java.util.HashMap;
 
-public class SpSubmitter extends SpdbSubmitter {
+public class SpdspSubmitter extends SpdbSubmitter {
 
-    public SpSubmitter(HashMap<String, Object> map) {
+    public SpdspSubmitter(HashMap<String, Object> map) {
         super(map);
     }
 

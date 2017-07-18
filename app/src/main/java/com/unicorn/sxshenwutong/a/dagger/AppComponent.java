@@ -2,11 +2,7 @@ package com.unicorn.sxshenwutong.a.dagger;
 
 import android.content.Context;
 
-import com.unicorn.sxshenwutong.d.SpdbSubmitter;
-import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
-import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
-import com.unicorn.sxshenwutong.SpSubmitter;
-import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSubmitter;
+import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.CourtFetcher;
@@ -14,11 +10,15 @@ import com.unicorn.sxshenwutong.b.login.LoginAct;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
 import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
+import com.unicorn.sxshenwutong.d.SpdbSubmitter;
+import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
+import com.unicorn.sxshenwutong.d.nextNode.UserListFetcher;
+import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
+import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
+import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSubmitter;
+import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
 import com.unicorn.sxshenwutong.d.spdsp.SpdspFetcher;
 import com.unicorn.sxshenwutong.d.spdsp.SpdspListAct;
-import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
-import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
-import com.unicorn.sxshenwutong.d.nextNode.UserListFetcher;
 
 import dagger.Component;
 
@@ -32,10 +32,10 @@ public interface AppComponent {
     void inject(CodeFetcher o);
     void inject(CourtFetcher o);
     void inject(UserTypeSubmitter o);
+    void inject(BaseAct o);
 
     void inject(LoginAct o);
     void inject(CourtAct o);
-
     void inject(HomeFetcher o);
     void inject(SpdbListAct o);
     void inject(AjxxFetcher o);
@@ -45,7 +45,6 @@ public interface AppComponent {
     void inject(SxbgSubmitter o);
     void inject(SpdspListAct o);
     void inject(SpdspFetcher o);
-    void inject(SpSubmitter o);
     void inject(SpdbSubmitter o);
 
 }
