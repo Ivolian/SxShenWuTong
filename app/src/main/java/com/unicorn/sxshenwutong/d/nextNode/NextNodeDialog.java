@@ -53,7 +53,7 @@ public class NextNodeDialog {
         map.put("sprmc", user.getUsername());
         NextNodeResponse.NextncodesBean node = nodes.get(msNodename.getSelectedIndex());
         map.put("spjdid", node.getNodeid());
-        map.put("sprmc", node.getNodename());
+        map.put("spjdmc", node.getNodename());
 
         spdbSubmitter.start().subscribe(simpleResponse -> {
             if (simpleResponse.isSuccess()) {
