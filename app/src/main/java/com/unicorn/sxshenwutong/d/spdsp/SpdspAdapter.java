@@ -11,7 +11,6 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.d.spdsp.SxbgSp.SxbgSpAct;
-import com.unicorn.sxshenwutong.d.spdsp.SycxbgSp.SycxbgSpAct;
 
 public class SpdspAdapter extends BaseQuickAdapter<SimpleSpdsp, BaseViewHolder> {
 
@@ -34,7 +33,7 @@ public class SpdspAdapter extends BaseQuickAdapter<SimpleSpdsp, BaseViewHolder> 
 //        viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
 //
         viewHolder.getView(R.id.tvDsp).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, simpleSpdsp.getLcmc().equals("法定事由审批") ? SxbgSpAct.class : SycxbgSpAct.class);
+            Intent intent = new Intent(mContext, simpleSpdsp.getLcmc().equals("法定事由审批") ? SxbgSpAct.class : SycxbgAct.class);
             intent.putExtra(Key.AJBS, simpleSpdsp.getAjbs());
             intent.putExtra(Key.LCID, simpleSpdsp.getLcid());
             intent.putExtra(Key.SPID, simpleSpdsp.getSpid());
