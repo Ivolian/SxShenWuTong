@@ -9,16 +9,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.ConvertUtils;
-import com.hwangjr.rxbus.annotation.Subscribe;
-import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.SpdspSubmitter;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
+
+import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
+import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -119,16 +119,16 @@ abstract public class SpdspAct extends BaseAct {
         tvLabel.setTextColor(Color.BLACK);
         linearLayout.addView(tvLabel,lpLabel);
 
-        LinearLayout.LayoutParams lpSpyj = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1);
-        TextView tvSpyj  = new TextView(this);
+        LinearLayout.LayoutParams lpSpyj = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        HtmlTextView tvSpyj  = new HtmlTextView(this);
         tvSpyj.setBackgroundColor(Color.WHITE);
         tvSpyj.setGravity(Gravity.CENTER_VERTICAL);
         tvSpyj.setPadding(ConvertUtils.dp2px(16),0,0,0);
         tvSpyj.setTextColor(Color.BLACK);
-        tvSpyj.setText(spyj.getSpyj());
+        tvSpyj.setHtml(spyj.getSpyj(), new HtmlResImageGetter(tvSpyj));
         linearLayout.addView(tvSpyj,lpSpyj);
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ConvertUtils.dp2px(48));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0,1,0,0);
         llSpyjContainer.addView(linearLayout,layoutParams);
     }

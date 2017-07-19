@@ -67,4 +67,5 @@ dependencies {
 //    compile 'cat.ereza:customactivityoncrash:2.1.0'
     compile 'com.zhy:percent-support-extends:1.1.1'
     compile 'org.greenrobot:greendao:3.2.2'
+    compile 'org.sufficientlysecure:html-textview:3.4'
 }
