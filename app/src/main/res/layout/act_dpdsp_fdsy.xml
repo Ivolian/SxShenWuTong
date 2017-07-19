@@ -303,7 +303,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/llYckcyy"
+                    android:id="@+id/llBglxmc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1px"
@@ -312,7 +312,7 @@
                     android:visibility="gone">
 
                     <TextView
-                        android:id="@+id/tvYckcyy"
+                        android:id="@+id/tvBglxmcLabel"
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_marginRight="1px"

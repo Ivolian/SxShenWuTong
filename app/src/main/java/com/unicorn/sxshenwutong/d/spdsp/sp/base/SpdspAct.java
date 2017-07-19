@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdsp.sp;
+package com.unicorn.sxshenwutong.d.spdsp.sp.base;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
+import com.unicorn.sxshenwutong.d.spdsp.sp.entity.SpdspInfo;
+import com.unicorn.sxshenwutong.d.spdsp.sp.fetcher.SpdspFetcher;
 
 import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
@@ -36,7 +38,7 @@ abstract public class SpdspAct extends BaseAct {
     @BindExtra(Key.LCID)
     String lcid;
 
-    protected Spdsp spdsp;
+    protected SpdspInfo spdspInfo;
 
     @Override
     protected void init(Bundle savedInstanceState) {
@@ -50,17 +52,26 @@ abstract public class SpdspAct extends BaseAct {
                 .subscribe(aVoid -> showNextNodeDialog());
     }
 
+    protected void renderFdsy(SpdspInfo.YckcsxxxBean yckcsxxx){
+
+    }
+
+    protected void renderSycxbg(SpdspInfo.CxbgxxBean cxbgxx){
+
+    }
 
     private void showNextNodeDialog() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
         map.put(Key.SPID, spid);
-        map.put("currNodeid", spdsp.getDblbxx().getNodeid());
-        map.put("currNodeName", spdsp.getDblbxx().getNodename());
+        map.put("currNodeid", spdspInfo.getDblbxx().getNodeid());
+        map.put("currNodeName", spdspInfo.getDblbxx().getNodename());
         map.put("spyj", etSpyj.getText().toString().trim());
-        new NextNodeDialog(this, spdsp.getDblbxx().getLcid(), new SpdspSubmitter(map), true).show();
+        new NextNodeDialog(this, spdspInfo.getDblbxx().getLcid(), new SpdspSubmitter(map), true).show();
     }
+
+    abstract protected String bt(SpdspInfo.AjxxBean ajxx);
 
     private void fetchSpdsp() {
         HashMap<String, Object> map = new HashMap<>();
@@ -68,12 +79,28 @@ abstract public class SpdspAct extends BaseAct {
         map.put(Key.SPID, spid);
         map.put(Key.LCID, lcid);
         new SpdspFetcher(map).start().subscribe(o -> {
-            spdsp = o;
+            spdspInfo = o;
             s();
             t();
-            afterFetchSpdsp();
+        renderSpdsp();
+
             clickSave();
+            renderFdsy(spdspInfo.getYckcsxxx());
+            renderSycxbg(spdspInfo.getCxbgxx());
         });
+    }
+
+    private void renderSpdsp() {
+        SpdspInfo.AjxxBean ajxx = spdspInfo.getAjxx();
+        setText(R.id.tvBt, bt(ajxx));
+        setText(R.id.tvAhqc, ajxx.getAhqc());
+        setText(R.id.tvLarq, ajxx.getLarq());
+        setText(R.id.tvAhqc, ajxx.getAhqc());
+        setText(R.id.tvDyyg, ajxx.getDyyg());
+        setText(R.id.tvDybg, ajxx.getDybg());
+        setText(R.id.tvSycxmc, spdspInfo.getAjxx().getSycxmc());
+        setText(R.id.tvSqrq, spdspInfo.getSpxx().getSqrq());
+
     }
 
 
@@ -84,7 +111,7 @@ abstract public class SpdspAct extends BaseAct {
     protected EditText etSpyj;
 
     private void t(){
-        Spdsp.DblbxxBean dblbxxBean = spdsp.getDblbxx();
+        SpdspInfo.DblbxxBean dblbxxBean = spdspInfo.getDblbxx();
         tvSpyjLabel.setText(dblbxxBean.getNodename());
     }
 
@@ -99,14 +126,14 @@ abstract public class SpdspAct extends BaseAct {
 
 
     private void s(){
-        for(Spdsp.SpyjlistBean spyj:spdsp.getSpyjlist()){
+        for(SpdspInfo.SpyjlistBean spyj: spdspInfo.getSpyjlist()){
             addSpyj(spyj);
         }
     }
 
 
 
-    private void addSpyj(Spdsp.SpyjlistBean spyj){
+    private void addSpyj(SpdspInfo.SpyjlistBean spyj){
         LinearLayout linearLayout =new LinearLayout(this);
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
@@ -133,7 +160,6 @@ abstract public class SpdspAct extends BaseAct {
         llSpyjContainer.addView(linearLayout,layoutParams);
     }
 
-    abstract protected void afterFetchSpdsp();
 
     // ===================== onSubmitSuccess =====================
 
