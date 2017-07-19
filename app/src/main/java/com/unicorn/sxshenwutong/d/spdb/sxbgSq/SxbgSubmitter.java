@@ -1,10 +1,10 @@
 package com.unicorn.sxshenwutong.d.spdb.sxbgSq;
 
-import com.unicorn.sxshenwutong.d.SpdbSubmitter;
+import com.unicorn.sxshenwutong.SimpleSubmitter;
 
 import java.util.HashMap;
 
-public class SxbgSubmitter extends SpdbSubmitter {
+public class SxbgSubmitter extends SimpleSubmitter {
 
     public SxbgSubmitter(HashMap<String, Object> map) {
         super(map);

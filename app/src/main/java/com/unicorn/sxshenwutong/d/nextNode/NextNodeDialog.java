@@ -11,7 +11,7 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.d.SpdbSubmitter;
+import com.unicorn.sxshenwutong.SimpleSubmitter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,21 +27,21 @@ public class NextNodeDialog {
     private HashMap<String, Object> map;
     private MaterialDialog dialog;
     private String lcid;
-    private SpdbSubmitter spdbSubmitter;
+    private SimpleSubmitter simpleSubmitter;
     private boolean showSp = false;
 
-    public NextNodeDialog(Activity activity, String lcid, SpdbSubmitter spdbSubmitter) {
+    public NextNodeDialog(Activity activity, String lcid, SimpleSubmitter simpleSubmitter) {
         this.activity = activity;
-        this.map = spdbSubmitter.getMap();
+        this.map = simpleSubmitter.getMap();
         this.lcid = lcid;
-        this.spdbSubmitter = spdbSubmitter;
+        this.simpleSubmitter = simpleSubmitter;
     }
 
-    public NextNodeDialog(Activity activity, String lcid, SpdbSubmitter spdbSubmitter, boolean showSp) {
+    public NextNodeDialog(Activity activity, String lcid, SimpleSubmitter simpleSubmitter, boolean showSp) {
         this.activity = activity;
-        this.map = spdbSubmitter.getMap();
+        this.map = simpleSubmitter.getMap();
         this.lcid = lcid;
-        this.spdbSubmitter = spdbSubmitter;
+        this.simpleSubmitter = simpleSubmitter;
         this.showSp = showSp;
     }
 
@@ -94,7 +94,7 @@ public class NextNodeDialog {
             Code sp = spList.get(msSp.getSelectedIndex());
             map.put("nextParamsVal", sp.getDm());
         }
-        spdbSubmitter.start().subscribe(simpleResponse -> {
+        simpleSubmitter.start().subscribe(simpleResponse -> {
             if (simpleResponse.isSuccess()) {
                 dialog.dismiss();
                 showPrompt();

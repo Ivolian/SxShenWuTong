@@ -1,6 +1,5 @@
-package com.unicorn.sxshenwutong.d;
+package com.unicorn.sxshenwutong;
 
-import com.unicorn.sxshenwutong.SimpleResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseSubmitter;
@@ -8,11 +7,11 @@ import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
 
-abstract public class SpdbSubmitter extends BaseSubmitter<SimpleResponse> {
+abstract public class SimpleSubmitter extends BaseSubmitter<SimpleResponse> {
 
     protected HashMap<String,Object> map;
 
-    public SpdbSubmitter(HashMap<String, Object> map) {
+    public SimpleSubmitter(HashMap<String, Object> map) {
         this.map = map;
     }
 

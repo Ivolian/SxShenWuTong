@@ -10,14 +10,14 @@ import com.unicorn.sxshenwutong.b.login.LoginAct;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
 import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
-import com.unicorn.sxshenwutong.d.SpdbSubmitter;
+import com.unicorn.sxshenwutong.SimpleSubmitter;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
 import com.unicorn.sxshenwutong.d.nextNode.UserListFetcher;
 import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
 import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSubmitter;
 import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
-import com.unicorn.sxshenwutong.d.spdsp.sp.fetcher.SpdspFetcher;
+import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
 
 import dagger.Component;
@@ -45,6 +45,6 @@ public interface AppComponent {
     void inject(SxbgSubmitter o);
     void inject(SpdspListAct o);
     void inject(SpdspFetcher o);
-    void inject(SpdbSubmitter o);
+    void inject(SimpleSubmitter o);
 
 }

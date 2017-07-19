@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdsp.sp.fetcher;
+package com.unicorn.sxshenwutong.d.spdsp.sp.network;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
