@@ -4,12 +4,15 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.blankj.utilcode.util.FileUtils;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.unicorn.sxshenwutong.c.home.other.DividerGridItemDecoration;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,6 +37,8 @@ public class HomeFra extends BaseFra {
 
             @Override
             public void onError(Throwable e) {
+                File file = new File(App.baseDir(),"err.txt");
+                FileUtils.createOrExistsFile(file);
 
             }
 

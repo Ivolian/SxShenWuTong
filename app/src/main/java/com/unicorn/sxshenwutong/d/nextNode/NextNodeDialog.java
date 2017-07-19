@@ -53,22 +53,33 @@ public class NextNodeDialog {
                 .show();
         if (dialog.getCustomView() == null) return;
         ButterKnife.bind(this, dialog.getCustomView());
-        new NextNodeFetcher(lcid).start().subscribe(nextNodeResponse -> msNodename.setItems(items(nextNodeResponse)));
+        msNodename.setOnItemSelectedListener((view, position, id, item) -> updateSp(nodes.get(position).getNodename()));
+        new NextNodeFetcher(lcid).start().subscribe(nextNodeResponse -> {
+            msNodename.setItems(items(nextNodeResponse));
+            updateSp(nodes.get(0).getNodename());
+        });
         new UserListFetcher().start().subscribe(userListResponse -> msUsername.setItems(items(userListResponse)));
-        if (showSp) {
-            llSp.setVisibility(View.VISIBLE);
-            spList = new ArrayList<>();
-            spList.add(new Code("commitToEnd", "同意并结束"));
-            spList.add(new Code("commitToContinue", "同意并继续"));
-            spList.add(new Code("backToUpdate", "退回并整理"));
-            spList.add(new Code("backToEnd", "退回并结束"));
-            msSp.setItems(items(spList));
-        }
 
         RxView.clicks(dialog.getCustomView().findViewById(R.id.tvSubmit))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> submit());
     }
+
+    private void updateSp(String item){
+        if (showSp) {
+            llSp.setVisibility(View.VISIBLE);
+            spList = new ArrayList<>();
+            if (item.contains("至拟稿人") || item.equals("结束")) {
+                spList.add(new Code("commitToEnd", "同意并结束"));
+            }
+            spList.add(new Code("commitToContinue", "同意并继续"));
+            spList.add(new Code("backToUpdate", "退回并整理"));
+            spList.add(new Code("backToEnd", "退回并结束"));
+            msSp.setItems(items(spList));
+        }
+    }
+
+
 
 
     private void submit() {

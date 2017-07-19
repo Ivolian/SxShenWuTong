@@ -20,7 +20,7 @@ public class FdsyAct extends SpdspAct {
         Spdsp.AjxxBean ajxx = spdsp.getAjxx();
         setText(R.id.tvBt, ajxx.getAhqc() + "法定事由审批");
         setText(R.id.tvAhqc, ajxx.getAhqc());
-        setText(R.id.tvSqrq, ajxx.getLarq());
+        setText(R.id.tvLarq, ajxx.getLarq());
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvDyyg, ajxx.getDyyg());
         setText(R.id.tvDybg, ajxx.getDybg());
