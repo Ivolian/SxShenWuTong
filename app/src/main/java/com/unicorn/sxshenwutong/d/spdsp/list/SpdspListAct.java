@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdsp;
+package com.unicorn.sxshenwutong.d.spdsp.list;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;

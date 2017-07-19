@@ -17,8 +17,8 @@ import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
 import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSubmitter;
 import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
-import com.unicorn.sxshenwutong.d.spdsp.SpdspFetcher;
-import com.unicorn.sxshenwutong.d.spdsp.SpdspListAct;
+import com.unicorn.sxshenwutong.d.spdsp.sp.SpdspFetcher;
+import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
 
 import dagger.Component;
 
