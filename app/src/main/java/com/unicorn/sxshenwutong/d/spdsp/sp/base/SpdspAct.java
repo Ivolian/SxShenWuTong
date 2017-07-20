@@ -155,7 +155,9 @@ abstract public class SpdspAct extends BaseAct {
         map.put("currNodeid", spdspInfo.getDblbxx().getNodeid());
         map.put("currNodeName", spdspInfo.getDblbxx().getNodename());
         map.put("spyj", etSpyj.getText().toString().trim());
-        new NextNodeDialog(this, spdspInfo.getDblbxx().getLcid(), new SpdspSubmitter(map), true).show();
+       NextNodeDialog nextNodeDialog = new NextNodeDialog(this, spdspInfo.getDblbxx().getLcid(), new SpdspSubmitter(map), true);
+        nextNodeDialog.setSqr(spdspInfo.getSpxx().getSqr());
+        nextNodeDialog.show();
     }
 
     @Override

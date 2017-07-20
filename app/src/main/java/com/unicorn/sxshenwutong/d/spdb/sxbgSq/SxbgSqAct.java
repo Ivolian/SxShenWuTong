@@ -237,7 +237,9 @@ public class SxbgSqAct extends BaseAct {
         Period period = new Period(startDate, endDate, PeriodType.days());
         int days = period.getDays();
         map.put("ts", days);
-        new NextNodeDialog(this, "CQ_DSP_SPGL_SP_FDSYSP", new SxbgSubmitter(map)).show();
+        NextNodeDialog nextNodeDialog = new NextNodeDialog(this, "CQ_DSP_SPGL_SP_FDSYSP", new SxbgSubmitter(map));
+        nextNodeDialog.setSqr(Global.getLoginResponse().getUser().getId());
+        nextNodeDialog.show();
     }
 
     private String bt(Ajxx ajxx) {

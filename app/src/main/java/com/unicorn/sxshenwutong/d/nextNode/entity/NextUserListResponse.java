@@ -1,8 +1,8 @@
-package com.unicorn.sxshenwutong.d.nextNode;
+package com.unicorn.sxshenwutong.d.nextNode.entity;
 
 import java.util.List;
 
-public class UserListResponse {
+public class NextUserListResponse {
 
     private List<UserlistBean> userlist;
 
@@ -16,12 +16,12 @@ public class UserListResponse {
 
     public static class UserlistBean {
         /**
-         * departname : 院领导
+         * departname : 刑事审判第一庭
          * fymc : 重庆市高级人民法院
-         * departid : 000
+         * departid : 079
          * fydm : M00
-         * userid : 42619
-         * username : 杨临萍
+         * userid : 8754
+         * username : 袁胜强
          */
 
         private String departname;
@@ -79,5 +79,4 @@ public class UserListResponse {
             this.username = username;
         }
     }
-
 }

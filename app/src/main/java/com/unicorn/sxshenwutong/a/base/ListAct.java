@@ -64,12 +64,16 @@ abstract public class ListAct<T> extends RefreshAct<T> {
 
     private String params() {
         Params params = new Params();
+        paramsInitializer.initParams(params, "getLbList", parameters());
+        return params.toString();
+    }
+
+    protected HashMap<String,Object> parameters(){
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
         parameters.put("pageSize", PAGE_SIZE);
         parameters.put(Key.LBTYPE, lbtype);
-        paramsInitializer.initParams(params, "getLbList", parameters);
-        return params.toString();
+        return parameters;
     }
 
 

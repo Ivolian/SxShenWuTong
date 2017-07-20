@@ -2,7 +2,6 @@ package com.unicorn.sxshenwutong.a.constant;
 
 public class Key {
 
-    public static final String CXBG_CODE ="900002";
     public static final String SUCCESS_CODE ="000000";
     public static final String TO_MAIN ="toMain";
     public static final String YDBAKEY ="ydbaKey";
@@ -16,6 +15,7 @@ public class Key {
 
     public static final String SPID ="spid";
     public static final String LCID ="lcid";
+    public static final String SPJDID ="spjdid";
 
 
 }

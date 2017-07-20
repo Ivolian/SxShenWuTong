@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.util.Pair;
 
+import com.appeaser.sublimepickerlibrary.SublimePicker;
 import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
 
 import org.joda.time.DateTime;
@@ -40,7 +41,6 @@ public class DateUtil {
         int displayOptions = 0;
         options.setDateParams(dateTime.toCalendar(Locale.getDefault()));
         displayOptions |= SublimeOptions.ACTIVATE_DATE_PICKER;
-
 //        if (cbTimePicker.isChecked()) {
 //            displayOptions |= SublimeOptions.ACTIVATE_TIME_PICKER;
 //        }
@@ -48,7 +48,6 @@ public class DateUtil {
 //        if (cbRecurrencePicker.isChecked()) {
 //            displayOptions |= SublimeOptions.ACTIVATE_RECURRENCE_PICKER;
 //        }
-
 //        if (rbDatePicker.getVisibility() == View.VISIBLE && rbDatePicker.isChecked()) {
         options.setPickerToShow(SublimeOptions.Picker.DATE_PICKER);
 //        } else if (rbTimePicker.getVisibility() == View.VISIBLE && rbTimePicker.isChecked()) {
@@ -57,7 +56,6 @@ public class DateUtil {
 //            options.setPickerToShow(SublimeOptions.Picker.REPEAT_OPTION_PICKER);
 //        }
         options.setDisplayOptions(displayOptions);
-
         // Enable/disable the date range selection feature
         options.setCanPickDateRange(false);
 

@@ -1,28 +1,95 @@
 {
-  "appId": "04e8310b-86f0-478c-b102-76f3c0710c00",
-  "busiCode": "savesp",
-  "loginName": "",
-  "parameters": {
-    "currNodeName": "分管院长审批",
-    "spid": "M008eb9c921-23f8-42cf-84a0-34f420105d38",
-    "fydm": "M00",
-    "nextParamsVal": "commitToContinue",
-    "sprid": "42619",
-    "spyj": "通过",
-    "spjdid": "SPGL_AJJZP_TZSP",
-    "ajbs": "M008091044d-dd8d-47bd-8e7e-f7be27ddde32",
-    "currNodeid": "SPGL_AJJZP_FGYZSP",
-    "sprmc": "庭长审批"
-  },
-  "randCode": "315933",
-  "secM": "940443cecb22ae53382c41ee03e07b5f",
-  "seqM": "",
-  "thirdFlow": "3f3d6e04-57e8-4caf-bdb4-4ffe51f7248f",
-  "ticket": "b5c78faf-d3cc-4668-b7fe-9c5bac2ce86b",
-  "time": "2017-07-18 14:25:31",
-  "uuid": "58e01a1c-56e6-42f2-8725-563dca4b3898",
-  "version": "1.0"
+  "total": 10,
+  "rows": [
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号程序变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号程序变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号程序变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号审限变更申请",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-20",
+      "nodeid": "",
+      "tbzt": "未发送内外"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号程序变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号程序变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号审限变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号程序变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号审限变更申请",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-20",
+      "nodeid": "",
+      "tbzt": "未发送内外"
+    },
+    {
+      "nodename": "",
+      "bt": "(2017)渝民初156号程序变更审批",
+      "sqrmc": "审判管理员",
+      "jsrmc": "",
+      "sqrq": "2017-07-13",
+      "nodeid": "",
+      "tbzt": "已发送内网"
+    }
+  ]
 }
-
-
-2. 首页刷新

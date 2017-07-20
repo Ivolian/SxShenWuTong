@@ -9,90 +9,129 @@ import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.a.code.entity.Code;
-import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.SimpleSubmitter;
+import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.d.nextNode.entity.NextNodeResponse;
+import com.unicorn.sxshenwutong.d.nextNode.entity.NextUserListResponse;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.Subscriber;
 
 public class NextNodeDialog {
 
     private Activity activity;
-    private HashMap<String, Object> map;
-    private MaterialDialog dialog;
     private String lcid;
     private SimpleSubmitter simpleSubmitter;
-    private boolean showSp = false;
+    private boolean showSpOption = false;
+    private MaterialDialog dialog;
+    private String sqr;
+
+    public String getSqr() {
+        return sqr;
+    }
+
+    public void setSqr(String sqr) {
+        this.sqr = sqr;
+    }
 
     public NextNodeDialog(Activity activity, String lcid, SimpleSubmitter simpleSubmitter) {
         this.activity = activity;
-        this.map = simpleSubmitter.getMap();
         this.lcid = lcid;
         this.simpleSubmitter = simpleSubmitter;
     }
 
-    public NextNodeDialog(Activity activity, String lcid, SimpleSubmitter simpleSubmitter, boolean showSp) {
+    public NextNodeDialog(Activity activity, String lcid, SimpleSubmitter simpleSubmitter, boolean showSpOption) {
         this.activity = activity;
-        this.map = simpleSubmitter.getMap();
         this.lcid = lcid;
         this.simpleSubmitter = simpleSubmitter;
-        this.showSp = showSp;
+        this.showSpOption = showSpOption;
     }
 
-    List<Code> spList;
 
     public void show() {
+
+
         dialog = new MaterialDialog.Builder(activity)
                 .customView(R.layout.custom_view, false)
                 .show();
         if (dialog.getCustomView() == null) return;
         ButterKnife.bind(this, dialog.getCustomView());
-        msNodename.setOnItemSelectedListener((view, position, id, item) -> updateSp(nodes.get(position).getNodename()));
+
+
+        msNodename.setOnItemSelectedListener((view, position, id, item) -> {
+            NextNodeResponse.NextncodesBean node = nodes.get(position);
+            fetchSpOption(node);
+            fetchNextUserList(node);
+        });
+
         new NextNodeFetcher(lcid).start().subscribe(nextNodeResponse -> {
             msNodename.setItems(items(nextNodeResponse));
-            updateSp(nodes.get(0).getNodename());
+//            fetchSpOption(nodes.get(0));
         });
-        new UserListFetcher().start().subscribe(userListResponse -> msUsername.setItems(items(userListResponse)));
 
         RxView.clicks(dialog.getCustomView().findViewById(R.id.tvSubmit))
                 .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(aVoid -> submit());
     }
 
-    private void updateSp(String item){
-        if (showSp) {
+    List<SpinnerItem> spOptionList;
+
+    private void fetchSpOption(NextNodeResponse.NextncodesBean node) {
+        if (showSpOption) {
             llSp.setVisibility(View.VISIBLE);
-            spList = new ArrayList<>();
-            if (item.contains("至拟稿人") || item.equals("结束")) {
-                spList.add(new Code("commitToEnd", "同意并结束"));
+            List<SpinnerItem> temp = new ArrayList<>();
+            String nodeName = node.getNodename();
+            if (nodeName.contains("至拟稿人") || nodeName.equals("结束")) {
+                temp.add(new SpinnerItem("commitToEnd", "同意并结束"));
             }
-            spList.add(new Code("commitToContinue", "同意并继续"));
-            spList.add(new Code("backToUpdate", "退回并整理"));
-            spList.add(new Code("backToEnd", "退回并结束"));
-            msSp.setItems(items(spList));
+            temp.add(new SpinnerItem("commitToContinue", "同意并继续"));
+            temp.add(new SpinnerItem("backToUpdate", "退回并整理"));
+            temp.add(new SpinnerItem("backToEnd", "退回并结束"));
+            msSp.setItems(items(temp));
+            spOptionList = temp;
         }
     }
 
+    private void fetchNextUserList(NextNodeResponse.NextncodesBean node) {
+        new NextUserListFetcher(lcid, node.getNodeid(), sqr)
+                .start()
+                .subscribe(new Subscriber<NextUserListResponse>() {
+                    @Override
+                    public void onCompleted() {
 
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(NextUserListResponse nextUserListResponse) {
+                        msUsername.setItems(items(nextUserListResponse));
+                    }
+                });
+    }
 
 
     private void submit() {
-        UserListResponse.UserlistBean user = users.get(msUsername.getSelectedIndex());
+        Map<String, Object> map = simpleSubmitter.getMap();
+        NextUserListResponse.UserlistBean user = users.get(msUsername.getSelectedIndex());
         map.put("sprid", user.getUserid());
         map.put("sprmc", user.getUsername());
         NextNodeResponse.NextncodesBean node = nodes.get(msNodename.getSelectedIndex());
         map.put("spjdid", node.getNodeid());
         map.put("spjdmc", node.getNodename());
 
-        if (showSp) {
-            Code sp = spList.get(msSp.getSelectedIndex());
-            map.put("nextParamsVal", sp.getDm());
+        if (showSpOption) {
+            SpinnerItem sp = spOptionList.get(msSp.getSelectedIndex());
+            map.put("nextParamsVal", sp.getValue());
         }
         simpleSubmitter.start().subscribe(simpleResponse -> {
             if (simpleResponse.isSuccess()) {
@@ -111,10 +150,10 @@ public class NextNodeDialog {
                 .show();
     }
 
-    private List<String> items(List<Code> codeList) {
+    private List<String> items(List<SpinnerItem> spinnerItems) {
         List<String> items = new ArrayList<>();
-        for (Code code : codeList) {
-            items.add(code.getDmms());
+        for (SpinnerItem spinnerItem : spinnerItems) {
+            items.add(spinnerItem.getLabel());
         }
         return items;
     }
@@ -130,12 +169,12 @@ public class NextNodeDialog {
         return items;
     }
 
-    private List<UserListResponse.UserlistBean> users;
+    private List<NextUserListResponse.UserlistBean> users;
 
-    private List<String> items(UserListResponse userListResponse) {
-        users = userListResponse.getUserlist();
+    private List<String> items(NextUserListResponse nextUserListResponse) {
+        users = nextUserListResponse.getUserlist();
         List<String> items = new ArrayList<>();
-        for (UserListResponse.UserlistBean user : userListResponse.getUserlist()) {
+        for (NextUserListResponse.UserlistBean user : nextUserListResponse.getUserlist()) {
             items.add(user.getUsername());
         }
         return items;
