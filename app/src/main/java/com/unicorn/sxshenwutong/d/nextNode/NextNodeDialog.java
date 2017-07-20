@@ -55,8 +55,6 @@ public class NextNodeDialog {
 
 
     public void show() {
-
-
         dialog = new MaterialDialog.Builder(activity)
                 .customView(R.layout.custom_view, false)
                 .show();
@@ -72,7 +70,9 @@ public class NextNodeDialog {
 
         new NextNodeFetcher(lcid).start().subscribe(nextNodeResponse -> {
             msNodename.setItems(items(nextNodeResponse));
-//            fetchSpOption(nodes.get(0));
+            NextNodeResponse.NextncodesBean node = nodes.get(0);
+            fetchSpOption(node);
+            fetchNextUserList(node);
         });
 
         RxView.clicks(dialog.getCustomView().findViewById(R.id.tvSubmit))

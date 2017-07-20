@@ -8,7 +8,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
-import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
+import com.unicorn.sxshenwutong.d.spdb.list.spdb.SpdbListAct;
 
 public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
 

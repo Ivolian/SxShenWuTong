@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb;
+package com.unicorn.sxshenwutong.d.spdb.list.spdb;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -10,8 +10,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.AjspsqListAct;
-import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSqAct;
 
 public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
@@ -30,7 +30,7 @@ public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         viewHolder.setText(R.id.tvLaaymc, "案由: " + ajxx.getLaaymc());
         viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
 
-        viewHolder.getView(R.id.tvCxbg).setOnClickListener(v -> {
+        viewHolder.getView(R.id.tvSpsq).setOnClickListener(v -> {
             Intent intent = new Intent(mContext, AjspsqListAct.class);
             intent.putExtra(Key.TITLE, "案件审批申请");
             intent.putExtra(Key.LBTYPE, "ajspsqlist");
@@ -43,11 +43,11 @@ public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 //            intent.putExtra(Key.AJBS, ajxx.getAjbs());
 //            mContext.startActivity(intent);
 //        });
-        viewHolder.getView(R.id.tvSxbg).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, SxbgSqAct.class);
-            intent.putExtra(Key.AJBS, ajxx.getAjbs());
-            mContext.startActivity(intent);
-        });
+//        viewHolder.getView(R.id.tvSxbg).setOnClickListener(v -> {
+//            Intent intent = new Intent(mContext, SxbgSqAct.class);
+//            intent.putExtra(Key.AJBS, ajxx.getAjbs());
+//            mContext.startActivity(intent);
+//        });
     }
 
     private Drawable bg() {

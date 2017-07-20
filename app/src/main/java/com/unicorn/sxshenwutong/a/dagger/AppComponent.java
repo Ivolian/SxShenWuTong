@@ -15,7 +15,7 @@ import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
 import com.unicorn.sxshenwutong.d.nextNode.NextUserListFetcher;
 import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.AjspsqListAct;
 import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
-import com.unicorn.sxshenwutong.d.spdb.SpdbListAct;
+import com.unicorn.sxshenwutong.d.spdb.list.spdb.SpdbListAct;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSubmitter;
 import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
 import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;

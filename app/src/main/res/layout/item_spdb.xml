@@ -61,20 +61,8 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-
         <TextView
-            android:id="@+id/tvCxbg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:height="36dp"
-            android:background="@color/login"
-            android:gravity="center"
-            android:text="程序变更"
-            android:textColor="@color/md_white" />
-
-        <TextView
-            android:id="@+id/tvSxbg"
+            android:id="@+id/tvSpsq"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
@@ -83,7 +71,7 @@
             android:height="36dp"
             android:background="@color/login"
             android:gravity="center"
-            android:text="审限变更"
+            android:text="审批申请"
             android:textColor="@color/md_white" />
 
         <TextView
