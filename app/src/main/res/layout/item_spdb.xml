@@ -62,7 +62,7 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/tvSpsq"
+            android:id="@+id/tvAjspsq"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
@@ -71,17 +71,33 @@
             android:height="36dp"
             android:background="@color/login"
             android:gravity="center"
-            android:text="审批申请"
+            android:text="案件审批申请"
             android:textColor="@color/md_white" />
 
         <TextView
+            android:id="@+id/tvAjws"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:layout_weight="1"
             android:height="36dp"
             android:background="@color/login"
             android:gravity="center"
-            android:text="录音录像"
+            android:text="案件文书"
+            android:textColor="@color/md_white" />
+
+        <TextView
+            android:id="@+id/tvAjcl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:height="36dp"
+            android:background="@color/login"
+            android:gravity="center"
+            android:text="案件材料"
             android:textColor="@color/md_white" />
 
     </LinearLayout>

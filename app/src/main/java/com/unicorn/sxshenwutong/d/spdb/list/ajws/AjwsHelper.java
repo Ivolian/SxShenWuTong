@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.blankj.utilcode.util.FileUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.d.spdb.list.ajws.entity.Ajws;
@@ -45,7 +46,7 @@ public class AjwsHelper {
     }
 
     private void download() {
-         String url = App.baseUrl()   + ajws.getWjlj();
+        String url = App.baseUrl() + ajws.getWjlj();
         OkHttpUtils
                 .get()
                 .url(url)
@@ -60,10 +61,10 @@ public class AjwsHelper {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Logger.d(e);
+                        ToastUtils.showShort("文件不存在");
                     }
                 });
     }
-
 
 
     private static final String[][] MIME_MapTable = {
