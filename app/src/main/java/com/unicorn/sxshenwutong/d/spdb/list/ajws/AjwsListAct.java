@@ -33,7 +33,8 @@ public class AjwsListAct extends ListAct<Ajws> {
         new RxPermissions(this)
                 // 动态申请权限
                 .request(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE
                 )
                .subscribe(new Action1<Boolean>() {
                    @Override
