@@ -13,6 +13,7 @@ import com.unicorn.sxshenwutong.c.home.HomeFetcher;
 import com.unicorn.sxshenwutong.SimpleSubmitter;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
 import com.unicorn.sxshenwutong.d.nextNode.NextUserListFetcher;
+import com.unicorn.sxshenwutong.d.spdb.list.ajcl.AjclListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.AjspsqListAct;
 import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
 import com.unicorn.sxshenwutong.d.spdb.list.ajws.AjwsListAct;
@@ -50,5 +51,6 @@ public interface AppComponent {
     void inject(SpdspListAct o);
     void inject(SpdspFetcher o);
     void inject(SimpleSubmitter o);
+    void inject(AjclListAct o);
 
 }

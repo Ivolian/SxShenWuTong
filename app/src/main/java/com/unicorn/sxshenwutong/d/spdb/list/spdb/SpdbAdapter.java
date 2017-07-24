@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
+import com.unicorn.sxshenwutong.d.spdb.list.ajcl.AjclListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.AjspsqListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.ajws.AjwsListAct;
 
@@ -43,6 +44,14 @@ public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
             Intent intent = new Intent(mContext, AjwsListAct.class);
             intent.putExtra(Key.TITLE, "案件文书");
             intent.putExtra(Key.LBTYPE, "ajwslist");
+            intent.putExtra(Key.AJBS, ajxx.getAjbs());
+            mContext.startActivity(intent);
+        });
+
+        viewHolder.getView(R.id.tvAjcl).setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, AjclListAct.class);
+            intent.putExtra(Key.TITLE, "案件材料");
+            intent.putExtra(Key.LBTYPE, "ajcllist");
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });
