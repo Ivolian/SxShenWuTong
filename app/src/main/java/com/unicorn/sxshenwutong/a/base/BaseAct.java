@@ -29,6 +29,7 @@ public abstract class BaseAct extends SupportActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (layoutResId() != NO_LAYOUT) {
             setContentView(layoutResId());
         }

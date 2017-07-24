@@ -3,7 +3,9 @@ package com.unicorn.sxshenwutong.b.login;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -66,6 +68,35 @@ public class LoginAct extends BaseAct {
         clickLogin();
         renderLoginInfo();
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+        }
+
+
+//
+//        Map<String, Object> pMap = new HashMap<String, Object>();
+//        pMap.put("mlid", mlid);
+//        pMap.put("ajbs", ajbs);
+//        MyHttpCliet myHttpCliet = new MyHttpCliet();
+//        File file = new File(bmxtDaglAjstws.getWjlj());
+//        String url = MyHttpDataHelp.Assemblyurl(this,MyHttpDataHelp.getHttpUrl(),"jz_saveInfo",pMap);
+//        myHttpCliet.uploadFile(url, file, new UploadDownloadlistener() {
+//            @Override
+//            public void onStartDownLoad() {
+//
+//            }
+//
+//            @Override
+//            public void onCompleteRateChanged(int completeRate) {
+//
+//            }
+//
+//            @Override
+//            public void onDownloadCompleted(String result) {
+//                jzlistInfo(1, 100, mlid);
+//            }
+//        });
 
     }
 
