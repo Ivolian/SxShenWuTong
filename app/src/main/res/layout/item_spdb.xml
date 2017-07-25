@@ -71,7 +71,7 @@
             android:height="36dp"
             android:background="@color/login"
             android:gravity="center"
-            android:text="案件审批申请"
+            android:text="案件审批"
             android:textColor="@color/md_white" />
 
         <TextView

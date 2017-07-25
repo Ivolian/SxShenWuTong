@@ -175,7 +175,7 @@ public class SycxbgSqAct extends BaseAct {
     }
 
     private String bt(Ajxx ajxx) {
-        return ajxx.getAhqc() + "适用程序变更神奇";
+        return ajxx.getAhqc() + "适用程序变更申请";
     }
 
 

@@ -21,6 +21,7 @@ import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.entity.Ajsqsp;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSqAct;
 import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSqAct;
+import com.unicorn.sxshenwutong.d.spdb.wssp.WsspSqAct;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -71,13 +72,24 @@ public class AjspsqListAct extends ListAct<Ajsqsp> {
     private void showDialog() {
         new MaterialDialog.Builder(this)
                 .title("选择案件审批申请类型")
-                .items(Arrays.asList("适用程序变更", "法定事由", "其他"))
+                .items(Arrays.asList("适用程序变更", "法定事由", "文书审批"))
                 .itemsCallback((dialog, itemView, position, text) -> s(position))
                 .show();
     }
 
     private void s(int position) {
-        Intent intent = new Intent(this, position == 0 ? SycxbgSqAct.class : SxbgSqAct.class);
+        Class actClass;
+        switch (position) {
+            case 0:
+                actClass = SycxbgSqAct.class;
+                break;
+            case 1:
+                actClass = SxbgSqAct.class;
+                break;
+            default:
+                actClass = WsspSqAct.class;
+        }
+        Intent intent = new Intent(this, actClass);
         intent.putExtra(Key.AJBS, getIntent().getStringExtra(Key.AJBS));
         startActivity(intent);
     }
@@ -86,6 +98,7 @@ public class AjspsqListAct extends ListAct<Ajsqsp> {
     protected boolean useRxBus() {
         return true;
     }
+
     @Subscribe(tags = {@Tag(RxBusTag.SUBMIT_SUCCESS)})
     public void onSubmitSuccess(Object o) {
         swipeRefreshLayout.setRefreshing(true);
