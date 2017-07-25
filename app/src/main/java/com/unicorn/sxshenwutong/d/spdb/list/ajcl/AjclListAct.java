@@ -19,7 +19,6 @@ import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.login.entity.PostTest;
 import com.unicorn.sxshenwutong.d.spdb.list.ajcl.entity.Ajcl;
-import com.unicorn.sxshenwutong.d.spdb.list.ajcl.entity.AjclListAdapter;
 
 import java.util.Arrays;
 import java.util.HashMap;

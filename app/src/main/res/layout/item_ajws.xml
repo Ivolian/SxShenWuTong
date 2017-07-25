@@ -29,4 +29,44 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/md_grey_300" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:height="36dp"
+            android:background="@color/login"
+            android:gravity="center"
+            android:text="查看文书"
+            android:textColor="@color/md_white" />
+
+        <TextView
+            android:id="@+id/tvWssp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:height="36dp"
+            android:background="@color/login"
+            android:gravity="center"
+            android:text="文书审批"
+            android:textColor="@color/md_white" />
+
+    </LinearLayout>
+
+
 </LinearLayout>

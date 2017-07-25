@@ -2,19 +2,34 @@ package com.unicorn.sxshenwutong.d.spdb.list.ajcl.entity;
 
 public class Ajcl {
 
+
     /**
-     * scsj : 2017-07-24 15:06:07.0
+     * tbbz : 0
+     * scsj : 2017-07-25 11:55:04.0
+     * scr : 11061
      * ajbs : 1b7d32a6-9d5a-4c13-9540-f09e72dce919
-     * jlid : 2c7c6809-a71b-464e-ba3e-f416cded4365
+     * scrmc : 审判管理员
+     * jlid : 19f4310f-0c3b-4835-b7d9-f831cedef2bc
      * wjmc : 标题哦
-     * wjdz : upload 20170724 2c7c6809-a71b-464e-ba3e-f416cded4365.jpg
+     * wjdz : upload 20170725 19f4310f-0c3b-4835-b7d9-f831cedef2bc.rc
      */
 
+    private String tbbz;
     private String scsj;
+    private String scr;
     private String ajbs;
+    private String scrmc;
     private String jlid;
     private String wjmc;
     private String wjdz;
+
+    public String getTbbz() {
+        return tbbz;
+    }
+
+    public void setTbbz(String tbbz) {
+        this.tbbz = tbbz;
+    }
 
     public String getScsj() {
         return scsj;
@@ -24,12 +39,28 @@ public class Ajcl {
         this.scsj = scsj;
     }
 
+    public String getScr() {
+        return scr;
+    }
+
+    public void setScr(String scr) {
+        this.scr = scr;
+    }
+
     public String getAjbs() {
         return ajbs;
     }
 
     public void setAjbs(String ajbs) {
         this.ajbs = ajbs;
+    }
+
+    public String getScrmc() {
+        return scrmc;
+    }
+
+    public void setScrmc(String scrmc) {
+        this.scrmc = scrmc;
     }
 
     public String getJlid() {

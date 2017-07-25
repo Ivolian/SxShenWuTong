@@ -102,6 +102,7 @@ abstract public class ListAct<T> extends RefreshAct<T> {
                 .filter(new Func1<String, Boolean>() {
                     @Override
                     public Boolean call(String s) {
+
                         return s != null;
                     }
                 })

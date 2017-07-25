@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.ajcl.entity;
+package com.unicorn.sxshenwutong.d.spdb.list.ajcl;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -8,18 +8,20 @@ import android.widget.LinearLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.d.spdb.list.ajcl.entity.Ajcl;
 
-public class AjclListAdapter extends BaseQuickAdapter<Ajcl, BaseViewHolder> {
+class AjclListAdapter extends BaseQuickAdapter<Ajcl, BaseViewHolder> {
 
-    public AjclListAdapter() {
-        super(R.layout.item_ajspsq);
+    AjclListAdapter() {
+        super(R.layout.item_ajcl);
     }
 
     @Override
     protected void convert(BaseViewHolder viewHolder, final Ajcl ajcl) {
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(bg());
-        viewHolder.setText(R.id.tvBt, "文件名称: " + ajcl.getWjmc());
+        viewHolder.setText(R.id.tvWjmc, "文件名称: " + ajcl.getWjmc());
+        viewHolder.setText(R.id.tvScrmc, "上传人: " + ajcl.getScrmc());
     }
 
     private Drawable bg() {

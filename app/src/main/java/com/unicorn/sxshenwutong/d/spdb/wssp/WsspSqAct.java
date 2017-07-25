@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import pocketknife.BindExtra;
 import rx.Subscriber;
+import rx.functions.Action1;
 
 import static com.unicorn.sxshenwutong.R.id.tvTitle;
 
@@ -71,10 +72,17 @@ public class WsspSqAct extends BaseAct {
                 renderAjxx();
             }
         });
+
+        new WsspLcidFetcher(ajbs).start().subscribe(new Action1() {
+            @Override
+            public void call(Object o) {
+
+            }
+        });
     }
 
     private void renderAjxx() {
-        setText(tvTitle,  bt(ajxx));
+        setText(tvTitle, bt(ajxx));
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvLarq, ajxx.getLarq());
         setText(R.id.tvLaay, ajxx.getLaaymc());
@@ -93,7 +101,7 @@ public class WsspSqAct extends BaseAct {
 //        map.put("bt", bt(ajxx));
         map.put("ngryj", etNgryj.getText().toString().trim());
         // todo
-        NextNodeDialog nextNodeDialog =new NextNodeDialog(this, "CQ_DSP_SPGL_SP_AJJZPSP",new SycxbgSubmitter(map));
+        NextNodeDialog nextNodeDialog = new NextNodeDialog(this, "CQ_DSP_SPGL_SP_AJJZPSP", new SycxbgSubmitter(map));
         nextNodeDialog.setSqr(Global.getLoginResponse().getUser().getId());
         nextNodeDialog.show();
     }

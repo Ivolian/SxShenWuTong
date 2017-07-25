@@ -24,6 +24,7 @@ public class AjwsListAct extends ListAct<Ajws> {
     protected HashMap<String, Object> parameters() {
         HashMap<String, Object> map = super.parameters();
         map.put(Key.AJBS, getIntent().getStringExtra(Key.AJBS));
+        ajwsAdapter.setAjbs( getIntent().getStringExtra(Key.AJBS));
         return map;
     }
 
@@ -42,6 +43,7 @@ public class AjwsListAct extends ListAct<Ajws> {
 
                    }
                });
+
     }
 
     @Override
@@ -49,9 +51,11 @@ public class AjwsListAct extends ListAct<Ajws> {
         AppComponentProvider.provide().inject(this);
     }
 
+    AjwsAdapter ajwsAdapter;
+
     @Override
     protected BaseQuickAdapter<Ajws, BaseViewHolder> getAdapter() {
-        return new AjwsAdapter(this);
+        return ajwsAdapter = new AjwsAdapter(this);
     }
 
     @Override

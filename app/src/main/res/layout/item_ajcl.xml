@@ -19,7 +19,12 @@
             android:layout_height="wrap_content"
             android:textColor="@color/md_black"
             android:textSize="16dp" />
-
+        <TextView
+            android:id="@+id/tvScrmc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
 
     </LinearLayout>
 

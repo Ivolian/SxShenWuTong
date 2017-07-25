@@ -20,6 +20,7 @@ import com.unicorn.sxshenwutong.d.spdb.list.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.spdb.SpdbListAct;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSubmitter;
 import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
+import com.unicorn.sxshenwutong.d.spdb.wssp.WsspLcidFetcher;
 import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
 
@@ -52,5 +53,6 @@ public interface AppComponent {
     void inject(SpdspFetcher o);
     void inject(SimpleSubmitter o);
     void inject(AjclListAct o);
+    void inject(WsspLcidFetcher o);
 
 }
