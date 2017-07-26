@@ -38,6 +38,7 @@
         <activity android:name=".d.spdb.list.ajcl.AjclListAct" />
         <activity android:name=".d.spdb.wssp.WsspSqAct"/>
         <activity android:name=".d.ajws.AjwsSelectListAct"/>
+        <activity android:name=".d.jasc.JascListAct"/>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.unicorn.sxshenwutong.fileprovider"

@@ -39,6 +39,10 @@ public class Ajxx {
     private String spcxmc;
     private String nodename;
     private String cbrmc;
+    private String fdslts;
+    private String kcsxts;
+    private String ycsxts;
+    private String yjrq;
 
     public String getAjlymc() {
         return ajlymc;
@@ -176,5 +180,36 @@ public class Ajxx {
         this.cbrmc = cbrmc;
     }
 
+    public String getFdslts() {
+        return fdslts;
+    }
+
+    public void setFdslts(String fdslts) {
+        this.fdslts = fdslts;
+    }
+
+    public String getKcsxts() {
+        return kcsxts;
+    }
+
+    public void setKcsxts(String kcsxts) {
+        this.kcsxts = kcsxts;
+    }
+
+    public String getYcsxts() {
+        return ycsxts;
+    }
+
+    public void setYcsxts(String ycsxts) {
+        this.ycsxts = ycsxts;
+    }
+
+    public String getYjrq() {
+        return yjrq;
+    }
+
+    public void setYjrq(String yjrq) {
+        this.yjrq = yjrq;
+    }
 
 }

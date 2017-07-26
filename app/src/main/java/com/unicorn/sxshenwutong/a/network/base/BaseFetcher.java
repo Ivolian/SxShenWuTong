@@ -16,6 +16,7 @@ import rx.schedulers.Schedulers;
 
 import static com.unicorn.sxshenwutong.a.constant.Key.SUCCESS_CODE;
 
+
 public abstract class BaseFetcher<T> {
 
     public BaseFetcher() {
