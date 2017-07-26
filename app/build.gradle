@@ -72,5 +72,4 @@ dependencies {
     compile 'org.sufficientlysecure:html-textview:3.4'
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
-
 }

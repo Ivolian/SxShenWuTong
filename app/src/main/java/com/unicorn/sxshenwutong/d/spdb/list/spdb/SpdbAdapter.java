@@ -13,7 +13,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 import com.unicorn.sxshenwutong.d.spdb.list.ajcl.AjclListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.AjspsqListAct;
-import com.unicorn.sxshenwutong.d.spdb.list.ajws.AjwsListAct;
+import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
 
 public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 

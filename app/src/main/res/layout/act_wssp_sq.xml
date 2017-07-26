@@ -236,15 +236,17 @@
                         android:text="审批文书"
                         android:textColor="@color/md_black" />
 
-                    <EditText
-                        android:id="@+id/etSpws"
+                    <TextView
+                        android:id="@+id/tvSpws"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/md_white"
                         android:gravity="center_vertical"
+                        android:hint="点击选择案件文书"
                         android:paddingLeft="16dp"
                         android:textColor="@color/md_black"
+                        android:textColorHint="@color/md_grey_300"
                         android:textSize="16dp" />
 
                 </LinearLayout>

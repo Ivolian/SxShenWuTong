@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
+import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
@@ -188,7 +189,7 @@ public class LoginAct extends BaseAct {
 
             @Override
             public void onError(Throwable e) {
-
+                Logger.d(e);
             }
 
             @Override

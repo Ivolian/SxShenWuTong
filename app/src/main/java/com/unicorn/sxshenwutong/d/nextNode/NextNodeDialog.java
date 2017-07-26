@@ -161,6 +161,7 @@ public class NextNodeDialog {
     private List<NextNodeResponse.NextncodesBean> nodes;
 
     private List<String> items(NextNodeResponse nextNodeResponse) {
+
         nodes = nextNodeResponse.getNextncodes();
         List<String> items = new ArrayList<>();
         for (NextNodeResponse.NextncodesBean node : nextNodeResponse.getNextncodes()) {

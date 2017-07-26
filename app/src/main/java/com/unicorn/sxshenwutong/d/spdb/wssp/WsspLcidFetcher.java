@@ -1,5 +1,6 @@
 package com.unicorn.sxshenwutong.d.spdb.wssp;
 
+import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
@@ -7,7 +8,7 @@ import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
 
-public class WsspLcidFetcher extends BaseFetcher {
+public class WsspLcidFetcher extends BaseFetcher<LcidResponse> {
 
     private String ajbs;
 
@@ -33,8 +34,10 @@ public class WsspLcidFetcher extends BaseFetcher {
     }
 
     @Override
-    protected Object map(Response response) {
-        return null;
+    protected LcidResponse map(Response response) {
+        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
+        return gson.fromJson(ydbaKey, LcidResponse.class);
     }
+
 
 }

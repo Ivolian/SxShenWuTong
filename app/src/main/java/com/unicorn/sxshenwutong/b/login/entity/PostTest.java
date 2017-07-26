@@ -55,29 +55,53 @@ public class PostTest {
         map.put("title", "标题哦2");
         map.put("bz", "描述哦");
         paramsInitializer.initParams(params, "fileUpload", map);
-        File file = new File(App.baseDir(), "timg.jpg");
+        File file = new File(App.baseDir(), "数据.txt");
         String url2 = "http://1.85.16.50:8081/ydba/request.shtml?params=" + params.toString();
 
 
         MyHttpCliet myHttpCliet = new MyHttpCliet(activity);
-       String url = MyHttpDataHelp.Assemblyurl(activity, "http://1.85.16.50:8081/ydba/request.shtml", "fileUpload", map);
-        myHttpCliet.uploadFile(url, file, new UploadDownloadlistener() {
-            @Override
-            public void onStartDownLoad() {
-                Logger.e("");
-            }
+//       String url = MyHttpDataHelp.Assemblyurl(activity, "http://1.85.16.50:8081/ydba/request.shtml", "fileUpload", map);
+//        myHttpCliet.uploadFile(url, file, new UploadDownloadlistener() {
+//            @Override
+//            public void onStartDownLoad() {
+//                Logger.e("");
+//            }
+//
+//            @Override
+//            public void onCompleteRateChanged(int completeRate) {
+//                Logger.e("");
+//            }
+//
+//            @Override
+//            public void onDownloadCompleted(String result) {
+//                Logger.e("");
+//                System.out.println("1111111111111111111111111111" + result);
+//            }
+//        });
 
-            @Override
-            public void onCompleteRateChanged(int completeRate) {
-                Logger.e("");
-            }
 
-            @Override
-            public void onDownloadCompleted(String result) {
-                Logger.e("");
-                System.out.println("1111111111111111111111111111" + result);
-            }
-        });
+//        Map<String, Object> pMap = new HashMap<String, Object>();pMap.put("ajbs", "11111111111111111111111111111111111");
+
+
+            MyHttpDataHelp.ticket="c2022e5a-0a69-474f-9cdd-5bbc7200e6cc";
+            String url = MyHttpDataHelp.Assemblyurl(activity, "http://1.85.16.50:8081/ydba/request.shtml", "fileUpload", map);
+                    myHttpCliet.uploadFile(url, file, new UploadDownloadlistener() {
+                        @Override
+                        public void onStartDownLoad() {
+
+                        }
+
+                        @Override
+                        public void onCompleteRateChanged(int completeRate) {
+
+                        }
+
+                        @Override
+                        public void onDownloadCompleted(String result) {
+                            System.out.println("========"+result);
+                        }
+                    });
+
 
 //        RequestBody fileBody = RequestBody.create(MediaType.parse("application/octet-stream"), file);
 //        MultipartBody requestBody = (new okhttp3.MultipartBody.Builder()).setType(MultipartBody.FORM).addFormDataPart("files", file.getName(), fileBody).build();

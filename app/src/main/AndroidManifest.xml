@@ -34,9 +34,10 @@
         <activity android:name=".d.spdsp.list.SpdspListAct" />
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct"/>
-        <activity android:name=".d.spdb.list.ajws.AjwsListAct"/>
+        <activity android:name=".d.ajws.AjwsListAct"/>
         <activity android:name=".d.spdb.list.ajcl.AjclListAct" />
         <activity android:name=".d.spdb.wssp.WsspSqAct"/>
+        <activity android:name=".d.ajws.AjwsSelectListAct"/>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.unicorn.sxshenwutong.fileprovider"

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.ajws.entity;
+package com.unicorn.sxshenwutong.d.ajws.entity;
 
 import com.unicorn.sxshenwutong.a.app.App;
 

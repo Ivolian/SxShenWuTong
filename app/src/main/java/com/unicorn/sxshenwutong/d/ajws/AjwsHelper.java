@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.ajws;
+package com.unicorn.sxshenwutong.d.ajws;
 
 
 import android.app.Activity;
@@ -9,7 +9,7 @@ import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.a.app.App;
-import com.unicorn.sxshenwutong.d.spdb.list.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.d.ajws.entity.Ajws;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
 

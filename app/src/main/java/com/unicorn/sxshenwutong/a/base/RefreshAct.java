@@ -24,7 +24,7 @@ public abstract class RefreshAct<T> extends BaseAct {
     @BindColor(R.color.colorPrimary)
     protected int colorPrimary;
     @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+    protected RecyclerView recyclerView;
 
     protected BaseQuickAdapter<T, BaseViewHolder> adapter = getAdapter();
 

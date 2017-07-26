@@ -21,20 +21,6 @@
             android:textSize="16dp" />
 
         <TextView
-            android:id="@+id/tvDyyg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/tvDybg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_black"
-            android:textSize="16dp" />
-
-        <TextView
             android:id="@+id/tvLaaymc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,6 +29,20 @@
 
         <TextView
             android:id="@+id/tvLarq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvDyyg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvDybg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_black"

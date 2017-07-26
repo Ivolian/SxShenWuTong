@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.ajws;
+package com.unicorn.sxshenwutong.d.ajws;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import com.unicorn.sxshenwutong.a.base.ListAct;
 import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.d.spdb.list.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.d.ajws.entity.Ajws;
 
 import java.util.HashMap;
 
@@ -24,7 +24,6 @@ public class AjwsListAct extends ListAct<Ajws> {
     protected HashMap<String, Object> parameters() {
         HashMap<String, Object> map = super.parameters();
         map.put(Key.AJBS, getIntent().getStringExtra(Key.AJBS));
-        ajwsAdapter.setAjbs( getIntent().getStringExtra(Key.AJBS));
         return map;
     }
 
@@ -43,6 +42,7 @@ public class AjwsListAct extends ListAct<Ajws> {
 
                    }
                });
+
 
     }
 

@@ -1,7 +1,9 @@
 package com.unicorn.sxshenwutong.d.spdb.wssp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -11,18 +13,20 @@ import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
+import com.unicorn.sxshenwutong.d.ajws.AjwsSelectListAct;
+import com.unicorn.sxshenwutong.d.ajws.entity.Ajws;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
-import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import pocketknife.BindExtra;
 import rx.Subscriber;
-import rx.functions.Action1;
 
 import static com.unicorn.sxshenwutong.R.id.tvTitle;
 
@@ -73,13 +77,34 @@ public class WsspSqAct extends BaseAct {
             }
         });
 
-        new WsspLcidFetcher(ajbs).start().subscribe(new Action1() {
+        new WsspLcidFetcher(ajbs).start().subscribe(new Subscriber<LcidResponse>() {
             @Override
-            public void call(Object o) {
+            public void onCompleted() {
 
             }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(LcidResponse lcidResponse) {
+                WsspSqAct.this.lcidResponse = lcidResponse;
+            }
         });
+
+
+         tvSpws.setOnClickListener(v -> {
+             Intent intent = new Intent(WsspSqAct.this, AjwsSelectListAct.class);
+             intent.putExtra(Key.TITLE, "选择案件文书");
+             intent.putExtra(Key.LBTYPE, "ajwslist");
+             intent.putExtra(Key.AJBS, ajbs);
+             startActivity(intent);
+         });
     }
+
+    LcidResponse lcidResponse;
 
     private void renderAjxx() {
         setText(tvTitle, bt(ajxx));
@@ -92,22 +117,34 @@ public class WsspSqAct extends BaseAct {
 
     // ===================== showNextNodeDialog =====================
 
+
     private void showNextNodeDialog() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
 
 //        map.put("jyzptrq", new DateTime().toString(Key.DATE_VALUE_FORMAT2));
-//        map.put("bt", bt(ajxx));
+        map.put("bt", bt(ajxx));
         map.put("ngryj", etNgryj.getText().toString().trim());
+        map.put("lcid", lcidResponse.getLcid());
+        map.put("lcmc", lcidResponse.getLcmc());
+
+        String ids = "";
+        for (Ajws ajws:ajwsList) {
+            ids += (ajws.getJlid() + ",");
+        }
+        ids = ids.substring(0,ids.length()-1);
+        map.put("wsjlids",ids);
+
+
         // todo
-        NextNodeDialog nextNodeDialog = new NextNodeDialog(this, "CQ_DSP_SPGL_SP_AJJZPSP", new SycxbgSubmitter(map));
+        NextNodeDialog nextNodeDialog = new NextNodeDialog(this, lcidResponse.getLcid(), new WsspSubmitter(map));
         nextNodeDialog.setSqr(Global.getLoginResponse().getUser().getId());
         nextNodeDialog.show();
     }
 
     private String bt(Ajxx ajxx) {
-        return ajxx.getAhqc() + "适用程序变更申请";
+        return ajxx.getAhqc() + "文书审批申请";
     }
 
 
@@ -123,11 +160,22 @@ public class WsspSqAct extends BaseAct {
         finish();
     }
 
+    List<Ajws> ajwsList;
+    @Subscribe(tags = {@Tag(RxBusTag.SELECT_AJWS)})
+    public void onAjwsSelect(ArrayList<Ajws> ajwsList){
+        String text = "";
+        for (Ajws ajws:ajwsList){
+            text +=  ajws.getXsmc();
+        }
+        tvSpws.setText(text);
+        this.ajwsList = ajwsList;
+    }
+
 
     // ===================== views =====================
 
-    @BindView(R.id.etSpws)
-    EditText etSpws;
+    @BindView(R.id.tvSpws)
+    TextView tvSpws;
     @BindView(R.id.etNgryj)
     EditText etNgryj;
 
