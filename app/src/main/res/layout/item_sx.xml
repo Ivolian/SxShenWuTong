@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="12dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvAhqc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvLaaymc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvLarq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvDyyg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvDybg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvFdslts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvYcsxts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+        <TextView
+            android:id="@+id/tvKcsxts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/tvYjrq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -25,6 +25,7 @@
       <w>departid</w>
       <w>dybg</w>
       <w>dyyg</w>
+      <w>fdslts</w>
       <w>fdsy</w>
       <w>fdsymc</w>
       <w>fdsysp</w>
@@ -42,6 +43,7 @@
       <w>jsrq</w>
       <w>jyzptrq</w>
       <w>jzpsq</w>
+      <w>kcsxts</w>
       <w>laay</w>
       <w>laaymc</w>
       <w>larq</w>
@@ -98,10 +100,12 @@
       <w>yckcyy</w>
       <w>yckcyymc</w>
       <w>ycsxlist</w>
+      <w>ycsxts</w>
       <w>ycts</w>
       <w>ydba</w>
       <w>ydbakey</w>
       <w>ydby</w>
+      <w>yjrq</w>
       <w>yzspyj</w>
       <w>zxdblist</w>
       <w>zxdsplist</w>

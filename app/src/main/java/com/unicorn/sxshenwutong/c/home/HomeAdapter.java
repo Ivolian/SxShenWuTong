@@ -10,6 +10,7 @@ import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.d.jasc.JascListAct;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.spdb.SpdbListAct;
+import com.unicorn.sxshenwutong.d.sx.SxListAct;
 
 public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
 
@@ -47,6 +48,15 @@ public class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
                 mContext.startActivity(intent);
                 return;
             }
+
+            if (homeItem.getTitle().equals("已超审限") || homeItem.getTitle().equals("即将超审限")){
+                Intent intent = new Intent(mContext, SxListAct.class);
+                intent.putExtra(Key.TITLE, homeItem.getTitle());
+                intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
+                mContext.startActivity(intent);
+                return;
+            }
+
 
 
 
