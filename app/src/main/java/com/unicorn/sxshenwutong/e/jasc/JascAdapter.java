@@ -1,16 +1,16 @@
-package com.unicorn.sxshenwutong.d.jasc;
+package com.unicorn.sxshenwutong.e.jasc;
 
 import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.BaseHelper;
+import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
-public class JascAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
+class JascAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
-    public JascAdapter() {
+    JascAdapter() {
         super(R.layout.item_jasc);
     }
 

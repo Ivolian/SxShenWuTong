@@ -13,7 +13,7 @@ import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
 import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.d.ajws.AjwsSelectListAct;
-import com.unicorn.sxshenwutong.d.jasc.JascListAct;
+import com.unicorn.sxshenwutong.e.jasc.JascListAct;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
 import com.unicorn.sxshenwutong.d.nextNode.NextUserListFetcher;
 import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
@@ -25,7 +25,7 @@ import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSubmitter;
 import com.unicorn.sxshenwutong.d.spdb.wssp.WsspLcidFetcher;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
 import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;
-import com.unicorn.sxshenwutong.d.sx.SxListAct;
+import com.unicorn.sxshenwutong.e.sx.SxListAct;
 
 import dagger.Component;
 
