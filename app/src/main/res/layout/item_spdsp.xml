@@ -31,6 +31,13 @@
             android:layout_height="wrap_content"
             android:textColor="@color/md_black" />
 
+        <TextView
+            app:layout_textSizePercent="2%sh"
+            android:id="@+id/tvSqrmc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_black" />
+
     </com.zhy.android.percent.support.PercentLinearLayout>
 
     <TextView

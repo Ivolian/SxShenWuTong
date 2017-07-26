@@ -49,6 +49,7 @@ public abstract class RefreshAct<T> extends BaseAct {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         adapter.setOnLoadMoreListener(this::loadNext, recyclerView);
+        adapter.setEmptyView(R.layout.empty_view);
     }
 
     protected void loadFirst() {

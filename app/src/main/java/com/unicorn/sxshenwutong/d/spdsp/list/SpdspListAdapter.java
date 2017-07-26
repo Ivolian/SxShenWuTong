@@ -24,9 +24,9 @@ public class SpdspListAdapter extends BaseQuickAdapter<Spdsp, BaseViewHolder> {
     protected void convert(BaseViewHolder viewHolder, final Spdsp spdsp) {
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(bg());
-
         viewHolder.setText(R.id.tvBt, "标题: " + spdsp.getBt());
         viewHolder.setText(R.id.tvSqrq, "申请日期: " + spdsp.getSqrq());
+        viewHolder.setText(R.id.tvSqrmc, "申请人: " + spdsp.getSqrmc());
 
         viewHolder.getView(R.id.tvSp).setOnClickListener(v -> {
             Intent intent = new Intent(mContext, spdsp.getLcmc().equals("法定事由审批") ? FdsyAct.class : SycxbgAct.class);
