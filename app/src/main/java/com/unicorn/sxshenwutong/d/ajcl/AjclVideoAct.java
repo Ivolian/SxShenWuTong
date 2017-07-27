@@ -16,6 +16,7 @@ import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.yqritc.scalablevideoview.ScalableVideoView;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -40,7 +41,8 @@ public class AjclVideoAct extends BaseAct {
 
 
         try {
-            ivVideo.setRawData(R.raw.landscape_sample);
+            ivVideo.setDataSource(new File(App.baseDir(),"2.mp4").getAbsolutePath());
+//            ivVideo.setRawData(R.raw.landscape_sample);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,8 +101,25 @@ public class AjclVideoAct extends BaseAct {
 
                 Toast.makeText(this, "Saved to: " + data.getDataString(), Toast.LENGTH_LONG).show();
 
-//                jcVideoPlayerStandard.thumbImageView.setImage("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640");
 
+                try {
+                    ivVideo.setDataSource(data.getDataString());
+//            ivVideo.setRawData(R.raw.landscape_sample);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ivVideo.setVolume(0, 0);
+                ivVideo.setLooping(true);
+                try {
+                    ivVideo.prepare(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mp) {
+                            ivVideo.start();
+                        }
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else if(data != null) {
                 Exception e = (Exception) data.getSerializableExtra(MaterialCamera.ERROR_EXTRA);
                 e.printStackTrace();

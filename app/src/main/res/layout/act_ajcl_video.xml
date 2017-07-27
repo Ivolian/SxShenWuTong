@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical">
@@ -28,12 +28,12 @@
         </FrameLayout>
 
         <TextView
-            android:text="上传案件材料"
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="上传案件材料"
             android:textColor="@color/md_white"
             android:textSize="22dp" />
 
@@ -83,7 +83,8 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:paddingLeft="16dp"
-                        android:textColor="@color/md_black" />
+                        android:textColor="@color/md_black"
+                        app:scalableType="fitCenter" />
 
                 </LinearLayout>
 
@@ -166,7 +167,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        
+
     </ScrollView>
 
 </LinearLayout>
