@@ -75,7 +75,7 @@ public class AjclListAct extends ListAct<Ajcl> {
     }
 
     private void s(int position) {
-        Intent intent = new Intent(this, AjclVideoAct.class);
+        Intent intent = new Intent(this, position == 0 ? AjclPhotoAct.class : AjclVideoAct.class);
         intent.putExtra(Key.AJBS, getIntent().getStringExtra(Key.AJBS));
         startActivity(intent);
     }

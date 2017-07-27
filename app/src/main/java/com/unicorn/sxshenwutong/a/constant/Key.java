@@ -2,6 +2,7 @@ package com.unicorn.sxshenwutong.a.constant;
 
 public class Key {
 
+    public static final Integer REQUEST_CODE =23333;
     public static final String SUCCESS_CODE ="000000";
     public static final String TO_MAIN ="toMain";
     public static final String YDBAKEY ="ydbaKey";

@@ -1,152 +1,76 @@
 package com.unicorn.sxshenwutong.d.ajcl;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.afollestad.materialcamera.MaterialCamera;
-import com.blankj.utilcode.util.ToastUtils;
-import com.example.mylibrary.http.UploadDownloadlistener;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
-import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.yqritc.scalablevideoview.ScalableVideoView;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 
 import butterknife.BindView;
-import pocketknife.BindExtra;
 
-public class AjclVideoAct extends BaseAct {
-
-    @Override
-    protected void init(Bundle savedInstanceState)   {
-        super.init(savedInstanceState);
-
-        clickBack();
-        RxView.clicks(findViewById(R.id.ivVideo)).subscribe(aVoid -> {
-
-            new MaterialCamera(this)
-                    .countdownMinutes(2.5f)
-                    .countdownImmediately(true)
-                    .saveDir(App.baseDir())
-                    .start(2333);
-        });
-
-
-        try {
-            ivVideo.setDataSource(new File(App.baseDir(),"2.mp4").getAbsolutePath());
-//            ivVideo.setRawData(R.raw.landscape_sample);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ivVideo.setVolume(0, 0);
-        ivVideo.setLooping(true);
-        try {
-            ivVideo.prepare(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    ivVideo.start();
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        RxView.clicks(findViewById(R.id.tvSave)).subscribe(aVoid -> {
-            if (path == null) {
-                ToastUtils.showShort("请添加录像");
-                return;
-            }
-            HashMap<String, Object> map = new HashMap<>();
-            map.put(Key.AJBS, ajbs);
-            map.put("title", etFileName.getText().toString().trim());
-            map.put("bz", etMs.getText().toString().trim());
-            new PostHelper().start(this, map, path, new UploadDownloadlistener() {
-                @Override
-                public void onStartDownLoad() {
-
-                }
-
-                @Override
-                public void onCompleteRateChanged(int i) {
-
-                }
-
-                @Override
-                public void onDownloadCompleted(String s) {
-                    ToastUtils.showShort("上传完成");
-                    finish();
-                }
-            });
-        });
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Received recording or error from MaterialCamera
-        if (requestCode == 2333) {
-
-            if (resultCode == RESULT_OK) {
-
-                Toast.makeText(this, "Saved to: " + data.getDataString(), Toast.LENGTH_LONG).show();
-
-
-                try {
-                    ivVideo.setDataSource(data.getDataString());
-//            ivVideo.setRawData(R.raw.landscape_sample);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                ivVideo.setVolume(0, 0);
-                ivVideo.setLooping(true);
-                try {
-                    ivVideo.prepare(new MediaPlayer.OnPreparedListener() {
-                        @Override
-                        public void onPrepared(MediaPlayer mp) {
-                            ivVideo.start();
-                        }
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else if(data != null) {
-                Exception e = (Exception) data.getSerializableExtra(MaterialCamera.ERROR_EXTRA);
-                e.printStackTrace();
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }
-    }
-
-    @BindExtra(Key.AJBS)
-    String ajbs;
-
-    @BindView(R.id.ivVideo)
-    ScalableVideoView ivVideo;
-
-
-
-    String path;
-
-    @BindView(R.id.etFileName)
-    EditText etFileName;
-
-    @BindView(R.id.etMs)
-    EditText etMs;
-
+public class AjclVideoAct extends AjclAct {
 
     @Override
     protected int layoutResId() {
         return R.layout.act_ajcl_video;
     }
+
+    @Override
+    protected void init(Bundle savedInstanceState) {
+        super.init(savedInstanceState);
+        clickBack();
+        clickVideo();
+        try {
+            ivVideo.setRawData(R.raw.portrait_sample);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @BindView(R.id.ivVideo)
+    ScalableVideoView ivVideo;
+
+    private void clickVideo() {
+        RxView.clicks(ivVideo).subscribe(aVoid -> new MaterialCamera(this)
+                .allowRetry(true)
+                .autoSubmit(false)
+                .primaryColorAttr(R.attr.colorPrimary)
+                .showPortraitWarning(false)
+                .defaultToFrontFacing(false)
+                .labelRetry(R.string.retry)
+                .labelConfirm(R.string.confirm)
+                .autoRecordWithDelaySec(5)
+//                .autoRecordWithDelayMs(5000)
+                .countdownMinutes(2.5f)
+                .countdownImmediately(true)
+                .saveDir(App.baseDir())
+                .start(Key.REQUEST_CODE));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Key.REQUEST_CODE && resultCode == RESULT_OK) {
+            filePath = data.getDataString();
+            playVideo();
+        }
+    }
+
+    private void playVideo() {
+        try {
+            ivVideo.setDataSource(filePath);
+            ivVideo.setLooping(true);
+            ivVideo.setVolume(0, 0);
+            ivVideo.prepare(mp -> ivVideo.start());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

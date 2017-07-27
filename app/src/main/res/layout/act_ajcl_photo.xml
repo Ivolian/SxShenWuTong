@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_white"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical">
@@ -27,12 +28,12 @@
         </FrameLayout>
 
         <TextView
-            android:text="上传案件材料"
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="上传照片材料"
             android:textColor="@color/md_white"
             android:textSize="22dp" />
 
@@ -78,11 +79,11 @@
                     <ImageView
                         android:id="@+id/ivPhoto"
                         android:layout_width="0dp"
-                        android:minHeight="200dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/md_white"
                         android:gravity="center_vertical"
+                        android:minHeight="240dp"
                         android:paddingLeft="16dp"
                         android:textColor="@color/md_black" />
 
@@ -167,7 +168,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        
+
     </ScrollView>
 
 </LinearLayout>
