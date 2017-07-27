@@ -11,6 +11,7 @@ import com.unicorn.sxshenwutong.b.login.LoginAct;
 import com.unicorn.sxshenwutong.b.login.LoginFetcher;
 import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
+import com.unicorn.sxshenwutong.d.ajcl.AjclAct;
 import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.d.ajws.AjwsSelectListAct;
 import com.unicorn.sxshenwutong.e.jasc.JascListAct;
@@ -60,5 +61,6 @@ public interface AppComponent {
     void inject(JascListAct o);
     void inject(SxListAct o);
     void inject(AjxxListAct o);
+    void inject(AjclAct o);
 
 }

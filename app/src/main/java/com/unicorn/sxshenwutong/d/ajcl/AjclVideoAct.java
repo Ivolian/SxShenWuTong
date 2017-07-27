@@ -10,7 +10,9 @@ import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.yqritc.scalablevideoview.ScalableVideoView;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import butterknife.BindView;
 
@@ -57,20 +59,23 @@ public class AjclVideoAct extends AjclAct {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Key.REQUEST_CODE && resultCode == RESULT_OK) {
-            filePath = data.getDataString();
-            playVideo();
+            String result = data.getDataString();
+            try {
+                URL url = new URL(result);
+                File file = new File(url.toURI());
+                filePath = file.getPath();
+                playVideo();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    private void playVideo() {
-        try {
-            ivVideo.setDataSource(filePath);
-            ivVideo.setLooping(true);
-            ivVideo.setVolume(0, 0);
-            ivVideo.prepare(mp -> ivVideo.start());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void playVideo() throws Exception {
+        ivVideo.setDataSource(filePath);
+        ivVideo.setLooping(true);
+        ivVideo.setVolume(0, 0);
+        ivVideo.prepare(mp -> ivVideo.start());
     }
 
 }
