@@ -4,10 +4,10 @@
     package="com.unicorn.sxshenwutong">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-
     <uses-sdk tools:overrideLibrary="com.example.mylibrary" />
 
     <application
@@ -40,6 +40,17 @@
         <activity android:name=".d.ajws.AjwsSelectListAct" />
         <activity android:name=".e.jasc.JascListAct" />
         <activity android:name=".e.sx.SxListAct" />
+        <activity android:name=".d.ajcl.AjclVideoAct"/>
+
+
+        <activity
+            android:name="com.afollestad.materialcamera.CaptureActivity"
+            android:theme="@style/MaterialCamera.CaptureActivity" />
+        <activity
+            android:name="com.afollestad.materialcamera.CaptureActivity2"
+            android:theme="@style/MaterialCamera.CaptureActivity" />
+
+
 <activity android:name=".d.ajcl.AjclPhotoAct"/>
 
     </application>

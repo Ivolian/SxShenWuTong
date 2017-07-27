@@ -34,7 +34,8 @@ public class AjwsListAct extends ListAct<Ajws> {
                 // 动态申请权限
                 .request(
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.RECORD_AUDIO
                 )
                .subscribe(new Action1<Boolean>() {
                    @Override
