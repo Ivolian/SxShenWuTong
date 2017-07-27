@@ -48,7 +48,7 @@ public class AjclAct extends BaseAct {
     }
 
     @Inject
-    PostHelper postHelper;
+    UploadHelper uploadHelper;
 
     private void clickSave() {
         RxView.clicks(findViewById(R.id.tvSave))
@@ -62,7 +62,7 @@ public class AjclAct extends BaseAct {
                     map.put(Key.AJBS, ajbs);
                     map.put("title", etFileName.getText().toString().trim());
                     map.put("bz", etMs.getText().toString().trim());
-                    postHelper.start2(map, filePath, new StringCallback() {
+                    uploadHelper.upload(map, filePath, new StringCallback() {
                         @Override
                         public void onError(Call call, Exception e, int id) {
                             Logger.d(e);

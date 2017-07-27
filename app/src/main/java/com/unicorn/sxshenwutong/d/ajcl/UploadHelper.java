@@ -18,7 +18,7 @@ import java.util.HashMap;
 import javax.inject.Inject;
 
 @App
-public class PostHelper {
+public class UploadHelper {
 
     private void start(Context activity, HashMap<String, Object> map, String filePath, UploadDownloadlistener uploadDownloadlistener) {
         MyHttpDataHelp.ticket = Global.getLoginResponse().getTicket();
@@ -30,11 +30,11 @@ public class PostHelper {
     private ParamsInitializer paramsInitializer;
 
     @Inject
-    public PostHelper(ParamsInitializer paramsInitializer) {
+    public UploadHelper(ParamsInitializer paramsInitializer) {
         this.paramsInitializer = paramsInitializer;
     }
 
-    public void start2(HashMap<String, Object> map, String filePath, Callback callback) {
+    public void upload(HashMap<String, Object> map, String filePath, Callback callback) {
         Params params = new Params();
         paramsInitializer.initParams(params, "fileUpload", map);
         String url = com.unicorn.sxshenwutong.a.app.App.baseUrl() + "request.shtml?params=" + params;
