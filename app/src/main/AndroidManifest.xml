@@ -35,21 +35,13 @@
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct" />
         <activity android:name=".d.ajws.AjwsListAct" />
-        <activity android:name=".d.spdb.list.ajcl.AjclListAct" />
+        <activity android:name=".d.ajcl.AjclListAct" />
         <activity android:name=".d.spdb.wssp.WsspSqAct" />
         <activity android:name=".d.ajws.AjwsSelectListAct" />
         <activity android:name=".e.jasc.JascListAct" />
         <activity android:name=".e.sx.SxListAct" />
+<activity android:name=".d.ajcl.AjclPhotoAct"/>
 
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.unicorn.sxshenwutong.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
     </application>
 
 </manifest>

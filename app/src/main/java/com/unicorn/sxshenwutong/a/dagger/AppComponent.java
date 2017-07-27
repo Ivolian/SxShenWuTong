@@ -17,7 +17,7 @@ import com.unicorn.sxshenwutong.e.jasc.JascListAct;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
 import com.unicorn.sxshenwutong.d.nextNode.NextUserListFetcher;
 import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
-import com.unicorn.sxshenwutong.d.spdb.list.ajcl.AjclListAct;
+import com.unicorn.sxshenwutong.d.ajcl.AjclListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.AjspsqListAct;
 import com.unicorn.sxshenwutong.d.spdb.list.spdb.SpdbListAct;
 import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSubmitter;

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.ajcl.entity;
+package com.unicorn.sxshenwutong.d.ajcl.entity;
 
 public class Ajcl {
 

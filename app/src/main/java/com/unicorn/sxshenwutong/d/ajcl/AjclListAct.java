@@ -1,5 +1,6 @@
-package com.unicorn.sxshenwutong.d.spdb.list.ajcl;
+package com.unicorn.sxshenwutong.d.ajcl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -17,8 +18,7 @@ import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.b.login.entity.PostTest;
-import com.unicorn.sxshenwutong.d.spdb.list.ajcl.entity.Ajcl;
+import com.unicorn.sxshenwutong.d.ajcl.entity.Ajcl;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -75,7 +75,11 @@ public class AjclListAct extends ListAct<Ajcl> {
     }
 
     private void s(int position) {
-            new PostTest().start(this,getIntent().getStringExtra(Key.AJBS));
+        Intent intent = new Intent(this,AjclPhotoAct.class);
+        intent.putExtra(Key.AJBS,getIntent().getStringExtra(Key.AJBS));
+        intent.putExtra(Key.TITLE,"案件材料");
+        startActivity(intent);
+//            new PostTest().start(this,);
     }
 
     @Override
