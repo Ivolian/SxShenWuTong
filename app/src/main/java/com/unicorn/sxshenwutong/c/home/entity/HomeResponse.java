@@ -32,19 +32,19 @@ public class HomeResponse {
     public static class MaindataBean {
         /**
          * zxsawl : 25
-         * zxdbajs : 9
+         * zxdbajs : 9      ok
          * zxlawys : 23
-         * spdsp : 0
-         * zxdsp : 0
-         * jjcsx : 0
+         * spdsp : 0        ok
+         * zxdsp : 0        ok
+         * jjcsx : 0        ok
          * spjawgd : 6
-         * csxwj : 4
+         * csxwj : 4        ok
          * splawys : 72
-         * spdbajs : 23
+         * spdbajs : 23     ok
          * ktajs : 0
-         * spjasc : 0
+         * spjasc : 0       ok
          * spsawl : 279
-         * zxjasc : 3
+         * zxjasc : 3       ok
          * zxjawgd : 2
          */
 

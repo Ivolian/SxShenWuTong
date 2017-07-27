@@ -29,25 +29,7 @@ public class HomeFra extends BaseFra {
     @Override
     protected void init(View rootView) {
         initRv();
-        new HomeFetcher().start().subscribe(new Subscriber<HomeResponse>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                File file = new File(App.baseDir(),"err.txt");
-                FileUtils.createOrExistsFile(file);
-
-            }
-
-            @Override
-            public void onNext(HomeResponse homeResponse) {
-                headerView.initBanner(homeResponse);
-                homeAdapter.setNewData(homeItems(homeResponse));
-            }
-        });
+        fetchHomeInfo();
     }
 
 
@@ -69,6 +51,33 @@ public class HomeFra extends BaseFra {
 
 
     // ===================== homeItems =====================
+
+    @Override
+    public void onSupportVisible() {
+        fetchHomeInfo();
+    }
+
+    private void fetchHomeInfo() {
+        new HomeFetcher().start().subscribe(new Subscriber<HomeResponse>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                File file = new File(App.baseDir(), "err.txt");
+                FileUtils.createOrExistsFile(file);
+
+            }
+
+            @Override
+            public void onNext(HomeResponse homeResponse) {
+                headerView.initBanner(homeResponse);
+                homeAdapter.setNewData(homeItems(homeResponse));
+            }
+        });
+    }
 
     private List<HomeItem> homeItems(HomeResponse homeResponse) {
         HomeResponse.MaindataBean mainData = homeResponse.getMaindata();

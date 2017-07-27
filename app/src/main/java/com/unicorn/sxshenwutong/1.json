@@ -1,21 +1,34 @@
 //黄明耀  104706   张晓川   111111    杨临萍  111111   朱晓 121406    樊全荣  811020   审判管理员  67673305
 
+
 {
-  "total": 1,
-  "rows": [
+  "maindata": {
+    "zxsawl": 25,
+    "zxdbajs": 9,
+    "zxlawys": 23,
+    "spdsp": 0,
+    "zxdsp": 0,
+    "jjcsx": 0,
+    "spjawgd": 0,
+    "csxwj": 0,
+    "splawys": 0,
+    "spdbajs": 0,
+    "ktajs": 0,
+    "spjasc": 0,
+    "spsawl": 0,
+    "zxjasc": 3,
+    "zxjawgd": 2
+  },
+  "mainpic": [
     {
-      "laaymc": "背叛国家罪",
-      "fdslts": "181",
-      "kcsxts": "0",
-      "ahqc": "(2017)渝刑初1号",
-      "sycxmc": "普通程序",
-      "dybg": "测试,测试1",
-      "larq": "2017-01-02",
-      "ajbs": "M00ca624573-48e5-41e1-9b63-bd8c3607acdf",
-      "cbrmc": "朱晓",
-      "yjrq": "2017-07-03",
-      "dyyg": "",
-      "ycsxts": "0"
+      "jlid": 1,
+      "filename": "index_news2.jpg",
+      "filepath": "/upload/index_news2.jpg"
+    },
+    {
+      "jlid": 2,
+      "filename": "index_news3.jpg",
+      "filepath": "/upload/index_news3.jpg"
     }
   ]
 }
