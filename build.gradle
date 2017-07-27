@@ -19,9 +19,12 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url "https://jitpack.io" }
-        maven { url 'http://github.com/wada811/Android-Material-Design-Colors/raw/master/repository/' }
+        maven {
+            url 'http://github.com/wada811/Android-Material-Design-Colors/raw/master/repository/'
+        }
         maven { url 'https://github.com/yanzm/LoopViewPager/raw/master/maven-repo' }
         maven { url "https://dl.bintray.com/drummer-aidan/maven" }
+        maven { url "http://dl.bintray.com/jeancsanchez/maven" }
         flatDir {
             dirs 'libs'
         }

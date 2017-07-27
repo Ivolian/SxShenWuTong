@@ -69,13 +69,13 @@ public class AjclListAct extends ListAct<Ajcl> {
     private void showDialog() {
         new MaterialDialog.Builder(this)
                 .title("选择案件审批申请类型")
-                .items(Arrays.asList("照片", "录像"))
+                .items(Arrays.asList("照片", "录像", "录音"))
                 .itemsCallback((dialog, itemView, position, text) -> s(position))
                 .show();
     }
 
     private void s(int position) {
-        Intent intent = new Intent(this, position == 0 ? AjclPhotoAct.class : AjclVideoAct.class);
+        Intent intent = new Intent(this, position == 0 ? AjclPhotoAct.class : position == 1 ? AjclVideoAct.class : AjclAudioAct.class);
         intent.putExtra(Key.AJBS, getIntent().getStringExtra(Key.AJBS));
         startActivity(intent);
     }

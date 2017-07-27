@@ -41,8 +41,7 @@
         <activity android:name=".e.jasc.JascListAct" />
         <activity android:name=".e.sx.SxListAct" />
         <activity android:name=".d.ajcl.AjclVideoAct"/>
-
-
+<activity android:name=".d.ajcl.AjclAudioAct"/>
         <activity
             android:name="com.afollestad.materialcamera.CaptureActivity"
             android:theme="@style/MaterialCamera.CaptureActivity" />
