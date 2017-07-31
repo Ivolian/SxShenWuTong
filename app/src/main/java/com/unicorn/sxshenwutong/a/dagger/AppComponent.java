@@ -37,10 +37,19 @@ public interface AppComponent {
 
     Context provideContext();
 
+
+    // ==================================================================== b start
+
     // ================= court =================
 
     void inject(CourtAct o);
     void inject(CourtFetcher o);
+
+
+    // ================= login =================
+
+    void inject(LoginAct o);
+    void inject(LoginSubmitter o);
 
 
     // ================= splash =================
@@ -54,10 +63,11 @@ public interface AppComponent {
     void inject(UserTypeSubmitter o);
 
 
+    // ==================================================================== c start
 
 
-    void inject(LoginSubmitter o);
-    void inject(LoginAct o);
+
+
     void inject(HomeFetcher o);
     void inject(SpdbListAct o);
     void inject(AjspsqListAct o);
