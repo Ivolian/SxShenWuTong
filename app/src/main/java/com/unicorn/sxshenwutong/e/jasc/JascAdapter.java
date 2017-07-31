@@ -11,7 +11,7 @@ import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 class JascAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
     JascAdapter() {
-        super(R.layout.item_jasc2);
+        super(R.layout.item_jasc);
     }
 
     @Override

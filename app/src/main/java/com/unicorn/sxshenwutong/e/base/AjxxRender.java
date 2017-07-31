@@ -13,11 +13,11 @@ public class AjxxRender extends BaseRenderer<Ajxx> {
 
     @Override
     public void render() {
-        viewHolder.setText(R.id.tvAhqc, "案号: " + entity.getAhqc());
-        viewHolder.setText(R.id.tvDyyg, "原告: " + entity.getDyyg());
-        viewHolder.setText(R.id.tvDybg, "被告: " + entity.getDybg());
-        viewHolder.setText(R.id.tvLaaymc, "案由: " + entity.getLaaymc());
-        viewHolder.setText(R.id.tvLarq, "立案日期 :" + entity.getLarq());
+        viewHolder.setText(R.id.tvAhqc, entity.getAhqc());
+        viewHolder.setText(R.id.tvDyyg,  entity.getDyyg());
+        viewHolder.setText(R.id.tvDybg,  entity.getDybg());
+        viewHolder.setText(R.id.tvLaaymc,  entity.getLaaymc());
+        viewHolder.setText(R.id.tvLarq, entity.getLarq());
     }
 
 }
