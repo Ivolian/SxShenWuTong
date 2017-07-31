@@ -1,6 +1,5 @@
 package com.unicorn.sxshenwutong.b.userType;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -139,7 +138,7 @@ public class UserTypeAct extends BaseAct {
                 if (simpleResponse.isSuccess()) {
                     Global.getLoginResponse().getUser().setUsertype(userTypeDm);
                     if (toMain) {
-                        startActivity(new Intent(UserTypeAct.this, MainAct.class));
+                        startActivity(MainAct.class);
                     }
                     finish();
                 }
