@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong;
+package com.unicorn.sxshenwutong.f;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 
 import com.blankj.utilcode.util.ConvertUtils;
+import com.unicorn.sxshenwutong.R;
 
 import butterknife.BindColor;
 import butterknife.ButterKnife;

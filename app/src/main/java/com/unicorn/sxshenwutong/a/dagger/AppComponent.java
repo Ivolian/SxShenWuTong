@@ -2,8 +2,8 @@ package com.unicorn.sxshenwutong.a.dagger;
 
 import android.content.Context;
 
-import com.unicorn.sxshenwutong.SimpleSubmitter;
-import com.unicorn.sxshenwutong.a.base.AjxxListAct;
+import com.unicorn.sxshenwutong.f.SimpleSubmitter;
+import com.unicorn.sxshenwutong.e.base.AjxxListAct;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.network.CourtFetcher;

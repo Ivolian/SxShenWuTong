@@ -4,7 +4,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseSubmitter;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.SimpleResponse;
+import com.unicorn.sxshenwutong.f.SimpleResponse;
 
 import java.util.HashMap;
 

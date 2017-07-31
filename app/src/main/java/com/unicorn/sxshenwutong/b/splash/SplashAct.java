@@ -1,10 +1,12 @@
 package com.unicorn.sxshenwutong.b.splash;
 
+import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 
 import com.github.promeg.pinyinhelper.Pinyin;
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
@@ -17,6 +19,8 @@ import com.unicorn.sxshenwutong.b.userType.network.UserTypeFetcher;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import rx.Observable;
 
 public class SplashAct extends BaseAct {
 
@@ -31,7 +35,7 @@ public class SplashAct extends BaseAct {
     @Override
     protected void init(Bundle savedInstanceState) {
         setVmPolicy();
-        fetchCourtAndUserType();
+        doALot();
     }
 
     private void setVmPolicy() {
@@ -41,9 +45,20 @@ public class SplashAct extends BaseAct {
         }
     }
 
-    private void fetchCourtAndUserType() {
-        courtDao.rx().deleteAll()
-                .flatMap(aVoid -> new CourtFetcher().start())
+    private void doALot() {
+        new RxPermissions(this)
+                // 动态申请权限
+                .request(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.RECORD_AUDIO)
+                .flatMap(aBoolean -> {
+                    if (!aBoolean) {
+                        finish();
+                        return Observable.never();
+                    }
+                    return courtDao.rx().deleteAll();
+                }).flatMap(aVoid -> new CourtFetcher().start())
                 .flatMap(courtResponse -> {
                             List<Court> courtList = courtResponse.getFylist();
                             for (Court court : courtList) {

@@ -2,7 +2,7 @@ package com.unicorn.sxshenwutong.e.jasc;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.a.base.AjxxRender;
+import com.unicorn.sxshenwutong.e.base.AjxxRender;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
 class JascRenderer extends AjxxRender {

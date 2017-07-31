@@ -4,7 +4,7 @@ import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.unicorn.sxshenwutong.BaseHelper;
+import com.unicorn.sxshenwutong.f.BaseHelper;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 

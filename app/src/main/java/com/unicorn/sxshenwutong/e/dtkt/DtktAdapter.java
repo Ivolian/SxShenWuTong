@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.e.jasc;
+package com.unicorn.sxshenwutong.e.dtkt;
 
 import android.widget.LinearLayout;
 
@@ -8,10 +8,10 @@ import com.unicorn.sxshenwutong.f.BaseHelper;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
-class JascAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
+class DtktAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
-    JascAdapter() {
-        super(R.layout.item_jasc);
+    DtktAdapter() {
+        super(R.layout.item_dtkt);
     }
 
     @Override
@@ -19,7 +19,7 @@ class JascAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(BaseHelper.bg(mContext));
 
-        new JascRenderer(viewHolder, ajxx).render();
+        new DtktRenderer(viewHolder, ajxx).render();
     }
 
 }

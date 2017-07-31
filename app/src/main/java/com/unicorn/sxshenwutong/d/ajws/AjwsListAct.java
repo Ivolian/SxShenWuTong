@@ -30,19 +30,7 @@ public class AjwsListAct extends ListAct<Ajws> {
     @Override
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
-        new RxPermissions(this)
-                // 动态申请权限
-                .request(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.CAMERA,
-                        Manifest.permission.RECORD_AUDIO
-                )
-               .subscribe(new Action1<Boolean>() {
-                   @Override
-                   public void call(Boolean aBoolean) {
 
-                   }
-               });
 
 
     }

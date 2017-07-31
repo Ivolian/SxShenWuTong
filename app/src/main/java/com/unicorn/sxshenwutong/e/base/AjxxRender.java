@@ -1,7 +1,8 @@
-package com.unicorn.sxshenwutong.a.base;
+package com.unicorn.sxshenwutong.e.base;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.a.base.BaseRenderer;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
 public class AjxxRender extends BaseRenderer<Ajxx> {

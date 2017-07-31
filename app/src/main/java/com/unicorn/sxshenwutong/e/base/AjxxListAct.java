@@ -1,6 +1,8 @@
-package com.unicorn.sxshenwutong.a.base;
+package com.unicorn.sxshenwutong.e.base;
 
 import com.google.gson.reflect.TypeToken;
+import com.unicorn.sxshenwutong.a.base.ListAct;
+import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
