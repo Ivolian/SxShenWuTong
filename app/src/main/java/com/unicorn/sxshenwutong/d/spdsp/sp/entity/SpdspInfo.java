@@ -12,6 +12,42 @@ public class SpdspInfo {
      * spyjlist : [{"sprmc":"张青","ip":"149.0.40.15","sprq":"2017-07-14","sort":"1","jlid":"M008e1caade-7b3f-48b2-aed6-704207368b49","fydm":"M00","spid":"M006559b964-6a1b-4f3e-88a6-b2b791f43b7f","spl":"","nodename":"拟稿人","spr":"5277","sys_time":"2017-07-14 09:41:38.0","zt":"1","spyj":"<p><br/><\/p><p>张青 2017年7月14日<\/p>","nodeid":"SPGL_FDSY_NGRFQSQ"}]
      */
 
+    private List<WslistBean> wslist;
+
+    public List<WslistBean> getWslist() {
+        return wslist;
+    }
+
+    public void setWslist(List<WslistBean> wslist) {
+        this.wslist = wslist;
+    }
+
+    public static class WslistBean {
+        /**
+         * xsmc : 民事调解书（一审普通程序用人民法院主持调解用）
+         * jlid : M00864a49f4-b92b-41fe-8eaf-97b89fb0f28a
+         */
+
+        private String xsmc;
+        private String jlid;
+
+        public String getXsmc() {
+            return xsmc;
+        }
+
+        public void setXsmc(String xsmc) {
+            this.xsmc = xsmc;
+        }
+
+        public String getJlid() {
+            return jlid;
+        }
+
+        public void setJlid(String jlid) {
+            this.jlid = jlid;
+        }
+    }
+
     private CxbgxxBean cxbgxx;
     private YckcsxxxBean yckcsxxx;
     private AjxxBean ajxx;

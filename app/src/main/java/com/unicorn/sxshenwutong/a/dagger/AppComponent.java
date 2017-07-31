@@ -6,9 +6,10 @@ import com.unicorn.sxshenwutong.SimpleSubmitter;
 import com.unicorn.sxshenwutong.a.base.AjxxListAct;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
-import com.unicorn.sxshenwutong.b.court.CourtFetcher;
+import com.unicorn.sxshenwutong.b.court.network.CourtFetcher;
 import com.unicorn.sxshenwutong.b.login.LoginAct;
-import com.unicorn.sxshenwutong.b.login.LoginFetcher;
+import com.unicorn.sxshenwutong.b.login.network.LoginSubmitter;
+import com.unicorn.sxshenwutong.b.splash.SplashAct;
 import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.HomeFetcher;
 import com.unicorn.sxshenwutong.d.ajcl.AjclAct;
@@ -36,13 +37,17 @@ public interface AppComponent {
 
     Context provideContext();
 
-    void inject(LoginFetcher o);
-    void inject(CodeFetcher o);
-    void inject(CourtFetcher o);
-    void inject(UserTypeSubmitter o);
+    // ================= a =================
 
-    void inject(LoginAct o);
+    void inject(SplashAct o);
+    void inject(CourtFetcher o);
+
     void inject(CourtAct o);
+
+    void inject(LoginSubmitter o);
+    void inject(CodeFetcher o);
+    void inject(UserTypeSubmitter o);
+    void inject(LoginAct o);
     void inject(HomeFetcher o);
     void inject(SpdbListAct o);
     void inject(AjspsqListAct o);

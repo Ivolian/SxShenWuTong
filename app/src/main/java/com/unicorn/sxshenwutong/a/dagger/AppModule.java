@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.unicorn.sxshenwutong.a.app.DaoSessionProvider;
+import com.unicorn.sxshenwutong.a.db.DaoSessionProvider;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.RetrofitProvider;
 import com.unicorn.sxshenwutong.b.court.entity.CourtDao;

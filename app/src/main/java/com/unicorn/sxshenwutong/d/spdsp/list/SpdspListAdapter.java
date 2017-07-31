@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.d.spdsp.WsspAct;
 import com.unicorn.sxshenwutong.d.spdsp.list.entity.Spdsp;
 import com.unicorn.sxshenwutong.d.spdsp.sp.FdsyAct;
 import com.unicorn.sxshenwutong.d.spdsp.sp.SycxbgAct;
@@ -29,7 +30,7 @@ public class SpdspListAdapter extends BaseQuickAdapter<Spdsp, BaseViewHolder> {
         viewHolder.setText(R.id.tvSqrmc, "申请人: " + spdsp.getSqrmc());
 
         viewHolder.getView(R.id.tvSp).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, spdsp.getLcmc().equals("法定事由审批") ? FdsyAct.class : SycxbgAct.class);
+            Intent intent = new Intent(mContext, spdsp.getLcmc().equals("法定事由审批") ? FdsyAct.class : spdsp.getLcmc().equals("适用程序变更审批")? SycxbgAct.class: WsspAct.class);
             intent.putExtra(Key.AJBS, spdsp.getAjbs());
             intent.putExtra(Key.LCID, spdsp.getLcid());
             intent.putExtra(Key.SPID, spdsp.getSpid());

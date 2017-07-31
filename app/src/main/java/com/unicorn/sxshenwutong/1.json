@@ -1,34 +1,76 @@
 //黄明耀  104706   张晓川   111111    杨临萍  111111   朱晓 121406    樊全荣  811020   审判管理员  67673305
-
-
 {
-  "maindata": {
-    "zxsawl": 25,
-    "zxdbajs": 9,
-    "zxlawys": 23,
-    "spdsp": 0,
-    "zxdsp": 0,
-    "jjcsx": 0,
-    "spjawgd": 0,
-    "csxwj": 0,
-    "splawys": 0,
-    "spdbajs": 0,
-    "ktajs": 0,
-    "spjasc": 0,
-    "spsawl": 0,
-    "zxjasc": 3,
-    "zxjawgd": 2
+  "ajxx": {
+    "laaymc": "合同纠纷",
+    "ahqc": "(2017)渝民初99999号",
+    "sycxmc": "普通程序",
+    "dybg": "被告地址",
+    "larq": "2017-07-25",
+    "dyyg": "原告"
   },
-  "mainpic": [
+  "dblbxx": {
+    "lcid": "CQ_DSP_SPGL_SP_JY_WSSP",
+    "ywid": "M0065edd151-1893-4cb7-8a10-38b7cf6d5120",
+    "processInstanceId": "8cac6156-70dd-11e7-b317-000c290c623b",
+    "sfcg": "",
+    "cqrq": "",
+    "cqzt": "1",
+    "fsnodename": "拟稿人发起申请",
+    "fsrmc": "张青",
+    "sort": "23",
+    "jlid": "M0040dfadbe-2b1b-4d4c-bc0c-571fd3cda559",
+    "fydm": "M00",
+    "sfdj": "",
+    "url": "/wssspAction/updatePage.action?processInstancesId=8cac6156-70dd-11e7-b317-000c290c623b&taskId=a1aca99e-70dd-11e7-b317-000c290c623b&id=M0065edd151-1893-4cb7-8a10-38b7cf6d5120&lcid=CQ_DSP_SPGL_SP_JY_WSSP&nodeid=SPGL_JY_WSSP_TZSP&jsrid=9933&xsUrl=",
+    "fsnodeid": "SPGL_JY_WSSP_NGRFQSQ",
+    "jsrid": "9933",
+    "nodename": "庭长审批",
+    "bt": "(2017)渝民初99999号民事调解书（一审普通程序用人民法院主持调解用）审批",
+    "fsrid": "5277",
+    "jsrmc": "田晓梅",
+    "fssj": "2017-07-25 10:04:46.0",
+    "bmbm": "099",
+    "nodeid": "SPGL_JY_WSSP_TZSP",
+    "taskid": "a1aca99e-70dd-11e7-b317-000c290c623b",
+    "lcmc": "文书送审批（简易）"
+  },
+  "spxx": {
+    "lcid": "CQ_DSP_SPGL_SP_JY_WSSP",
+    "processInstanceId": "8cac6156-70dd-11e7-b317-000c290c623b",
+    "sprmc": "张青",
+    "sqrmc": "张青",
+    "sqrq": "2017-07-25",
+    "sprq": "2017-07-25",
+    "spjdid": "SPGL_JY_WSSP_TZSP",
+    "fydm": "M00",
+    "bt": "(2017)渝民初99999号民事调解书（一审普通程序用人民法院主持调解用）审批",
+    "spjdmc": "庭长审批",
+    "fz": "1",
+    "spr": "5277",
+    "sqr": "5277",
+    "ajbs": "M0090b695f7-a381-417e-a6a8-22f76b8b0184",
+    "zt": "1",
+    "id": "M0065edd151-1893-4cb7-8a10-38b7cf6d5120",
+    "TYPE": "",
+    "lcmc": "文书审批"
+  },
+ l
+  "spyjlist": [
     {
-      "jlid": 1,
-      "filename": "index_news2.jpg",
-      "filepath": "/upload/index_news2.jpg"
-    },
-    {
-      "jlid": 2,
-      "filename": "index_news3.jpg",
-      "filepath": "/upload/index_news3.jpg"
+      "sprmc": "张青",
+      "ip": "149.0.40.33",
+      "sprq": "2017-07-25",
+      "sort": "1",
+      "jlid": "M008daa3f37-3d5a-4594-9209-c6a937eb6f8f",
+      "fydm": "M00",
+      "spid": "M0065edd151-1893-4cb7-8a10-38b7cf6d5120",
+      "spl": "",
+      "nodename": "拟稿人",
+      "spr": "5277",
+      "sys_time": "2017-07-25 10:04:29.0",
+      "zt": "1",
+      "spyj": "<p><br/><\/p><p>张青 2017年7月25日<\/p>",
+      "nodeid": "SPGL_JY_WSSP_NGRFQSQ"
     }
   ]
 }

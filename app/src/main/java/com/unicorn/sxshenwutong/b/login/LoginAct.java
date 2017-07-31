@@ -3,9 +3,7 @@ package com.unicorn.sxshenwutong.b.login;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,22 +15,19 @@ import com.bumptech.glide.Glide;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
-import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
-import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.entity.Court;
-import com.unicorn.sxshenwutong.b.court.entity.CourtDao;
 import com.unicorn.sxshenwutong.b.login.entity.LoginInfo;
 import com.unicorn.sxshenwutong.b.login.entity.LoginInfoDao;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
+import com.unicorn.sxshenwutong.b.login.network.LoginSubmitter;
 import com.unicorn.sxshenwutong.b.userType.UserTypeAct;
-import com.unicorn.sxshenwutong.b.userType.network.UserTypeFetcher;
 import com.unicorn.sxshenwutong.c.main.MainAct;
 
 import java.util.concurrent.TimeUnit;
@@ -68,37 +63,6 @@ public class LoginAct extends BaseAct {
         clickCourt();
         clickLogin();
         renderLoginInfo();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-            StrictMode.setVmPolicy(builder.build());
-        }
-
-
-//
-//        Map<String, Object> pMap = new HashMap<String, Object>();
-//        pMap.put("mlid", mlid);
-//        pMap.put("ajbs", ajbs);
-//        MyHttpCliet myHttpCliet = new MyHttpCliet();
-//        File file = new File(bmxtDaglAjstws.getWjlj());
-//        String url = MyHttpDataHelp.Assemblyurl(this,MyHttpDataHelp.getHttpUrl(),"jz_saveInfo",pMap);
-//        myHttpCliet.uploadFile(url, file, new UploadDownloadlistener() {
-//            @Override
-//            public void onStartDownLoad() {
-//
-//            }
-//
-//            @Override
-//            public void onCompleteRateChanged(int completeRate) {
-//
-//            }
-//
-//            @Override
-//            public void onDownloadCompleted(String result) {
-//                jzlistInfo(1, 100, mlid);
-//            }
-//        });
-
     }
 
 
@@ -143,11 +107,11 @@ public class LoginAct extends BaseAct {
 
     private void clickCourt() {
         RxView.clicks(llCourt)
-                .throttleFirst(1, TimeUnit.SECONDS)
+                .throttleFirst(2, TimeUnit.SECONDS)
                 .subscribe(aVoid -> startActivity(new Intent(this, CourtAct.class)));
     }
 
-    Court court;
+    private Court court;
 
     @Subscribe(tags = {@Tag(RxBusTag.SELECT_COURT)})
     public void onCourtSelect(Court court) {
@@ -169,15 +133,15 @@ public class LoginAct extends BaseAct {
             ToastUtils.showShort("请选择法院");
             return;
         }
-        if (StringUtils.isTrimEmpty(etLoginName.getText().toString())) {
+        if (StringUtils.isEmpty(etLoginName.getText().toString().trim())) {
             ToastUtils.showShort("请填写用户名");
             return;
         }
-        if (StringUtils.isTrimEmpty(etPwd.getText().toString())) {
+        if (StringUtils.isEmpty(etPwd.getText().toString().trim())) {
             ToastUtils.showShort("请填写密码");
             return;
         }
-        new LoginFetcher(
+        new LoginSubmitter(
                 court.getDm(),
                 etLoginName.getText().toString().trim(),
                 etPwd.getText().toString().trim()
@@ -189,14 +153,23 @@ public class LoginAct extends BaseAct {
 
             @Override
             public void onError(Throwable e) {
-                Logger.d(e);
+
             }
 
             @Override
             public void onNext(LoginResponse loginResponse) {
                 if (loginResponse.isSuccess()) {
                     Global.setLoginResponse(loginResponse);
-                    getUserType();
+                    saveLoginInfo();
+                    String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
+                    if (userTypeDm == null || userTypeDm.equals("")) {
+                        Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
+                        intent.putExtra(Key.TO_MAIN, true);
+                        startActivity(intent);
+                    } else {
+                        startActivity(MainAct.class);
+                    }
+                    finish();
                 } else {
                     ToastUtils.showShort("用户名或密码错误");
                 }
@@ -205,55 +178,22 @@ public class LoginAct extends BaseAct {
     }
 
 
-    // ===================== getUserType =====================
-
-    private void getUserType() {
-        new UserTypeFetcher().start().subscribe(new Subscriber<CodeResponse>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(CodeResponse codeResponse) {
-                saveLoginInfo();
-                Global.setUserTypeList(codeResponse.getBmlist());
-                String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
-                if (userTypeDm == null || userTypeDm.equals("")) {
-                    Intent intent = new Intent(LoginAct.this, UserTypeAct.class);
-                    intent.putExtra(Key.TO_MAIN, true);
-                    startActivity(intent);
-                } else {
-                    startActivity(new Intent(LoginAct.this, MainAct.class));
-                }
-                finish();
-            }
-        });
-    }
+    // ===================== loginInfo =====================
 
     @Inject
     LoginInfoDao loginInfoDao;
 
-    @Inject
-    CourtDao courtDao;
-
     private void saveLoginInfo() {
-        courtDao.rx().insertOrReplace(court).subscribe(court1 -> {
-        });
-        LoginInfo loginInfo = new LoginInfo();
-        loginInfo.setLoginName(etLoginName.getText().toString().trim());
-        loginInfo.setPwd(etPwd.getText().toString().trim());
-        loginInfo.setCourt(court);
         loginInfoDao.rx().deleteAll()
-                .flatMap(aVoid -> loginInfoDao.rx().insert(loginInfo))
-                .subscribe(o -> {
+                .flatMap(aVoid -> loginInfoDao.rx().insert(
+                        new LoginInfo(
+                                etLoginName.getText().toString().trim(),
+                                etPwd.getText().toString().trim(),
+                                court.getDm()
+                        )
+                ))
+                .subscribe(loginInfo -> {
                 });
-
     }
 
     private void renderLoginInfo() {
@@ -265,7 +205,7 @@ public class LoginAct extends BaseAct {
                             this.court = loginInfo.getCourt();
                             tvCourt.setText(court.getDmms());
                             etLoginName.setText(loginInfo.getLoginName());
-                    etPwd.setText(loginInfo.getPwd());
+                            etPwd.setText(loginInfo.getPwd());
                         }
                 );
     }

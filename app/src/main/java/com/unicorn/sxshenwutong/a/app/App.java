@@ -29,8 +29,6 @@ public class App extends Application {
         AppComponentProvider.init(this);
     }
 
-
-
     public static String baseDir() {
         String dirPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + "/SXSHENWUTONG";
         FileUtils.createOrExistsDir(dirPath);

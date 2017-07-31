@@ -23,6 +23,7 @@ import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindColor;
@@ -58,6 +59,7 @@ abstract public class SpdspAct extends BaseAct {
             renderAjxx();
             renderSycxbg(spdspInfo.getCxbgxx());
             renderFdsy(spdspInfo.getYckcsxxx());
+            renderWssp(spdspInfo.getWslist());
             showSpyjList();
             clickSave();
         });
@@ -96,6 +98,9 @@ abstract public class SpdspAct extends BaseAct {
 
     }
 
+    protected void renderWssp(List<SpdspInfo.WslistBean> wsList) {
+
+    }
 
     // ===================== showSpyjList =====================
 

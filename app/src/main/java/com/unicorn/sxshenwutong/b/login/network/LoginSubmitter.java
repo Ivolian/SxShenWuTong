@@ -1,20 +1,20 @@
-package com.unicorn.sxshenwutong.b.login;
+package com.unicorn.sxshenwutong.b.login.network;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
+import com.unicorn.sxshenwutong.a.network.base.BaseSubmitter;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 import com.unicorn.sxshenwutong.b.login.entity.LoginResponse;
 
 import java.util.HashMap;
 
-public class LoginFetcher extends BaseFetcher<LoginResponse> {
+public class LoginSubmitter extends BaseSubmitter<LoginResponse> {
 
-    private String fydm;
-    private String loginName;
-    private String pwd;
+    private final String fydm;
+    private final String loginName;
+    private final String pwd;
 
-    public LoginFetcher(String fydm, String loginName, String pwd) {
+    public LoginSubmitter(String fydm, String loginName, String pwd) {
         this.fydm = fydm;
         this.loginName = loginName;
         this.pwd = pwd;

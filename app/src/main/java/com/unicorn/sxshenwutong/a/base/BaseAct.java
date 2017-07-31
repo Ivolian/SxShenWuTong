@@ -1,5 +1,6 @@
 package com.unicorn.sxshenwutong.a.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
@@ -66,7 +67,18 @@ public abstract class BaseAct extends SupportActivity {
 
     protected void setText(int textViewId, String text) {
         TextView textView = (TextView) findViewById(textViewId);
-        textView.setText(text);
+        if (textView != null) {
+            textView.setText(text);
+        }
+    }
+
+    protected void startActivity(Class activityClass) {
+        startActivity(new Intent(this, activityClass));
+    }
+
+    protected void startActivityAndFinish(Class activityClass) {
+        startActivity(activityClass);
+        finish();
     }
 
 }
