@@ -30,14 +30,12 @@
             android:src="@drawable/tx" />
 
         <TextView
-            android:id="@+id/tvM"
+            android:id="@+id/tvMarquee"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
-            android:text="受案未立(10) 受案未立(10)受案未立(10) 受案未立(10)受案未立(10) "
+            android:textIsSelectable="true"
             android:textColor="@color/md_black"
             android:textSize="16dp" />
 

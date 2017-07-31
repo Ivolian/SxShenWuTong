@@ -1,15 +1,22 @@
 package com.unicorn.sxshenwutong.c.home;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
+import com.klinker.android.link_builder.Link;
+import com.klinker.android.link_builder.LinkBuilder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
+import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.unicorn.sxshenwutong.c.home.other.GlideImageLoader;
+import com.unicorn.sxshenwutong.e.zxsawl.ZxsawlListAct;
 import com.youth.banner.Banner;
 import com.zhy.android.percent.support.PercentLinearLayout;
 
@@ -26,18 +33,20 @@ public class HeaderView extends PercentLinearLayout {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.header_view_home, this, true);
         ButterKnife.bind(this);
-        tvM.setSelected(true);
     }
 
-    // ===================== banner =====================
+    public void init(HomeResponse homeResponse) {
+        initBanner(homeResponse);
+        initMarquee(homeResponse);
+    }
 
-    @BindView(R.id.tvM)
-    TextView tvM;
+
+    // ===================== banner =====================
 
     @BindView(R.id.banner)
     Banner banner;
 
-    public void initBanner(HomeResponse homeResponse) {
+    private void initBanner(HomeResponse homeResponse) {
         List<String> images = new ArrayList<>();
         for (HomeResponse.MainpicBean mainpicBean : homeResponse.getMainpic()) {
             images.add(App.baseUrl() + mainpicBean.getFilepath());
@@ -45,9 +54,44 @@ public class HeaderView extends PercentLinearLayout {
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(images);
         banner.start();
+        initMarquee(homeResponse);
     }
 
-    private List<HomeItem> homeItems2(HomeResponse homeResponse) {
+
+    // ===================== banner =====================
+
+    @BindView(R.id.tvMarquee)
+    TextView tvMarquee;
+
+    private void initMarquee(HomeResponse homeResponse) {
+        String text = "";
+        List<Link> linkList = new ArrayList<>();
+        for (HomeItem homeItem : homeItems(homeResponse)) {
+            if (homeItem.getCount() != 0) {
+                text += (" " + homeItem.getDisplay() + " ");
+                linkList.add(createLink(homeItem));
+            }
+        }
+        tvMarquee.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        tvMarquee.setText(text);
+        LinkBuilder.on(tvMarquee)
+                .addLinks(linkList)
+                .build();
+    }
+
+    private Link createLink(HomeItem homeItem) {
+        return new Link(homeItem.getDisplay())
+                .setTextColor(Color.BLACK)
+                .setUnderlined(false)
+                .setOnClickListener(clickedText -> {
+                    Intent intent = new Intent(getContext(), ZxsawlListAct.class);
+                    intent.putExtra(Key.TITLE, homeItem.getTitle());
+                    intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
+                    getContext().startActivity(intent);
+                });
+    }
+
+    private List<HomeItem> homeItems(HomeResponse homeResponse) {
         HomeResponse.MaindataBean mainData = homeResponse.getMaindata();
         return Arrays.asList(
                 new HomeItem("执行收案未立", mainData.getZxsawl(), "zxsawllist"),

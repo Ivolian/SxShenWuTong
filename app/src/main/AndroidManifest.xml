@@ -54,6 +54,7 @@
 
 
         <activity android:name=".d.ajcl.AjclPhotoAct" />
+        <activity android:name=".e.zxsawl.ZxsawlListAct"/>
 
     </application>
 

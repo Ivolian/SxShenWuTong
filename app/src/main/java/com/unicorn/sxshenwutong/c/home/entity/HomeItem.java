@@ -2,7 +2,7 @@ package com.unicorn.sxshenwutong.c.home.entity;
 
 import java.io.Serializable;
 
-public class HomeItem implements Serializable{
+public class HomeItem implements Serializable {
 
     private String title;
     private int drawableRes;
@@ -53,4 +53,9 @@ public class HomeItem implements Serializable{
     public void setLbtype(String lbtype) {
         this.lbtype = lbtype;
     }
+
+    public String getDisplay() {
+        return title + "(" + count + ")";
+    }
+
 }

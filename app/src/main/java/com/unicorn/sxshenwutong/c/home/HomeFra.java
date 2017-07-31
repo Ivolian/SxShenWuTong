@@ -69,7 +69,7 @@ public class HomeFra extends BaseFra {
 
             @Override
             public void onNext(HomeResponse homeResponse) {
-                headerView.initBanner(homeResponse);
+                headerView.init(homeResponse);
                 homeAdapter.setNewData(homeItems(homeResponse));
             }
         });

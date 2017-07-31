@@ -5,7 +5,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseRenderer;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
-public abstract class AjxxRender extends BaseRenderer<Ajxx> {
+public class AjxxRender extends BaseRenderer<Ajxx> {
 
     public AjxxRender(BaseViewHolder viewHolder, Ajxx entity) {
         super(viewHolder, entity);
