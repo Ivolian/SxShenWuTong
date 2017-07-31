@@ -6,7 +6,7 @@ import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
-abstract public class AjxxListAct extends ListAct<Ajxx> {
+public abstract class AjxxListAct extends ListAct<Ajxx> {
 
     @Override
     protected void inject() {

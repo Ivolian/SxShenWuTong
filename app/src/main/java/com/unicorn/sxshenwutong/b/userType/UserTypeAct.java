@@ -51,7 +51,7 @@ public class UserTypeAct extends BaseAct {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    UserTypeAdapter userTypeAdapter = new UserTypeAdapter();
+    private final UserTypeAdapter userTypeAdapter = new UserTypeAdapter();
 
     private void initRv() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -110,7 +110,7 @@ public class UserTypeAct extends BaseAct {
     @BindExtra(Key.TO_MAIN)
     boolean toMain;
 
-    String userTypeDm;
+    private String userTypeDm;
 
     private void setUserType() {
         for (UserTypeWrapper wrapper : userTypeAdapter.getData()) {

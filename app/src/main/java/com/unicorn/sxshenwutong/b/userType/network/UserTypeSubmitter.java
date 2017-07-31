@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class UserTypeSubmitter extends BaseSubmitter<SimpleResponse> {
 
-    private String userTypeDm;
+    private final String userTypeDm;
 
     public UserTypeSubmitter(String userTypeDm) {
         this.userTypeDm = userTypeDm;

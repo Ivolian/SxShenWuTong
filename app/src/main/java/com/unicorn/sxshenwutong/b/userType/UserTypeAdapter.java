@@ -12,9 +12,9 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.b.userType.entity.UserTypeWrapper;
 import com.unicorn.sxshenwutong.R;
 
-public class UserTypeAdapter extends BaseQuickAdapter<UserTypeWrapper, BaseViewHolder> {
+ class UserTypeAdapter extends BaseQuickAdapter<UserTypeWrapper, BaseViewHolder> {
 
-    public UserTypeAdapter() {
+     UserTypeAdapter() {
         super(R.layout.item_user_type);
     }
 
