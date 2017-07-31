@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.c.home;
+package com.unicorn.sxshenwutong.c.home.network;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;

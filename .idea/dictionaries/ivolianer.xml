@@ -74,8 +74,10 @@
       <w>spjasclist</w>
       <w>spjdid</w>
       <w>spjdmc</w>
+      <w>splawyslist</w>
       <w>sprid</w>
       <w>sprmc</w>
+      <w>spsawllist</w>
       <w>spsq</w>
       <w>spws</w>
       <w>spxx</w>
@@ -110,6 +112,8 @@
       <w>zxdblist</w>
       <w>zxdsplist</w>
       <w>zxjasclist</w>
+      <w>zxlawyslist</w>
+      <w>zxsawllist</w>
     </words>
   </dictionary>
 </component>

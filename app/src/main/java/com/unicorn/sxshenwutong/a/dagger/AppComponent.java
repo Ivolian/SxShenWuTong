@@ -11,7 +11,7 @@ import com.unicorn.sxshenwutong.b.login.LoginAct;
 import com.unicorn.sxshenwutong.b.login.network.LoginSubmitter;
 import com.unicorn.sxshenwutong.b.splash.SplashAct;
 import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
-import com.unicorn.sxshenwutong.c.home.HomeFetcher;
+import com.unicorn.sxshenwutong.c.home.network.HomeFetcher;
 import com.unicorn.sxshenwutong.d.ajcl.AjclAct;
 import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.d.ajws.AjwsSelectListAct;

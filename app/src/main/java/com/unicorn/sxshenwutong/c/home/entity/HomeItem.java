@@ -1,15 +1,19 @@
 package com.unicorn.sxshenwutong.c.home.entity;
 
-import android.support.annotation.DrawableRes;
-
 import java.io.Serializable;
 
 public class HomeItem implements Serializable{
 
     private String title;
-    private @DrawableRes int drawableRes;
+    private int drawableRes;
     private int count;
     private String lbtype;
+
+    public HomeItem(String title, int count, String lbtype) {
+        this.title = title;
+        this.count = count;
+        this.lbtype = lbtype;
+    }
 
     public HomeItem(String title, int drawableRes, int count, String lbtype) {
         this.title = title;
