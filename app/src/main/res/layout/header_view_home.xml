@@ -10,18 +10,18 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_heightPercent="30%sh"
         app:indicator_drawable_selected="@drawable/new_bg2"
         app:indicator_drawable_unselected="@drawable/new_bg1"
         app:indicator_height="12dp"
-        app:indicator_width="12dp" />
+        app:indicator_width="12dp"
+        app:layout_heightPercent="70%sw" />
 
     <LinearLayout
-        app:layout_heightPercent="10%sh"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_heightPercent="8%sh">
 
         <ImageView
             android:layout_width="24dp"
@@ -31,16 +31,15 @@
 
         <TextView
             android:id="@+id/tvM"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:singleLine="true"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="受案未立(10) 受案未立(10)受案未立(10) 受案未立(10)受案未立(10) "
             android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="受案未立(10) 受案未立(10)受案未立(10) 受案未立(10)受案未立(10) "
             android:textColor="@color/md_black"
             android:textSize="16dp" />
-
 
     </LinearLayout>
 
