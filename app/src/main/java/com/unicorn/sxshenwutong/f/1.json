@@ -1,33 +1,97 @@
 //黄明耀  104706   张晓川   111111    杨临萍  111111   朱晓 121406    樊全荣  811020   审判管理员  67673305
 
 {
-  "maindata": {
-    "zxsawl": 0,
-    "zxdbajs": 0,
-    "zxlawys": 0,
-    "spdsp": 0,
-    "zxdsp": 0,
-    "jjcsx": 3,
-    "spjawgd": 1,
-    "csxwj": 0,
-    "splawys": 0,
-    "spdbajs": 18,
-    "ktajs": 0,
-    "spjasc": 12,
-    "spsawl": 0,
-    "zxjasc": 0,
-    "zxjawgd": 0
-  },
-  "mainpic": [
+  "total": 25,
+  "rows": [
     {
-      "jlid": 1,
-      "filename": "index_news2.jpg",
-      "filepath": "/upload/index_news2.jpg"
+      "laaymc": "追缴违法所得",
+      "ahqc": "(2017)渝执登立16号",
+      "dybg": "",
+      "larq": "",
+      "ajbs": "M004262252d-4914-4b38-8a2f-a44149691ba9",
+      "sarq": "2017-02-28",
+      "dyyg": ""
     },
     {
-      "jlid": 2,
-      "filename": "index_news3.jpg",
-      "filepath": "/upload/index_news3.jpg"
+      "laaymc": "追缴违法所得",
+      "ahqc": "(2017)渝执登立8号",
+      "dybg": "琪琪",
+      "larq": "",
+      "ajbs": "M00f575175b-18b4-4522-ad0f-410172fd9dd6",
+      "sarq": "2017-02-23",
+      "dyyg": "流流"
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执登立23号",
+      "dybg": "",
+      "larq": "",
+      "ajbs": "M005e01e666-1e69-4d88-ad4b-3709401683bc",
+      "sarq": "2017-04-08",
+      "dyyg": ""
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执登立25号",
+      "dybg": "",
+      "larq": "",
+      "ajbs": "M002b7e420d-d8c4-4bfd-8248-55757de3ded0",
+      "sarq": "2017-04-08",
+      "dyyg": ""
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执99号",
+      "dybg": "白白,榕榕",
+      "larq": "2017-06-28",
+      "ajbs": "M008d2d41c0-ec01-4294-bc61-c380a03141a0",
+      "sarq": "2017-06-28",
+      "dyyg": "测试"
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执复收1号",
+      "dybg": "",
+      "larq": "",
+      "ajbs": "M0069d29fe6-a9b2-4eec-bba6-aaeab98f5de2",
+      "sarq": "2017-05-03",
+      "dyyg": ""
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执协收2号",
+      "dybg": "",
+      "larq": "",
+      "ajbs": "M003b36628a-7779-46f0-a7e6-0eff3643f503",
+      "sarq": "2017-05-03",
+      "dyyg": ""
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执恢18号",
+      "dybg": "不完美的梦",
+      "larq": "2017-06-27",
+      "ajbs": "M003c5798fc-63d4-419b-bae9-e46fbfb97851",
+      "sarq": "2017-06-27",
+      "dyyg": "完美的小孩"
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执恢17号",
+      "dybg": "不完美的梦",
+      "larq": "2017-06-27",
+      "ajbs": "M001531cc47-876d-4bda-afef-a590971370f6",
+      "sarq": "2017-06-27",
+      "dyyg": "完美的小孩"
+    },
+    {
+      "laaymc": "行政",
+      "ahqc": "(2017)渝执恢15号",
+      "dybg": "测试Y",
+      "larq": "2017-06-23",
+      "ajbs": "M00f358ca82-b66f-417d-b8c3-e66cb93930a2",
+      "sarq": "2017-06-23",
+      "dyyg": "测试X"
     }
   ]
 }

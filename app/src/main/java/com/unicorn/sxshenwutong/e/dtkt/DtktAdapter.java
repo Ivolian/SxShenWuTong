@@ -18,7 +18,6 @@ class DtktAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
     protected void convert(BaseViewHolder viewHolder, final Ajxx ajxx) {
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(BaseHelper.bg(mContext));
-
         new DtktRenderer(viewHolder, ajxx).render();
     }
 

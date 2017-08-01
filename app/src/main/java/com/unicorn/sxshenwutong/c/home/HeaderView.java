@@ -16,7 +16,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.unicorn.sxshenwutong.c.home.other.GlideImageLoader;
-import com.unicorn.sxshenwutong.e.zxsawl.ZxsawlListAct;
+import com.unicorn.sxshenwutong.e.sawl.SawlListAct;
 import com.youth.banner.Banner;
 import com.zhy.android.percent.support.PercentLinearLayout;
 
@@ -86,7 +86,8 @@ public class HeaderView extends PercentLinearLayout {
                 .setTextColor(Color.BLACK)
                 .setUnderlined(false)
                 .setOnClickListener(clickedText -> {
-                    Intent intent = new Intent(getContext(), ZxsawlListAct.class);
+                    String title = homeItem.getTitle();
+                    Intent intent = new Intent(getContext(), SawlListAct.class);
                     intent.putExtra(Key.TITLE, homeItem.getTitle());
                     intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
                     getContext().startActivity(intent);

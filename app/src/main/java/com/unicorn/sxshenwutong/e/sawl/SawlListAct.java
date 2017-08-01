@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.e.zxsawl;
+package com.unicorn.sxshenwutong.e.sawl;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -6,11 +6,11 @@ import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 import com.unicorn.sxshenwutong.e.base.AjxxListAct;
 
 
-public class ZxsawlListAct extends AjxxListAct {
+public class SawlListAct extends AjxxListAct {
 
     @Override
     protected BaseQuickAdapter<Ajxx, BaseViewHolder> getAdapter() {
-        return new ZxsawlAdapter();
+        return new SawlAdapter();
     }
 
 

@@ -43,6 +43,15 @@ public class Ajxx {
     private String kcsxts;
     private String ycsxts;
     private String yjrq;
+    private String sarq;
+
+    public String getSarq() {
+        return sarq;
+    }
+
+    public void setSarq(String sarq) {
+        this.sarq = sarq;
+    }
 
     public String getAjlymc() {
         return ajlymc;

@@ -53,7 +53,7 @@
 
 
         <activity android:name=".d.ajcl.AjclPhotoAct" />
-        <activity android:name=".e.zxsawl.ZxsawlListAct" />
+        <activity android:name=".e.sawl.SawlListAct" />
 
     </application>
 
