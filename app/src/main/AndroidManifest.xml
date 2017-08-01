@@ -50,6 +50,7 @@
         <activity android:name=".e.jasc.JascListAct" />
         <activity android:name=".e.sx.SxListAct" />
         <activity android:name=".e.dtkt.DtktListAct" />
+        <activity android:name=".e.jawgd.JawgdListAct" />
 
         <activity
             android:name="com.afollestad.materialcamera.CaptureActivity"

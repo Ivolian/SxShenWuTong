@@ -12,17 +12,18 @@ import com.klinker.android.link_builder.Link;
 import com.klinker.android.link_builder.LinkBuilder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
+import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.unicorn.sxshenwutong.c.home.other.GlideImageLoader;
+import com.unicorn.sxshenwutong.e.jawgd.JawgdListAct;
 import com.unicorn.sxshenwutong.e.lawys.LawysListAct;
 import com.unicorn.sxshenwutong.e.sawl.SawlListAct;
 import com.youth.banner.Banner;
 import com.zhy.android.percent.support.PercentLinearLayout;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -38,7 +39,7 @@ public class HeaderView extends PercentLinearLayout {
 
     public void init(HomeResponse homeResponse) {
         initBanner(homeResponse);
-        initMarquee(homeResponse);
+        initMarquee();
     }
 
 
@@ -55,7 +56,7 @@ public class HeaderView extends PercentLinearLayout {
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(images);
         banner.start();
-        initMarquee(homeResponse);
+        initMarquee();
     }
 
 
@@ -64,14 +65,17 @@ public class HeaderView extends PercentLinearLayout {
     @BindView(R.id.tvMarquee)
     TextView tvMarquee;
 
-    private void initMarquee(HomeResponse homeResponse) {
+    private void initMarquee() {
         String text = "";
         List<Link> linkList = new ArrayList<>();
-        for (HomeItem homeItem : homeItems(homeResponse)) {
+        for (HomeItem homeItem : Global.getHomeItemListTop()) {
             if (homeItem.getCount() != 0) {
                 text += (" " + homeItem.getDisplay() + " ");
                 linkList.add(createLink(homeItem));
             }
+        }
+        if (text.equals("")){
+            text = "暂无...";
         }
         tvMarquee.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         tvMarquee.setText(text);
@@ -87,23 +91,29 @@ public class HeaderView extends PercentLinearLayout {
                 .setTextColor(Color.BLACK)
                 .setUnderlined(false)
                 .setOnClickListener(clickedText -> {
-                    String title = homeItem.getTitle();
-                    Intent intent = new Intent(getContext(), title.equals("收案未立") ? SawlListAct.class : LawysListAct.class);
-                    intent.putExtra(Key.TITLE, homeItem.getTitle());
-                    intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
-                    getContext().startActivity(intent);
+                    Class actClass = getActClass(homeItem);
+                    if (actClass != null) {
+                        Intent intent = new Intent(getContext(), actClass);
+                        intent.putExtra(Key.TITLE, homeItem.getTitle());
+                        intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
+                        getContext().startActivity(intent);
+                    }
                 });
     }
 
-    private List<HomeItem> homeItems(HomeResponse homeResponse) {
-        HomeResponse.MaindataBean mainData = homeResponse.getMaindata();
-        return Arrays.asList(
-                new HomeItem("执行收案未立", mainData.getZxsawl(), "zxsawllist"),
-                new HomeItem("审判收案未立", mainData.getSpsawl(), "spsawllist"),
-                new HomeItem("执行立案未移送", mainData.getZxlawys(), "zxlawyslist"),
-                new HomeItem("审判立案未移送", mainData.getSplawys(), "splawyslist")
-        );
-    }
+    private Class getActClass(HomeItem homeItem) {
+        String title = homeItem.getTitle();
+        if (title.contains("结案未归档")) {
+            return JawgdListAct.class;
+        }
+        if (title.contains("收案未立")) {
+            return SawlListAct.class;
+        }
 
+        if (title.contains("立案未移送")) {
+            return LawysListAct.class;
+        }
+        return null;
+    }
 
 }

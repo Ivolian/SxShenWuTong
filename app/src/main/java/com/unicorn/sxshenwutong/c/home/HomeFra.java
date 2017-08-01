@@ -6,14 +6,11 @@ import android.view.View;
 
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
+import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
-import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.unicorn.sxshenwutong.c.home.network.HomeFetcher;
 import com.unicorn.sxshenwutong.c.home.other.DividerGridItemDecoration;
-
-import java.util.Arrays;
-import java.util.List;
 
 import butterknife.BindView;
 import rx.Subscriber;
@@ -70,26 +67,15 @@ public class HomeFra extends BaseFra {
 
             @Override
             public void onNext(HomeResponse homeResponse) {
+                new HomeHelper().refreshHomeItem(homeResponse);
                 headerView.init(homeResponse);
-                homeAdapter.setNewData(homeItems(homeResponse));
+                homeAdapter.setNewData(Global.getHomeItemListBottom());
             }
         });
     }
 
-    private List<HomeItem> homeItems(HomeResponse homeResponse) {
-        HomeResponse.MaindataBean mainData = homeResponse.getMaindata();
-        return Arrays.asList(
-                new HomeItem("审判待办", R.drawable.spdb, mainData.getSpdbajs(), "spdblist"),
-                new HomeItem("审判待审批", R.drawable.spdsp, mainData.getSpdsp(), "spdsplist"),
-                new HomeItem("审判结案审查", R.drawable.spjasc, mainData.getSpjasc(), "spjasclist"),
-                new HomeItem("执行待办", R.drawable.zxdb, mainData.getZxdbajs(), "zxdblist"),
-                new HomeItem("执行待审批", R.drawable.zxdsp, mainData.getZxdsp(), "zxdsplist"),
-                new HomeItem("执行结案审查", R.drawable.zxjasc, mainData.getZxjasc(), "zxjasclist"),
-                new HomeItem("已超审限", R.drawable.ycsx, mainData.getCsxwj(), "ycsxlist"),
-                new HomeItem("即将超审限", R.drawable.jjcsx, mainData.getJjcsx(), "jjcsxlist"),
-                new HomeItem("当天开庭", R.drawable.more, mainData.getKtajs(), "dtktlist")
-        );
-    }
+
+
 
 
 
