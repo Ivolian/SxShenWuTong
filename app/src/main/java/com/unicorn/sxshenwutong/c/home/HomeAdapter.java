@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
-import com.unicorn.sxshenwutong.db.list.spdb.SpdbListAct;
+import com.unicorn.sxshenwutong.db.db.DbListAct;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
 import com.unicorn.sxshenwutong.e.dtkt.DtktListAct;
 import com.unicorn.sxshenwutong.e.jasc.JascListAct;
@@ -43,7 +43,7 @@ class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
     private Class getActClass(HomeItem homeItem) {
         String title = homeItem.getTitle();
         if (title.contains("待办")) {
-            return SpdbListAct.class;
+            return DbListAct.class;
         }
         if (title.contains("待审批")) {
             return SpdspListAct.class;

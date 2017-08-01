@@ -21,9 +21,9 @@ jjcsx：即将超审限，csxwj：超审限未结，ktajs：开庭案件数
 
  */
 
-public class HomeHelper {
+class HomeHelper {
 
-    public void refreshHomeItem(HomeResponse homeResponse) {
+    void refreshHomeItem(HomeResponse homeResponse) {
         HomeResponse.MaindataBean mainData = homeResponse.getMaindata();
         String userTypeDm = Global.getLoginResponse().getUser().getUsertype();
         switch (userTypeDm) {

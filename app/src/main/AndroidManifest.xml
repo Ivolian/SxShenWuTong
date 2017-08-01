@@ -27,7 +27,7 @@
         <activity android:name=".b.court.CourtAct" />
         <activity android:name=".b.userType.UserTypeAct" />
         <activity android:name=".c.main.MainAct" />
-        <activity android:name=".db.list.spdb.SpdbListAct" />
+        <activity android:name=".db.db.DbListAct" />
         <activity android:name=".db.sycxbgSq.SycxbgSqAct" />
         <activity android:name=".db.sxbgSq.SxbgSqAct" />
         <activity android:name=".db.list.ajsqsp.AjspsqListAct" />

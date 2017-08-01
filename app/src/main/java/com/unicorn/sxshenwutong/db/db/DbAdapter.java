@@ -1,10 +1,6 @@
-package com.unicorn.sxshenwutong.db.list.spdb;
+package com.unicorn.sxshenwutong.db.db;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
-import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -15,55 +11,45 @@ import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.db.Ajxx;
 import com.unicorn.sxshenwutong.db.list.ajsqsp.AjspsqListAct;
 
-class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
+class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
-    SpdbAdapter() {
-        super(R.layout.item_spdb);
+    DbAdapter() {
+        super(R.layout.item_db);
     }
 
     @Override
     protected void convert(BaseViewHolder viewHolder, final Ajxx ajxx) {
-        LinearLayout item = viewHolder.getView(R.id.item);
-        item.setBackground(bg());
-
+        // 案号、案由、立案日期、原告、被告
         viewHolder.setText(R.id.tvAhqc, "案号: " + ajxx.getAhqc());
-        viewHolder.setText(R.id.tvDyyg, "原告: " + ajxx.getDyyg());
-        viewHolder.setText(R.id.tvDybg, "被告: " + ajxx.getDybg());
         viewHolder.setText(R.id.tvLaaymc, "案由: " + ajxx.getLaaymc());
         viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
+        viewHolder.setText(R.id.tvDyyg, "原告: " + ajxx.getDyyg());
+        viewHolder.setText(R.id.tvDybg, "被告: " + ajxx.getDybg());
+        setOnClick(viewHolder, ajxx);
+    }
 
-        viewHolder.getView(R.id.tvAjspsq).setOnClickListener(v -> {
+    private void setOnClick(BaseViewHolder viewHolder, Ajxx ajxx) {
+        viewHolder.setOnClickListener(R.id.tvAjspsq, v -> {
             Intent intent = new Intent(mContext, AjspsqListAct.class);
             intent.putExtra(Key.TITLE, "案件审批申请");
             intent.putExtra(Key.LBTYPE, "ajspsqlist");
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });
-
-        viewHolder.getView(R.id.tvAjws).setOnClickListener(v -> {
+        viewHolder.setOnClickListener(R.id.tvAjws, v -> {
             Intent intent = new Intent(mContext, AjwsListAct.class);
             intent.putExtra(Key.TITLE, "案件文书");
             intent.putExtra(Key.LBTYPE, "ajwslist");
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });
-
-        viewHolder.getView(R.id.tvAjcl).setOnClickListener(v -> {
+        viewHolder.setOnClickListener(R.id.tvAjcl, v -> {
             Intent intent = new Intent(mContext, AjclListAct.class);
             intent.putExtra(Key.TITLE, "案件材料");
             intent.putExtra(Key.LBTYPE, "ajcllist");
             intent.putExtra(Key.AJBS, ajxx.getAjbs());
             mContext.startActivity(intent);
         });
-
-
-    }
-
-    private Drawable bg() {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ContextCompat.getColor(mContext, R.color.md_grey_100));
-        gradientDrawable.setStroke(1, ContextCompat.getColor(mContext, R.color.md_grey_300));
-        return gradientDrawable;
     }
 
 }
