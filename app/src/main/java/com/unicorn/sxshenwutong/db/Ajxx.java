@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.spdb;
+package com.unicorn.sxshenwutong.db;
 
 public class Ajxx {
 

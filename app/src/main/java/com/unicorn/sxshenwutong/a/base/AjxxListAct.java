@@ -1,10 +1,8 @@
-package com.unicorn.sxshenwutong.e.base;
+package com.unicorn.sxshenwutong.a.base;
 
 import com.google.gson.reflect.TypeToken;
-import com.unicorn.sxshenwutong.a.base.ListAct;
-import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.spdb.Ajxx;
+import com.unicorn.sxshenwutong.db.Ajxx;
 
 public abstract class AjxxListAct extends ListAct<Ajxx> {
 

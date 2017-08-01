@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.spdb.sycxbgSq;
+package com.unicorn.sxshenwutong.db.sycxbgSq;
 
 import android.os.Bundle;
 import android.widget.EditText;
@@ -15,10 +15,10 @@ import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.spdb.AjxxFetcher;
-import com.unicorn.sxshenwutong.spdb.sycxbgSq.fetcher.CxbglxFetcher;
-import com.unicorn.sxshenwutong.spdb.sycxbgSq.fetcher.SycxbgyyFetcher;
-import com.unicorn.sxshenwutong.spdb.Ajxx;
+import com.unicorn.sxshenwutong.db.AjxxFetcher;
+import com.unicorn.sxshenwutong.db.sycxbgSq.fetcher.CxbglxFetcher;
+import com.unicorn.sxshenwutong.db.sycxbgSq.fetcher.SycxbgyyFetcher;
+import com.unicorn.sxshenwutong.db.Ajxx;
 
 import org.joda.time.DateTime;
 

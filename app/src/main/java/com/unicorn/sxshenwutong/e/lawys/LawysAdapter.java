@@ -3,7 +3,7 @@ package com.unicorn.sxshenwutong.e.lawys;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.spdb.Ajxx;
+import com.unicorn.sxshenwutong.db.Ajxx;
 
 class LawysAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 

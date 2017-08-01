@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.spdb.list.spdb;
+package com.unicorn.sxshenwutong.db.list.spdb;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -10,14 +10,14 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.spdb.Ajxx;
 import com.unicorn.sxshenwutong.d.ajcl.AjclListAct;
-import com.unicorn.sxshenwutong.spdb.list.ajsqsp.AjspsqListAct;
 import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
+import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.db.list.ajsqsp.AjspsqListAct;
 
-public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
+class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
-    public SpdbAdapter() {
+    SpdbAdapter() {
         super(R.layout.item_spdb);
     }
 
@@ -57,16 +57,6 @@ public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         });
 
 
-//        viewHolder.getView(R.id.tvCxbg).setOnClickListener(v -> {
-//            Intent intent = new Intent(mContext, SycxbgSqAct.class);
-//            intent.putExtra(Key.AJBS, ajxx.getAjbs());
-//            mContext.startActivity(intent);
-//        });
-//        viewHolder.getView(R.id.tvSxbg).setOnClickListener(v -> {
-//            Intent intent = new Intent(mContext, SxbgSqAct.class);
-//            intent.putExtra(Key.AJBS, ajxx.getAjbs());
-//            mContext.startActivity(intent);
-//        });
     }
 
     private Drawable bg() {

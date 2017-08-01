@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.spdb.list.ajsqsp;
+package com.unicorn.sxshenwutong.db.list.ajsqsp;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.spdb.list.ajsqsp.entity.Ajsqsp;
+import com.unicorn.sxshenwutong.db.list.ajsqsp.entity.Ajsqsp;
 
 public class AjsqspListAdapter extends BaseQuickAdapter<Ajsqsp, BaseViewHolder> {
 

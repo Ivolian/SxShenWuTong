@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.spdb.wssp;
+package com.unicorn.sxshenwutong.db.wssp;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
