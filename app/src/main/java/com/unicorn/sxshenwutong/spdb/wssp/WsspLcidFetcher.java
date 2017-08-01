@@ -1,6 +1,5 @@
-package com.unicorn.sxshenwutong.d.spdb.wssp;
+package com.unicorn.sxshenwutong.spdb.wssp;
 
-import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;

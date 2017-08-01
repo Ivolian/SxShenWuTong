@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.ajsqsp;
+package com.unicorn.sxshenwutong.spdb.list.ajsqsp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,10 @@ import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.entity.Ajsqsp;
-import com.unicorn.sxshenwutong.d.spdb.sxbgSq.SxbgSqAct;
-import com.unicorn.sxshenwutong.d.spdb.sycxbgSq.SycxbgSqAct;
-import com.unicorn.sxshenwutong.d.spdb.wssp.WsspSqAct;
+import com.unicorn.sxshenwutong.spdb.list.ajsqsp.entity.Ajsqsp;
+import com.unicorn.sxshenwutong.spdb.sxbgSq.SxbgSqAct;
+import com.unicorn.sxshenwutong.spdb.sycxbgSq.SycxbgSqAct;
+import com.unicorn.sxshenwutong.spdb.wssp.WsspSqAct;
 
 import java.util.Arrays;
 import java.util.HashMap;

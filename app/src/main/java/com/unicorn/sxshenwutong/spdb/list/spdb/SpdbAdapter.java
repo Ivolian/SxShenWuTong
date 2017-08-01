@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.spdb;
+package com.unicorn.sxshenwutong.spdb.list.spdb;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -10,9 +10,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.d.spdb.Ajxx;
+import com.unicorn.sxshenwutong.spdb.Ajxx;
 import com.unicorn.sxshenwutong.d.ajcl.AjclListAct;
-import com.unicorn.sxshenwutong.d.spdb.list.ajsqsp.AjspsqListAct;
+import com.unicorn.sxshenwutong.spdb.list.ajsqsp.AjspsqListAct;
 import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
 
 public class SpdbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {

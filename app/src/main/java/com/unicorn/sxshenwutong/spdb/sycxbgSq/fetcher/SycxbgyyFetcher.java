@@ -1,8 +1,8 @@
-package com.unicorn.sxshenwutong.d.spdb.sycxbgSq.fetcher;
+package com.unicorn.sxshenwutong.spdb.sycxbgSq.fetcher;
 
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
-import com.unicorn.sxshenwutong.d.spdb.Ajxx;
+import com.unicorn.sxshenwutong.spdb.Ajxx;
 
 public class SycxbgyyFetcher extends CodeFetcher {
 

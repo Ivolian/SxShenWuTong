@@ -3,7 +3,7 @@ package com.unicorn.sxshenwutong.e.sx;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.d.spdb.Ajxx;
+import com.unicorn.sxshenwutong.spdb.Ajxx;
 
 class SxAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 

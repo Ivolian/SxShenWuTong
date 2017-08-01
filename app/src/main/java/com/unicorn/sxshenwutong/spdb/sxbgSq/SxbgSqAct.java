@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.sxbgSq;
+package com.unicorn.sxshenwutong.spdb.sxbgSq;
 
 import android.os.Bundle;
 import android.view.View;
@@ -20,10 +20,10 @@ import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
-import com.unicorn.sxshenwutong.d.spdb.Ajxx;
-import com.unicorn.sxshenwutong.d.spdb.AjxxFetcher;
-import com.unicorn.sxshenwutong.d.spdb.sxbgSq.fetcher.FdsyFetcher;
-import com.unicorn.sxshenwutong.d.spdb.sxbgSq.fetcher.YckcyyFetcher;
+import com.unicorn.sxshenwutong.spdb.Ajxx;
+import com.unicorn.sxshenwutong.spdb.AjxxFetcher;
+import com.unicorn.sxshenwutong.spdb.sxbgSq.fetcher.FdsyFetcher;
+import com.unicorn.sxshenwutong.spdb.sxbgSq.fetcher.YckcyyFetcher;
 import com.unicorn.sxshenwutong.f.date.DateUtil;
 import com.unicorn.sxshenwutong.f.date.SublimePickerFragment;
 

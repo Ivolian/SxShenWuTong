@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.list.spdb;
+package com.unicorn.sxshenwutong.spdb.list.spdb;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -7,7 +7,7 @@ import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.a.base.ListAct;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.base.ListResponse;
-import com.unicorn.sxshenwutong.d.spdb.Ajxx;
+import com.unicorn.sxshenwutong.spdb.Ajxx;
 
 public class SpdbListAct extends ListAct<Ajxx> {
 

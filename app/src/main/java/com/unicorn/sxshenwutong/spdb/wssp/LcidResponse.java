@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.wssp;
+package com.unicorn.sxshenwutong.spdb.wssp;
 
 public class LcidResponse {
 

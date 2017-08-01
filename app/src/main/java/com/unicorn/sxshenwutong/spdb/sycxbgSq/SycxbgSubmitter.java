@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdb.sycxbgSq;
+package com.unicorn.sxshenwutong.spdb.sycxbgSq;
 
 import com.unicorn.sxshenwutong.f.SimpleSubmitter;
 

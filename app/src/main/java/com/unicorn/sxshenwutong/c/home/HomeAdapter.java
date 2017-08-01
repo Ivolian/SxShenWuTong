@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
-import com.unicorn.sxshenwutong.d.spdb.list.spdb.SpdbListAct;
+import com.unicorn.sxshenwutong.spdb.list.spdb.SpdbListAct;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
 import com.unicorn.sxshenwutong.e.dtkt.DtktListAct;
 import com.unicorn.sxshenwutong.e.jasc.JascListAct;
