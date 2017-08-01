@@ -16,6 +16,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.unicorn.sxshenwutong.c.home.other.GlideImageLoader;
+import com.unicorn.sxshenwutong.e.lawys.LawysListAct;
 import com.unicorn.sxshenwutong.e.sawl.SawlListAct;
 import com.youth.banner.Banner;
 import com.zhy.android.percent.support.PercentLinearLayout;
@@ -87,7 +88,7 @@ public class HeaderView extends PercentLinearLayout {
                 .setUnderlined(false)
                 .setOnClickListener(clickedText -> {
                     String title = homeItem.getTitle();
-                    Intent intent = new Intent(getContext(), SawlListAct.class);
+                    Intent intent = new Intent(getContext(), title.equals("收案未立") ? SawlListAct.class : LawysListAct.class);
                     intent.putExtra(Key.TITLE, homeItem.getTitle());
                     intent.putExtra(Key.LBTYPE, homeItem.getLbtype());
                     getContext().startActivity(intent);

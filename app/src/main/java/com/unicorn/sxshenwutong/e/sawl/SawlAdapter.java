@@ -1,12 +1,9 @@
 package com.unicorn.sxshenwutong.e.sawl;
 
-import android.widget.LinearLayout;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
-import com.unicorn.sxshenwutong.f.BaseHelper;
 
 class SawlAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
@@ -15,10 +12,13 @@ class SawlAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, final Ajxx ajxx) {
-        LinearLayout item = viewHolder.getView(R.id.item);
-        item.setBackground(BaseHelper.bg(mContext));
-        new SawlRenderer(viewHolder, ajxx).render();
+    protected void convert(BaseViewHolder viewHolder, Ajxx ajxx) {
+        // 案号、案由、收案日期、原告、被告
+        viewHolder.setText(R.id.tvAhqc, ajxx.getAhqc());
+        viewHolder.setText(R.id.tvLaaymc, ajxx.getLaaymc());
+        viewHolder.setText(R.id.tvSarq, ajxx.getSarq());
+        viewHolder.setText(R.id.tvDyyg, ajxx.getDyyg());
+        viewHolder.setText(R.id.tvDybg, ajxx.getDybg());
     }
 
 }

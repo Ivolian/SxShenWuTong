@@ -29,7 +29,7 @@
                 android:text="案号"
                 android:textColor="@color/md_black"
                 app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
+                app:layout_widthPercent="25%sw" />
 
             <TextView
                 android:id="@+id/tvAhqc"
@@ -60,7 +60,7 @@
                 android:text="案由"
                 android:textColor="@color/md_black"
                 app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
+                app:layout_widthPercent="25%sw" />
 
             <TextView
                 android:id="@+id/tvLaaymc"
@@ -91,7 +91,7 @@
                 android:text="立案日期"
                 android:textColor="@color/md_black"
                 app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
+                app:layout_widthPercent="25%sw" />
 
             <TextView
                 android:id="@+id/tvLarq"
@@ -122,7 +122,7 @@
                 android:text="原告"
                 android:textColor="@color/md_black"
                 app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
+                app:layout_widthPercent="25%sw" />
 
             <TextView
                 android:id="@+id/tvDyyg"
@@ -153,134 +153,10 @@
                 android:text="被告"
                 android:textColor="@color/md_black"
                 app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
+                app:layout_widthPercent="25%sw" />
 
             <TextView
                 android:id="@+id/tvDybg"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="1px"
-                android:layout_weight="1"
-                android:background="@color/md_white"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh" />
-
-        </com.zhy.android.percent.support.PercentLinearLayout>
-
-        <com.zhy.android.percent.support.PercentLinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="1px"
-            android:orientation="horizontal"
-            app:layout_heightPercent="6%sh">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="@color/md_grey_100"
-                android:gravity="center"
-                android:text="法定审理天数"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
-
-            <TextView
-                android:id="@+id/tvFdslts"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="1px"
-                android:layout_weight="1"
-                android:background="@color/md_white"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh" />
-
-        </com.zhy.android.percent.support.PercentLinearLayout>
-
-        <com.zhy.android.percent.support.PercentLinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="1px"
-            android:orientation="horizontal"
-            app:layout_heightPercent="6%sh">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="@color/md_grey_100"
-                android:gravity="center"
-                android:text="延长审限天数"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
-
-            <TextView
-                android:id="@+id/tvYcsxts"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="1px"
-                android:layout_weight="1"
-                android:background="@color/md_white"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh" />
-
-        </com.zhy.android.percent.support.PercentLinearLayout>
-
-        <com.zhy.android.percent.support.PercentLinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="1px"
-            android:orientation="horizontal"
-            app:layout_heightPercent="6%sh">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="@color/md_grey_100"
-                android:gravity="center"
-                android:text="扣除审限天数"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
-
-            <TextView
-                android:id="@+id/tvKcsxts"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="1px"
-                android:layout_weight="1"
-                android:background="@color/md_white"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh" />
-
-        </com.zhy.android.percent.support.PercentLinearLayout>
-
-        <com.zhy.android.percent.support.PercentLinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="1px"
-            android:orientation="horizontal"
-            app:layout_heightPercent="6%sh">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="@color/md_grey_100"
-                android:gravity="center"
-                android:text="预结日期"
-                android:textColor="@color/md_black"
-                app:layout_textSizePercent="2.2%sh"
-                app:layout_widthPercent="30%sw" />
-
-            <TextView
-                android:id="@+id/tvYjrq"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="1px"

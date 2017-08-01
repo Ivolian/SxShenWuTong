@@ -44,6 +44,7 @@
         <activity android:name=".d.ajcl.AjclAudioAct" />
         <activity android:name=".d.spdsp.WsspAct" />
         <activity android:name=".e.dtkt.DtktListAct" />
+        <activity android:name=".e.lawys.LawysListAct" />
         <activity
             android:name="com.afollestad.materialcamera.CaptureActivity"
             android:theme="@style/MaterialCamera.CaptureActivity" />
