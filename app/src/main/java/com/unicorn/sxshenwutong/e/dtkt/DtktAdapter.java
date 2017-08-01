@@ -1,10 +1,7 @@
 package com.unicorn.sxshenwutong.e.dtkt;
 
-import android.widget.LinearLayout;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.unicorn.sxshenwutong.f.BaseHelper;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
@@ -16,9 +13,12 @@ class DtktAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder viewHolder, final Ajxx ajxx) {
-        LinearLayout item = viewHolder.getView(R.id.item);
-        item.setBackground(BaseHelper.bg(mContext));
-        new DtktRenderer(viewHolder, ajxx).render();
+        // 案号、案由、原告、被告
+        // todo 开庭时间、开庭地点
+        viewHolder.setText(R.id.tvAhqc, ajxx.getAhqc());
+        viewHolder.setText(R.id.tvLaaymc, ajxx.getLaaymc());
+        viewHolder.setText(R.id.tvDyyg, ajxx.getDyyg());
+        viewHolder.setText(R.id.tvDybg, ajxx.getDybg());
     }
 
 }

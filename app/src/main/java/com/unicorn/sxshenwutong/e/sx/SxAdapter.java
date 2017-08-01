@@ -5,9 +5,9 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.d.spdb.Ajxx;
 
-class SxListAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
+class SxAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
-    SxListAdapter() {
+    SxAdapter() {
         super(R.layout.item_sx);
     }
 

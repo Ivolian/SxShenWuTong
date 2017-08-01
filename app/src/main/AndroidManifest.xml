@@ -38,23 +38,25 @@
         <activity android:name=".d.ajcl.AjclListAct" />
         <activity android:name=".d.spdb.wssp.WsspSqAct" />
         <activity android:name=".d.ajws.AjwsSelectListAct" />
-        <activity android:name=".e.jasc.JascListAct" />
-        <activity android:name=".e.sx.SxListAct" />
         <activity android:name=".d.ajcl.AjclVideoAct" />
         <activity android:name=".d.ajcl.AjclAudioAct" />
         <activity android:name=".d.spdsp.WsspAct" />
-        <activity android:name=".e.dtkt.DtktListAct" />
+
+
+        <activity android:name=".d.ajcl.AjclPhotoAct" />
+
+        <activity android:name=".e.sawl.SawlListAct" />
         <activity android:name=".e.lawys.LawysListAct" />
+        <activity android:name=".e.jasc.JascListAct" />
+        <activity android:name=".e.sx.SxListAct" />
+        <activity android:name=".e.dtkt.DtktListAct" />
+
         <activity
             android:name="com.afollestad.materialcamera.CaptureActivity"
             android:theme="@style/MaterialCamera.CaptureActivity" />
         <activity
             android:name="com.afollestad.materialcamera.CaptureActivity2"
             android:theme="@style/MaterialCamera.CaptureActivity" />
-
-
-        <activity android:name=".d.ajcl.AjclPhotoAct" />
-        <activity android:name=".e.sawl.SawlListAct" />
 
     </application>
 

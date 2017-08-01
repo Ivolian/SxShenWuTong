@@ -9,7 +9,7 @@ public class SxListAct extends AjxxListAct{
 
     @Override
     protected BaseQuickAdapter<Ajxx, BaseViewHolder> getAdapter() {
-        return new SxListAdapter();
+        return new SxAdapter();
     }
 
 }
