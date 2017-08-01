@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.unicorn.sxshenwutong">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -54,7 +53,7 @@
 
 
         <activity android:name=".d.ajcl.AjclPhotoAct" />
-        <activity android:name=".e.zxsawl.ZxsawlListAct"/>
+        <activity android:name=".e.zxsawl.ZxsawlListAct" />
 
     </application>
 

@@ -4,6 +4,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
@@ -64,7 +65,7 @@ public class HomeFra extends BaseFra {
 
             @Override
             public void onError(Throwable e) {
-
+                Logger.e("");
             }
 
             @Override

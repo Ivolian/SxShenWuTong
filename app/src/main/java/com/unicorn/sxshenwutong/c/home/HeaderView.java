@@ -74,9 +74,11 @@ public class HeaderView extends PercentLinearLayout {
         }
         tvMarquee.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         tvMarquee.setText(text);
-        LinkBuilder.on(tvMarquee)
-                .addLinks(linkList)
-                .build();
+        if (linkList.size() != 0) {
+            LinkBuilder.on(tvMarquee)
+                    .addLinks(linkList)
+                    .build();
+        }
     }
 
     private Link createLink(HomeItem homeItem) {
