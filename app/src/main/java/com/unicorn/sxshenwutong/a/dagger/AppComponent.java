@@ -27,6 +27,7 @@ import com.unicorn.sxshenwutong.db.wssp.WsspLcidFetcher;
 import com.unicorn.sxshenwutong.e.jasc.JascListAct;
 import com.unicorn.sxshenwutong.e.sx.SxListAct;
 import com.unicorn.sxshenwutong.f.SimpleSubmitter;
+import com.unicorn.sxshenwutong.news.news.network.NewsFetcher;
 import com.unicorn.sxshenwutong.news.newsList.NewsListFra;
 import com.unicorn.sxshenwutong.news.newsType.network.NewsTypeFetcher;
 
@@ -72,6 +73,7 @@ public interface AppComponent {
 
     void inject(NewsListFra o);
     void inject(NewsTypeFetcher o);
+    void inject(NewsFetcher o);
 
 
     void inject(HomeFetcher o);

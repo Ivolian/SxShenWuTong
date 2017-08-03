@@ -52,6 +52,8 @@
         <activity android:name=".e.dtkt.DtktListAct" />
         <activity android:name=".e.jawgd.JawgdListAct" />
 
+        <activity android:name=".news.news.NewsAct" />
+
         <activity
             android:name="com.afollestad.materialcamera.CaptureActivity"
             android:theme="@style/MaterialCamera.CaptureActivity" />

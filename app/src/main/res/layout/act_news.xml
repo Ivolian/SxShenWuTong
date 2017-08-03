@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_heightPercent="9%sh">
+
+        <com.zhy.android.percent.support.PercentFrameLayout
+            android:id="@+id/back"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="9%sh"
+            app:layout_widthPercent="9%sh">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:src="@drawable/left"
+                app:layout_heightPercent="4%sh"
+                app:layout_widthPercent="4%sh" />
+
+        </com.zhy.android.percent.support.PercentFrameLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/md_white"
+            app:layout_textSizePercent="3%sh" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_heightPercent="9%sh"
+            app:layout_widthPercent="9%sh" />
+
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</com.zhy.android.percent.support.PercentLinearLayout>
+
