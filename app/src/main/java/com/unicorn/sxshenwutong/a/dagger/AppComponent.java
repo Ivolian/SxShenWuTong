@@ -2,6 +2,7 @@ package com.unicorn.sxshenwutong.a.dagger;
 
 import android.content.Context;
 
+import com.unicorn.sxshenwutong.a.base.AjxxListAct;
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.b.court.CourtAct;
 import com.unicorn.sxshenwutong.b.court.network.CourtFetcher;
@@ -12,19 +13,17 @@ import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.network.HomeFetcher;
 import com.unicorn.sxshenwutong.d.ajcl.AjclAct;
 import com.unicorn.sxshenwutong.d.ajcl.AjclListAct;
-import com.unicorn.sxshenwutong.db.ajws.ajws.AjwsListAct;
-import com.unicorn.sxshenwutong.db.ajws.select.AjwsSelectListAct;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
 import com.unicorn.sxshenwutong.d.nextNode.NextUserListFetcher;
+import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
+import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;
 import com.unicorn.sxshenwutong.db.AjxxFetcher;
 import com.unicorn.sxshenwutong.db.ajspsq.AjspsqListAct;
+import com.unicorn.sxshenwutong.db.ajws.base.BaseAjwsListAct;
 import com.unicorn.sxshenwutong.db.db.DbListAct;
 import com.unicorn.sxshenwutong.db.sxbgSq.SxbgSubmitter;
 import com.unicorn.sxshenwutong.db.sycxbgSq.SycxbgSubmitter;
 import com.unicorn.sxshenwutong.db.wssp.WsspLcidFetcher;
-import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
-import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;
-import com.unicorn.sxshenwutong.a.base.AjxxListAct;
 import com.unicorn.sxshenwutong.e.jasc.JascListAct;
 import com.unicorn.sxshenwutong.e.sx.SxListAct;
 import com.unicorn.sxshenwutong.f.SimpleSubmitter;
@@ -63,15 +62,16 @@ public interface AppComponent {
     void inject(UserTypeSubmitter o);
 
 
-    // ==================================================================== c start
+    // ==================================================================== db start
+
+    void inject(DbListAct o);
+    void inject(BaseAjwsListAct o);
 
 
 
 
     void inject(HomeFetcher o);
-    void inject(DbListAct o);
     void inject(AjspsqListAct o);
-    void inject(AjwsListAct o);
     void inject(AjxxFetcher o);
     void inject(NextNodeFetcher o);
     void inject(SycxbgSubmitter o);
@@ -82,7 +82,6 @@ public interface AppComponent {
     void inject(SimpleSubmitter o);
     void inject(AjclListAct o);
     void inject(WsspLcidFetcher o);
-    void inject(AjwsSelectListAct o);
     void inject(JascListAct o);
     void inject(SxListAct o);
     void inject(AjxxListAct o);

@@ -1,9 +1,11 @@
 package com.unicorn.sxshenwutong.a.base;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
@@ -12,6 +14,7 @@ import com.unicorn.sxshenwutong.a.network.entity.Params;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -19,6 +22,7 @@ import butterknife.BindView;
 import pocketknife.BindExtra;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -68,7 +72,7 @@ abstract public class ListAct<T> extends RefreshAct<T> {
         return params.toString();
     }
 
-    protected HashMap<String,Object> parameters(){
+    protected HashMap<String, Object> parameters() {
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
         parameters.put("pageSize", PAGE_SIZE);
@@ -114,5 +118,16 @@ abstract public class ListAct<T> extends RefreshAct<T> {
     protected Gson gson;
 
     abstract protected ListResponse<T> gson(String ydbaKey);
+
+    @BindView(R.id.tvOperation)
+    protected TextView tvOperation;
+
+    protected void setOperation(String operationLabel, Action1<Void> action1) {
+        tvOperation.setVisibility(View.VISIBLE);
+        tvOperation.setText(operationLabel);
+        RxView.clicks(tvOperation)
+                .throttleFirst(2, TimeUnit.SECONDS)
+                .subscribe(action1);
+    }
 
 }

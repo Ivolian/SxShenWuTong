@@ -12,7 +12,8 @@
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp" />
 
     <com.zhy.android.percent.support.PercentLinearLayout
         android:layout_width="0dp"
