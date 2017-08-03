@@ -1,21 +1,17 @@
-package com.unicorn.sxshenwutong.d.ajws;
+package com.unicorn.sxshenwutong.db.ajws;
 
-import android.Manifest;
 import android.os.Bundle;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.reflect.TypeToken;
-import com.tbruyelle.rxpermissions.RxPermissions;
 import com.unicorn.sxshenwutong.a.base.ListAct;
 import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.d.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.entity.Ajws;
 
 import java.util.HashMap;
-
-import rx.functions.Action1;
 
 
 public class AjwsListAct extends ListAct<Ajws> {

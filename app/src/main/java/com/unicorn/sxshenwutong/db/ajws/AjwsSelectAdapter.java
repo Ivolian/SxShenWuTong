@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.ajws;
+package com.unicorn.sxshenwutong.db.ajws;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.d.ajws.entity.Ajws;
-import com.unicorn.sxshenwutong.d.ajws.entity.AjwsWrapper;
+import com.unicorn.sxshenwutong.db.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.entity.AjwsWrapper;
 
 public class AjwsSelectAdapter extends BaseQuickAdapter<AjwsWrapper, BaseViewHolder> {
 

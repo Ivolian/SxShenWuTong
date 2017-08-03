@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.ajws.entity;
+package com.unicorn.sxshenwutong.db.ajws.entity;
 
 public class AjwsWrapper {
 

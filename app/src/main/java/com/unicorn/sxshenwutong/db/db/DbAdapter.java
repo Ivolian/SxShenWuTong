@@ -7,9 +7,9 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.d.ajcl.AjclListAct;
-import com.unicorn.sxshenwutong.d.ajws.AjwsListAct;
+import com.unicorn.sxshenwutong.db.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.db.Ajxx;
-import com.unicorn.sxshenwutong.db.list.ajsqsp.AjspsqListAct;
+import com.unicorn.sxshenwutong.db.ajspsq.AjspsqListAct;
 
 class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
@@ -20,11 +20,11 @@ class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder viewHolder, final Ajxx ajxx) {
         // 案号、案由、立案日期、原告、被告
-        viewHolder.setText(R.id.tvAhqc, "案号: " + ajxx.getAhqc());
-        viewHolder.setText(R.id.tvLaaymc, "案由: " + ajxx.getLaaymc());
-        viewHolder.setText(R.id.tvLarq, "立案日期 :" + ajxx.getLarq());
-        viewHolder.setText(R.id.tvDyyg, "原告: " + ajxx.getDyyg());
-        viewHolder.setText(R.id.tvDybg, "被告: " + ajxx.getDybg());
+        viewHolder.setText(R.id.tvAhqc, ajxx.getAhqc());
+        viewHolder.setText(R.id.tvLaaymc, ajxx.getLaaymc());
+        viewHolder.setText(R.id.tvLarq, ajxx.getLarq());
+        viewHolder.setText(R.id.tvDyyg, ajxx.getDyyg());
+        viewHolder.setText(R.id.tvDybg, ajxx.getDybg());
         setOnClick(viewHolder, ajxx);
     }
 

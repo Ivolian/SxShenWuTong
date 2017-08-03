@@ -30,14 +30,14 @@
         <activity android:name=".db.db.DbListAct" />
         <activity android:name=".db.sycxbgSq.SycxbgSqAct" />
         <activity android:name=".db.sxbgSq.SxbgSqAct" />
-        <activity android:name=".db.list.ajsqsp.AjspsqListAct" />
+        <activity android:name=".db.ajspsq.AjspsqListAct" />
         <activity android:name=".d.spdsp.list.SpdspListAct" />
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct" />
-        <activity android:name=".d.ajws.AjwsListAct" />
+        <activity android:name=".db.ajws.AjwsListAct" />
         <activity android:name=".d.ajcl.AjclListAct" />
         <activity android:name=".db.wssp.WsspSqAct" />
-        <activity android:name=".d.ajws.AjwsSelectListAct" />
+        <activity android:name=".db.ajws.AjwsSelectListAct" />
         <activity android:name=".d.ajcl.AjclVideoAct" />
         <activity android:name=".d.ajcl.AjclAudioAct" />
         <activity android:name=".d.spdsp.WsspAct" />

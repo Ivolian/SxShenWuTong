@@ -1,6 +1,5 @@
-package com.unicorn.sxshenwutong.d.ajws;
+package com.unicorn.sxshenwutong.db.ajspsq;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.content.ContextCompat;
@@ -9,26 +8,21 @@ import android.widget.LinearLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.d.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajspsq.entity.Ajsqsp;
 
-public class AjwsAdapter extends BaseQuickAdapter<Ajws, BaseViewHolder> {
+public class AjsqspListAdapter extends BaseQuickAdapter<Ajsqsp, BaseViewHolder> {
 
-    Activity activity;
-
-    public AjwsAdapter(Activity activity) {
-        super(R.layout.item_ajws);
-        this.activity = activity;
+    public AjsqspListAdapter() {
+        super(R.layout.item_ajspsq);
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, final Ajws ajws) {
+    protected void convert(BaseViewHolder viewHolder, final Ajsqsp ajsqsp) {
         LinearLayout item = viewHolder.getView(R.id.item);
         item.setBackground(bg());
-
-        viewHolder.setText(R.id.tvXsmc, "文书名称: " + ajws.getXsmc());
-        viewHolder.setText(R.id.tvCjsj, "制作时间: " + ajws.getCjsj());
-
-        item.setOnClickListener(v -> new AjwsHelper(activity, ajws).viewAjws());
+        viewHolder.setText(R.id.tvBt, "标题: " +ajsqsp.getBt());
+        viewHolder.setText(R.id.tvSqrmc, "申请人: " + ajsqsp.getSqrmc());
+        viewHolder.setText(R.id.tvSqrq, "申请日期: " + ajsqsp.getSqrq());
     }
 
     private Drawable bg() {
