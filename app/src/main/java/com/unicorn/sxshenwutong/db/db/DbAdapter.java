@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.d.ajcl.AjclListAct;
-import com.unicorn.sxshenwutong.db.ajws.AjwsListAct;
+import com.unicorn.sxshenwutong.db.ajws.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.db.Ajxx;
 import com.unicorn.sxshenwutong.db.ajspsq.AjspsqListAct;
 

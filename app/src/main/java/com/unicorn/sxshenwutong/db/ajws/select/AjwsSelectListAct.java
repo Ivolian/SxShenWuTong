@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db.ajws;
+package com.unicorn.sxshenwutong.db.ajws.select;
 
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +16,8 @@ import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.db.ajws.entity.Ajws;
-import com.unicorn.sxshenwutong.db.ajws.entity.AjwsWrapper;
+import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.select.entity.AjwsWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,7 +77,7 @@ public class AjwsSelectListAct extends ListAct<AjwsWrapper> {
 
     @Override
     protected BaseQuickAdapter<AjwsWrapper, BaseViewHolder> getAdapter() {
-        return ajwsSelectAdapter =new AjwsSelectAdapter(this);
+        return ajwsSelectAdapter =new AjwsSelectAdapter();
     }
 
     @Override

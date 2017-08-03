@@ -1,7 +1,7 @@
-package com.unicorn.sxshenwutong.db.ajws;
+package com.unicorn.sxshenwutong.db.ajws.ajws;
 
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -9,7 +9,7 @@ import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.a.app.App;
-import com.unicorn.sxshenwutong.db.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
@@ -19,15 +19,15 @@ import okhttp3.Call;
 
 public class AjwsHelper {
 
-    private Activity activity;
+    private Context context;
     private Ajws ajws;
 
-    public AjwsHelper(Activity activity, Ajws ajws) {
-        this.activity = activity;
+    AjwsHelper(Context context, Ajws ajws) {
+        this.context = context;
         this.ajws = ajws;
     }
 
-    public void viewAjws() {
+    void viewAjws() {
         if (ajws.exists()) {
             open();
         } else {
@@ -40,9 +40,8 @@ public class AjwsHelper {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setAction(Intent.ACTION_VIEW);
         String type = getMIMEType(ajws.getName());
-//        Uri apkUri = FileProvider.getUriForFile(activity, "com.unicorn.sxshenwutong.fileprovider", ajws.getFile());
         intent.setDataAndType(Uri.fromFile(ajws.getFile()), type);
-        activity.startActivity(intent);
+        context.startActivity(intent);
     }
 
     private void download() {
@@ -143,7 +142,6 @@ public class AjwsHelper {
         if (dotIndex < 0) {
             return type;
         }
-
         String end = fileName.substring(dotIndex, fileName.length()).toLowerCase();  /* 获取文件的后缀名*/
         if (end.equals("")) return type;
         //在MIME和文件类型的匹配表中找到对应的MIME类型。

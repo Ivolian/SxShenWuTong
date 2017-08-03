@@ -1,4 +1,6 @@
-package com.unicorn.sxshenwutong.db.ajws.entity;
+package com.unicorn.sxshenwutong.db.ajws.select.entity;
+
+import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
 
 public class AjwsWrapper {
 

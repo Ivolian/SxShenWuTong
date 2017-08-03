@@ -34,10 +34,10 @@
         <activity android:name=".d.spdsp.list.SpdspListAct" />
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct" />
-        <activity android:name=".db.ajws.AjwsListAct" />
+        <activity android:name=".db.ajws.ajws.AjwsListAct" />
         <activity android:name=".d.ajcl.AjclListAct" />
         <activity android:name=".db.wssp.WsspSqAct" />
-        <activity android:name=".db.ajws.AjwsSelectListAct" />
+        <activity android:name=".db.ajws.select.AjwsSelectListAct" />
         <activity android:name=".d.ajcl.AjclVideoAct" />
         <activity android:name=".d.ajcl.AjclAudioAct" />
         <activity android:name=".d.spdsp.WsspAct" />
