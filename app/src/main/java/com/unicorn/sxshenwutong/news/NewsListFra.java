@@ -1,7 +1,5 @@
 package com.unicorn.sxshenwutong.news;
 
-import android.view.View;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
@@ -37,15 +35,6 @@ public class NewsListFra extends RefreshFra<News> {
     }
 
     @Override
-    protected void init(View rootView) {
-        super.init(rootView);
-//        newsType = (NewsType) getArguments().getSerializable("newsType");
-    }
-
-    public NewsListFra() {
-    }
-
-    @Override
     protected void inject() {
         AppComponentProvider.provide().inject(this);
     }
@@ -55,7 +44,7 @@ public class NewsListFra extends RefreshFra<News> {
         return new NewsAdapter();
     }
 
-    NewsType newsType;
+
 
     @Inject
     ParamsInitializer paramsInitializer;
@@ -67,11 +56,13 @@ public class NewsListFra extends RefreshFra<News> {
     }
 
     protected HashMap<String, Object> parameters() {
+
+        NewsType newsType = (NewsType) getArguments().getSerializable("newsType");
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
         parameters.put("pageSize", PAGE_SIZE);
-//        parameters.put("newstype", newsType.getType());
-//        parameters.put("newstypeid", newsType.getId());
+        parameters.put("newstype", newsType.getType());
+        parameters.put("newstypeid", newsType.getId());
         return parameters;
     }
 

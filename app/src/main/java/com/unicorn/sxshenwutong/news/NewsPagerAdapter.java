@@ -1,5 +1,6 @@
 package com.unicorn.sxshenwutong.news;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -20,9 +21,9 @@ class NewsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment fra = new NewsListFra();
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("newsType", newsTypeList.get(position));
-//        fra.setArguments(bundle);
+        Bundle args = new Bundle();
+        args.putSerializable("newsType", newsTypeList.get(position));
+        fra.setArguments(args);
         return fra;
     }
 
