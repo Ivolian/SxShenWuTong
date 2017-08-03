@@ -1,10 +1,9 @@
-package com.unicorn.sxshenwutong.g;
+package com.unicorn.sxshenwutong.news;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.db.Ajxx;
-import com.unicorn.sxshenwutong.g.entity.News;
+import com.unicorn.sxshenwutong.news.entity.News;
 
 class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 

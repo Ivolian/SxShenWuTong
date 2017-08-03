@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.unicorn.sxshenwutong.c.home.HomeFra;
 import com.unicorn.sxshenwutong.c.profile.ProfileFra;
-import com.unicorn.sxshenwutong.g.NewsListFra;
+import com.unicorn.sxshenwutong.news.NewsFra;
 
 public class MainPagerAdapter extends FragmentPagerAdapter {
 
@@ -20,7 +20,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new HomeFra();
             case 1:
-                return new NewsListFra();
+                return new NewsFra();
             default:
                 return new ProfileFra();
         }
