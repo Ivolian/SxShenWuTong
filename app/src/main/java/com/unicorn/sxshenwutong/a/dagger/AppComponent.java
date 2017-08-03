@@ -11,8 +11,8 @@ import com.unicorn.sxshenwutong.b.login.network.LoginSubmitter;
 import com.unicorn.sxshenwutong.b.splash.SplashAct;
 import com.unicorn.sxshenwutong.b.userType.network.UserTypeSubmitter;
 import com.unicorn.sxshenwutong.c.home.network.HomeFetcher;
-import com.unicorn.sxshenwutong.d.ajcl.AjclAct;
-import com.unicorn.sxshenwutong.d.ajcl.AjclListAct;
+import com.unicorn.sxshenwutong.db.ajcl.AjclAct;
+import com.unicorn.sxshenwutong.db.ajcl.AjclListAct;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeFetcher;
 import com.unicorn.sxshenwutong.d.nextNode.NextUserListFetcher;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
@@ -27,6 +27,7 @@ import com.unicorn.sxshenwutong.db.wssp.WsspLcidFetcher;
 import com.unicorn.sxshenwutong.e.jasc.JascListAct;
 import com.unicorn.sxshenwutong.e.sx.SxListAct;
 import com.unicorn.sxshenwutong.f.SimpleSubmitter;
+import com.unicorn.sxshenwutong.g.NewsListFra;
 
 import dagger.Component;
 
@@ -68,6 +69,7 @@ public interface AppComponent {
     void inject(BaseAjwsListAct o);
 
 
+    void inject(NewsListFra o);
 
 
     void inject(HomeFetcher o);

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.ajcl;
+package com.unicorn.sxshenwutong.db.ajcl;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
 代办
-ajsqsp  案件审批申请列表
-ajws    安静文书列表
-db      代办列表
+ajsqsp  案件审批申请
+ajws    案件文书列表
+db      代办

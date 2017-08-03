@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.ajcl;
+package com.unicorn.sxshenwutong.db.ajcl;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.d.ajcl.entity.Ajcl;
+import com.unicorn.sxshenwutong.db.ajcl.entity.Ajcl;
 
 class AjclListAdapter extends BaseQuickAdapter<Ajcl, BaseViewHolder> {
 

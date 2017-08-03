@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.ajcl.entity;
+package com.unicorn.sxshenwutong.db.ajcl.entity;
 
 public class Ajcl {
 

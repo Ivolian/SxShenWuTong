@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.ajcl;
+package com.unicorn.sxshenwutong.db.ajcl;
 
 import android.os.Bundle;
 import android.widget.EditText;
