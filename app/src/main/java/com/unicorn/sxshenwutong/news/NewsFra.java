@@ -1,15 +1,14 @@
 package com.unicorn.sxshenwutong.news;
 
-import android.support.v4.view.PagerAdapter;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.flyco.tablayout.SlidingTabLayout;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseFra;
-import com.unicorn.sxshenwutong.news.entity.NewsType;
-import com.unicorn.sxshenwutong.news.entity.NewsTypeResponse;
-import com.unicorn.sxshenwutong.news.network.NewsTypeFetcher;
+import com.unicorn.sxshenwutong.news.newsType.entity.NewsType;
+import com.unicorn.sxshenwutong.news.newsType.entity.NewsTypeResponse;
+import com.unicorn.sxshenwutong.news.newsType.network.NewsTypeFetcher;
 
 import java.util.List;
 
@@ -22,12 +21,6 @@ public class NewsFra extends BaseFra {
     protected int layoutResId() {
         return R.layout.fra_news;
     }
-
-    @BindView(R.id.viewPager)
-    ViewPager viewPager;
-
-    @BindView(R.id.tab)
-    SlidingTabLayout tab;
 
     @Override
     protected void init(View rootView) {
@@ -44,14 +37,21 @@ public class NewsFra extends BaseFra {
 
             @Override
             public void onNext(NewsTypeResponse newsTypeResponse) {
-                List<NewsType> newsTypes = newsTypeResponse.getNewsTypeList();
-                PagerAdapter adapter = new NewsPagerAdapter(getChildFragmentManager(), newsTypes);
-
-                viewPager.setOffscreenPageLimit(newsTypes.size() - 1);
-                viewPager.setAdapter(adapter);
-                tab.setViewPager(viewPager);
+                init(newsTypeResponse.getNewsTypeList());
             }
         });
     }
+
+    private void init(List<NewsType> newsTypes) {
+        viewPager.setOffscreenPageLimit(newsTypes.size() - 1);
+        viewPager.setAdapter(new NewsPagerAdapter(getChildFragmentManager(), newsTypes));
+        tab.setupWithViewPager(viewPager);
+    }
+
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
+
+    @BindView(R.id.tab)
+    TabLayout tab;
 
 }

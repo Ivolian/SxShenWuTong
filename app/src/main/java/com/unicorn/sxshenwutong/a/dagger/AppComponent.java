@@ -27,8 +27,8 @@ import com.unicorn.sxshenwutong.db.wssp.WsspLcidFetcher;
 import com.unicorn.sxshenwutong.e.jasc.JascListAct;
 import com.unicorn.sxshenwutong.e.sx.SxListAct;
 import com.unicorn.sxshenwutong.f.SimpleSubmitter;
-import com.unicorn.sxshenwutong.news.NewsListFra;
-import com.unicorn.sxshenwutong.news.network.NewsTypeFetcher;
+import com.unicorn.sxshenwutong.news.newsList.NewsListFra;
+import com.unicorn.sxshenwutong.news.newsType.network.NewsTypeFetcher;
 
 import dagger.Component;
 

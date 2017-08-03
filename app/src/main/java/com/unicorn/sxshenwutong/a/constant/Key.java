@@ -17,6 +17,7 @@ public class Key {
     public static final String SPID = "spid";
     public static final String LCID = "lcid";
     public static final String SPJDID = "spjdid";
+    public static final String NEWS_TYPE = "newsType";
 
 
 }

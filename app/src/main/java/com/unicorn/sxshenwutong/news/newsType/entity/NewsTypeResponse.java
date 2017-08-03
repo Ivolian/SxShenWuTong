@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.news.entity;
+package com.unicorn.sxshenwutong.news.newsType.entity;
 
 import java.util.List;
 

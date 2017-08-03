@@ -1,10 +1,10 @@
-package com.unicorn.sxshenwutong.news.network;
+package com.unicorn.sxshenwutong.news.newsType.network;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.news.entity.NewsTypeResponse;
+import com.unicorn.sxshenwutong.news.newsType.entity.NewsTypeResponse;
 
 public class NewsTypeFetcher extends BaseFetcher<NewsTypeResponse> {
 

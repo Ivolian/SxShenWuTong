@@ -1,9 +1,9 @@
-package com.unicorn.sxshenwutong.news;
+package com.unicorn.sxshenwutong.news.newsList;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.news.entity.News;
+import com.unicorn.sxshenwutong.news.newsList.entity.News;
 
 class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.news.entity;
+package com.unicorn.sxshenwutong.news.newsList.entity;
 
 public class News {
 
