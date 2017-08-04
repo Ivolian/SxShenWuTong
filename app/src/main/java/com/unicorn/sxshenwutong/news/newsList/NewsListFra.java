@@ -54,7 +54,6 @@ public class NewsListFra extends RefreshFra<News> {
     }
 
     protected HashMap<String, Object> parameters() {
-
         NewsType newsType = (NewsType) getArguments().getSerializable("newsType");
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);

@@ -31,13 +31,13 @@ public class News implements Serializable {
     private String systime;
     private String title;
     private String fydm;
-    private String pubDate;
+    private String pubdate;
     private String sjc;
     private String content;
     private String sortNo;
     private String newsTypeId;
     private String tj;
-    private String imageUrl;
+    private String imageurl;
     private String id;
     private String isdel;
     private String wjdz;
@@ -92,13 +92,6 @@ public class News implements Serializable {
         this.fydm = fydm;
     }
 
-    public String getPubDate() {
-        return pubDate;
-    }
-
-    public void setPubDate(String pubDate) {
-        this.pubDate = pubDate;
-    }
 
     public String getSjc() {
         return sjc;
@@ -140,12 +133,20 @@ public class News implements Serializable {
         this.tj = tj;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getPubdate() {
+        return pubdate;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setPubdate(String pubdate) {
+        this.pubdate = pubdate;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public String getId() {

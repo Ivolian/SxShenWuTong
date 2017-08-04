@@ -4,11 +4,11 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.news.newsList.entity.News;
+import com.unicorn.sxshenwutong.news.news.NewsResponse;
 
 import java.util.HashMap;
 
-public class NewsFetcher extends BaseFetcher<News> {
+public class NewsFetcher extends BaseFetcher<NewsResponse> {
     @Override
     protected void inject() {
         AppComponentProvider.provide().inject(this);
@@ -33,8 +33,9 @@ public class NewsFetcher extends BaseFetcher<News> {
     }
 
     @Override
-    protected News map(Response response) {
-        return null;
+    protected NewsResponse map(Response response) {
+        String ydbaKey = response.getParameters().get(Key.YDBAKEY);
+        return gson.fromJson(ydbaKey, NewsResponse.class);
     }
 
 }

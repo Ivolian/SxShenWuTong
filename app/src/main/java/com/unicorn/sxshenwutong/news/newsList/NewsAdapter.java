@@ -20,13 +20,13 @@ class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder viewHolder, final News news) {
-        String path = App.baseUrl() + news.getImageUrl();
-        path =
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501771102179&di=7b6320bd710c59f7b3197a2a045fefea&imgtype=0&src=http%3A%2F%2Fi3.sinaimg.cn%2Fedu%2F2015%2F0615%2FU1151P42DT20150615120024.png";
+        String path = App.baseUrl() + news.getImageurl();
+//        path =
+//                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501771102179&di=7b6320bd710c59f7b3197a2a045fefea&imgtype=0&src=http%3A%2F%2Fi3.sinaimg.cn%2Fedu%2F2015%2F0615%2FU1151P42DT20150615120024.png";
         ImageView imageView = viewHolder.getView(R.id.ivImage);
         Glide.with(mContext).load(path).into(imageView);
         viewHolder.setText(R.id.tvTitle, news.getTitle());
-        viewHolder.setText(R.id.tvPubDate, news.getPubDate());
+        viewHolder.setText(R.id.tvPubDate, news.getPubdate());
 
         viewHolder.setOnClickListener(R.id.item, v -> {
             Intent intent = new Intent(mContext, NewsAct.class);
