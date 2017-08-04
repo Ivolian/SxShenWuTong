@@ -32,7 +32,7 @@ public class NewsAct extends BaseAct {
     }
 
     private void fetchNews(String newsId) {
-        new NewsFetcher(newsId).start().subscribe(new Subscriber<String>() {
+        new NewsFetcher(newsId).start().subscribe(new Subscriber<News>() {
             @Override
             public void onCompleted() {
 
@@ -44,7 +44,7 @@ public class NewsAct extends BaseAct {
             }
 
             @Override
-            public void onNext(String s) {
+            public void onNext(News news) {
 
             }
         });

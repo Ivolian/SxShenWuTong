@@ -22,10 +22,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@color/colorPrimary"
-                android:gravity="bottom|center_horizontal"
+                android:gravity="center"
                 android:text="新闻"
                 android:textColor="@color/md_white"
-                app:layout_heightPercent="6%sh"
+                app:layout_heightPercent="9%sh"
                 app:layout_textSizePercent="3%sh" />
 
         </com.zhy.android.percent.support.PercentLinearLayout>
