@@ -4,7 +4,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.news.news.NewsResponse;
+import com.unicorn.sxshenwutong.news.news.entity.NewsResponse;
 
 import java.util.HashMap;
 

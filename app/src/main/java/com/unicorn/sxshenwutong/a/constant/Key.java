@@ -20,6 +20,7 @@ public class Key {
     public static final String NEWS_TYPE = "newsType";
     public static final String NEWS_ID = "newsid";
     public static final String NEWS = "news";
+    public static final String NEWS_TYPE_ID = "newstypeid";
 
 
 }

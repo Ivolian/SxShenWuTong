@@ -1,5 +1,7 @@
 package com.unicorn.sxshenwutong.news.newsList;
 
+import android.view.View;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.Gson;
@@ -7,12 +9,13 @@ import com.google.gson.reflect.TypeToken;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.base.RefreshFra;
+import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.GeneralService;
 import com.unicorn.sxshenwutong.a.network.ParamsInitializer;
 import com.unicorn.sxshenwutong.a.network.entity.Params;
-import com.unicorn.sxshenwutong.news.newsList.entity.News;
-import com.unicorn.sxshenwutong.news.newsType.entity.NewsType;
+import com.unicorn.sxshenwutong.news.news.entity.News;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.HashMap;
 
@@ -43,9 +46,20 @@ public class NewsListFra extends RefreshFra<News> {
     }
 
 
-
     @Inject
     ParamsInitializer paramsInitializer;
+
+    @Override
+    protected void init(View rootView) {
+        super.init(rootView);
+        recyclerView.addItemDecoration(
+                new HorizontalDividerItemDecoration
+                        .Builder(getContext())
+                        .colorResId(R.color.md_grey_200)
+                        .size(1)
+                        .build()
+        );
+    }
 
     private String params() {
         Params params = new Params();
@@ -54,12 +68,10 @@ public class NewsListFra extends RefreshFra<News> {
     }
 
     protected HashMap<String, Object> parameters() {
-        NewsType newsType = (NewsType) getArguments().getSerializable("newsType");
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("page", pageNo);
         parameters.put("pageSize", PAGE_SIZE);
-        parameters.put("newstype", newsType.getType());
-        parameters.put("newstypeid", newsType.getId());
+        parameters.put(Key.NEWS_TYPE_ID, getArguments().getString(Key.NEWS_TYPE_ID));
         return parameters;
     }
 
@@ -80,9 +92,9 @@ public class NewsListFra extends RefreshFra<News> {
     @Inject
     protected Gson gson;
 
-     protected ListResponse<News> gson(String ydbaKey){
-         return gson.fromJson(ydbaKey, new TypeToken<ListResponse<News>>() {
-         }.getType());
-     }
+    protected ListResponse<News> gson(String ydbaKey) {
+        return gson.fromJson(ydbaKey, new TypeToken<ListResponse<News>>() {
+        }.getType());
+    }
 
 }

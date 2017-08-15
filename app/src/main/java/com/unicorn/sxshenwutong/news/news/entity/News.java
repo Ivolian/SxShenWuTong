@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.news.newsList.entity;
+package com.unicorn.sxshenwutong.news.news.entity;
 
 import java.io.Serializable;
 

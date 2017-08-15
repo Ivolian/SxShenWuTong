@@ -1,6 +1,4 @@
-package com.unicorn.sxshenwutong.news.news;
-
-import com.unicorn.sxshenwutong.news.newsList.entity.News;
+package com.unicorn.sxshenwutong.news.news.entity;
 
 public class NewsResponse {
 

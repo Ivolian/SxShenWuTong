@@ -7,8 +7,9 @@ import android.widget.TextView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.news.news.entity.News;
+import com.unicorn.sxshenwutong.news.news.entity.NewsResponse;
 import com.unicorn.sxshenwutong.news.news.network.NewsFetcher;
-import com.unicorn.sxshenwutong.news.newsList.entity.News;
 
 import butterknife.BindView;
 import rx.Subscriber;
@@ -20,34 +21,39 @@ public class NewsAct extends BaseAct {
         return R.layout.act_news;
     }
 
-    @BindView(R.id.tvTitle)
-    TextView tvTitle;
-
     @Override
     protected void init(Bundle savedInstanceState) {
         clickBack();
         News news = (News) getIntent().getSerializableExtra(Key.NEWS);
-        tvTitle.setText(news.getTitle());
-        fetchNews(news.getId());
+        setTitle(news);
+        fetchNews(news);
     }
 
-    private void fetchNews(String newsId) {
-        new NewsFetcher(newsId).start().subscribe(new Subscriber<NewsResponse>() {
-                                                      @Override
-                                                      public void onCompleted() {
+    @BindView(R.id.tvTitle)
+    TextView tvTitle;
 
-                                                      }
+    private void setTitle(News news) {
+        tvTitle.setText(news.getTitle());
+    }
 
-                                                      @Override
-                                                      public void onError(Throwable e) {
+    private void fetchNews(News news) {
+        new NewsFetcher(news.getId()).start().subscribe(
+                new Subscriber<NewsResponse>() {
+                    @Override
+                    public void onCompleted() {
 
-                                                      }
+                    }
 
-                                                      @Override
-                                                      public void onNext(NewsResponse newsResponse) {
-                                                          initWebView(newsResponse.getNews());
-                                                      }
-                                                  }
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(NewsResponse newsResponse) {
+                        initWebView(newsResponse.getNews());
+                    }
+                }
         );
     }
 
@@ -56,9 +62,6 @@ public class NewsAct extends BaseAct {
 
     private void initWebView(News news) {
         webView.getSettings().setJavaScriptEnabled(true);
-//        String user_agent = "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/124 (KHTML, like Gecko) Safari/125.1";
-//        webView.getSettings().setUserAgentString(user_agent);
-//        webView.loadUrl(infoUrl);
         webView.loadData(news.getContent(), "text/html; charset=UTF-8", null);
     }
 

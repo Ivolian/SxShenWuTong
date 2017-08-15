@@ -10,7 +10,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.news.news.NewsAct;
-import com.unicorn.sxshenwutong.news.newsList.entity.News;
+import com.unicorn.sxshenwutong.news.news.entity.News;
 
 class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 
@@ -20,11 +20,10 @@ class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder viewHolder, final News news) {
-        String path = App.baseUrl() + news.getImageurl();
-//        path =
-//                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501771102179&di=7b6320bd710c59f7b3197a2a045fefea&imgtype=0&src=http%3A%2F%2Fi3.sinaimg.cn%2Fedu%2F2015%2F0615%2FU1151P42DT20150615120024.png";
+        String imgUrl = App.baseUrl() + news.getImageurl();
         ImageView imageView = viewHolder.getView(R.id.ivImage);
-        Glide.with(mContext).load(path).into(imageView);
+        Glide.with(mContext).load(imgUrl).into(imageView);
+
         viewHolder.setText(R.id.tvTitle, news.getTitle());
         viewHolder.setText(R.id.tvPubDate, news.getPubdate());
 

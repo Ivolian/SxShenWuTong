@@ -24,7 +24,7 @@ class NewsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Fragment fra = new NewsListFra();
         Bundle args = new Bundle();
-        args.putSerializable(Key.NEWS_TYPE, newsTypes.get(position));
+        args.putString(Key.NEWS_TYPE_ID, newsTypes.get(position).getId());
         fra.setArguments(args);
         return fra;
     }
