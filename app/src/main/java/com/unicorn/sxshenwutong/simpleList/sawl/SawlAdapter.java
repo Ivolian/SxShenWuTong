@@ -1,23 +1,24 @@
-package com.unicorn.sxshenwutong.e.jawgd;
+package com.unicorn.sxshenwutong.simpleList.sawl;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.db.Ajxx;
 
-class JawgdAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
+class SawlAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
-    JawgdAdapter() {
-        super(R.layout.item_jawgd);
+    SawlAdapter() {
+        super(R.layout.item_sawl);
     }
 
     @Override
     protected void convert(BaseViewHolder viewHolder, Ajxx ajxx) {
-        // 案号、案由、结案日期、原告、被告
+        // 案号、案由、收案日期、原告、被告
         viewHolder.setText(R.id.tvAhqc, ajxx.getAhqc());
         viewHolder.setText(R.id.tvLaaymc, ajxx.getLaaymc());
-        viewHolder.setText(R.id.tvJarq, ajxx.getJarq());
+        viewHolder.setText(R.id.tvSarq, ajxx.getSarq());
         viewHolder.setText(R.id.tvDyyg, ajxx.getDyyg());
         viewHolder.setText(R.id.tvDybg, ajxx.getDybg());
     }
+
 }

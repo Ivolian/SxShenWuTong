@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.e.sx;
+package com.unicorn.sxshenwutong.simpleList.sx;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;

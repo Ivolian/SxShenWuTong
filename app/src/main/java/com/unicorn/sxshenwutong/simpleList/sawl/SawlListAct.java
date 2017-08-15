@@ -1,17 +1,16 @@
-package com.unicorn.sxshenwutong.e.dtkt;
+package com.unicorn.sxshenwutong.simpleList.sawl;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.unicorn.sxshenwutong.a.base.AjxxListAct;
 import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.a.base.AjxxListAct;
 
 
-public class DtktListAct extends AjxxListAct {
+public class SawlListAct extends AjxxListAct {
 
     @Override
     protected BaseQuickAdapter<Ajxx, BaseViewHolder> getAdapter() {
-        return new DtktAdapter();
+        return new SawlAdapter();
     }
-
 
 }

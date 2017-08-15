@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.e.jasc;
+package com.unicorn.sxshenwutong.simpleList.jasc;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
