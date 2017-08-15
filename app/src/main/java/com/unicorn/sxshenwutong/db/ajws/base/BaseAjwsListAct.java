@@ -5,7 +5,7 @@ import com.unicorn.sxshenwutong.a.base.ListAct;
 import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 
 import java.util.HashMap;
 

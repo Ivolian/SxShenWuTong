@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.hwangjr.rxbus.RxBus;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 import com.unicorn.sxshenwutong.db.ajws.base.BaseAjwsListAct;
 
 import java.util.List;
@@ -25,10 +25,10 @@ public class AjwsSelectListAct extends BaseAjwsListAct {
     @Override
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
-        setOperation("确定", aVoid -> post());
+        setOperation("确定", aVoid -> postSelectedAjwsList());
     }
 
-    private void post() {
+    private void postSelectedAjwsList() {
         List<Ajws> selectedAjwsList = adapter.getSelectedAjwsList();
         if (selectedAjwsList.size() == 0) {
             ToastUtils.showShort("至少选择一项案件文书");

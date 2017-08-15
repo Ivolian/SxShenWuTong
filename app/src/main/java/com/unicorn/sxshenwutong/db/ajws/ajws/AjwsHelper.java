@@ -9,7 +9,7 @@ import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.a.app.App;
-import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
 

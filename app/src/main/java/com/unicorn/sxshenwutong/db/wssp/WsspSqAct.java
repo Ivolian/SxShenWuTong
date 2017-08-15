@@ -14,7 +14,7 @@ import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.db.ajws.select.AjwsSelectListAct;
-import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.db.Ajxx;
 import com.unicorn.sxshenwutong.db.AjxxFetcher;

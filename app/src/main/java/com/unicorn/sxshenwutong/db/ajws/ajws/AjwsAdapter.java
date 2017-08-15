@@ -4,7 +4,7 @@ package com.unicorn.sxshenwutong.db.ajws.ajws;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.db.ajws.ajws.entity.Ajws;
+import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 
 class AjwsAdapter extends BaseQuickAdapter<Ajws, BaseViewHolder> {
 
