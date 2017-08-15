@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db.sxbgSq;
+package com.unicorn.sxshenwutong.ajspsq.sxbgSq;
 
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +21,9 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.db.Ajxx;
-import com.unicorn.sxshenwutong.db.AjxxFetcher;
-import com.unicorn.sxshenwutong.db.sxbgSq.fetcher.FdsyFetcher;
-import com.unicorn.sxshenwutong.db.sxbgSq.fetcher.YckcyyFetcher;
+import com.unicorn.sxshenwutong.ajspsq.AjxxFetcher;
+import com.unicorn.sxshenwutong.ajspsq.sxbgSq.fetcher.FdsyFetcher;
+import com.unicorn.sxshenwutong.ajspsq.sxbgSq.fetcher.YckcyyFetcher;
 import com.unicorn.sxshenwutong.f.date.DateUtil;
 import com.unicorn.sxshenwutong.f.date.SublimePickerFragment;
 

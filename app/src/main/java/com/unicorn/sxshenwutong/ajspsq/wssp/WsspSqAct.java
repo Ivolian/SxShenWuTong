@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db.wssp;
+package com.unicorn.sxshenwutong.ajspsq.wssp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import com.unicorn.sxshenwutong.db.ajws.select.AjwsSelectListAct;
 import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.db.Ajxx;
-import com.unicorn.sxshenwutong.db.AjxxFetcher;
+import com.unicorn.sxshenwutong.ajspsq.AjxxFetcher;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db.ajspsq.entity;
+package com.unicorn.sxshenwutong.ajspsq.ajspsq.entity;
 
 public class Ajsqsp {
 
