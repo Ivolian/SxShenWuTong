@@ -42,7 +42,7 @@ import pocketknife.BindExtra;
 import rx.Subscriber;
 
 
-public class SxbgSqAct extends BaseAct {
+public class FdsySqAct extends BaseAct {
 
     @Override
     protected int layoutResId() {
@@ -85,7 +85,7 @@ public class SxbgSqAct extends BaseAct {
 
             @Override
             public void onNext(Ajxx ajxx) {
-                SxbgSqAct.this.ajxx = ajxx;
+                FdsySqAct.this.ajxx = ajxx;
                 renderAjxx();
                 fetchFdsy();
             }

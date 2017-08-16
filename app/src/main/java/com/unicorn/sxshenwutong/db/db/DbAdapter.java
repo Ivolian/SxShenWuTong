@@ -9,7 +9,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.db.ajcl.list.AjclListAct;
 import com.unicorn.sxshenwutong.db.ajws.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
-import com.unicorn.sxshenwutong.db2.ajspSq.AjspsqListAct;
+import com.unicorn.sxshenwutong.db2.ajspSq.AjspSqListAct;
 
 class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
@@ -30,7 +30,7 @@ class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 
     private void setOnClickListener(BaseViewHolder viewHolder, Ajxx ajxx) {
         viewHolder.setOnClickListener(R.id.tvAjspsq, v -> {
-            Intent intent = new Intent(mContext, AjspsqListAct.class);
+            Intent intent = new Intent(mContext, AjspSqListAct.class);
             intent.putExtra(Key.TITLE, "案件审批申请");
             intent.putExtra(Key.LBTYPE, "ajspsqlist");
             intent.putExtra(Key.AJBS, ajxx.getAjbs());

@@ -29,8 +29,8 @@
         <activity android:name=".c.main.MainAct" />
         <activity android:name=".db.db.DbListAct" />
         <activity android:name=".db2.sycxbgSq.SycxbgSqAct" />
-        <activity android:name=".db2.sxbgSq.SxbgSqAct" />
-        <activity android:name=".db2.ajspSq.AjspsqListAct" />
+        <activity android:name=".db2.sxbgSq.FdsySqAct" />
+        <activity android:name=".db2.ajspSq.AjspSqListAct" />
         <activity android:name=".d.spdsp.list.SpdspListAct" />
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct" />
