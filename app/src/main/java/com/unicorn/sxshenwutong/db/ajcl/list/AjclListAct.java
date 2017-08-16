@@ -2,10 +2,7 @@ package com.unicorn.sxshenwutong.db.ajcl.list;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.google.gson.reflect.TypeToken;
@@ -23,14 +20,16 @@ import com.unicorn.sxshenwutong.db.ajcl.ajcl.AjclPhotoAct;
 import com.unicorn.sxshenwutong.db.ajcl.ajcl.AjclVideoAct;
 import com.unicorn.sxshenwutong.db.ajcl.list.entity.Ajcl;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
-
 
 public class AjclListAct extends ListAct<Ajcl> {
+
+    @Override
+    protected int layoutResId() {
+        return R.layout.act_ajcl_list;
+    }
 
     @Override
     protected HashMap<String, Object> parameters() {
@@ -55,30 +54,23 @@ public class AjclListAct extends ListAct<Ajcl> {
         }.getType());
     }
 
-
-    @BindView(R.id.tvOperation)
-    TextView tvOperation;
-
     @Override
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
-        tvOperation.setVisibility(View.VISIBLE);
-        tvOperation.setText("创建");
-        RxView.clicks(tvOperation)
-                .throttleFirst(1, TimeUnit.SECONDS)
-                .subscribe(aVoid -> showDialog());
+        clicks();
     }
 
-    private void showDialog() {
-        new MaterialDialog.Builder(this)
-                .title("选择案件审批申请类型")
-                .items(Arrays.asList("照片", "录像", "录音"))
-                .itemsCallback((dialog, itemView, position, text) -> s(position))
-                .show();
+    private void clicks() {
+        RxView.clicks(findViewById(R.id.ivVideo)).throttleFirst(2, TimeUnit.SECONDS)
+                .subscribe(aVoid -> startAjclAct(AjclVideoAct.class));
+        RxView.clicks(findViewById(R.id.ivPhoto)).throttleFirst(2, TimeUnit.SECONDS)
+                .subscribe(aVoid -> startAjclAct(AjclPhotoAct.class));
+        RxView.clicks(findViewById(R.id.ivAudio)).throttleFirst(2, TimeUnit.SECONDS)
+                .subscribe(aVoid -> startAjclAct(AjclAudioAct.class));
     }
 
-    private void s(int position) {
-        Intent intent = new Intent(this, position == 0 ? AjclPhotoAct.class : position == 1 ? AjclVideoAct.class : AjclAudioAct.class);
+    private void startAjclAct(Class actClass) {
+        Intent intent = new Intent(this, actClass);
         intent.putExtra(Key.AJBS, getIntent().getStringExtra(Key.AJBS));
         startActivity(intent);
     }
