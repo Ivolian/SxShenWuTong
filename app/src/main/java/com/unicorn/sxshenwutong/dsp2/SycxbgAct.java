@@ -4,10 +4,10 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.dsp2.base.SpdspAct;
-import com.unicorn.sxshenwutong.dsp2.entity.SpdspInfo;
+import com.unicorn.sxshenwutong.dsp2.base.DspAct;
+import com.unicorn.sxshenwutong.dsp2.base.entity.DspInfo;
 
-public class SycxbgAct extends SpdspAct {
+public class SycxbgAct extends DspAct {
 
     @Override
     protected int layoutResId() {
@@ -15,12 +15,12 @@ public class SycxbgAct extends SpdspAct {
     }
 
     @Override
-    protected String bt(SpdspInfo.AjxxBean ajxx) {
+    protected String bt(DspInfo.AjxxBean ajxx) {
         return ajxx.getAhqc() + "适用程序变更审批";
     }
 
     @Override
-    protected void renderSycxbg(SpdspInfo.CxbgxxBean cxbgxx) {
+    protected void renderSycxbg(DspInfo.CxbgxxBean cxbgxx) {
         setText(R.id.tvCxbglx, cxbgxx.getCxbglxmc());
         setText(R.id.tvSycxbgyy, cxbgxx.getJyzptyymc());
     }

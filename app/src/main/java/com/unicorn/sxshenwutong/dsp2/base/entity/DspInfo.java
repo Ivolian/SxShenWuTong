@@ -1,8 +1,8 @@
-package com.unicorn.sxshenwutong.dsp2.entity;
+package com.unicorn.sxshenwutong.dsp2.base.entity;
 
 import java.util.List;
 
-public class SpdspInfo {
+public class DspInfo {
 
     /**
      * yckcsxxx : {"ywid":"","qtsm":"","bgyy":"","lx":"1010490001","fdsx":"","lxmc":"延长","dw":"","qsrq":"2017-07-14","ajbs":"M00f79c4576-a2ee-46fb-b619-8bf6cf614f3d","pzrsf":"","sys_time":"2017-07-14 09:41:38.0","shbz":"0","pzjgmc":"","id":"M006559b964-6a1b-4f3e-88a6-b2b791f43b7f","kcts":"","kcsxws":"","sqrq":"","sprq":"2017-07-14","djrq":"","jssxbz":"","fydm":"M00","djr":"","xh":"2","ycts":"7","pzjg":"","spr":"","jsrq":"2017-07-21","pzrq":"","bglxmc":"请示待决","bglx":"1010491002"}

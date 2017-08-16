@@ -8,15 +8,15 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.dsp2.base.SpdspAct;
-import com.unicorn.sxshenwutong.dsp2.entity.SpdspInfo;
+import com.unicorn.sxshenwutong.dsp2.base.DspAct;
+import com.unicorn.sxshenwutong.dsp2.base.entity.DspInfo;
 
 import java.util.Arrays;
 
 import butterknife.BindView;
 
 
-public class FdsyAct extends SpdspAct {
+public class FdsyAct extends DspAct {
 
     @Override
     protected int layoutResId() {
@@ -24,12 +24,12 @@ public class FdsyAct extends SpdspAct {
     }
 
     @Override
-    protected String bt(SpdspInfo.AjxxBean ajxx) {
+    protected String bt(DspInfo.AjxxBean ajxx) {
         return ajxx.getAhqc() + "法定事由审批";
     }
 
     @Override
-    protected void renderFdsy(SpdspInfo.YckcsxxxBean yckcsxxx) {
+    protected void renderFdsy(DspInfo.YckcsxxxBean yckcsxxx) {
         setText(R.id.tvLxmc, yckcsxxx.getLxmc());
         setText(R.id.tvBglxmc, yckcsxxx.getBglxmc());
         setText(R.id.tvQsrq, yckcsxxx.getQsrq());
@@ -47,7 +47,7 @@ public class FdsyAct extends SpdspAct {
     @BindView(R.id.tvBglxmc)
     TextView tvBglxmc;
 
-    private void codeBglxmc(SpdspInfo.YckcsxxxBean yckcsxxx) {
+    private void codeBglxmc(DspInfo.YckcsxxxBean yckcsxxx) {
         if (Arrays.asList("延长", "扣除", "中止").contains(yckcsxxx.getLxmc())) {
             llBglxmc.setVisibility(View.VISIBLE);
             tvBglxmcLabel.setText(yckcsxxx.getLxmc());

@@ -1,12 +1,12 @@
-package com.unicorn.sxshenwutong.dsp2.network;
+package com.unicorn.sxshenwutong.dsp2.base.network;
 
 import com.unicorn.sxshenwutong.unknown.SimpleSubmitter;
 
 import java.util.HashMap;
 
-public class SpdspSubmitter extends SimpleSubmitter {
+public class DspSubmitter extends SimpleSubmitter {
 
-    public SpdspSubmitter(HashMap<String, Object> map) {
+    public DspSubmitter(HashMap<String, Object> map) {
         super(map);
     }
 

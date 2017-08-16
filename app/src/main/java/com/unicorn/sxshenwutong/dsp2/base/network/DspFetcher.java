@@ -1,18 +1,18 @@
-package com.unicorn.sxshenwutong.dsp2.network;
+package com.unicorn.sxshenwutong.dsp2.base.network;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.dsp2.entity.SpdspInfo;
+import com.unicorn.sxshenwutong.dsp2.base.entity.DspInfo;
 
 import java.util.HashMap;
 
-public class SpdspFetcher extends BaseFetcher<SpdspInfo> {
+public class DspFetcher extends BaseFetcher<DspInfo> {
 
     private HashMap<String, Object> map;
 
-    public SpdspFetcher(HashMap<String, Object> map) {
+    public DspFetcher(HashMap<String, Object> map) {
         this.map = map;
     }
 
@@ -32,7 +32,7 @@ public class SpdspFetcher extends BaseFetcher<SpdspInfo> {
     }
 
     @Override
-    protected SpdspInfo map(Response response) {
-        return gson.fromJson(response.getParameters().get(Key.YDBAKEY), SpdspInfo.class);
+    protected DspInfo map(Response response) {
+        return gson.fromJson(response.getParameters().get(Key.YDBAKEY), DspInfo.class);
     }
 }

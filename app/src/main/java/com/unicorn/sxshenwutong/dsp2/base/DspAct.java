@@ -14,10 +14,10 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.dsp2.base.network.DspFetcher;
 import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
-import com.unicorn.sxshenwutong.dsp2.entity.SpdspInfo;
-import com.unicorn.sxshenwutong.dsp2.network.SpdspFetcher;
-import com.unicorn.sxshenwutong.dsp2.network.SpdspSubmitter;
+import com.unicorn.sxshenwutong.dsp2.base.entity.DspInfo;
+import com.unicorn.sxshenwutong.dsp2.base.network.DspSubmitter;
 
 import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
@@ -30,15 +30,15 @@ import butterknife.BindColor;
 import butterknife.BindView;
 import pocketknife.BindExtra;
 
-abstract public class SpdspAct extends BaseAct {
+abstract public class DspAct extends BaseAct {
 
     @Override
     protected void init(Bundle savedInstanceState) {
         clickBack();
-        fetchSpdsp();
+        fetchDspInfo();
     }
 
-    // ===================== fetchSpdsp =====================
+    // ===================== fetchDspInfo =====================
 
     @BindExtra(Key.AJBS)
     String ajbs;
@@ -47,19 +47,19 @@ abstract public class SpdspAct extends BaseAct {
     @BindExtra(Key.LCID)
     String lcid;
 
-    private SpdspInfo spdspInfo;
+    private DspInfo dspInfo;
 
-    private void fetchSpdsp() {
+    private void fetchDspInfo() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.AJBS, ajbs);
         map.put(Key.SPID, spid);
         map.put(Key.LCID, lcid);
-        new SpdspFetcher(map).start().subscribe(o -> {
-            spdspInfo = o;
+        new DspFetcher(map).start().subscribe(o -> {
+            dspInfo = o;
             renderAjxx();
-            renderSycxbg(spdspInfo.getCxbgxx());
-            renderFdsy(spdspInfo.getYckcsxxx());
-            renderWssp(spdspInfo.getWslist());
+            renderSycxbg(dspInfo.getCxbgxx());
+            renderFdsy(dspInfo.getYckcsxxx());
+            renderWssp(dspInfo.getWslist());
             showSpyjList();
             clickSave();
         });
@@ -75,30 +75,30 @@ abstract public class SpdspAct extends BaseAct {
     protected EditText etSpyj;
 
     private void renderAjxx() {
-        SpdspInfo.AjxxBean ajxx = spdspInfo.getAjxx();
+        DspInfo.AjxxBean ajxx = dspInfo.getAjxx();
         setText(R.id.tvBt, bt(ajxx));
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvLarq, ajxx.getLarq());
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvDyyg, ajxx.getDyyg());
         setText(R.id.tvDybg, ajxx.getDybg());
-        setText(R.id.tvSycxmc, spdspInfo.getAjxx().getSycxmc());
+        setText(R.id.tvSycxmc, dspInfo.getAjxx().getSycxmc());
 
-        setText(R.id.tvSqrq, spdspInfo.getSpxx().getSqrq());
-        tvSpyjLabel.setText(spdspInfo.getDblbxx().getNodename());
+        setText(R.id.tvSqrq, dspInfo.getSpxx().getSqrq());
+        tvSpyjLabel.setText(dspInfo.getDblbxx().getNodename());
     }
 
-    abstract protected String bt(SpdspInfo.AjxxBean ajxx);
+    abstract protected String bt(DspInfo.AjxxBean ajxx);
 
-    protected void renderSycxbg(SpdspInfo.CxbgxxBean cxbgxx) {
-
-    }
-
-    protected void renderFdsy(SpdspInfo.YckcsxxxBean yckcsxxx) {
+    protected void renderSycxbg(DspInfo.CxbgxxBean cxbgxx) {
 
     }
 
-    protected void renderWssp(List<SpdspInfo.WslistBean> wsList) {
+    protected void renderFdsy(DspInfo.YckcsxxxBean yckcsxxx) {
+
+    }
+
+    protected void renderWssp(List<DspInfo.WslistBean> wsList) {
 
     }
 
@@ -111,12 +111,12 @@ abstract public class SpdspAct extends BaseAct {
     int md_grey_100;
 
     private void showSpyjList() {
-        for (SpdspInfo.SpyjlistBean spyj : spdspInfo.getSpyjlist()) {
+        for (DspInfo.SpyjlistBean spyj : dspInfo.getSpyjlist()) {
             showSpyj(spyj);
         }
     }
 
-    private void showSpyj(SpdspInfo.SpyjlistBean spyj) {
+    private void showSpyj(DspInfo.SpyjlistBean spyj) {
         LinearLayout llSpyj = new LinearLayout(this);
         llSpyj.setOrientation(LinearLayout.HORIZONTAL);
 
@@ -157,11 +157,11 @@ abstract public class SpdspAct extends BaseAct {
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
         map.put(Key.SPID, spid);
-        map.put("currNodeid", spdspInfo.getDblbxx().getNodeid());
-        map.put("currNodeName", spdspInfo.getDblbxx().getNodename());
+        map.put("currNodeid", dspInfo.getDblbxx().getNodeid());
+        map.put("currNodeName", dspInfo.getDblbxx().getNodename());
         map.put("spyj", etSpyj.getText().toString().trim());
-       NextNodeDialog nextNodeDialog = new NextNodeDialog(this, spdspInfo.getDblbxx().getLcid(), new SpdspSubmitter(map), true);
-        nextNodeDialog.setSqr(spdspInfo.getSpxx().getSqr());
+       NextNodeDialog nextNodeDialog = new NextNodeDialog(this, dspInfo.getDblbxx().getLcid(), new DspSubmitter(map), true);
+        nextNodeDialog.setSqr(dspInfo.getSpxx().getSqr());
         nextNodeDialog.show();
     }
 

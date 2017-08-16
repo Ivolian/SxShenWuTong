@@ -18,7 +18,7 @@ import com.unicorn.sxshenwutong.dsp2.WsspAct;
 class DspAdapter extends BaseQuickAdapter<Dsp, BaseViewHolder> {
 
     DspAdapter() {
-        super(R.layout.item_spdsp);
+        super(R.layout.item_dsp);
     }
 
     @Override
