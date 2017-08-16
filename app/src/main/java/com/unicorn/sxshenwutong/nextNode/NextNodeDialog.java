@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.nextNode;
+package com.unicorn.sxshenwutong.nextNode;
 
 import android.app.Activity;
 import android.view.View;
@@ -11,8 +11,8 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.unknown.SimpleSubmitter;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.d.nextNode.entity.NextNodeResponse;
-import com.unicorn.sxshenwutong.d.nextNode.entity.NextUserListResponse;
+import com.unicorn.sxshenwutong.nextNode.entity.NextNodeResponse;
+import com.unicorn.sxshenwutong.nextNode.entity.NextUserListResponse;
 
 import java.util.ArrayList;
 import java.util.List;

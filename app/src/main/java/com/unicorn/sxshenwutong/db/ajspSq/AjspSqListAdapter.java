@@ -1,9 +1,9 @@
-package com.unicorn.sxshenwutong.db2.ajspSq;
+package com.unicorn.sxshenwutong.db.ajspSq;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.db2.ajspSq.entity.Ajsp;
+import com.unicorn.sxshenwutong.db.ajspSq.entity.Ajsp;
 
 class AjspSqListAdapter extends BaseQuickAdapter<Ajsp, BaseViewHolder> {
 

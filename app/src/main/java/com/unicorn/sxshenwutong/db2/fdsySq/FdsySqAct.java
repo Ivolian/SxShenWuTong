@@ -19,7 +19,7 @@ import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
+import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 import com.unicorn.sxshenwutong.db2.AjxxFetcher;
 import com.unicorn.sxshenwutong.db2.fdsySq.fetcher.FdsyFetcher;

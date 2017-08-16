@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.nextNode;
+package com.unicorn.sxshenwutong.nextNode;
 
 public class SpinnerItem {
 

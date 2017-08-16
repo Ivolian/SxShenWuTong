@@ -30,7 +30,7 @@
         <activity android:name=".db.db.DbListAct" />
         <activity android:name=".db2.sycxbgSq.SycxbgSqAct" />
         <activity android:name=".db2.fdsySq.FdsySqAct" />
-        <activity android:name=".db2.ajspSq.AjspSqListAct" />
+        <activity android:name=".db.ajspSq.AjspSqListAct" />
         <activity android:name=".d.spdsp.list.SpdspListAct" />
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct" />

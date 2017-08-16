@@ -7,7 +7,7 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
+import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;

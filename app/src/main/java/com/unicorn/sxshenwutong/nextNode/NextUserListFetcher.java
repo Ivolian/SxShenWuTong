@@ -1,10 +1,10 @@
-package com.unicorn.sxshenwutong.d.nextNode;
+package com.unicorn.sxshenwutong.nextNode;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.d.nextNode.entity.NextUserListResponse;
+import com.unicorn.sxshenwutong.nextNode.entity.NextUserListResponse;
 
 import java.util.HashMap;
 

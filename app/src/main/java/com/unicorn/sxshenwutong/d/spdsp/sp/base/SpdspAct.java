@@ -14,7 +14,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
+import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.d.spdsp.sp.entity.SpdspInfo;
 import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;
 import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspSubmitter;

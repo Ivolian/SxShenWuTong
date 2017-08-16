@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db2.ajspSq;
+package com.unicorn.sxshenwutong.db.ajspSq;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import com.unicorn.sxshenwutong.a.base.ListResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.db2.ajspSq.entity.Ajsp;
+import com.unicorn.sxshenwutong.db.ajspSq.entity.Ajsp;
 import com.unicorn.sxshenwutong.db2.fdsySq.FdsySqAct;
 import com.unicorn.sxshenwutong.db2.sycxbgSq.SycxbgSqAct;
 import com.unicorn.sxshenwutong.db2.wssp.WsspSqAct;
