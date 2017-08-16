@@ -14,16 +14,15 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
-import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
-import com.unicorn.sxshenwutong.db2.base.AjxxFetcher;
+import com.unicorn.sxshenwutong.db2.base.DbSqAct;
 import com.unicorn.sxshenwutong.db2.fdsySq.fetcher.FdsyFetcher;
 import com.unicorn.sxshenwutong.db2.fdsySq.fetcher.YckcyyFetcher;
+import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.unknown.date.DateUtil;
 import com.unicorn.sxshenwutong.unknown.date.SublimePickerFragment;
 
@@ -38,11 +37,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
-import pocketknife.BindExtra;
 import rx.Subscriber;
 
 
-public class FdsySqAct extends BaseAct {
+public class FdsySqAct extends DbSqAct {
 
     @Override
     protected int layoutResId() {
@@ -51,45 +49,15 @@ public class FdsySqAct extends BaseAct {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        clickBack();
-        clickSave();
+        super.init(savedInstanceState);
         clickDate();
-        fetchAjxx();
     }
 
-    private void clickSave() {
-        RxView.clicks(findViewById(R.id.tvSave))
-                .throttleFirst(1, TimeUnit.SECONDS)
-                .subscribe(aVoid -> showNextNodeDialog());
-    }
+    private DateTime startDate = new DateTime();
+    private DateTime endDate = new DateTime();
 
-
-    // ===================== fetchAjxx =====================
-
-    @BindExtra(Key.AJBS)
-    String ajbs;
-
-    Ajxx ajxx;
-
-    private void fetchAjxx() {
-        new AjxxFetcher(ajbs).start().subscribe(new Subscriber<Ajxx>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Ajxx ajxx) {
-                FdsySqAct.this.ajxx = ajxx;
-                renderAjxx();
-                fetchFdsy();
-            }
-        });
+    private void onDateChange(TextView tvDate, DateTime date) {
+        tvDate.setText(date.toString("yyyy年MM月dd日"));
     }
 
     private void clickDate() {
@@ -125,16 +93,8 @@ public class FdsySqAct extends BaseAct {
                 }));
     }
 
-    private String dateFormat = "yyyy年MM月dd日";
-    private DateTime startDate = new DateTime();
-    private DateTime endDate = new DateTime();
-
-    private void onDateChange(TextView tvDate, DateTime date) {
-        tvDate.setText(date.toString(dateFormat));
-    }
-
-
-    private void renderAjxx() {
+    @Override
+    protected void afterFetchAjxx() {
         setText(R.id.tvTitle, bt(ajxx));
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvLarq, ajxx.getLarq());
@@ -143,6 +103,7 @@ public class FdsySqAct extends BaseAct {
         setText(R.id.tvDyyg, ajxx.getDyyg());
         setText(R.id.tvDybg, ajxx.getDybg());
         setText(R.id.tvSycxmc, ajxx.getSycxmc());
+        fetchFdsy();
     }
 
 
@@ -215,8 +176,8 @@ public class FdsySqAct extends BaseAct {
 
     // ===================== showNextNodeDialog =====================
 
-
-    private void showNextNodeDialog() {
+    @Override
+    protected void showNextNodeDialog() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
@@ -243,7 +204,7 @@ public class FdsySqAct extends BaseAct {
     }
 
     private String bt(Ajxx ajxx) {
-        return ajxx.getAhqc() + "审限变更申请";
+        return ajxx.getAhqc() + "法定事由申请";
     }
 
 
@@ -276,7 +237,5 @@ public class FdsySqAct extends BaseAct {
     TextView tvEndDate;
     @BindView(R.id.etQtsm)
     EditText etQtsm;
-    @BindView(R.id.etNgryj)
-    EditText etNgryj;
 
 }

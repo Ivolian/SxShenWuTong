@@ -1,1 +1,2 @@
-ajspSq  案件审批申请
+base    基类
+wsspSq  文书审批申请

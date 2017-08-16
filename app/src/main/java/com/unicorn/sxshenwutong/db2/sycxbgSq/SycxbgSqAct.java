@@ -1,39 +1,32 @@
 package com.unicorn.sxshenwutong.db2.sycxbgSq;
 
-import android.os.Bundle;
-import android.widget.EditText;
-
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
-import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
-import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
 import com.unicorn.sxshenwutong.a.code.entity.CodeResponse;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.db2.base.AjxxFetcher;
+import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
+import com.unicorn.sxshenwutong.db2.base.DbSqAct;
 import com.unicorn.sxshenwutong.db2.sycxbgSq.fetcher.CxbglxFetcher;
 import com.unicorn.sxshenwutong.db2.sycxbgSq.fetcher.SycxbgyyFetcher;
-import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
+import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
-import pocketknife.BindExtra;
 import rx.Subscriber;
 
 import static com.unicorn.sxshenwutong.R.id.tvTitle;
 
-public class SycxbgSqAct extends BaseAct {
+public class SycxbgSqAct extends DbSqAct {
 
     @Override
     protected int layoutResId() {
@@ -41,48 +34,7 @@ public class SycxbgSqAct extends BaseAct {
     }
 
     @Override
-    protected void init(Bundle savedInstanceState) {
-        clickBack();
-        clickSave();
-        fetchAjxx();
-    }
-
-    private void clickSave() {
-        RxView.clicks(findViewById(R.id.tvSave))
-                .throttleFirst(1, TimeUnit.SECONDS)
-                .subscribe(aVoid -> showNextNodeDialog());
-    }
-
-
-    // ===================== fetchAjxx =====================
-
-    @BindExtra(Key.AJBS)
-    String ajbs;
-
-    Ajxx ajxx;
-
-    private void fetchAjxx() {
-        new AjxxFetcher(ajbs).start().subscribe(new Subscriber<Ajxx>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Ajxx ajxx) {
-                SycxbgSqAct.this.ajxx = ajxx;
-                renderAjxx();
-                fetchCxbglx();
-            }
-        });
-    }
-
-    private void renderAjxx() {
+    protected void afterFetchAjxx() {
         setText(tvTitle,  bt(ajxx));
         setText(R.id.tvAhqc, ajxx.getAhqc());
         setText(R.id.tvLarq, ajxx.getLarq());
@@ -91,6 +43,7 @@ public class SycxbgSqAct extends BaseAct {
         setText(R.id.tvDyyg, ajxx.getDyyg());
         setText(R.id.tvDybg, ajxx.getDybg());
         setText(R.id.tvSycxmc, ajxx.getSycxmc());
+        fetchCxbglx();
     }
 
 
@@ -156,7 +109,8 @@ public class SycxbgSqAct extends BaseAct {
 
     // ===================== showNextNodeDialog =====================
 
-    private void showNextNodeDialog() {
+    @Override
+    protected void showNextNodeDialog() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(Key.FYDM, Global.getLoginResponse().getUser().getFydm());
         map.put(Key.AJBS, ajbs);
@@ -198,7 +152,6 @@ public class SycxbgSqAct extends BaseAct {
     MaterialSpinner msCxbglx;
     @BindView(R.id.msSycxbgyy)
     MaterialSpinner msSycxbgyy;
-    @BindView(R.id.etNgryj)
-    EditText etNgryj;
+
 
 }
