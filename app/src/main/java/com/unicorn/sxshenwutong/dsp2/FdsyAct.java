@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdsp.sp;
+package com.unicorn.sxshenwutong.dsp2;
 
 import android.view.View;
 import android.widget.LinearLayout;
@@ -8,8 +8,8 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
-import com.unicorn.sxshenwutong.d.spdsp.sp.base.SpdspAct;
-import com.unicorn.sxshenwutong.d.spdsp.sp.entity.SpdspInfo;
+import com.unicorn.sxshenwutong.dsp2.base.SpdspAct;
+import com.unicorn.sxshenwutong.dsp2.entity.SpdspInfo;
 
 import java.util.Arrays;
 

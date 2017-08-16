@@ -8,7 +8,7 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.db.db.DbListAct;
-import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
+import com.unicorn.sxshenwutong.dsp.DspListAct;
 import com.unicorn.sxshenwutong.simple.dtkt.DtktListAct;
 import com.unicorn.sxshenwutong.simple.jasc.JascListAct;
 import com.unicorn.sxshenwutong.simple.sx.SxListAct;
@@ -46,7 +46,7 @@ class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
             return DbListAct.class;
         }
         if (title.contains("待审批")) {
-            return SpdspListAct.class;
+            return DspListAct.class;
         }
         if (title.contains("结案审查")) {
             return JascListAct.class;

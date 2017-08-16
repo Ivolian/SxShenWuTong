@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdsp.sp.entity;
+package com.unicorn.sxshenwutong.dsp2.entity;
 
 import java.util.List;
 

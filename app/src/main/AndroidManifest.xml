@@ -31,16 +31,16 @@
         <activity android:name=".db2.sycxbgSq.SycxbgSqAct" />
         <activity android:name=".db2.fdsySq.FdsySqAct" />
         <activity android:name=".db.ajspSq.AjspSqListAct" />
-        <activity android:name=".d.spdsp.list.SpdspListAct" />
-        <activity android:name=".d.spdsp.sp.SycxbgAct" />
-        <activity android:name=".d.spdsp.sp.FdsyAct" />
+        <activity android:name=".dsp.DspListAct" />
+        <activity android:name=".dsp2.SycxbgAct" />
+        <activity android:name=".dsp2.FdsyAct" />
         <activity android:name=".db.ajws.ajws.AjwsListAct" />
         <activity android:name=".db.ajcl.list.AjclListAct" />
         <activity android:name=".db2.wsspSq.WsspSqAct" />
         <activity android:name=".db.ajws.select.AjwsSelectListAct" />
         <activity android:name=".db.ajcl.ajcl.AjclVideoAct" />
         <activity android:name=".db.ajcl.ajcl.AjclAudioAct" />
-        <activity android:name=".d.spdsp.WsspAct" />
+        <activity android:name=".dsp2.WsspAct" />
 
 
         <activity android:name=".db.ajcl.ajcl.AjclPhotoAct" />

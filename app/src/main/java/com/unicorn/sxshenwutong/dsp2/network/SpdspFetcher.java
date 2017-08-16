@@ -1,10 +1,10 @@
-package com.unicorn.sxshenwutong.d.spdsp.sp.network;
+package com.unicorn.sxshenwutong.dsp2.network;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.a.network.base.BaseFetcher;
 import com.unicorn.sxshenwutong.a.network.entity.Response;
-import com.unicorn.sxshenwutong.d.spdsp.sp.entity.SpdspInfo;
+import com.unicorn.sxshenwutong.dsp2.entity.SpdspInfo;
 
 import java.util.HashMap;
 

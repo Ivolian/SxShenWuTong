@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.d.spdsp.sp.base;
+package com.unicorn.sxshenwutong.dsp2.base;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,9 +15,9 @@ import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
-import com.unicorn.sxshenwutong.d.spdsp.sp.entity.SpdspInfo;
-import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspFetcher;
-import com.unicorn.sxshenwutong.d.spdsp.sp.network.SpdspSubmitter;
+import com.unicorn.sxshenwutong.dsp2.entity.SpdspInfo;
+import com.unicorn.sxshenwutong.dsp2.network.SpdspFetcher;
+import com.unicorn.sxshenwutong.dsp2.network.SpdspSubmitter;
 
 import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;

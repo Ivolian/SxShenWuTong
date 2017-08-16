@@ -1,6 +1,6 @@
-package com.unicorn.sxshenwutong.d.spdsp.list.entity;
+package com.unicorn.sxshenwutong.dsp.entity;
 
-public class Spdsp {
+public class Dsp {
 
     /**
      * lcid : CQ_DSP_SPGL_SP_AJJZPSP
