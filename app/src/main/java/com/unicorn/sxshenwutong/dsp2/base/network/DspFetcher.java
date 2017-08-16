@@ -10,10 +10,14 @@ import java.util.HashMap;
 
 public class DspFetcher extends BaseFetcher<DspInfo> {
 
-    private HashMap<String, Object> map;
+    private String ajbs;
+    private String spid;
+    private String lcid;
 
-    public DspFetcher(HashMap<String, Object> map) {
-        this.map = map;
+    public DspFetcher(String ajbs, String spid, String lcid) {
+        this.ajbs = ajbs;
+        this.spid = spid;
+        this.lcid = lcid;
     }
 
     @Override
@@ -28,6 +32,10 @@ public class DspFetcher extends BaseFetcher<DspInfo> {
 
     @Override
     protected HashMap<String, Object> parameters() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put(Key.AJBS, ajbs);
+        map.put(Key.SPID, spid);
+        map.put(Key.LCID, lcid);
         return map;
     }
 
@@ -35,4 +43,5 @@ public class DspFetcher extends BaseFetcher<DspInfo> {
     protected DspInfo map(Response response) {
         return gson.fromJson(response.getParameters().get(Key.YDBAKEY), DspInfo.class);
     }
+    
 }

@@ -16,11 +16,11 @@ import java.util.Arrays;
 import butterknife.BindView;
 
 
-public class FdsyAct extends DspAct {
+public class FdsySpAct extends DspAct {
 
     @Override
     protected int layoutResId() {
-        return R.layout.act_dpdsp_fdsy;
+        return R.layout.act_fdsy_sp;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class FdsyAct extends DspAct {
         setText(R.id.tvYcts, yckcsxxx.getYcts());
         setText(R.id.tvXh, yckcsxxx.getXh());
         setText(R.id.tvQtsm, yckcsxxx.getQtsm());
-        codeBglxmc(yckcsxxx);
+        copeBglxmc(yckcsxxx);
     }
 
     @BindView(R.id.llBglxmc)
@@ -47,7 +47,7 @@ public class FdsyAct extends DspAct {
     @BindView(R.id.tvBglxmc)
     TextView tvBglxmc;
 
-    private void codeBglxmc(DspInfo.YckcsxxxBean yckcsxxx) {
+    private void copeBglxmc(DspInfo.YckcsxxxBean yckcsxxx) {
         if (Arrays.asList("延长", "扣除", "中止").contains(yckcsxxx.getLxmc())) {
             llBglxmc.setVisibility(View.VISIBLE);
             tvBglxmcLabel.setText(yckcsxxx.getLxmc());

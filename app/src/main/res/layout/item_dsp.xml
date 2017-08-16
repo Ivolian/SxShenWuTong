@@ -3,55 +3,134 @@
     android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
-    android:layout_marginTop="12dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="12dp">
-
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="16dp"
+    android:orientation="vertical">
 
     <com.zhy.android.percent.support.PercentLinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:background="@color/md_grey_300"
+        android:orientation="vertical"
+        android:padding="1px">
 
-        <TextView
-            android:id="@+id/tvBt"
-            app:layout_textSizePercent="2%sh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_black" />
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:orientation="horizontal"
+            app:layout_heightPercent="6%sh">
 
-        <TextView
-            app:layout_textSizePercent="2%sh"
-            android:id="@+id/tvSqrq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_black" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/md_grey_100"
+                android:gravity="center"
+                android:text="标题"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.2%sh"
+                app:layout_widthPercent="25%sw" />
 
-        <TextView
-            app:layout_textSizePercent="2%sh"
-            android:id="@+id/tvSqrmc"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tvBt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1px"
+                android:layout_weight="1"
+                android:background="@color/md_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.2%sh" />
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="1px"
+            android:orientation="horizontal"
+            app:layout_heightPercent="6%sh">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/md_grey_100"
+                android:gravity="center"
+                android:text="申请日期"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.2%sh"
+                app:layout_widthPercent="25%sw" />
+
+            <TextView
+                android:id="@+id/tvSqrq"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1px"
+                android:layout_weight="1"
+                android:background="@color/md_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.2%sh" />
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="1px"
+            android:orientation="horizontal"
+            app:layout_heightPercent="6%sh">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/md_grey_100"
+                android:gravity="center"
+                android:text="申请人"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.2%sh"
+                app:layout_widthPercent="25%sw" />
+
+            <TextView
+                android:id="@+id/tvSqrmc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1px"
+                android:layout_weight="1"
+                android:background="@color/md_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:textColor="@color/md_black"
+                app:layout_textSizePercent="2.2%sh" />
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/md_black" />
+            android:layout_marginTop="1px"
+            android:background="@color/md_white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_heightPercent="8%sh">
+
+            <TextView
+                android:id="@+id/tvSp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="12dp"
+                android:background="@color/md_orange_300"
+                android:gravity="center"
+                android:text="审批"
+                android:textColor="@color/md_white"
+                app:layout_widthPercent="40%sw"
+                app:layout_heightPercent="5%sh"
+                app:layout_textSizePercent="2.2%sh" />
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
 
     </com.zhy.android.percent.support.PercentLinearLayout>
-
-    <TextView
-        android:id="@+id/tvSp"
-        android:gravity="center"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:layout_width="wrap_content"
-        app:layout_textSizePercent="2.2%sh"
-        android:layout_height="wrap_content"
-        android:background="@color/md_orange_300"
-        android:text="审批"
-        android:textColor="@color/md_white" />
 
 </com.zhy.android.percent.support.PercentLinearLayout>

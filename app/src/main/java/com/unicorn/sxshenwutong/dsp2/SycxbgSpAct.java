@@ -7,11 +7,11 @@ import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.dsp2.base.DspAct;
 import com.unicorn.sxshenwutong.dsp2.base.entity.DspInfo;
 
-public class SycxbgAct extends DspAct {
+public class SycxbgSpAct extends DspAct {
 
     @Override
     protected int layoutResId() {
-        return R.layout.act_spdsp_sycxbg;
+        return R.layout.act_sycxbg_sp;
     }
 
     @Override

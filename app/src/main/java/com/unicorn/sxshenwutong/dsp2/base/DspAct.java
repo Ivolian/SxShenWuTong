@@ -14,10 +14,10 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.Global;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.dsp2.base.network.DspFetcher;
-import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.dsp2.base.entity.DspInfo;
+import com.unicorn.sxshenwutong.dsp2.base.network.DspFetcher;
 import com.unicorn.sxshenwutong.dsp2.base.network.DspSubmitter;
+import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 
 import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
@@ -50,12 +50,8 @@ abstract public class DspAct extends BaseAct {
     private DspInfo dspInfo;
 
     private void fetchDspInfo() {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put(Key.AJBS, ajbs);
-        map.put(Key.SPID, spid);
-        map.put(Key.LCID, lcid);
-        new DspFetcher(map).start().subscribe(o -> {
-            dspInfo = o;
+        new DspFetcher(ajbs, spid, lcid).start().subscribe(dspInfo -> {
+            this.dspInfo = dspInfo;
             renderAjxx();
             renderSycxbg(dspInfo.getCxbgxx());
             renderFdsy(dspInfo.getYckcsxxx());
@@ -66,7 +62,7 @@ abstract public class DspAct extends BaseAct {
     }
 
 
-    // ===================== afterFetchAjxx =====================
+    // =====================  =====================
 
     @BindView(R.id.tvSpyjLabel)
     TextView tvSpyjLabel;
@@ -160,7 +156,7 @@ abstract public class DspAct extends BaseAct {
         map.put("currNodeid", dspInfo.getDblbxx().getNodeid());
         map.put("currNodeName", dspInfo.getDblbxx().getNodename());
         map.put("spyj", etSpyj.getText().toString().trim());
-       NextNodeDialog nextNodeDialog = new NextNodeDialog(this, dspInfo.getDblbxx().getLcid(), new DspSubmitter(map), true);
+        NextNodeDialog nextNodeDialog = new NextNodeDialog(this, dspInfo.getDblbxx().getLcid(), new DspSubmitter(map), true);
         nextNodeDialog.setSqr(dspInfo.getSpxx().getSqr());
         nextNodeDialog.show();
     }

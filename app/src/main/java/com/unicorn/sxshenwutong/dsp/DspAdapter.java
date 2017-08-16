@@ -11,8 +11,8 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.dsp.entity.Dsp;
-import com.unicorn.sxshenwutong.dsp2.FdsyAct;
-import com.unicorn.sxshenwutong.dsp2.SycxbgAct;
+import com.unicorn.sxshenwutong.dsp2.FdsySpAct;
+import com.unicorn.sxshenwutong.dsp2.SycxbgSpAct;
 import com.unicorn.sxshenwutong.dsp2.WsspAct;
 
 class DspAdapter extends BaseQuickAdapter<Dsp, BaseViewHolder> {
@@ -30,7 +30,7 @@ class DspAdapter extends BaseQuickAdapter<Dsp, BaseViewHolder> {
         viewHolder.setText(R.id.tvSqrmc, "申请人: " + dsp.getSqrmc());
 
         viewHolder.getView(R.id.tvSp).setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, dsp.getLcmc().equals("法定事由审批") ? FdsyAct.class : dsp.getLcmc().equals("适用程序变更审批") ? SycxbgAct.class : WsspAct.class);
+            Intent intent = new Intent(mContext, dsp.getLcmc().equals("法定事由审批") ? FdsySpAct.class : dsp.getLcmc().equals("适用程序变更审批") ? SycxbgSpAct.class : WsspAct.class);
             intent.putExtra(Key.AJBS, dsp.getAjbs());
             intent.putExtra(Key.LCID, dsp.getLcid());
             intent.putExtra(Key.SPID, dsp.getSpid());
