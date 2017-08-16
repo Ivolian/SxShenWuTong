@@ -1,6 +1,6 @@
 package com.unicorn.sxshenwutong.db2.fdsySq;
 
-import com.unicorn.sxshenwutong.unknown.SimpleSubmitter;
+import com.unicorn.sxshenwutong.other.SimpleSubmitter;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.unknown;
+package com.unicorn.sxshenwutong.other;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;

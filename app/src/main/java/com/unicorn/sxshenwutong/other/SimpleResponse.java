@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.unknown;
+package com.unicorn.sxshenwutong.other;
 
 public class SimpleResponse {
 

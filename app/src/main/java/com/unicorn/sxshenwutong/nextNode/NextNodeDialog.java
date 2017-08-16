@@ -9,7 +9,7 @@ import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.unknown.SimpleSubmitter;
+import com.unicorn.sxshenwutong.other.SimpleSubmitter;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.nextNode.entity.NextNodeResponse;
 import com.unicorn.sxshenwutong.nextNode.entity.NextUserListResponse;
@@ -31,10 +31,6 @@ public class NextNodeDialog {
     private boolean showSpOption = false;
     private MaterialDialog dialog;
     private String sqr;
-
-    public String getSqr() {
-        return sqr;
-    }
 
     public void setSqr(String sqr) {
         this.sqr = sqr;

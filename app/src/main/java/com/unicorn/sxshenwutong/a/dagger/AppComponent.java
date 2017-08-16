@@ -26,7 +26,7 @@ import com.unicorn.sxshenwutong.db2.sycxbgSq.SycxbgSubmitter;
 import com.unicorn.sxshenwutong.db2.wsspSq.lcid.LcidFetcher;
 import com.unicorn.sxshenwutong.simple.jasc.JascListAct;
 import com.unicorn.sxshenwutong.simple.sx.SxListAct;
-import com.unicorn.sxshenwutong.unknown.SimpleSubmitter;
+import com.unicorn.sxshenwutong.other.SimpleSubmitter;
 import com.unicorn.sxshenwutong.news.news.network.NewsFetcher;
 import com.unicorn.sxshenwutong.news.newsList.NewsListFra;
 import com.unicorn.sxshenwutong.news.newsType.network.NewsTypeFetcher;

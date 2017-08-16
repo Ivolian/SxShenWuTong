@@ -12,7 +12,7 @@ public class NextNodeFetcher extends BaseFetcher<NextNodeResponse> {
 
     private String lcid;
 
-    public NextNodeFetcher(String lcid) {
+    NextNodeFetcher(String lcid) {
         this.lcid = lcid;
     }
 
