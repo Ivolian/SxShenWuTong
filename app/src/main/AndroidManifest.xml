@@ -35,15 +35,15 @@
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct" />
         <activity android:name=".db.ajws.ajws.AjwsListAct" />
-        <activity android:name=".db.ajcl.AjclListAct" />
+        <activity android:name=".db.ajcl.list.AjclListAct" />
         <activity android:name=".ajspsq.wssp.WsspSqAct" />
         <activity android:name=".db.ajws.select.AjwsSelectListAct" />
-        <activity android:name=".db.ajcl.AjclVideoAct" />
-        <activity android:name=".db.ajcl.AjclAudioAct" />
+        <activity android:name=".db.ajcl.ajcl.AjclVideoAct" />
+        <activity android:name=".db.ajcl.ajcl.AjclAudioAct" />
         <activity android:name=".d.spdsp.WsspAct" />
 
 
-        <activity android:name=".db.ajcl.AjclPhotoAct" />
+        <activity android:name=".db.ajcl.ajcl.AjclPhotoAct" />
 
         <activity android:name=".simpleList.sawl.SawlListAct" />
         <activity android:name=".simpleList.lawys.LawysListAct" />

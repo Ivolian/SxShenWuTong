@@ -18,7 +18,7 @@ import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.ajspsq.AjxxFetcher;
 import com.unicorn.sxshenwutong.ajspsq.sycxbgSq.fetcher.CxbglxFetcher;
 import com.unicorn.sxshenwutong.ajspsq.sycxbgSq.fetcher.SycxbgyyFetcher;
-import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 
 import org.joda.time.DateTime;
 

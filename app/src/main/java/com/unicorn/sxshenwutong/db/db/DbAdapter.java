@@ -6,9 +6,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
-import com.unicorn.sxshenwutong.db.ajcl.AjclListAct;
+import com.unicorn.sxshenwutong.db.ajcl.list.AjclListAct;
 import com.unicorn.sxshenwutong.db.ajws.ajws.AjwsListAct;
-import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 import com.unicorn.sxshenwutong.ajspsq.ajspsq.AjspsqListAct;
 
 class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
@@ -25,10 +25,10 @@ class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
         viewHolder.setText(R.id.tvLarq, ajxx.getLarq());
         viewHolder.setText(R.id.tvDyyg, ajxx.getDyyg());
         viewHolder.setText(R.id.tvDybg, ajxx.getDybg());
-        setOnClick(viewHolder, ajxx);
+        setOnClickListener(viewHolder, ajxx);
     }
 
-    private void setOnClick(BaseViewHolder viewHolder, Ajxx ajxx) {
+    private void setOnClickListener(BaseViewHolder viewHolder, Ajxx ajxx) {
         viewHolder.setOnClickListener(R.id.tvAjspsq, v -> {
             Intent intent = new Intent(mContext, AjspsqListAct.class);
             intent.putExtra(Key.TITLE, "案件审批申请");

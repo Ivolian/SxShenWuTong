@@ -2,7 +2,7 @@ package com.unicorn.sxshenwutong.a.base;
 
 import com.google.gson.reflect.TypeToken;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
-import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 
 public abstract class AjxxListAct extends ListAct<Ajxx> {
 

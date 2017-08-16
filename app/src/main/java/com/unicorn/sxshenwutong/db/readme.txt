@@ -1,5 +1,3 @@
-代办
-ajcl    案件材料
-ajsqsp  案件审批申请
+ajcl
 ajws    案件文书列表
-db      代办
+db      代办列表

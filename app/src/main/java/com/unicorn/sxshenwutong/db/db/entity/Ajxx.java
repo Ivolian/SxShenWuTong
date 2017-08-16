@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db;
+package com.unicorn.sxshenwutong.db.db.entity;
 
 public class Ajxx {
 

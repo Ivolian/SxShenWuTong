@@ -2,7 +2,7 @@ package com.unicorn.sxshenwutong.ajspsq.sycxbgSq.fetcher;
 
 import com.unicorn.sxshenwutong.a.code.CodeFetcher;
 import com.unicorn.sxshenwutong.a.code.entity.Code;
-import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 
 public class SycxbgyyFetcher extends CodeFetcher {
 

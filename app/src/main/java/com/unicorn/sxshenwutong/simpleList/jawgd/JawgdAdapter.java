@@ -3,7 +3,7 @@ package com.unicorn.sxshenwutong.simpleList.jawgd;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.unicorn.sxshenwutong.R;
-import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 
 class JawgdAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 

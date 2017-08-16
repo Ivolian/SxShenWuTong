@@ -16,7 +16,7 @@ import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.db.ajws.select.AjwsSelectListAct;
 import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
-import com.unicorn.sxshenwutong.db.Ajxx;
+import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 import com.unicorn.sxshenwutong.ajspsq.AjxxFetcher;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db.ajcl;
+package com.unicorn.sxshenwutong.db.ajcl.ajcl;
 
 import com.unicorn.sxshenwutong.a.dagger.App;
 import com.unicorn.sxshenwutong.a.network.ParamsInitializer;

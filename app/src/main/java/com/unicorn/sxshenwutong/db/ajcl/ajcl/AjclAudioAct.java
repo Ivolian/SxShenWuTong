@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db.ajcl;
+package com.unicorn.sxshenwutong.db.ajcl.ajcl;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
