@@ -8,6 +8,7 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.app.App;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.db.ajcl.ajcl.base.AjclAct;
 import com.yqritc.scalablevideoview.ScalableVideoView;
 
 import java.io.File;

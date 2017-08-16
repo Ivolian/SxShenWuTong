@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db.ajcl.ajcl;
+package com.unicorn.sxshenwutong.db.ajcl.ajcl.base;
 
 import android.os.Bundle;
 import android.widget.EditText;
@@ -6,12 +6,12 @@ import android.widget.EditText;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hwangjr.rxbus.RxBus;
 import com.jakewharton.rxbinding.view.RxView;
-import com.orhanobut.logger.Logger;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
+import com.unicorn.sxshenwutong.db.ajcl.ajcl.upload.UploadHelper;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.HashMap;
@@ -34,12 +34,6 @@ public class AjclAct extends BaseAct {
     String ajbs;
 
     protected String filePath;
-
-    @BindView(R.id.etFileName)
-    EditText etFileName;
-
-    @BindView(R.id.etMs)
-    EditText etMs;
 
     @Override
     protected void init(Bundle savedInstanceState) {
@@ -65,7 +59,6 @@ public class AjclAct extends BaseAct {
                     uploadHelper.upload(map, filePath, new StringCallback() {
                         @Override
                         public void onError(Call call, Exception e, int id) {
-                            Logger.d(e);
                         }
 
                         @Override
@@ -78,5 +71,10 @@ public class AjclAct extends BaseAct {
                 });
     }
 
+    @BindView(R.id.etFileName)
+    EditText etFileName;
+
+    @BindView(R.id.etMs)
+    EditText etMs;
 
 }

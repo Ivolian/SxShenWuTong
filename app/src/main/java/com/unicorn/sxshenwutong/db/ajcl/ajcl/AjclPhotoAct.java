@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide;
 import com.jakewharton.rxbinding.view.RxView;
 import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.constant.Key;
+import com.unicorn.sxshenwutong.db.ajcl.ajcl.base.AjclAct;
 
 import java.util.concurrent.TimeUnit;
 
