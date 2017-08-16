@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db2.sxbgSq;
+package com.unicorn.sxshenwutong.db2.fdsySq;
 
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +22,8 @@ import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.d.nextNode.NextNodeDialog;
 import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
 import com.unicorn.sxshenwutong.db2.AjxxFetcher;
-import com.unicorn.sxshenwutong.db2.sxbgSq.fetcher.FdsyFetcher;
-import com.unicorn.sxshenwutong.db2.sxbgSq.fetcher.YckcyyFetcher;
+import com.unicorn.sxshenwutong.db2.fdsySq.fetcher.FdsyFetcher;
+import com.unicorn.sxshenwutong.db2.fdsySq.fetcher.YckcyyFetcher;
 import com.unicorn.sxshenwutong.unknown.date.DateUtil;
 import com.unicorn.sxshenwutong.unknown.date.SublimePickerFragment;
 
@@ -46,7 +46,7 @@ public class FdsySqAct extends BaseAct {
 
     @Override
     protected int layoutResId() {
-        return R.layout.act_sxbg_sq;
+        return R.layout.act_fdsy_sq;
     }
 
     @Override
@@ -237,7 +237,7 @@ public class FdsySqAct extends BaseAct {
         Period period = new Period(startDate, endDate, PeriodType.days());
         int days = period.getDays();
         map.put("ts", days);
-        NextNodeDialog nextNodeDialog = new NextNodeDialog(this, "CQ_DSP_SPGL_SP_FDSYSP", new SxbgSubmitter(map));
+        NextNodeDialog nextNodeDialog = new NextNodeDialog(this, "CQ_DSP_SPGL_SP_FDSYSP", new FdsySubmitter(map));
         nextNodeDialog.setSqr(Global.getLoginResponse().getUser().getId());
         nextNodeDialog.show();
     }

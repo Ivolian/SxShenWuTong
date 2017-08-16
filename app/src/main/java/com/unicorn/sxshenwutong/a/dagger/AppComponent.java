@@ -21,7 +21,7 @@ import com.unicorn.sxshenwutong.db2.AjxxFetcher;
 import com.unicorn.sxshenwutong.db2.ajspSq.AjspSqListAct;
 import com.unicorn.sxshenwutong.db.ajws.base.BaseAjwsListAct;
 import com.unicorn.sxshenwutong.db.db.DbListAct;
-import com.unicorn.sxshenwutong.db2.sxbgSq.SxbgSubmitter;
+import com.unicorn.sxshenwutong.db2.fdsySq.FdsySubmitter;
 import com.unicorn.sxshenwutong.db2.sycxbgSq.SycxbgSubmitter;
 import com.unicorn.sxshenwutong.db2.wssp.WsspLcidFetcher;
 import com.unicorn.sxshenwutong.simple.jasc.JascListAct;
@@ -81,7 +81,7 @@ public interface AppComponent {
     void inject(AjxxFetcher o);
     void inject(NextNodeFetcher o);
     void inject(SycxbgSubmitter o);
-    void inject(SxbgSubmitter o);
+    void inject(FdsySubmitter o);
     void inject(NextUserListFetcher o);
     void inject(SpdspListAct o);
     void inject(SpdspFetcher o);

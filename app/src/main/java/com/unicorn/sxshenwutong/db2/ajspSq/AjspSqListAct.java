@@ -15,7 +15,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.db2.ajspSq.entity.Ajsp;
-import com.unicorn.sxshenwutong.db2.sxbgSq.FdsySqAct;
+import com.unicorn.sxshenwutong.db2.fdsySq.FdsySqAct;
 import com.unicorn.sxshenwutong.db2.sycxbgSq.SycxbgSqAct;
 import com.unicorn.sxshenwutong.db2.wssp.WsspSqAct;
 
