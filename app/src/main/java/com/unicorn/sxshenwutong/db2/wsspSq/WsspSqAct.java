@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db2.wssp;
+package com.unicorn.sxshenwutong.db2.wsspSq;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import com.unicorn.sxshenwutong.a.constant.RxBusTag;
 import com.unicorn.sxshenwutong.db.ajws.base.entity.Ajws;
 import com.unicorn.sxshenwutong.db.ajws.select.AjwsSelectListAct;
 import com.unicorn.sxshenwutong.db2.base.DbSqAct;
-import com.unicorn.sxshenwutong.db2.wssp.lcid.LcidFetcher;
-import com.unicorn.sxshenwutong.db2.wssp.lcid.LcidResponse;
+import com.unicorn.sxshenwutong.db2.wsspSq.lcid.LcidFetcher;
+import com.unicorn.sxshenwutong.db2.wsspSq.lcid.LcidResponse;
 import com.unicorn.sxshenwutong.nextNode.NextNodeDialog;
 
 import java.util.ArrayList;

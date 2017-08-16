@@ -36,7 +36,7 @@
         <activity android:name=".d.spdsp.sp.FdsyAct" />
         <activity android:name=".db.ajws.ajws.AjwsListAct" />
         <activity android:name=".db.ajcl.list.AjclListAct" />
-        <activity android:name=".db2.wssp.WsspSqAct" />
+        <activity android:name=".db2.wsspSq.WsspSqAct" />
         <activity android:name=".db.ajws.select.AjwsSelectListAct" />
         <activity android:name=".db.ajcl.ajcl.AjclVideoAct" />
         <activity android:name=".db.ajcl.ajcl.AjclAudioAct" />

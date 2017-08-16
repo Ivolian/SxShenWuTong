@@ -8,7 +8,6 @@ import com.unicorn.sxshenwutong.R;
 import com.unicorn.sxshenwutong.a.base.BaseAct;
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
-import com.unicorn.sxshenwutong.db2.AjxxFetcher;
 
 import java.util.concurrent.TimeUnit;
 

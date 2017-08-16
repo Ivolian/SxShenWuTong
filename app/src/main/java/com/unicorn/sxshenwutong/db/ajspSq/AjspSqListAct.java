@@ -17,7 +17,7 @@ import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
 import com.unicorn.sxshenwutong.db.ajspSq.entity.Ajsp;
 import com.unicorn.sxshenwutong.db2.fdsySq.FdsySqAct;
 import com.unicorn.sxshenwutong.db2.sycxbgSq.SycxbgSqAct;
-import com.unicorn.sxshenwutong.db2.wssp.WsspSqAct;
+import com.unicorn.sxshenwutong.db2.wsspSq.WsspSqAct;
 
 import java.util.Arrays;
 import java.util.HashMap;

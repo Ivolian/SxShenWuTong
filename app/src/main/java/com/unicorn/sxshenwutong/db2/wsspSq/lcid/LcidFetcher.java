@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db2.wssp.lcid;
+package com.unicorn.sxshenwutong.db2.wsspSq.lcid;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;

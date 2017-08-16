@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db2;
+package com.unicorn.sxshenwutong.db2.base;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
