@@ -9,7 +9,7 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.db.ajcl.list.AjclListAct;
 import com.unicorn.sxshenwutong.db.ajws.ajws.AjwsListAct;
 import com.unicorn.sxshenwutong.db.db.entity.Ajxx;
-import com.unicorn.sxshenwutong.ajspsq.ajspsq.AjspsqListAct;
+import com.unicorn.sxshenwutong.db2.ajspSq.AjspsqListAct;
 
 class DbAdapter extends BaseQuickAdapter<Ajxx, BaseViewHolder> {
 

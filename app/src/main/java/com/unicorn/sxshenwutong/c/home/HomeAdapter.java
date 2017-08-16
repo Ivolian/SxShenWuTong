@@ -9,9 +9,9 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.db.db.DbListAct;
 import com.unicorn.sxshenwutong.d.spdsp.list.SpdspListAct;
-import com.unicorn.sxshenwutong.simpleList.dtkt.DtktListAct;
-import com.unicorn.sxshenwutong.simpleList.jasc.JascListAct;
-import com.unicorn.sxshenwutong.simpleList.sx.SxListAct;
+import com.unicorn.sxshenwutong.simple.dtkt.DtktListAct;
+import com.unicorn.sxshenwutong.simple.jasc.JascListAct;
+import com.unicorn.sxshenwutong.simple.sx.SxListAct;
 
 class HomeAdapter extends BaseQuickAdapter<HomeItem, BaseViewHolder> {
 

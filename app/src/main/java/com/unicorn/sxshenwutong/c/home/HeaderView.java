@@ -17,9 +17,9 @@ import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.c.home.entity.HomeItem;
 import com.unicorn.sxshenwutong.c.home.entity.HomeResponse;
 import com.unicorn.sxshenwutong.c.home.other.GlideImageLoader;
-import com.unicorn.sxshenwutong.simpleList.jawgd.JawgdListAct;
-import com.unicorn.sxshenwutong.simpleList.lawys.LawysListAct;
-import com.unicorn.sxshenwutong.simpleList.sawl.SawlListAct;
+import com.unicorn.sxshenwutong.simple.jawgd.JawgdListAct;
+import com.unicorn.sxshenwutong.simple.lawys.LawysListAct;
+import com.unicorn.sxshenwutong.simple.sawl.SawlListAct;
 import com.youth.banner.Banner;
 import com.zhy.android.percent.support.PercentLinearLayout;
 

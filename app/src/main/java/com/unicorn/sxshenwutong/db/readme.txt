@@ -1,3 +1,3 @@
-ajcl
-ajws    案件文书列表
-db      代办列表
+ajcl    案件材料
+ajws    案件文书
+db      代办

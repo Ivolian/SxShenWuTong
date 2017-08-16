@@ -28,15 +28,15 @@
         <activity android:name=".b.userType.UserTypeAct" />
         <activity android:name=".c.main.MainAct" />
         <activity android:name=".db.db.DbListAct" />
-        <activity android:name=".ajspsq.sycxbgSq.SycxbgSqAct" />
-        <activity android:name=".ajspsq.sxbgSq.SxbgSqAct" />
-        <activity android:name=".ajspsq.ajspsq.AjspsqListAct" />
+        <activity android:name=".db2.sycxbgSq.SycxbgSqAct" />
+        <activity android:name=".db2.sxbgSq.SxbgSqAct" />
+        <activity android:name=".db2.ajspSq.AjspsqListAct" />
         <activity android:name=".d.spdsp.list.SpdspListAct" />
         <activity android:name=".d.spdsp.sp.SycxbgAct" />
         <activity android:name=".d.spdsp.sp.FdsyAct" />
         <activity android:name=".db.ajws.ajws.AjwsListAct" />
         <activity android:name=".db.ajcl.list.AjclListAct" />
-        <activity android:name=".ajspsq.wssp.WsspSqAct" />
+        <activity android:name=".db2.wssp.WsspSqAct" />
         <activity android:name=".db.ajws.select.AjwsSelectListAct" />
         <activity android:name=".db.ajcl.ajcl.AjclVideoAct" />
         <activity android:name=".db.ajcl.ajcl.AjclAudioAct" />
@@ -45,12 +45,12 @@
 
         <activity android:name=".db.ajcl.ajcl.AjclPhotoAct" />
 
-        <activity android:name=".simpleList.sawl.SawlListAct" />
-        <activity android:name=".simpleList.lawys.LawysListAct" />
-        <activity android:name=".simpleList.jasc.JascListAct" />
-        <activity android:name=".simpleList.sx.SxListAct" />
-        <activity android:name=".simpleList.dtkt.DtktListAct" />
-        <activity android:name=".simpleList.jawgd.JawgdListAct" />
+        <activity android:name=".simple.sawl.SawlListAct" />
+        <activity android:name=".simple.lawys.LawysListAct" />
+        <activity android:name=".simple.jasc.JascListAct" />
+        <activity android:name=".simple.sx.SxListAct" />
+        <activity android:name=".simple.dtkt.DtktListAct" />
+        <activity android:name=".simple.jawgd.JawgdListAct" />
 
         <activity android:name=".news.news.NewsAct" />
 
