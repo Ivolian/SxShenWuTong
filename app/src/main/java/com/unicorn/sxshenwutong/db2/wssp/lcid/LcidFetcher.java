@@ -1,4 +1,4 @@
-package com.unicorn.sxshenwutong.db2.wssp;
+package com.unicorn.sxshenwutong.db2.wssp.lcid;
 
 import com.unicorn.sxshenwutong.a.constant.Key;
 import com.unicorn.sxshenwutong.a.dagger.AppComponentProvider;
@@ -7,11 +7,11 @@ import com.unicorn.sxshenwutong.a.network.entity.Response;
 
 import java.util.HashMap;
 
-public class WsspLcidFetcher extends BaseFetcher<LcidResponse> {
+public class LcidFetcher extends BaseFetcher<LcidResponse> {
 
     private String ajbs;
 
-    public WsspLcidFetcher(String ajbs) {
+    public LcidFetcher(String ajbs) {
         this.ajbs = ajbs;
     }
 

@@ -66,7 +66,7 @@ abstract public class SpdspAct extends BaseAct {
     }
 
 
-    // ===================== renderAjxx =====================
+    // ===================== afterFetchAjxx =====================
 
     @BindView(R.id.tvSpyjLabel)
     TextView tvSpyjLabel;
