@@ -129,9 +129,16 @@ public class FdsySqAct extends DbSqAct {
                 msFdsy.setItems(items(fdsyList));
                 fetchYckcyy(fdsyList.get(0));
                 msFdsy.setOnItemSelectedListener((view, position, id, item) -> fetchYckcyy(fdsyList.get(position)));
+
+//                ArrayAdapter adapter = new ArrayAdapter<String >(FdsySqAct.this,android.R.layout.simple_list_item_1,items(fdsyList));
+//
+//
+//                //第四步：将适配器添加到下拉列表上
+//                niceSpinner.setAdapter(adapter);
             }
         });
     }
+
 
 
     // ===================== fetchYckcyy =====================

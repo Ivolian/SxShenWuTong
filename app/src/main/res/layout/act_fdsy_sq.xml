@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="审限变更申请"
+            android:text="法定事由申请"
             android:textColor="@color/md_white"
             android:textSize="22dp" />
 
